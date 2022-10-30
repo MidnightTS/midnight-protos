@@ -20,7 +20,7 @@ rm -f "index.ts"
 
 for file in types/*.ts; do
   name=$(basename "$file" ".ts")
-  echo "export * from \"./types/$name\"" >> "index.ts"
+  echo "export * from \"./types/$name\";" >> "index.ts"
 done
 
 # tsc
