@@ -1,0 +1,21 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.PlatformType = void 0;
+var PlatformType;
+(function (PlatformType) {
+    PlatformType[PlatformType["PLATFORM_TYPE_EDITOR"] = 0] = "PLATFORM_TYPE_EDITOR";
+    PlatformType[PlatformType["PLATFORM_TYPE_IOS"] = 1] = "PLATFORM_TYPE_IOS";
+    PlatformType[PlatformType["PLATFORM_TYPE_ANDROID"] = 2] = "PLATFORM_TYPE_ANDROID";
+    PlatformType[PlatformType["PLATFORM_TYPE_PC"] = 3] = "PLATFORM_TYPE_PC";
+    PlatformType[PlatformType["PLATFORM_TYPE_PS4"] = 4] = "PLATFORM_TYPE_PS4";
+    PlatformType[PlatformType["PLATFORM_TYPE_SERVER"] = 5] = "PLATFORM_TYPE_SERVER";
+    PlatformType[PlatformType["PLATFORM_TYPE_CLOUD_ANDROID"] = 6] = "PLATFORM_TYPE_CLOUD_ANDROID";
+    PlatformType[PlatformType["PLATFORM_TYPE_CLOUD_IOS"] = 7] = "PLATFORM_TYPE_CLOUD_IOS";
+    PlatformType[PlatformType["PLATFORM_TYPE_PS5"] = 8] = "PLATFORM_TYPE_PS5";
+    PlatformType[PlatformType["PLATFORM_TYPE_CLOUD_WEB"] = 9] = "PLATFORM_TYPE_CLOUD_WEB";
+    PlatformType[PlatformType["PLATFORM_TYPE_CLOUD_TV"] = 10] = "PLATFORM_TYPE_CLOUD_TV";
+    PlatformType[PlatformType["PLATFORM_TYPE_Unk2700_IBBEKBJLMAJ"] = 11] = "PLATFORM_TYPE_Unk2700_IBBEKBJLMAJ";
+    PlatformType[PlatformType["PLATFORM_TYPE_Unk2700_BCEICMDNIIG"] = 12] = "PLATFORM_TYPE_Unk2700_BCEICMDNIIG";
+    PlatformType[PlatformType["PLATFORM_TYPE_Unk2800_EFNGHFNPMKM"] = 13] = "PLATFORM_TYPE_Unk2800_EFNGHFNPMKM";
+    PlatformType[PlatformType["PLATFORM_TYPE_Unk2800_FNFHGPABLFB"] = 14] = "PLATFORM_TYPE_Unk2800_FNFHGPABLFB";
+})(PlatformType = exports.PlatformType || (exports.PlatformType = {}));
