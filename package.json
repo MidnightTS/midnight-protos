@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
-    "@protobuf-ts/runtime": "^2.4.0"
+    "@protobuf-ts/runtime": "^2.4.0",
+    "google-protobuf": "^3.21.2"
   },
   "devDependencies": {
     "@protobuf-ts/plugin": "^2.4.0",

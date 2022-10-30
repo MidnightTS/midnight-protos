@@ -1,6 +1,6 @@
-# boba-protos
+# protocol-buffers
 
-This repository contains all protobuf schemas and compiled typescript files used by BobaPS.
+This repository contains all protobuf schemas and compiled typescript files used by MidnightTS.
 
 ## Building
 
