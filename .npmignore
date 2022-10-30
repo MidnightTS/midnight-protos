@@ -1,0 +1,6 @@
+/node_modules/
+/schemas/
+generate.sh
+targets.txt
+pnpm-lock.yaml
+pnpm-**.yaml

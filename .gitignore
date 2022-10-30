@@ -1,3 +1,4 @@
 /node_modules/
 /schemas/*.proto
 package-**.json
+pnpm-**.yaml
