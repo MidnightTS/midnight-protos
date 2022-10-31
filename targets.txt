@@ -1,2 +1,2 @@
-QueryCurrRegionHttpRsp
-QueryRegionListHttpRsp
+Vector3Int
+VectorPlane
