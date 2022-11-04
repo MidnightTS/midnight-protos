@@ -1,4 +1,6 @@
 /node_modules/
-/schemas/
+/schemas/*.proto
+/cmd/
+/detail/
 package-**.json
 pnpm-**.yaml
