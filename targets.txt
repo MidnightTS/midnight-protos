@@ -1,1 +1,12 @@
-MapMarkPoint
+Uint32Pair
+Vector
+Vector3Int
+VectorPlane
+VehicleInfo
+VehicleMember
+VehicleSlot
+VirtualItem
+Weapon
+WeatherInfo
+WeeklyBossResinDiscountInfo
+WorktopInfo
