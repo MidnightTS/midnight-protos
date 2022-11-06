@@ -924,7 +924,7 @@ class FishEscapeNotify$Type extends runtime_5.MessageType {
             { no: 4, name: "reason", kind: "enum", opt: true, T: () => ["com.midnights.game.FishEscapeReason", FishEscapeReason] },
             { no: 7, name: "pos", kind: "message", T: () => define_2.Vector },
             { no: 14, name: "uid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 6, name: "fish_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 6, name: "fish_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -977,8 +977,12 @@ class FishEscapeNotify$Type extends runtime_5.MessageType {
         if (message.uid !== undefined)
             writer.tag(14, runtime_1.WireType.Varint).uint32(message.uid);
         /* repeated uint32 fish_id_list = 6; */
-        for (let i = 0; i < message.fishIdList.length; i++)
-            writer.tag(6, runtime_1.WireType.Varint).uint32(message.fishIdList[i]);
+        if (message.fishIdList.length) {
+            writer.tag(6, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.fishIdList.length; i++)
+                writer.uint32(message.fishIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -1201,9 +1205,9 @@ class FishBattleEndRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.FishBattleEndRsp", [
             { no: 10, name: "is_got_reward", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 11, name: "reward_item_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_1.ItemParam },
-            { no: 13, name: "talent_item_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_1.ItemParam },
-            { no: 9, name: "drop_item_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_1.ItemParam },
+            { no: 11, name: "reward_item_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_1.ItemParam },
+            { no: 13, name: "talent_item_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_1.ItemParam },
+            { no: 9, name: "drop_item_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_1.ItemParam },
             { no: 7, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
             { no: 14, name: "no_reward_reason", kind: "enum", opt: true, T: () => ["com.midnights.game.FishBattleEndRsp.FishNoRewardReason", FishBattleEndRsp_FishNoRewardReason] },
             { no: 6, name: "battle_result", kind: "enum", opt: true, T: () => ["com.midnights.game.FishBattleResult", FishBattleResult, "FISH_BATTLE_RESULT_"] }
@@ -1362,7 +1366,7 @@ exports.ExitFishingRsp = new ExitFishingRsp$Type();
 class FishAttractNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.FishAttractNotify", [
-            { no: 3, name: "fish_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 3, name: "fish_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 9, name: "pos", kind: "message", T: () => define_2.Vector },
             { no: 2, name: "uid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
@@ -1405,8 +1409,12 @@ class FishAttractNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 fish_id_list = 3; */
-        for (let i = 0; i < message.fishIdList.length; i++)
-            writer.tag(3, runtime_1.WireType.Varint).uint32(message.fishIdList[i]);
+        if (message.fishIdList.length) {
+            writer.tag(3, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.fishIdList.length; i++)
+                writer.uint32(message.fishIdList[i]);
+            writer.join();
+        }
         /* optional com.midnights.game.Vector pos = 9; */
         if (message.pos)
             define_2.Vector.internalBinaryWrite(message.pos, writer.tag(9, runtime_1.WireType.LengthDelimited).fork(), options).join();

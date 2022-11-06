@@ -199,10 +199,10 @@ var SetCodexPushtipsReadRsp_CmdId;
 class CodexTypeData$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.CodexTypeData", [
-            { no: 14, name: "codex_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 14, name: "codex_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 4, name: "weapon_max_promote_level_map", kind: "map", K: 13 /*ScalarType.UINT32*/, V: { kind: "scalar", T: 13 /*ScalarType.UINT32*/ } },
             { no: 13, name: "type", kind: "enum", opt: true, T: () => ["com.midnights.game.CodexType", define_1.CodexType] },
-            { no: 5, name: "have_viewed_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 8 /*ScalarType.BOOL*/ }
+            { no: 5, name: "have_viewed_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 8 /*ScalarType.BOOL*/ }
         ]);
     }
     create(value) {
@@ -266,8 +266,12 @@ class CodexTypeData$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 codex_id_list = 14; */
-        for (let i = 0; i < message.codexIdList.length; i++)
-            writer.tag(14, runtime_2.WireType.Varint).uint32(message.codexIdList[i]);
+        if (message.codexIdList.length) {
+            writer.tag(14, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.codexIdList.length; i++)
+                writer.uint32(message.codexIdList[i]);
+            writer.join();
+        }
         /* map<uint32, uint32> weapon_max_promote_level_map = 4; */
         for (let k of Object.keys(message.weaponMaxPromoteLevelMap))
             writer.tag(4, runtime_2.WireType.LengthDelimited).fork().tag(1, runtime_2.WireType.Varint).uint32(parseInt(k)).tag(2, runtime_2.WireType.Varint).uint32(message.weaponMaxPromoteLevelMap[k]).join();
@@ -275,8 +279,12 @@ class CodexTypeData$Type extends runtime_5.MessageType {
         if (message.type !== undefined)
             writer.tag(13, runtime_2.WireType.Varint).int32(message.type);
         /* repeated bool have_viewed_list = 5; */
-        for (let i = 0; i < message.haveViewedList.length; i++)
-            writer.tag(5, runtime_2.WireType.Varint).bool(message.haveViewedList[i]);
+        if (message.haveViewedList.length) {
+            writer.tag(5, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.haveViewedList.length; i++)
+                writer.bool(message.haveViewedList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -292,9 +300,9 @@ class CodexDataFullNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.CodexDataFullNotify", [
             { no: 4, name: "last_read_pushtips_codex_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 2, name: "recent_viewed_pushtips_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 2, name: "recent_viewed_pushtips_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 3, name: "last_read_pushtips_type_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 6, name: "type_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.CodexTypeData }
+            { no: 6, name: "type_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.CodexTypeData }
         ]);
     }
     create(value) {
@@ -341,8 +349,12 @@ class CodexDataFullNotify$Type extends runtime_5.MessageType {
         if (message.lastReadPushtipsCodexId !== undefined)
             writer.tag(4, runtime_2.WireType.Varint).uint32(message.lastReadPushtipsCodexId);
         /* repeated uint32 recent_viewed_pushtips_list = 2; */
-        for (let i = 0; i < message.recentViewedPushtipsList.length; i++)
-            writer.tag(2, runtime_2.WireType.Varint).uint32(message.recentViewedPushtipsList[i]);
+        if (message.recentViewedPushtipsList.length) {
+            writer.tag(2, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.recentViewedPushtipsList.length; i++)
+                writer.uint32(message.recentViewedPushtipsList[i]);
+            writer.join();
+        }
         /* optional uint32 last_read_pushtips_type_id = 3; */
         if (message.lastReadPushtipsTypeId !== undefined)
             writer.tag(3, runtime_2.WireType.Varint).uint32(message.lastReadPushtipsTypeId);
@@ -424,7 +436,7 @@ exports.CodexDataUpdateNotify = new CodexDataUpdateNotify$Type();
 class QueryCodexMonsterBeKilledNumReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.QueryCodexMonsterBeKilledNumReq", [
-            { no: 14, name: "codex_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 14, name: "codex_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -459,8 +471,12 @@ class QueryCodexMonsterBeKilledNumReq$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 codex_id_list = 14; */
-        for (let i = 0; i < message.codexIdList.length; i++)
-            writer.tag(14, runtime_2.WireType.Varint).uint32(message.codexIdList[i]);
+        if (message.codexIdList.length) {
+            writer.tag(14, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.codexIdList.length; i++)
+                writer.uint32(message.codexIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -475,9 +491,9 @@ exports.QueryCodexMonsterBeKilledNumReq = new QueryCodexMonsterBeKilledNumReq$Ty
 class QueryCodexMonsterBeKilledNumRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.QueryCodexMonsterBeKilledNumRsp", [
-            { no: 4, name: "codex_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 6, name: "be_captured_num_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 12, name: "be_killed_num_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 4, name: "codex_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 6, name: "be_captured_num_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 12, name: "be_killed_num_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 5, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
         ]);
     }
@@ -530,14 +546,26 @@ class QueryCodexMonsterBeKilledNumRsp$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 codex_id_list = 4; */
-        for (let i = 0; i < message.codexIdList.length; i++)
-            writer.tag(4, runtime_2.WireType.Varint).uint32(message.codexIdList[i]);
+        if (message.codexIdList.length) {
+            writer.tag(4, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.codexIdList.length; i++)
+                writer.uint32(message.codexIdList[i]);
+            writer.join();
+        }
         /* repeated uint32 be_captured_num_list = 6; */
-        for (let i = 0; i < message.beCapturedNumList.length; i++)
-            writer.tag(6, runtime_2.WireType.Varint).uint32(message.beCapturedNumList[i]);
+        if (message.beCapturedNumList.length) {
+            writer.tag(6, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.beCapturedNumList.length; i++)
+                writer.uint32(message.beCapturedNumList[i]);
+            writer.join();
+        }
         /* repeated uint32 be_killed_num_list = 12; */
-        for (let i = 0; i < message.beKilledNumList.length; i++)
-            writer.tag(12, runtime_2.WireType.Varint).uint32(message.beKilledNumList[i]);
+        if (message.beKilledNumList.length) {
+            writer.tag(12, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.beKilledNumList.length; i++)
+                writer.uint32(message.beKilledNumList[i]);
+            writer.join();
+        }
         /* optional int32 retcode = 5; */
         if (message.retcode !== undefined)
             writer.tag(5, runtime_2.WireType.Varint).int32(message.retcode);
@@ -555,7 +583,7 @@ exports.QueryCodexMonsterBeKilledNumRsp = new QueryCodexMonsterBeKilledNumRsp$Ty
 class ViewCodexReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ViewCodexReq", [
-            { no: 10, name: "type_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.CodexTypeData }
+            { no: 10, name: "type_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.CodexTypeData }
         ]);
     }
     create(value) {
@@ -603,10 +631,10 @@ class ViewCodexRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ViewCodexRsp", [
             { no: 12, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 10, name: "push_tips_reward_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 3, name: "recent_viewed_pushtips_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 9, name: "type_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.CodexTypeData },
-            { no: 15, name: "push_tips_read_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 10, name: "push_tips_reward_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 3, name: "recent_viewed_pushtips_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 9, name: "type_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.CodexTypeData },
+            { no: 15, name: "push_tips_read_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -664,17 +692,29 @@ class ViewCodexRsp$Type extends runtime_5.MessageType {
         if (message.retcode !== undefined)
             writer.tag(12, runtime_2.WireType.Varint).int32(message.retcode);
         /* repeated uint32 push_tips_reward_list = 10; */
-        for (let i = 0; i < message.pushTipsRewardList.length; i++)
-            writer.tag(10, runtime_2.WireType.Varint).uint32(message.pushTipsRewardList[i]);
+        if (message.pushTipsRewardList.length) {
+            writer.tag(10, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.pushTipsRewardList.length; i++)
+                writer.uint32(message.pushTipsRewardList[i]);
+            writer.join();
+        }
         /* repeated uint32 recent_viewed_pushtips_list = 3; */
-        for (let i = 0; i < message.recentViewedPushtipsList.length; i++)
-            writer.tag(3, runtime_2.WireType.Varint).uint32(message.recentViewedPushtipsList[i]);
+        if (message.recentViewedPushtipsList.length) {
+            writer.tag(3, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.recentViewedPushtipsList.length; i++)
+                writer.uint32(message.recentViewedPushtipsList[i]);
+            writer.join();
+        }
         /* repeated com.midnights.game.CodexTypeData type_data_list = 9; */
         for (let i = 0; i < message.typeDataList.length; i++)
             exports.CodexTypeData.internalBinaryWrite(message.typeDataList[i], writer.tag(9, runtime_2.WireType.LengthDelimited).fork(), options).join();
         /* repeated uint32 push_tips_read_list = 15; */
-        for (let i = 0; i < message.pushTipsReadList.length; i++)
-            writer.tag(15, runtime_2.WireType.Varint).uint32(message.pushTipsReadList[i]);
+        if (message.pushTipsReadList.length) {
+            writer.tag(15, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.pushTipsReadList.length; i++)
+                writer.uint32(message.pushTipsReadList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);

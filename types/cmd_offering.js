@@ -180,7 +180,7 @@ class PlayerOfferingData$Type extends runtime_5.MessageType {
             { no: 1, name: "offering_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 15, name: "is_first_interact", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 12, name: "level", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 8, name: "taken_level_reward_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 8, name: "taken_level_reward_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 6, name: "is_new_max_level", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ }
         ]);
     }
@@ -237,8 +237,12 @@ class PlayerOfferingData$Type extends runtime_5.MessageType {
         if (message.level !== undefined)
             writer.tag(12, runtime_2.WireType.Varint).uint32(message.level);
         /* repeated uint32 taken_level_reward_list = 8; */
-        for (let i = 0; i < message.takenLevelRewardList.length; i++)
-            writer.tag(8, runtime_2.WireType.Varint).uint32(message.takenLevelRewardList[i]);
+        if (message.takenLevelRewardList.length) {
+            writer.tag(8, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.takenLevelRewardList.length; i++)
+                writer.uint32(message.takenLevelRewardList[i]);
+            writer.join();
+        }
         /* optional bool is_new_max_level = 6; */
         if (message.isNewMaxLevel !== undefined)
             writer.tag(6, runtime_2.WireType.Varint).bool(message.isNewMaxLevel);
@@ -256,7 +260,7 @@ exports.PlayerOfferingData = new PlayerOfferingData$Type();
 class PlayerOfferingDataNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.PlayerOfferingDataNotify", [
-            { no: 2, name: "offering_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.PlayerOfferingData }
+            { no: 2, name: "offering_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.PlayerOfferingData }
         ]);
     }
     create(value) {
@@ -350,7 +354,7 @@ exports.PlayerOfferingReq = new PlayerOfferingReq$Type();
 class PlayerOfferingRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.PlayerOfferingRsp", [
-            { no: 7, name: "item_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_1.ItemParam },
+            { no: 7, name: "item_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_1.ItemParam },
             { no: 4, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
             { no: 10, name: "offering_data", kind: "message", T: () => exports.PlayerOfferingData }
         ]);
@@ -468,7 +472,7 @@ class TakeOfferingLevelRewardRsp$Type extends runtime_5.MessageType {
             { no: 3, name: "offering_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 4, name: "take_level", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 2, name: "item_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_1.ItemParam }
+            { no: 2, name: "item_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_1.ItemParam }
         ]);
     }
     create(value) {

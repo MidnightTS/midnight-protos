@@ -4460,7 +4460,7 @@ class PlayerEnterSceneNotify$Type extends runtime_5.MessageType {
             { no: 1490, name: "world_type", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 4, name: "target_uid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 3, name: "is_first_login_enter_scene", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 5, name: "scene_tag_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 5, name: "scene_tag_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 1842, name: "scene_transaction", kind: "scalar", opt: true, T: 9 /*ScalarType.STRING*/ },
             { no: 8, name: "prev_pos", kind: "message", T: () => define_20.Vector },
             { no: 1828, name: "enter_reason", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
@@ -4575,8 +4575,12 @@ class PlayerEnterSceneNotify$Type extends runtime_5.MessageType {
         if (message.isFirstLoginEnterScene !== undefined)
             writer.tag(3, runtime_2.WireType.Varint).bool(message.isFirstLoginEnterScene);
         /* repeated uint32 scene_tag_id_list = 5; */
-        for (let i = 0; i < message.sceneTagIdList.length; i++)
-            writer.tag(5, runtime_2.WireType.Varint).uint32(message.sceneTagIdList[i]);
+        if (message.sceneTagIdList.length) {
+            writer.tag(5, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.sceneTagIdList.length; i++)
+                writer.uint32(message.sceneTagIdList[i]);
+            writer.join();
+        }
         /* optional string scene_transaction = 1842; */
         if (message.sceneTransaction !== undefined)
             writer.tag(1842, runtime_2.WireType.LengthDelimited).string(message.sceneTransaction);
@@ -4782,7 +4786,7 @@ class SceneEntityAppearNotify$Type extends runtime_5.MessageType {
         super("com.midnights.game.SceneEntityAppearNotify", [
             { no: 15, name: "appear_type", kind: "enum", opt: true, T: () => ["com.midnights.game.VisionType", VisionType] },
             { no: 9, name: "param", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 5, name: "entity_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_19.SceneEntityInfo }
+            { no: 5, name: "entity_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_19.SceneEntityInfo }
         ]);
     }
     create(value) {
@@ -4842,7 +4846,7 @@ class SceneEntityDisappearNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.SceneEntityDisappearNotify", [
             { no: 6, name: "param", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 1, name: "entity_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 1, name: "entity_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 2, name: "disappear_type", kind: "enum", opt: true, T: () => ["com.midnights.game.VisionType", VisionType] }
         ]);
     }
@@ -4887,8 +4891,12 @@ class SceneEntityDisappearNotify$Type extends runtime_5.MessageType {
         if (message.param !== undefined)
             writer.tag(6, runtime_2.WireType.Varint).uint32(message.param);
         /* repeated uint32 entity_list = 1; */
-        for (let i = 0; i < message.entityList.length; i++)
-            writer.tag(1, runtime_2.WireType.Varint).uint32(message.entityList[i]);
+        if (message.entityList.length) {
+            writer.tag(1, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.entityList.length; i++)
+                writer.uint32(message.entityList[i]);
+            writer.join();
+        }
         /* optional com.midnights.game.VisionType disappear_type = 2; */
         if (message.disappearType !== undefined)
             writer.tag(2, runtime_2.WireType.Varint).int32(message.disappearType);
@@ -5237,7 +5245,7 @@ class VehicleLocationInfo$Type extends runtime_5.MessageType {
             { no: 11, name: "cur_hp", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
             { no: 5, name: "owner_uid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 1, name: "pos", kind: "message", T: () => define_20.Vector },
-            { no: 3, name: "uid_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 3, name: "uid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 13, name: "gadget_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 6, name: "max_hp", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ }
         ]);
@@ -5310,8 +5318,12 @@ class VehicleLocationInfo$Type extends runtime_5.MessageType {
         if (message.pos)
             define_20.Vector.internalBinaryWrite(message.pos, writer.tag(1, runtime_2.WireType.LengthDelimited).fork(), options).join();
         /* repeated uint32 uid_list = 3; */
-        for (let i = 0; i < message.uidList.length; i++)
-            writer.tag(3, runtime_2.WireType.Varint).uint32(message.uidList[i]);
+        if (message.uidList.length) {
+            writer.tag(3, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.uidList.length; i++)
+                writer.uint32(message.uidList[i]);
+            writer.join();
+        }
         /* optional uint32 gadget_id = 13; */
         if (message.gadgetId !== undefined)
             writer.tag(13, runtime_2.WireType.Varint).uint32(message.gadgetId);
@@ -5332,9 +5344,9 @@ exports.VehicleLocationInfo = new VehicleLocationInfo$Type();
 class ScenePlayerLocationNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ScenePlayerLocationNotify", [
-            { no: 3, name: "vehicle_loc_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.VehicleLocationInfo },
+            { no: 3, name: "vehicle_loc_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.VehicleLocationInfo },
             { no: 9, name: "scene_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 14, name: "player_loc_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.PlayerLocationInfo }
+            { no: 14, name: "player_loc_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.PlayerLocationInfo }
         ]);
     }
     create(value) {
@@ -5508,18 +5520,18 @@ exports.CityInfo = new CityInfo$Type();
 class GetScenePointRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GetScenePointRsp", [
-            { no: 11, name: "not_explored_dungeon_entry_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 15, name: "to_be_explore_dungeon_entry_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 2, name: "locked_point_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 5, name: "unhide_point_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 11, name: "not_explored_dungeon_entry_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 15, name: "to_be_explore_dungeon_entry_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 2, name: "locked_point_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 5, name: "unhide_point_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 9, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
             { no: 12, name: "belong_uid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 13, name: "unlocked_point_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 1, name: "unlock_area_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 4, name: "hide_point_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 13, name: "unlocked_point_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 1, name: "unlock_area_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 4, name: "hide_point_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 14, name: "scene_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 6, name: "not_interact_dungeon_entry_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 10, name: "group_unlimit_point_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 6, name: "not_interact_dungeon_entry_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 10, name: "group_unlimit_point_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -5619,17 +5631,33 @@ class GetScenePointRsp$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 not_explored_dungeon_entry_list = 11; */
-        for (let i = 0; i < message.notExploredDungeonEntryList.length; i++)
-            writer.tag(11, runtime_2.WireType.Varint).uint32(message.notExploredDungeonEntryList[i]);
+        if (message.notExploredDungeonEntryList.length) {
+            writer.tag(11, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.notExploredDungeonEntryList.length; i++)
+                writer.uint32(message.notExploredDungeonEntryList[i]);
+            writer.join();
+        }
         /* repeated uint32 to_be_explore_dungeon_entry_list = 15; */
-        for (let i = 0; i < message.toBeExploreDungeonEntryList.length; i++)
-            writer.tag(15, runtime_2.WireType.Varint).uint32(message.toBeExploreDungeonEntryList[i]);
+        if (message.toBeExploreDungeonEntryList.length) {
+            writer.tag(15, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.toBeExploreDungeonEntryList.length; i++)
+                writer.uint32(message.toBeExploreDungeonEntryList[i]);
+            writer.join();
+        }
         /* repeated uint32 locked_point_list = 2; */
-        for (let i = 0; i < message.lockedPointList.length; i++)
-            writer.tag(2, runtime_2.WireType.Varint).uint32(message.lockedPointList[i]);
+        if (message.lockedPointList.length) {
+            writer.tag(2, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.lockedPointList.length; i++)
+                writer.uint32(message.lockedPointList[i]);
+            writer.join();
+        }
         /* repeated uint32 unhide_point_list = 5; */
-        for (let i = 0; i < message.unhidePointList.length; i++)
-            writer.tag(5, runtime_2.WireType.Varint).uint32(message.unhidePointList[i]);
+        if (message.unhidePointList.length) {
+            writer.tag(5, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.unhidePointList.length; i++)
+                writer.uint32(message.unhidePointList[i]);
+            writer.join();
+        }
         /* optional int32 retcode = 9; */
         if (message.retcode !== undefined)
             writer.tag(9, runtime_2.WireType.Varint).int32(message.retcode);
@@ -5637,23 +5665,43 @@ class GetScenePointRsp$Type extends runtime_5.MessageType {
         if (message.belongUid !== undefined)
             writer.tag(12, runtime_2.WireType.Varint).uint32(message.belongUid);
         /* repeated uint32 unlocked_point_list = 13; */
-        for (let i = 0; i < message.unlockedPointList.length; i++)
-            writer.tag(13, runtime_2.WireType.Varint).uint32(message.unlockedPointList[i]);
+        if (message.unlockedPointList.length) {
+            writer.tag(13, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.unlockedPointList.length; i++)
+                writer.uint32(message.unlockedPointList[i]);
+            writer.join();
+        }
         /* repeated uint32 unlock_area_list = 1; */
-        for (let i = 0; i < message.unlockAreaList.length; i++)
-            writer.tag(1, runtime_2.WireType.Varint).uint32(message.unlockAreaList[i]);
+        if (message.unlockAreaList.length) {
+            writer.tag(1, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.unlockAreaList.length; i++)
+                writer.uint32(message.unlockAreaList[i]);
+            writer.join();
+        }
         /* repeated uint32 hide_point_list = 4; */
-        for (let i = 0; i < message.hidePointList.length; i++)
-            writer.tag(4, runtime_2.WireType.Varint).uint32(message.hidePointList[i]);
+        if (message.hidePointList.length) {
+            writer.tag(4, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.hidePointList.length; i++)
+                writer.uint32(message.hidePointList[i]);
+            writer.join();
+        }
         /* optional uint32 scene_id = 14; */
         if (message.sceneId !== undefined)
             writer.tag(14, runtime_2.WireType.Varint).uint32(message.sceneId);
         /* repeated uint32 not_interact_dungeon_entry_list = 6; */
-        for (let i = 0; i < message.notInteractDungeonEntryList.length; i++)
-            writer.tag(6, runtime_2.WireType.Varint).uint32(message.notInteractDungeonEntryList[i]);
+        if (message.notInteractDungeonEntryList.length) {
+            writer.tag(6, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.notInteractDungeonEntryList.length; i++)
+                writer.uint32(message.notInteractDungeonEntryList[i]);
+            writer.join();
+        }
         /* repeated uint32 group_unlimit_point_list = 10; */
-        for (let i = 0; i < message.groupUnlimitPointList.length; i++)
-            writer.tag(10, runtime_2.WireType.Varint).uint32(message.groupUnlimitPointList[i]);
+        if (message.groupUnlimitPointList.length) {
+            writer.tag(10, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.groupUnlimitPointList.length; i++)
+                writer.uint32(message.groupUnlimitPointList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -5776,11 +5824,11 @@ exports.ExitTransPointRegionNotify = new ExitTransPointRegionNotify$Type();
 class ScenePointUnlockNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ScenePointUnlockNotify", [
-            { no: 13, name: "point_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 13, name: "point_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 6, name: "scene_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 12, name: "unhide_point_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 1, name: "hide_point_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 8, name: "locked_point_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 12, name: "unhide_point_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 1, name: "hide_point_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 8, name: "locked_point_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -5839,20 +5887,36 @@ class ScenePointUnlockNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 point_list = 13; */
-        for (let i = 0; i < message.pointList.length; i++)
-            writer.tag(13, runtime_2.WireType.Varint).uint32(message.pointList[i]);
+        if (message.pointList.length) {
+            writer.tag(13, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.pointList.length; i++)
+                writer.uint32(message.pointList[i]);
+            writer.join();
+        }
         /* optional uint32 scene_id = 6; */
         if (message.sceneId !== undefined)
             writer.tag(6, runtime_2.WireType.Varint).uint32(message.sceneId);
         /* repeated uint32 unhide_point_list = 12; */
-        for (let i = 0; i < message.unhidePointList.length; i++)
-            writer.tag(12, runtime_2.WireType.Varint).uint32(message.unhidePointList[i]);
+        if (message.unhidePointList.length) {
+            writer.tag(12, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.unhidePointList.length; i++)
+                writer.uint32(message.unhidePointList[i]);
+            writer.join();
+        }
         /* repeated uint32 hide_point_list = 1; */
-        for (let i = 0; i < message.hidePointList.length; i++)
-            writer.tag(1, runtime_2.WireType.Varint).uint32(message.hidePointList[i]);
+        if (message.hidePointList.length) {
+            writer.tag(1, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.hidePointList.length; i++)
+                writer.uint32(message.hidePointList[i]);
+            writer.join();
+        }
         /* repeated uint32 locked_point_list = 8; */
-        for (let i = 0; i < message.lockedPointList.length; i++)
-            writer.tag(8, runtime_2.WireType.Varint).uint32(message.lockedPointList[i]);
+        if (message.lockedPointList.length) {
+            writer.tag(8, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.lockedPointList.length; i++)
+                writer.uint32(message.lockedPointList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -6105,9 +6169,9 @@ class GetSceneAreaRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GetSceneAreaRsp", [
             { no: 7, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 13, name: "city_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.CityInfo },
+            { no: 13, name: "city_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.CityInfo },
             { no: 15, name: "scene_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 9, name: "area_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 9, name: "area_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -6160,8 +6224,12 @@ class GetSceneAreaRsp$Type extends runtime_5.MessageType {
         if (message.sceneId !== undefined)
             writer.tag(15, runtime_2.WireType.Varint).uint32(message.sceneId);
         /* repeated uint32 area_id_list = 9; */
-        for (let i = 0; i < message.areaIdList.length; i++)
-            writer.tag(9, runtime_2.WireType.Varint).uint32(message.areaIdList[i]);
+        if (message.areaIdList.length) {
+            writer.tag(9, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.areaIdList.length; i++)
+                writer.uint32(message.areaIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -6176,7 +6244,7 @@ exports.GetSceneAreaRsp = new GetSceneAreaRsp$Type();
 class SceneAreaUnlockNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.SceneAreaUnlockNotify", [
-            { no: 10, name: "area_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 10, name: "area_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 9, name: "scene_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -6215,8 +6283,12 @@ class SceneAreaUnlockNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 area_list = 10; */
-        for (let i = 0; i < message.areaList.length; i++)
-            writer.tag(10, runtime_2.WireType.Varint).uint32(message.areaList[i]);
+        if (message.areaList.length) {
+            writer.tag(10, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.areaList.length; i++)
+                writer.uint32(message.areaList[i]);
+            writer.join();
+        }
         /* optional uint32 scene_id = 9; */
         if (message.sceneId !== undefined)
             writer.tag(9, runtime_2.WireType.Varint).uint32(message.sceneId);
@@ -6559,7 +6631,7 @@ class SceneForceUnlockNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.SceneForceUnlockNotify", [
             { no: 10, name: "is_add", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 2, name: "force_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 2, name: "force_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -6600,8 +6672,12 @@ class SceneForceUnlockNotify$Type extends runtime_5.MessageType {
         if (message.isAdd !== undefined)
             writer.tag(10, runtime_2.WireType.Varint).bool(message.isAdd);
         /* repeated uint32 force_id_list = 2; */
-        for (let i = 0; i < message.forceIdList.length; i++)
-            writer.tag(2, runtime_2.WireType.Varint).uint32(message.forceIdList[i]);
+        if (message.forceIdList.length) {
+            writer.tag(2, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.forceIdList.length; i++)
+                writer.uint32(message.forceIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -6616,7 +6692,7 @@ exports.SceneForceUnlockNotify = new SceneForceUnlockNotify$Type();
 class SceneForceLockNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.SceneForceLockNotify", [
-            { no: 9, name: "force_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 9, name: "force_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -6651,8 +6727,12 @@ class SceneForceLockNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 force_id_list = 9; */
-        for (let i = 0; i < message.forceIdList.length; i++)
-            writer.tag(9, runtime_2.WireType.Varint).uint32(message.forceIdList[i]);
+        if (message.forceIdList.length) {
+            writer.tag(9, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.forceIdList.length; i++)
+                writer.uint32(message.forceIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -6918,7 +6998,7 @@ exports.EntityForceSyncRsp = new EntityForceSyncRsp$Type();
 class GetAreaExplorePointReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GetAreaExplorePointReq", [
-            { no: 14, name: "area_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 14, name: "area_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -6953,8 +7033,12 @@ class GetAreaExplorePointReq$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 area_id_list = 14; */
-        for (let i = 0; i < message.areaIdList.length; i++)
-            writer.tag(14, runtime_2.WireType.Varint).uint32(message.areaIdList[i]);
+        if (message.areaIdList.length) {
+            writer.tag(14, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.areaIdList.length; i++)
+                writer.uint32(message.areaIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -6970,8 +7054,8 @@ class GetAreaExplorePointRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GetAreaExplorePointRsp", [
             { no: 8, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 11, name: "area_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 4, name: "explore_point_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 11, name: "area_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 4, name: "explore_point_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -7019,11 +7103,19 @@ class GetAreaExplorePointRsp$Type extends runtime_5.MessageType {
         if (message.retcode !== undefined)
             writer.tag(8, runtime_2.WireType.Varint).int32(message.retcode);
         /* repeated uint32 area_id_list = 11; */
-        for (let i = 0; i < message.areaIdList.length; i++)
-            writer.tag(11, runtime_2.WireType.Varint).uint32(message.areaIdList[i]);
+        if (message.areaIdList.length) {
+            writer.tag(11, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.areaIdList.length; i++)
+                writer.uint32(message.areaIdList[i]);
+            writer.join();
+        }
         /* repeated uint32 explore_point_list = 4; */
-        for (let i = 0; i < message.explorePointList.length; i++)
-            writer.tag(4, runtime_2.WireType.Varint).uint32(message.explorePointList[i]);
+        if (message.explorePointList.length) {
+            writer.tag(4, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.explorePointList.length; i++)
+                writer.uint32(message.explorePointList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -7427,7 +7519,7 @@ exports.ScenePlayerInfo = new ScenePlayerInfo$Type();
 class ScenePlayerInfoNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ScenePlayerInfoNotify", [
-            { no: 5, name: "player_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ScenePlayerInfo }
+            { no: 5, name: "player_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ScenePlayerInfo }
         ]);
     }
     create(value) {
@@ -7589,8 +7681,8 @@ exports.PlayerWorldLocationInfo = new PlayerWorldLocationInfo$Type();
 class WorldPlayerLocationNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.WorldPlayerLocationNotify", [
-            { no: 8, name: "player_world_loc_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.PlayerWorldLocationInfo },
-            { no: 15, name: "player_loc_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.PlayerLocationInfo }
+            { no: 8, name: "player_world_loc_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.PlayerWorldLocationInfo },
+            { no: 15, name: "player_loc_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.PlayerLocationInfo }
         ]);
     }
     create(value) {
@@ -8279,7 +8371,7 @@ class SceneRouteChangeInfo$Type extends runtime_5.MessageType {
             { no: 12, name: "is_forward", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 15, name: "route_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 4, name: "type", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 1, name: "point_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.RoutePointChangeInfo }
+            { no: 1, name: "point_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.RoutePointChangeInfo }
         ]);
     }
     create(value) {
@@ -8346,7 +8438,7 @@ class SceneRouteChangeNotify$Type extends runtime_5.MessageType {
         super("com.midnights.game.SceneRouteChangeNotify", [
             { no: 12, name: "scene_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 11, name: "scene_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 2, name: "route_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.SceneRouteChangeInfo }
+            { no: 2, name: "route_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.SceneRouteChangeInfo }
         ]);
     }
     create(value) {
@@ -9001,14 +9093,14 @@ exports.ClientPauseNotify = new ClientPauseNotify$Type();
 class AvatarEnterSceneInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.AvatarEnterSceneInfo", [
-            { no: 14, name: "server_buff_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_14.ServerBuff },
+            { no: 14, name: "server_buff_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_14.ServerBuff },
             { no: 7, name: "avatar_entity_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 12, name: "weapon_ability_info", kind: "message", T: () => define_13.AbilitySyncStateInfo },
             { no: 10, name: "weapon_entity_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 2, name: "avatar_ability_info", kind: "message", T: () => define_13.AbilitySyncStateInfo },
             { no: 13, name: "avatar_guid", kind: "scalar", opt: true, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 9, name: "weapon_guid", kind: "scalar", opt: true, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 5, name: "buff_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 5, name: "buff_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -9085,8 +9177,12 @@ class AvatarEnterSceneInfo$Type extends runtime_5.MessageType {
         if (message.weaponGuid !== undefined)
             writer.tag(9, runtime_2.WireType.Varint).uint64(message.weaponGuid);
         /* repeated uint32 buff_id_list = 5; */
-        for (let i = 0; i < message.buffIdList.length; i++)
-            writer.tag(5, runtime_2.WireType.Varint).uint32(message.buffIdList[i]);
+        if (message.buffIdList.length) {
+            writer.tag(5, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.buffIdList.length; i++)
+                writer.uint32(message.buffIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -9225,7 +9321,7 @@ class PlayerEnterSceneInfoNotify$Type extends runtime_5.MessageType {
         super("com.midnights.game.PlayerEnterSceneInfoNotify", [
             { no: 8, name: "team_enter_info", kind: "message", T: () => exports.TeamEnterSceneInfo },
             { no: 12, name: "enter_scene_token", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 7, name: "avatar_enter_info", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.AvatarEnterSceneInfo },
+            { no: 7, name: "avatar_enter_info", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.AvatarEnterSceneInfo },
             { no: 6, name: "cur_avatar_entity_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 5, name: "mp_level_entity_info", kind: "message", T: () => exports.MPLevelEntityInfo }
         ]);
@@ -9768,7 +9864,7 @@ exports.SeeMonsterRsp = new SeeMonsterRsp$Type();
 class AddSeenMonsterNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.AddSeenMonsterNotify", [
-            { no: 12, name: "monster_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 12, name: "monster_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -9803,8 +9899,12 @@ class AddSeenMonsterNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 monster_id_list = 12; */
-        for (let i = 0; i < message.monsterIdList.length; i++)
-            writer.tag(12, runtime_2.WireType.Varint).uint32(message.monsterIdList[i]);
+        if (message.monsterIdList.length) {
+            writer.tag(12, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.monsterIdList.length; i++)
+                writer.uint32(message.monsterIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -9819,7 +9919,7 @@ exports.AddSeenMonsterNotify = new AddSeenMonsterNotify$Type();
 class AllSeenMonsterNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.AllSeenMonsterNotify", [
-            { no: 4, name: "monster_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 4, name: "monster_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -9854,8 +9954,12 @@ class AllSeenMonsterNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 monster_id_list = 4; */
-        for (let i = 0; i < message.monsterIdList.length; i++)
-            writer.tag(4, runtime_2.WireType.Varint).uint32(message.monsterIdList[i]);
+        if (message.monsterIdList.length) {
+            writer.tag(4, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.monsterIdList.length; i++)
+                writer.uint32(message.monsterIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -10627,7 +10731,7 @@ exports.ExecuteGadgetLuaRsp = new ExecuteGadgetLuaRsp$Type();
 class CutSceneExtraParam$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.CutSceneExtraParam", [
-            { no: 1, name: "detail_param_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 1 /*ScalarType.DOUBLE*/ }
+            { no: 1, name: "detail_param_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 1 /*ScalarType.DOUBLE*/ }
         ]);
     }
     create(value) {
@@ -10662,8 +10766,12 @@ class CutSceneExtraParam$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated double detail_param_list = 1; */
-        for (let i = 0; i < message.detailParamList.length; i++)
-            writer.tag(1, runtime_2.WireType.Bit64).double(message.detailParamList[i]);
+        if (message.detailParamList.length) {
+            writer.tag(1, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.detailParamList.length; i++)
+                writer.double(message.detailParamList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -10680,7 +10788,7 @@ class CutSceneBeginNotify$Type extends runtime_5.MessageType {
         super("com.midnights.game.CutSceneBeginNotify", [
             { no: 9, name: "is_wait_others", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 14, name: "cutscene_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 3, name: "extra_param_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.CutSceneExtraParam }
+            { no: 3, name: "extra_param_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.CutSceneExtraParam }
         ]);
     }
     create(value) {
@@ -10840,7 +10948,7 @@ exports.CutSceneEndNotify = new CutSceneEndNotify$Type();
 class ClientScriptEventNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ClientScriptEventNotify", [
-            { no: 9, name: "param_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 5 /*ScalarType.INT32*/ },
+            { no: 9, name: "param_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 5 /*ScalarType.INT32*/ },
             { no: 14, name: "source_entity_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 10, name: "event_type", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 13, name: "target_entity_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
@@ -10887,8 +10995,12 @@ class ClientScriptEventNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated int32 param_list = 9; */
-        for (let i = 0; i < message.paramList.length; i++)
-            writer.tag(9, runtime_2.WireType.Varint).int32(message.paramList[i]);
+        if (message.paramList.length) {
+            writer.tag(9, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.paramList.length; i++)
+                writer.int32(message.paramList[i]);
+            writer.join();
+        }
         /* optional uint32 source_entity_id = 14; */
         if (message.sourceEntityId !== undefined)
             writer.tag(14, runtime_2.WireType.Varint).uint32(message.sourceEntityId);
@@ -10912,7 +11024,7 @@ exports.ClientScriptEventNotify = new ClientScriptEventNotify$Type();
 class SceneEntitiesMovesReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.SceneEntitiesMovesReq", [
-            { no: 14, name: "entity_move_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_10.EntityMoveInfo }
+            { no: 14, name: "entity_move_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_10.EntityMoveInfo }
         ]);
     }
     create(value) {
@@ -11034,7 +11146,7 @@ exports.EntityMoveFailInfo = new EntityMoveFailInfo$Type();
 class SceneEntitiesMovesRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.SceneEntitiesMovesRsp", [
-            { no: 11, name: "entity_move_fail_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.EntityMoveFailInfo }
+            { no: 11, name: "entity_move_fail_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.EntityMoveFailInfo }
         ]);
     }
     create(value) {
@@ -11081,7 +11193,7 @@ exports.SceneEntitiesMovesRsp = new SceneEntitiesMovesRsp$Type();
 class SceneEntitiesMoveCombineNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.SceneEntitiesMoveCombineNotify", [
-            { no: 8, name: "entity_move_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_10.EntityMoveInfo }
+            { no: 8, name: "entity_move_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_10.EntityMoveInfo }
         ]);
     }
     create(value) {
@@ -11277,7 +11389,7 @@ class SceneWeatherForcastRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.SceneWeatherForcastRsp", [
             { no: 14, name: "next_climate_time", kind: "scalar", opt: true, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 2, name: "forcast_climate_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 2, name: "forcast_climate_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 4, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
         ]);
     }
@@ -11322,8 +11434,12 @@ class SceneWeatherForcastRsp$Type extends runtime_5.MessageType {
         if (message.nextClimateTime !== undefined)
             writer.tag(14, runtime_2.WireType.Varint).uint64(message.nextClimateTime);
         /* repeated uint32 forcast_climate_list = 2; */
-        for (let i = 0; i < message.forcastClimateList.length; i++)
-            writer.tag(2, runtime_2.WireType.Varint).uint32(message.forcastClimateList[i]);
+        if (message.forcastClimateList.length) {
+            writer.tag(2, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.forcastClimateList.length; i++)
+                writer.uint32(message.forcastClimateList[i]);
+            writer.join();
+        }
         /* optional int32 retcode = 4; */
         if (message.retcode !== undefined)
             writer.tag(4, runtime_2.WireType.Varint).int32(message.retcode);
@@ -11402,7 +11518,7 @@ exports.MarkMapReq = new MarkMapReq$Type();
 class MarkMapRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.MarkMapRsp", [
-            { no: 8, name: "mark_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_9.MapMarkPoint },
+            { no: 8, name: "mark_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_9.MapMarkPoint },
             { no: 11, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
         ]);
     }
@@ -11456,7 +11572,7 @@ exports.MarkMapRsp = new MarkMapRsp$Type();
 class AllMarkPointNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.AllMarkPointNotify", [
-            { no: 7, name: "mark_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_9.MapMarkPoint }
+            { no: 7, name: "mark_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_9.MapMarkPoint }
         ]);
     }
     create(value) {
@@ -11624,9 +11740,9 @@ exports.EntityMoveRoomNotify = new EntityMoveRoomNotify$Type();
 class WorldPlayerInfoNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.WorldPlayerInfoNotify", [
-            { no: 8, name: "player_widget_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => cmd_widget_1.PlayerWidgetInfo },
-            { no: 14, name: "player_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_16.OnlinePlayerInfo },
-            { no: 11, name: "player_uid_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 8, name: "player_widget_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => cmd_widget_1.PlayerWidgetInfo },
+            { no: 14, name: "player_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_16.OnlinePlayerInfo },
+            { no: 11, name: "player_uid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -11673,8 +11789,12 @@ class WorldPlayerInfoNotify$Type extends runtime_5.MessageType {
         for (let i = 0; i < message.playerInfoList.length; i++)
             define_16.OnlinePlayerInfo.internalBinaryWrite(message.playerInfoList[i], writer.tag(14, runtime_2.WireType.LengthDelimited).fork(), options).join();
         /* repeated uint32 player_uid_list = 11; */
-        for (let i = 0; i < message.playerUidList.length; i++)
-            writer.tag(11, runtime_2.WireType.Varint).uint32(message.playerUidList[i]);
+        if (message.playerUidList.length) {
+            writer.tag(11, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.playerUidList.length; i++)
+                writer.uint32(message.playerUidList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -12151,7 +12271,7 @@ exports.PlayerChatCDNotify = new PlayerChatCDNotify$Type();
 class ChatHistoryNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ChatHistoryNotify", [
-            { no: 9, name: "chat_info", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ChatInfo },
+            { no: 9, name: "chat_info", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ChatInfo },
             { no: 12, name: "channel_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -12206,7 +12326,7 @@ class SceneDataNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.SceneDataNotify", [
             { no: 15, name: "level_config_name_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 9 /*ScalarType.STRING*/ },
-            { no: 8, name: "scene_tag_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 8, name: "scene_tag_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -12247,8 +12367,12 @@ class SceneDataNotify$Type extends runtime_5.MessageType {
         for (let i = 0; i < message.levelConfigNameList.length; i++)
             writer.tag(15, runtime_2.WireType.LengthDelimited).string(message.levelConfigNameList[i]);
         /* repeated uint32 scene_tag_id_list = 8; */
-        for (let i = 0; i < message.sceneTagIdList.length; i++)
-            writer.tag(8, runtime_2.WireType.Varint).uint32(message.sceneTagIdList[i]);
+        if (message.sceneTagIdList.length) {
+            writer.tag(8, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.sceneTagIdList.length; i++)
+                writer.uint32(message.sceneTagIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -12664,7 +12788,7 @@ exports.GroupSuiteNotify = new GroupSuiteNotify$Type();
 class GroupUnloadNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GroupUnloadNotify", [
-            { no: 10, name: "group_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 10, name: "group_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -12699,8 +12823,12 @@ class GroupUnloadNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 group_list = 10; */
-        for (let i = 0; i < message.groupList.length; i++)
-            writer.tag(10, runtime_2.WireType.Varint).uint32(message.groupList[i]);
+        if (message.groupList.length) {
+            writer.tag(10, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.groupList.length; i++)
+                writer.uint32(message.groupList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -12778,8 +12906,8 @@ class ShowTemplateReminderNotify$Type extends runtime_5.MessageType {
         super("com.midnights.game.ShowTemplateReminderNotify", [
             { no: 1, name: "is_revoke", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 14, name: "template_reminder_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 3, name: "param_uid_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 10, name: "param_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 5 /*ScalarType.INT32*/ },
+            { no: 3, name: "param_uid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 10, name: "param_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 5 /*ScalarType.INT32*/ },
             { no: 15, name: "is_need_cache", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ }
         ]);
     }
@@ -12837,11 +12965,19 @@ class ShowTemplateReminderNotify$Type extends runtime_5.MessageType {
         if (message.templateReminderId !== undefined)
             writer.tag(14, runtime_2.WireType.Varint).uint32(message.templateReminderId);
         /* repeated uint32 param_uid_list = 3; */
-        for (let i = 0; i < message.paramUidList.length; i++)
-            writer.tag(3, runtime_2.WireType.Varint).uint32(message.paramUidList[i]);
+        if (message.paramUidList.length) {
+            writer.tag(3, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.paramUidList.length; i++)
+                writer.uint32(message.paramUidList[i]);
+            writer.join();
+        }
         /* repeated int32 param_list = 10; */
-        for (let i = 0; i < message.paramList.length; i++)
-            writer.tag(10, runtime_2.WireType.Varint).int32(message.paramList[i]);
+        if (message.paramList.length) {
+            writer.tag(10, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.paramList.length; i++)
+                writer.int32(message.paramList[i]);
+            writer.join();
+        }
         /* optional bool is_need_cache = 15; */
         if (message.isNeedCache !== undefined)
             writer.tag(15, runtime_2.WireType.Varint).bool(message.isNeedCache);
@@ -12973,7 +13109,7 @@ class SyncScenePlayTeamEntityNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.SyncScenePlayTeamEntityNotify", [
             { no: 2, name: "scene_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 3, name: "entity_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_6.PlayTeamEntityInfo }
+            { no: 3, name: "entity_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_6.PlayTeamEntityInfo }
         ]);
     }
     create(value) {
@@ -13026,7 +13162,7 @@ exports.SyncScenePlayTeamEntityNotify = new SyncScenePlayTeamEntityNotify$Type()
 class DelScenePlayTeamEntityNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.DelScenePlayTeamEntityNotify", [
-            { no: 2, name: "del_entity_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 2, name: "del_entity_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 4, name: "scene_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -13065,8 +13201,12 @@ class DelScenePlayTeamEntityNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 del_entity_id_list = 2; */
-        for (let i = 0; i < message.delEntityIdList.length; i++)
-            writer.tag(2, runtime_2.WireType.Varint).uint32(message.delEntityIdList[i]);
+        if (message.delEntityIdList.length) {
+            writer.tag(2, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.delEntityIdList.length; i++)
+                writer.uint32(message.delEntityIdList[i]);
+            writer.join();
+        }
         /* optional uint32 scene_id = 4; */
         if (message.sceneId !== undefined)
             writer.tag(4, runtime_2.WireType.Varint).uint32(message.sceneId);
@@ -13138,7 +13278,7 @@ exports.CylinderRegionSize = new CylinderRegionSize$Type();
 class PolygonRegionSize$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.PolygonRegionSize", [
-            { no: 5, name: "point_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_5.VectorPlane },
+            { no: 5, name: "point_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_5.VectorPlane },
             { no: 9, name: "height", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ }
         ]);
     }
@@ -13355,7 +13495,7 @@ class GetMapMarkTipsRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GetMapMarkTipsRsp", [
             { no: 7, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 11, name: "mark_tips_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_4.MapMarkTipsInfo }
+            { no: 11, name: "mark_tips_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_4.MapMarkTipsInfo }
         ]);
     }
     create(value) {
@@ -13636,9 +13776,9 @@ exports.EntityConfigHashEntry = new EntityConfigHashEntry$Type();
 class EntityConfigHashNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.EntityConfigHashNotify", [
-            { no: 3, name: "ability_entry_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.EntityConfigHashEntry },
-            { no: 15, name: "avatar_entry_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.EntityConfigHashEntry },
-            { no: 8, name: "combat_entry_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.EntityConfigHashEntry }
+            { no: 3, name: "ability_entry_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.EntityConfigHashEntry },
+            { no: 15, name: "avatar_entry_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.EntityConfigHashEntry },
+            { no: 8, name: "combat_entry_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.EntityConfigHashEntry }
         ]);
     }
     create(value) {
@@ -13988,11 +14128,11 @@ exports.GetScenePerformanceRsp = new GetScenePerformanceRsp$Type();
 class SceneAudioNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.SceneAudioNotify", [
-            { no: 14, name: "param2", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 2 /*ScalarType.FLOAT*/ },
+            { no: 14, name: "param2", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 2 /*ScalarType.FLOAT*/ },
             { no: 3, name: "type", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
             { no: 11, name: "param3", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 9 /*ScalarType.STRING*/ },
             { no: 6, name: "source_uid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 4, name: "param1", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 4, name: "param1", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -14043,8 +14183,12 @@ class SceneAudioNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated float param2 = 14; */
-        for (let i = 0; i < message.param2.length; i++)
-            writer.tag(14, runtime_2.WireType.Bit32).float(message.param2[i]);
+        if (message.param2.length) {
+            writer.tag(14, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.param2.length; i++)
+                writer.float(message.param2[i]);
+            writer.join();
+        }
         /* optional int32 type = 3; */
         if (message.type !== undefined)
             writer.tag(3, runtime_2.WireType.Varint).int32(message.type);
@@ -14055,8 +14199,12 @@ class SceneAudioNotify$Type extends runtime_5.MessageType {
         if (message.sourceUid !== undefined)
             writer.tag(6, runtime_2.WireType.Varint).uint32(message.sourceUid);
         /* repeated uint32 param1 = 4; */
-        for (let i = 0; i < message.param1.length; i++)
-            writer.tag(4, runtime_2.WireType.Varint).uint32(message.param1[i]);
+        if (message.param1.length) {
+            writer.tag(4, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.param1.length; i++)
+                writer.uint32(message.param1[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -14270,7 +14418,7 @@ class SceneEntityUpdateNotify$Type extends runtime_5.MessageType {
         super("com.midnights.game.SceneEntityUpdateNotify", [
             { no: 10, name: "param", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 13, name: "appear_type", kind: "enum", opt: true, T: () => ["com.midnights.game.VisionType", VisionType] },
-            { no: 5, name: "entity_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_19.SceneEntityInfo }
+            { no: 5, name: "entity_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_19.SceneEntityInfo }
         ]);
     }
     create(value) {
@@ -14377,7 +14525,7 @@ class PlayerWorldSceneInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.PlayerWorldSceneInfo", [
             { no: 11, name: "scene_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 8, name: "scene_tag_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 8, name: "scene_tag_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 12, name: "is_locked", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ }
         ]);
     }
@@ -14422,8 +14570,12 @@ class PlayerWorldSceneInfo$Type extends runtime_5.MessageType {
         if (message.sceneId !== undefined)
             writer.tag(11, runtime_2.WireType.Varint).uint32(message.sceneId);
         /* repeated uint32 scene_tag_id_list = 8; */
-        for (let i = 0; i < message.sceneTagIdList.length; i++)
-            writer.tag(8, runtime_2.WireType.Varint).uint32(message.sceneTagIdList[i]);
+        if (message.sceneTagIdList.length) {
+            writer.tag(8, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.sceneTagIdList.length; i++)
+                writer.uint32(message.sceneTagIdList[i]);
+            writer.join();
+        }
         /* optional bool is_locked = 12; */
         if (message.isLocked !== undefined)
             writer.tag(12, runtime_2.WireType.Varint).bool(message.isLocked);
@@ -14441,7 +14593,7 @@ exports.PlayerWorldSceneInfo = new PlayerWorldSceneInfo$Type();
 class PlayerWorldSceneInfoListNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.PlayerWorldSceneInfoListNotify", [
-            { no: 5, name: "info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.PlayerWorldSceneInfo }
+            { no: 5, name: "info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.PlayerWorldSceneInfo }
         ]);
     }
     create(value) {
@@ -14489,9 +14641,9 @@ class LuaEnvironmentEffectNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.LuaEnvironmentEffectNotify", [
             { no: 1, name: "type", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 12, name: "int_param_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 5 /*ScalarType.INT32*/ },
+            { no: 12, name: "int_param_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 5 /*ScalarType.INT32*/ },
             { no: 3, name: "effect_alias", kind: "scalar", opt: true, T: 9 /*ScalarType.STRING*/ },
-            { no: 14, name: "float_param_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 2 /*ScalarType.FLOAT*/ }
+            { no: 14, name: "float_param_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 2 /*ScalarType.FLOAT*/ }
         ]);
     }
     create(value) {
@@ -14542,14 +14694,22 @@ class LuaEnvironmentEffectNotify$Type extends runtime_5.MessageType {
         if (message.type !== undefined)
             writer.tag(1, runtime_2.WireType.Varint).uint32(message.type);
         /* repeated int32 int_param_list = 12; */
-        for (let i = 0; i < message.intParamList.length; i++)
-            writer.tag(12, runtime_2.WireType.Varint).int32(message.intParamList[i]);
+        if (message.intParamList.length) {
+            writer.tag(12, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.intParamList.length; i++)
+                writer.int32(message.intParamList[i]);
+            writer.join();
+        }
         /* optional string effect_alias = 3; */
         if (message.effectAlias !== undefined)
             writer.tag(3, runtime_2.WireType.LengthDelimited).string(message.effectAlias);
         /* repeated float float_param_list = 14; */
-        for (let i = 0; i < message.floatParamList.length; i++)
-            writer.tag(14, runtime_2.WireType.Bit32).float(message.floatParamList[i]);
+        if (message.floatParamList.length) {
+            writer.tag(14, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.floatParamList.length; i++)
+                writer.float(message.floatParamList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -14746,7 +14906,7 @@ class GetMapAreaRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GetMapAreaRsp", [
             { no: 14, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 9, name: "map_area_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_1.MapAreaInfo }
+            { no: 9, name: "map_area_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_1.MapAreaInfo }
         ]);
     }
     create(value) {
@@ -14799,7 +14959,7 @@ exports.GetMapAreaRsp = new GetMapAreaRsp$Type();
 class MapAreaChangeNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.MapAreaChangeNotify", [
-            { no: 3, name: "map_area_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_1.MapAreaInfo }
+            { no: 3, name: "map_area_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_1.MapAreaInfo }
         ]);
     }
     create(value) {
@@ -14980,7 +15140,7 @@ exports.GuestPostEnterSceneNotify = new GuestPostEnterSceneNotify$Type();
 class LevelTagDataNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.LevelTagDataNotify", [
-            { no: 9, name: "level_tag_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 9, name: "level_tag_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -15015,8 +15175,12 @@ class LevelTagDataNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 level_tag_id_list = 9; */
-        for (let i = 0; i < message.levelTagIdList.length; i++)
-            writer.tag(9, runtime_2.WireType.Varint).uint32(message.levelTagIdList[i]);
+        if (message.levelTagIdList.length) {
+            writer.tag(9, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.levelTagIdList.length; i++)
+                writer.uint32(message.levelTagIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -15132,7 +15296,7 @@ exports.AreaPlayInfoNotify = new AreaPlayInfoNotify$Type();
 class CheckGroupReplacedReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.CheckGroupReplacedReq", [
-            { no: 7, name: "group_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 7, name: "group_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -15167,8 +15331,12 @@ class CheckGroupReplacedReq$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 group_id_list = 7; */
-        for (let i = 0; i < message.groupIdList.length; i++)
-            writer.tag(7, runtime_2.WireType.Varint).uint32(message.groupIdList[i]);
+        if (message.groupIdList.length) {
+            writer.tag(7, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.groupIdList.length; i++)
+                writer.uint32(message.groupIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -15184,7 +15352,7 @@ class CheckGroupReplacedRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.CheckGroupReplacedRsp", [
             { no: 4, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 6, name: "replaced_group_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 6, name: "replaced_group_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -15225,8 +15393,12 @@ class CheckGroupReplacedRsp$Type extends runtime_5.MessageType {
         if (message.retcode !== undefined)
             writer.tag(4, runtime_2.WireType.Varint).int32(message.retcode);
         /* repeated uint32 replaced_group_id_list = 6; */
-        for (let i = 0; i < message.replacedGroupIdList.length; i++)
-            writer.tag(6, runtime_2.WireType.Varint).uint32(message.replacedGroupIdList[i]);
+        if (message.replacedGroupIdList.length) {
+            writer.tag(6, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.replacedGroupIdList.length; i++)
+                writer.uint32(message.replacedGroupIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -15410,7 +15582,7 @@ exports.WorldChestOpenNotify = new WorldChestOpenNotify$Type();
 class WidgetQuickHitTreeReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.WidgetQuickHitTreeReq", [
-            { no: 5, name: "hit_tree_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.HitTreeInfo }
+            { no: 5, name: "hit_tree_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.HitTreeInfo }
         ]);
     }
     create(value) {
@@ -15586,7 +15758,7 @@ exports.BeginCameraSceneLookWithTemplateNotify = new BeginCameraSceneLookWithTem
 class RefreshEntityAuthNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.RefreshEntityAuthNotify", [
-            { no: 7, name: "entity_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 7, name: "entity_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -15621,8 +15793,12 @@ class RefreshEntityAuthNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 entity_id_list = 7; */
-        for (let i = 0; i < message.entityIdList.length; i++)
-            writer.tag(7, runtime_2.WireType.Varint).uint32(message.entityIdList[i]);
+        if (message.entityIdList.length) {
+            writer.tag(7, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.entityIdList.length; i++)
+                writer.uint32(message.entityIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -15637,7 +15813,7 @@ exports.RefreshEntityAuthNotify = new RefreshEntityAuthNotify$Type();
 class ScenePlayerBackgroundAvatarRefreshNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ScenePlayerBackgroundAvatarRefreshNotify", [
-            { no: 4, name: "entity_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_19.SceneEntityInfo },
+            { no: 4, name: "entity_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_19.SceneEntityInfo },
             { no: 8, name: "appear_type", kind: "enum", opt: true, T: () => ["com.midnights.game.VisionType", VisionType] },
             { no: 9, name: "param", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);

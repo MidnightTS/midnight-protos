@@ -55,8 +55,8 @@ class NormalUidOpNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.NormalUidOpNotify", [
             { no: 6, name: "duration", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 4, name: "param_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 5, name: "param_uid_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 4, name: "param_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 5, name: "param_uid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "param_index", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -108,11 +108,19 @@ class NormalUidOpNotify$Type extends runtime_5.MessageType {
         if (message.duration !== undefined)
             writer.tag(6, runtime_2.WireType.Varint).uint32(message.duration);
         /* repeated uint32 param_list = 4; */
-        for (let i = 0; i < message.paramList.length; i++)
-            writer.tag(4, runtime_2.WireType.Varint).uint32(message.paramList[i]);
+        if (message.paramList.length) {
+            writer.tag(4, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.paramList.length; i++)
+                writer.uint32(message.paramList[i]);
+            writer.join();
+        }
         /* repeated uint32 param_uid_list = 5; */
-        for (let i = 0; i < message.paramUidList.length; i++)
-            writer.tag(5, runtime_2.WireType.Varint).uint32(message.paramUidList[i]);
+        if (message.paramUidList.length) {
+            writer.tag(5, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.paramUidList.length; i++)
+                writer.uint32(message.paramUidList[i]);
+            writer.join();
+        }
         /* optional uint32 param_index = 8; */
         if (message.paramIndex !== undefined)
             writer.tag(8, runtime_2.WireType.Varint).uint32(message.paramIndex);

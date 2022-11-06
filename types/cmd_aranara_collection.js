@@ -169,7 +169,7 @@ exports.AranaraCollectionSuite = new AranaraCollectionSuite$Type();
 class AranaraCollectionDataNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.AranaraCollectionDataNotify", [
-            { no: 14, name: "collection_suite_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.AranaraCollectionSuite }
+            { no: 14, name: "collection_suite_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.AranaraCollectionSuite }
         ]);
     }
     create(value) {
@@ -284,7 +284,7 @@ exports.AddAranaraCollectionNotify = new AddAranaraCollectionNotify$Type();
 class CataLogGlobalWatcherFinishedData$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.CataLogGlobalWatcherFinishedData", [
-            { no: 8, name: "finished_global_watcher_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 8, name: "finished_global_watcher_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 13, name: "catalog_type", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -323,8 +323,12 @@ class CataLogGlobalWatcherFinishedData$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 finished_global_watcher_list = 8; */
-        for (let i = 0; i < message.finishedGlobalWatcherList.length; i++)
-            writer.tag(8, runtime_1.WireType.Varint).uint32(message.finishedGlobalWatcherList[i]);
+        if (message.finishedGlobalWatcherList.length) {
+            writer.tag(8, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.finishedGlobalWatcherList.length; i++)
+                writer.uint32(message.finishedGlobalWatcherList[i]);
+            writer.join();
+        }
         /* optional uint32 catalog_type = 13; */
         if (message.catalogType !== undefined)
             writer.tag(13, runtime_1.WireType.Varint).uint32(message.catalogType);
@@ -342,7 +346,7 @@ exports.CataLogGlobalWatcherFinishedData = new CataLogGlobalWatcherFinishedData$
 class CataLogFinishedGlobalWatcherAllDataNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.CataLogFinishedGlobalWatcherAllDataNotify", [
-            { no: 13, name: "finished_global_watcher_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.CataLogGlobalWatcherFinishedData }
+            { no: 13, name: "finished_global_watcher_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.CataLogGlobalWatcherFinishedData }
         ]);
     }
     create(value) {
@@ -389,7 +393,7 @@ exports.CataLogFinishedGlobalWatcherAllDataNotify = new CataLogFinishedGlobalWat
 class CataLogNewFinishedGlobalWatcherNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.CataLogNewFinishedGlobalWatcherNotify", [
-            { no: 2, name: "new_finished_global_watcher_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.CataLogGlobalWatcherFinishedData }
+            { no: 2, name: "new_finished_global_watcher_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.CataLogGlobalWatcherFinishedData }
         ]);
     }
     create(value) {

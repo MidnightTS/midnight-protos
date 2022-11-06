@@ -909,7 +909,7 @@ exports.AbilityInvocationFixedNotify = new AbilityInvocationFixedNotify$Type();
 class AbilityInvocationsNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.AbilityInvocationsNotify", [
-            { no: 2, name: "invokes", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.AbilityInvokeEntry }
+            { no: 2, name: "invokes", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.AbilityInvokeEntry }
         ]);
     }
     create(value) {
@@ -956,7 +956,7 @@ exports.AbilityInvocationsNotify = new AbilityInvocationsNotify$Type();
 class AbilityMetaReInitOverrideMap$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.AbilityMetaReInitOverrideMap", [
-            { no: 7, name: "override_map", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_8.AbilityScalarValueEntry }
+            { no: 7, name: "override_map", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_8.AbilityScalarValueEntry }
         ]);
     }
     create(value) {
@@ -1112,7 +1112,7 @@ class AbilityMetaModifierChange$Type extends runtime_5.MessageType {
             { no: 1, name: "parent_ability_name", kind: "message", T: () => define_6.AbilityString },
             { no: 6, name: "is_mute_remote", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 5, name: "apply_entity_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 3, name: "properties", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ModifierProperty },
+            { no: 3, name: "properties", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ModifierProperty },
             { no: 11, name: "parent_ability_override", kind: "message", T: () => define_6.AbilityString },
             { no: 9, name: "is_durability_zero", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ }
         ]);
@@ -2261,7 +2261,7 @@ exports.AbilityActionSetRandomOverrideMapValue = new AbilityActionSetRandomOverr
 class AbilityActionServerMonsterLog$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.AbilityActionServerMonsterLog", [
-            { no: 2, name: "param_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 5 /*ScalarType.INT32*/ }
+            { no: 2, name: "param_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 5 /*ScalarType.INT32*/ }
         ]);
     }
     create(value) {
@@ -2296,8 +2296,12 @@ class AbilityActionServerMonsterLog$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated int32 param_list = 2; */
-        for (let i = 0; i < message.paramList.length; i++)
-            writer.tag(2, runtime_1.WireType.Varint).int32(message.paramList[i]);
+        if (message.paramList.length) {
+            writer.tag(2, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.paramList.length; i++)
+                writer.int32(message.paramList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -2803,8 +2807,8 @@ exports.AbilityMixinAvatarSteerByCamera = new AbilityMixinAvatarSteerByCamera$Ty
 class AbilityMixinWindZone$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.AbilityMixinWindZone", [
-            { no: 13, name: "entity_ids", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 10, name: "zone_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 13, name: "entity_ids", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 10, name: "zone_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -2846,11 +2850,19 @@ class AbilityMixinWindZone$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 entity_ids = 13; */
-        for (let i = 0; i < message.entityIds.length; i++)
-            writer.tag(13, runtime_1.WireType.Varint).uint32(message.entityIds[i]);
+        if (message.entityIds.length) {
+            writer.tag(13, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.entityIds.length; i++)
+                writer.uint32(message.entityIds[i]);
+            writer.join();
+        }
         /* repeated uint32 zone_id_list = 10; */
-        for (let i = 0; i < message.zoneIdList.length; i++)
-            writer.tag(10, runtime_1.WireType.Varint).uint32(message.zoneIdList[i]);
+        if (message.zoneIdList.length) {
+            writer.tag(10, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.zoneIdList.length; i++)
+                writer.uint32(message.zoneIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -3287,7 +3299,7 @@ exports.AbilityMixinWindSeedSpawner_AddSignal = new AbilityMixinWindSeedSpawner_
 class AbilityMixinWindSeedSpawner_RefreshSeed$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.AbilityMixinWindSeedSpawner.RefreshSeed", [
-            { no: 6, name: "pos_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_3.Vector }
+            { no: 6, name: "pos_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_3.Vector }
         ]);
     }
     create(value) {
@@ -3475,9 +3487,9 @@ exports.AbilityMixinFieldEntityCountChange = new AbilityMixinFieldEntityCountCha
 class AbilityMixinScenePropSync$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.AbilityMixinScenePropSync", [
-            { no: 5, name: "delete_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 5, name: "delete_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 12, name: "is_clear_all", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 15, name: "massive_prop_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_2.MassivePropSyncInfo }
+            { no: 15, name: "massive_prop_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_2.MassivePropSyncInfo }
         ]);
     }
     create(value) {
@@ -3518,8 +3530,12 @@ class AbilityMixinScenePropSync$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated int64 delete_id_list = 5; */
-        for (let i = 0; i < message.deleteIdList.length; i++)
-            writer.tag(5, runtime_1.WireType.Varint).int64(message.deleteIdList[i]);
+        if (message.deleteIdList.length) {
+            writer.tag(5, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.deleteIdList.length; i++)
+                writer.int64(message.deleteIdList[i]);
+            writer.join();
+        }
         /* optional bool is_clear_all = 12; */
         if (message.isClearAll !== undefined)
             writer.tag(12, runtime_1.WireType.Varint).bool(message.isClearAll);
@@ -3638,7 +3654,7 @@ class AbilityMixinFireworksLauncher$Type extends runtime_5.MessageType {
             { no: 3, name: "start_count_down_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 1, name: "fired_bullet_count", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 6, name: "phase", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 4, name: "fireworks_config", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 4, name: "fireworks_config", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 7, name: "turn_index", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -3701,8 +3717,12 @@ class AbilityMixinFireworksLauncher$Type extends runtime_5.MessageType {
         if (message.phase !== undefined)
             writer.tag(6, runtime_1.WireType.Varint).uint32(message.phase);
         /* repeated uint32 fireworks_config = 4; */
-        for (let i = 0; i < message.fireworksConfig.length; i++)
-            writer.tag(4, runtime_1.WireType.Varint).uint32(message.fireworksConfig[i]);
+        if (message.fireworksConfig.length) {
+            writer.tag(4, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.fireworksConfig.length; i++)
+                writer.uint32(message.fireworksConfig[i]);
+            writer.join();
+        }
         /* optional uint32 turn_index = 7; */
         if (message.turnIndex !== undefined)
             writer.tag(7, runtime_1.WireType.Varint).uint32(message.turnIndex);
@@ -3901,7 +3921,7 @@ exports.AbilityMixinShootFromCamera = new AbilityMixinShootFromCamera$Type();
 class AbilityMixinEraseBrickActivity$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.AbilityMixinEraseBrickActivity", [
-            { no: 6, name: "data", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 6, name: "data", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -3936,8 +3956,12 @@ class AbilityMixinEraseBrickActivity$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 data = 6; */
-        for (let i = 0; i < message.data.length; i++)
-            writer.tag(6, runtime_1.WireType.Varint).uint32(message.data[i]);
+        if (message.data.length) {
+            writer.tag(6, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.data.length; i++)
+                writer.uint32(message.data[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -3952,8 +3976,8 @@ exports.AbilityMixinEraseBrickActivity = new AbilityMixinEraseBrickActivity$Type
 class AttackResultCreateCount$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.AttackResultCreateCount", [
-            { no: 10, name: "create_count_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 7, name: "create_count_no_cost_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 10, name: "create_count_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 7, name: "create_count_no_cost_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -3995,11 +4019,19 @@ class AttackResultCreateCount$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 create_count_list = 10; */
-        for (let i = 0; i < message.createCountList.length; i++)
-            writer.tag(10, runtime_1.WireType.Varint).uint32(message.createCountList[i]);
+        if (message.createCountList.length) {
+            writer.tag(10, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.createCountList.length; i++)
+                writer.uint32(message.createCountList[i]);
+            writer.join();
+        }
         /* repeated uint32 create_count_no_cost_list = 7; */
-        for (let i = 0; i < message.createCountNoCostList.length; i++)
-            writer.tag(7, runtime_1.WireType.Varint).uint32(message.createCountNoCostList[i]);
+        if (message.createCountNoCostList.length) {
+            writer.tag(7, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.createCountNoCostList.length; i++)
+                writer.uint32(message.createCountNoCostList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -4061,7 +4093,7 @@ exports.ClientAbilityInitBeginNotify = new ClientAbilityInitBeginNotify$Type();
 class ClientAbilityInitFinishNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ClientAbilityInitFinishNotify", [
-            { no: 14, name: "invokes", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.AbilityInvokeEntry },
+            { no: 14, name: "invokes", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.AbilityInvokeEntry },
             { no: 11, name: "entity_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -4177,7 +4209,7 @@ class EntityAbilityInvokeEntry$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.EntityAbilityInvokeEntry", [
             { no: 8, name: "entity_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 1, name: "invokes", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.AbilityInvokeEntry }
+            { no: 1, name: "invokes", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.AbilityInvokeEntry }
         ]);
     }
     create(value) {
@@ -4230,7 +4262,7 @@ exports.EntityAbilityInvokeEntry = new EntityAbilityInvokeEntry$Type();
 class ClientAbilitiesInitFinishCombineNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ClientAbilitiesInitFinishCombineNotify", [
-            { no: 1, name: "entity_invoke_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.EntityAbilityInvokeEntry }
+            { no: 1, name: "entity_invoke_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.EntityAbilityInvokeEntry }
         ]);
     }
     create(value) {
@@ -4572,7 +4604,7 @@ class ClientAbilityChangeNotify$Type extends runtime_5.MessageType {
         super("com.midnights.game.ClientAbilityChangeNotify", [
             { no: 9, name: "is_init_hash", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 2, name: "entity_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 3, name: "invokes", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.AbilityInvokeEntry }
+            { no: 3, name: "invokes", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.AbilityInvokeEntry }
         ]);
     }
     create(value) {
@@ -4821,7 +4853,7 @@ exports.ClientAIStateNotify = new ClientAIStateNotify$Type();
 class ServerCombatEndNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ServerCombatEndNotify", [
-            { no: 14, name: "combat_end_type_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 14, name: "combat_end_type_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -4856,8 +4888,12 @@ class ServerCombatEndNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 combat_end_type_list = 14; */
-        for (let i = 0; i < message.combatEndTypeList.length; i++)
-            writer.tag(14, runtime_1.WireType.Varint).uint32(message.combatEndTypeList[i]);
+        if (message.combatEndTypeList.length) {
+            writer.tag(14, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.combatEndTypeList.length; i++)
+                writer.uint32(message.combatEndTypeList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -4872,7 +4908,7 @@ exports.ServerCombatEndNotify = new ServerCombatEndNotify$Type();
 class ClientRemoveCombatEndModifierNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ClientRemoveCombatEndModifierNotify", [
-            { no: 7, name: "combat_end_type_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 7, name: "combat_end_type_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -4907,8 +4943,12 @@ class ClientRemoveCombatEndModifierNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 combat_end_type_list = 7; */
-        for (let i = 0; i < message.combatEndTypeList.length; i++)
-            writer.tag(7, runtime_1.WireType.Varint).uint32(message.combatEndTypeList[i]);
+        if (message.combatEndTypeList.length) {
+            writer.tag(7, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.combatEndTypeList.length; i++)
+                writer.uint32(message.combatEndTypeList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);

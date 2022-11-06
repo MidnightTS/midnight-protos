@@ -3608,7 +3608,7 @@ var HomePlantFieldStatus;
 class HomeVerifyFurnitureData$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HomeVerifyFurnitureData", [
-            { no: 7, name: "type", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 7, name: "type", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 5, name: "id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 9, name: "num", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
@@ -3651,8 +3651,12 @@ class HomeVerifyFurnitureData$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 type = 7; */
-        for (let i = 0; i < message.type.length; i++)
-            writer.tag(7, runtime_2.WireType.Varint).uint32(message.type[i]);
+        if (message.type.length) {
+            writer.tag(7, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.type.length; i++)
+                writer.uint32(message.type[i]);
+            writer.join();
+        }
         /* optional uint32 id = 5; */
         if (message.id !== undefined)
             writer.tag(5, runtime_2.WireType.Varint).uint32(message.id);
@@ -3727,7 +3731,7 @@ exports.HomeVerifyBlockData = new HomeVerifyBlockData$Type();
 class HomeVerifySceneData$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HomeVerifySceneData", [
-            { no: 6, name: "blocks", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.HomeVerifyBlockData },
+            { no: 6, name: "blocks", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.HomeVerifyBlockData },
             { no: 11, name: "module_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 4, name: "scene_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 14, name: "version", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
@@ -3961,7 +3965,7 @@ class TryEnterHomeRsp$Type extends runtime_5.MessageType {
         super("com.midnights.game.TryEnterHomeRsp", [
             { no: 15, name: "target_uid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 4, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 10, name: "param_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 10, name: "param_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -4008,8 +4012,12 @@ class TryEnterHomeRsp$Type extends runtime_5.MessageType {
         if (message.retcode !== undefined)
             writer.tag(4, runtime_2.WireType.Varint).int32(message.retcode);
         /* repeated uint32 param_list = 10; */
-        for (let i = 0; i < message.paramList.length; i++)
-            writer.tag(10, runtime_2.WireType.Varint).uint32(message.paramList[i]);
+        if (message.paramList.length) {
+            writer.tag(10, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.paramList.length; i++)
+                writer.uint32(message.paramList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -4582,7 +4590,7 @@ class HomeFurnitureSuiteData$Type extends runtime_5.MessageType {
             { no: 6, name: "suite_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "spawn_pos", kind: "message", T: () => define_8.Vector },
             { no: 13, name: "guid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 1, name: "included_furniture_index_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 5 /*ScalarType.INT32*/ }
+            { no: 1, name: "included_furniture_index_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 5 /*ScalarType.INT32*/ }
         ]);
     }
     create(value) {
@@ -4641,8 +4649,12 @@ class HomeFurnitureSuiteData$Type extends runtime_5.MessageType {
         if (message.guid !== undefined)
             writer.tag(13, runtime_2.WireType.Varint).uint32(message.guid);
         /* repeated int32 included_furniture_index_list = 1; */
-        for (let i = 0; i < message.includedFurnitureIndexList.length; i++)
-            writer.tag(1, runtime_2.WireType.Varint).int32(message.includedFurnitureIndexList[i]);
+        if (message.includedFurnitureIndexList.length) {
+            writer.tag(1, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.includedFurnitureIndexList.length; i++)
+                writer.int32(message.includedFurnitureIndexList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -4959,7 +4971,7 @@ class HomeBlockFieldData$Type extends runtime_5.MessageType {
             { no: 4, name: "pos", kind: "message", T: () => define_8.Vector },
             { no: 9, name: "guid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 1, name: "furniture_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 7, name: "sub_field_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.HomeBlockSubFieldData }
+            { no: 7, name: "sub_field_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.HomeBlockSubFieldData }
         ]);
     }
     create(value) {
@@ -5085,7 +5097,7 @@ class HomeFurnitureGroupData$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HomeFurnitureGroupData", [
             { no: 8, name: "group_furniture_index", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 3, name: "virtual_furniure_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.HomeFurnitureData }
+            { no: 3, name: "virtual_furniure_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.HomeFurnitureData }
         ]);
     }
     create(value) {
@@ -5140,7 +5152,7 @@ class HomeFurnitureCustomSuiteData$Type extends runtime_5.MessageType {
         super("com.midnights.game.HomeFurnitureCustomSuiteData", [
             { no: 11, name: "guid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 14, name: "spawn_pos", kind: "message", T: () => define_8.Vector },
-            { no: 12, name: "included_furniture_index_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 5 /*ScalarType.INT32*/ }
+            { no: 12, name: "included_furniture_index_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 5 /*ScalarType.INT32*/ }
         ]);
     }
     create(value) {
@@ -5187,8 +5199,12 @@ class HomeFurnitureCustomSuiteData$Type extends runtime_5.MessageType {
         if (message.spawnPos)
             define_8.Vector.internalBinaryWrite(message.spawnPos, writer.tag(14, runtime_2.WireType.LengthDelimited).fork(), options).join();
         /* repeated int32 included_furniture_index_list = 12; */
-        for (let i = 0; i < message.includedFurnitureIndexList.length; i++)
-            writer.tag(12, runtime_2.WireType.Varint).int32(message.includedFurnitureIndexList[i]);
+        if (message.includedFurnitureIndexList.length) {
+            writer.tag(12, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.includedFurnitureIndexList.length; i++)
+                writer.int32(message.includedFurnitureIndexList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -5205,17 +5221,17 @@ class HomeBlockArrangementInfo$Type extends runtime_5.MessageType {
         super("com.midnights.game.HomeBlockArrangementInfo", [
             { no: 1, name: "is_unlocked", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 2, name: "comfort_value", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 4, name: "deploy_animal_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.HomeAnimalData },
-            { no: 5, name: "furniture_group_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.HomeFurnitureGroupData },
-            { no: 13, name: "weekend_djinn_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.WeekendDjinnInfo },
-            { no: 15, name: "furniture_suite_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.HomeFurnitureSuiteData },
-            { no: 3, name: "field_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.HomeBlockFieldData },
-            { no: 11, name: "deploy_npc_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.HomeNpcData },
-            { no: 7, name: "dot_pattern_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.HomeBlockDotPattern },
-            { no: 9, name: "persistent_furniture_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.HomeFurnitureData },
-            { no: 12, name: "deploy_furniure_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.HomeFurnitureData },
+            { no: 4, name: "deploy_animal_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.HomeAnimalData },
+            { no: 5, name: "furniture_group_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.HomeFurnitureGroupData },
+            { no: 13, name: "weekend_djinn_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.WeekendDjinnInfo },
+            { no: 15, name: "furniture_suite_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.HomeFurnitureSuiteData },
+            { no: 3, name: "field_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.HomeBlockFieldData },
+            { no: 11, name: "deploy_npc_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.HomeNpcData },
+            { no: 7, name: "dot_pattern_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.HomeBlockDotPattern },
+            { no: 9, name: "persistent_furniture_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.HomeFurnitureData },
+            { no: 12, name: "deploy_furniure_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.HomeFurnitureData },
             { no: 6, name: "block_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 14, name: "furniture_custom_suite_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.HomeFurnitureCustomSuiteData }
+            { no: 14, name: "furniture_custom_suite_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.HomeFurnitureCustomSuiteData }
         ]);
     }
     create(value) {
@@ -5336,10 +5352,10 @@ class HomeSceneArrangementInfo$Type extends runtime_5.MessageType {
         super("com.midnights.game.HomeSceneArrangementInfo", [
             { no: 4, name: "born_rot", kind: "message", T: () => define_8.Vector },
             { no: 1, name: "born_pos", kind: "message", T: () => define_8.Vector },
-            { no: 11, name: "stair_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.HomeFurnitureData },
-            { no: 13, name: "door_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.HomeFurnitureData },
+            { no: 11, name: "stair_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.HomeFurnitureData },
+            { no: 13, name: "door_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.HomeFurnitureData },
             { no: 10, name: "is_set_born_pos", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 8, name: "block_arrangement_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.HomeBlockArrangementInfo },
+            { no: 8, name: "block_arrangement_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.HomeBlockArrangementInfo },
             { no: 2, name: "scene_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 12, name: "bgm_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 9, name: "djinn_pos", kind: "message", T: () => define_8.Vector },
@@ -5458,7 +5474,7 @@ exports.HomeSceneArrangementInfo = new HomeSceneArrangementInfo$Type();
 class HomeGetArrangementInfoReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HomeGetArrangementInfoReq", [
-            { no: 13, name: "scene_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 13, name: "scene_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -5493,8 +5509,12 @@ class HomeGetArrangementInfoReq$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 scene_id_list = 13; */
-        for (let i = 0; i < message.sceneIdList.length; i++)
-            writer.tag(13, runtime_2.WireType.Varint).uint32(message.sceneIdList[i]);
+        if (message.sceneIdList.length) {
+            writer.tag(13, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.sceneIdList.length; i++)
+                writer.uint32(message.sceneIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -5510,7 +5530,7 @@ class HomeGetArrangementInfoRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HomeGetArrangementInfoRsp", [
             { no: 6, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 14, name: "scene_arrangement_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.HomeSceneArrangementInfo }
+            { no: 14, name: "scene_arrangement_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.HomeSceneArrangementInfo }
         ]);
     }
     create(value) {
@@ -5657,9 +5677,9 @@ exports.HomeUpdateArrangementInfoRsp = new HomeUpdateArrangementInfoRsp$Type();
 class PlayerHomeCompInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.PlayerHomeCompInfo", [
-            { no: 4, name: "unlocked_module_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 2, name: "seen_module_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 7, name: "levelup_reward_got_level_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 4, name: "unlocked_module_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 2, name: "seen_module_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 7, name: "levelup_reward_got_level_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "friend_enter_home_option", kind: "enum", opt: true, T: () => ["com.midnights.game.FriendEnterHomeOption", define_7.FriendEnterHomeOption, "FRIEND_ENTER_HOME_OPTION_"] }
         ]);
     }
@@ -5712,14 +5732,26 @@ class PlayerHomeCompInfo$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 unlocked_module_id_list = 4; */
-        for (let i = 0; i < message.unlockedModuleIdList.length; i++)
-            writer.tag(4, runtime_2.WireType.Varint).uint32(message.unlockedModuleIdList[i]);
+        if (message.unlockedModuleIdList.length) {
+            writer.tag(4, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.unlockedModuleIdList.length; i++)
+                writer.uint32(message.unlockedModuleIdList[i]);
+            writer.join();
+        }
         /* repeated uint32 seen_module_id_list = 2; */
-        for (let i = 0; i < message.seenModuleIdList.length; i++)
-            writer.tag(2, runtime_2.WireType.Varint).uint32(message.seenModuleIdList[i]);
+        if (message.seenModuleIdList.length) {
+            writer.tag(2, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.seenModuleIdList.length; i++)
+                writer.uint32(message.seenModuleIdList[i]);
+            writer.join();
+        }
         /* repeated uint32 levelup_reward_got_level_list = 7; */
-        for (let i = 0; i < message.levelupRewardGotLevelList.length; i++)
-            writer.tag(7, runtime_2.WireType.Varint).uint32(message.levelupRewardGotLevelList[i]);
+        if (message.levelupRewardGotLevelList.length) {
+            writer.tag(7, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.levelupRewardGotLevelList.length; i++)
+                writer.uint32(message.levelupRewardGotLevelList[i]);
+            writer.join();
+        }
         /* optional com.midnights.game.FriendEnterHomeOption friend_enter_home_option = 8; */
         if (message.friendEnterHomeOption !== undefined)
             writer.tag(8, runtime_2.WireType.Varint).int32(message.friendEnterHomeOption);
@@ -6423,7 +6455,7 @@ exports.HomeGetOnlineStatusReq = new HomeGetOnlineStatusReq$Type();
 class HomeGetOnlineStatusRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HomeGetOnlineStatusRsp", [
-            { no: 13, name: "player_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_6.OnlinePlayerInfo },
+            { no: 13, name: "player_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_6.OnlinePlayerInfo },
             { no: 7, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
         ]);
     }
@@ -6592,7 +6624,7 @@ exports.HomeKickPlayerRsp = new HomeKickPlayerRsp$Type();
 class HomeModuleSeenReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HomeModuleSeenReq", [
-            { no: 5, name: "seen_module_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 5, name: "seen_module_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -6627,8 +6659,12 @@ class HomeModuleSeenReq$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 seen_module_id_list = 5; */
-        for (let i = 0; i < message.seenModuleIdList.length; i++)
-            writer.tag(5, runtime_2.WireType.Varint).uint32(message.seenModuleIdList[i]);
+        if (message.seenModuleIdList.length) {
+            writer.tag(5, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.seenModuleIdList.length; i++)
+                writer.uint32(message.seenModuleIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -6643,7 +6679,7 @@ exports.HomeModuleSeenReq = new HomeModuleSeenReq$Type();
 class HomeModuleSeenRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HomeModuleSeenRsp", [
-            { no: 13, name: "seen_module_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 13, name: "seen_module_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
         ]);
     }
@@ -6682,8 +6718,12 @@ class HomeModuleSeenRsp$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 seen_module_id_list = 13; */
-        for (let i = 0; i < message.seenModuleIdList.length; i++)
-            writer.tag(13, runtime_2.WireType.Varint).uint32(message.seenModuleIdList[i]);
+        if (message.seenModuleIdList.length) {
+            writer.tag(13, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.seenModuleIdList.length; i++)
+                writer.uint32(message.seenModuleIdList[i]);
+            writer.join();
+        }
         /* optional int32 retcode = 8; */
         if (message.retcode !== undefined)
             writer.tag(8, runtime_2.WireType.Varint).int32(message.retcode);
@@ -6701,7 +6741,7 @@ exports.HomeModuleSeenRsp = new HomeModuleSeenRsp$Type();
 class UnlockedFurnitureFormulaDataNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.UnlockedFurnitureFormulaDataNotify", [
-            { no: 15, name: "furniture_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 15, name: "furniture_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 11, name: "is_all", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ }
         ]);
     }
@@ -6740,8 +6780,12 @@ class UnlockedFurnitureFormulaDataNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 furniture_id_list = 15; */
-        for (let i = 0; i < message.furnitureIdList.length; i++)
-            writer.tag(15, runtime_2.WireType.Varint).uint32(message.furnitureIdList[i]);
+        if (message.furnitureIdList.length) {
+            writer.tag(15, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.furnitureIdList.length; i++)
+                writer.uint32(message.furnitureIdList[i]);
+            writer.join();
+        }
         /* optional bool is_all = 11; */
         if (message.isAll !== undefined)
             writer.tag(11, runtime_2.WireType.Varint).bool(message.isAll);
@@ -6760,7 +6804,7 @@ class UnlockedFurnitureSuiteDataNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.UnlockedFurnitureSuiteDataNotify", [
             { no: 10, name: "is_all", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 5, name: "furniture_suite_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 5, name: "furniture_suite_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -6801,8 +6845,12 @@ class UnlockedFurnitureSuiteDataNotify$Type extends runtime_5.MessageType {
         if (message.isAll !== undefined)
             writer.tag(10, runtime_2.WireType.Varint).bool(message.isAll);
         /* repeated uint32 furniture_suite_id_list = 5; */
-        for (let i = 0; i < message.furnitureSuiteIdList.length; i++)
-            writer.tag(5, runtime_2.WireType.Varint).uint32(message.furnitureSuiteIdList[i]);
+        if (message.furnitureSuiteIdList.length) {
+            writer.tag(5, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.furnitureSuiteIdList.length; i++)
+                writer.uint32(message.furnitureSuiteIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -6944,7 +6992,7 @@ exports.GetFurnitureCurModuleArrangeCountReq = new GetFurnitureCurModuleArrangeC
 class FurnitureCurModuleArrangeCountNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.FurnitureCurModuleArrangeCountNotify", [
-            { no: 13, name: "furniture_arrange_count_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_5.Uint32Pair }
+            { no: 13, name: "furniture_arrange_count_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_5.Uint32Pair }
         ]);
     }
     create(value) {
@@ -6993,7 +7041,7 @@ class HomeModuleComfortInfo$Type extends runtime_5.MessageType {
         super("com.midnights.game.HomeModuleComfortInfo", [
             { no: 13, name: "module_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 9, name: "room_scene_comfort_value", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 3, name: "world_scene_block_comfort_value_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 3, name: "world_scene_block_comfort_value_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -7040,8 +7088,12 @@ class HomeModuleComfortInfo$Type extends runtime_5.MessageType {
         if (message.roomSceneComfortValue !== undefined)
             writer.tag(9, runtime_2.WireType.Varint).uint32(message.roomSceneComfortValue);
         /* repeated uint32 world_scene_block_comfort_value_list = 3; */
-        for (let i = 0; i < message.worldSceneBlockComfortValueList.length; i++)
-            writer.tag(3, runtime_2.WireType.Varint).uint32(message.worldSceneBlockComfortValueList[i]);
+        if (message.worldSceneBlockComfortValueList.length) {
+            writer.tag(3, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.worldSceneBlockComfortValueList.length; i++)
+                writer.uint32(message.worldSceneBlockComfortValueList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -7056,7 +7108,7 @@ exports.HomeModuleComfortInfo = new HomeModuleComfortInfo$Type();
 class HomeComfortInfoNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HomeComfortInfoNotify", [
-            { no: 6, name: "module_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.HomeModuleComfortInfo }
+            { no: 6, name: "module_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.HomeModuleComfortInfo }
         ]);
     }
     create(value) {
@@ -7251,7 +7303,7 @@ exports.HomePriorCheckNotify = new HomePriorCheckNotify$Type();
 class HomeMarkPointSceneData$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HomeMarkPointSceneData", [
-            { no: 6, name: "furniture_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_4.HomeMarkPointFurnitureData },
+            { no: 6, name: "furniture_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_4.HomeMarkPointFurnitureData },
             { no: 4, name: "teapot_spirit_pos", kind: "message", T: () => define_8.Vector },
             { no: 2, name: "scene_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 5, name: "module_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
@@ -7326,7 +7378,7 @@ exports.HomeMarkPointSceneData = new HomeMarkPointSceneData$Type();
 class HomeMarkPointNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HomeMarkPointNotify", [
-            { no: 12, name: "mark_point_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.HomeMarkPointSceneData }
+            { no: 12, name: "mark_point_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.HomeMarkPointSceneData }
         ]);
     }
     create(value) {
@@ -7373,7 +7425,7 @@ exports.HomeMarkPointNotify = new HomeMarkPointNotify$Type();
 class HomeAllUnlockedBgmIdListNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HomeAllUnlockedBgmIdListNotify", [
-            { no: 11, name: "all_unlocked_bgm_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 11, name: "all_unlocked_bgm_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -7408,8 +7460,12 @@ class HomeAllUnlockedBgmIdListNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 all_unlocked_bgm_id_list = 11; */
-        for (let i = 0; i < message.allUnlockedBgmIdList.length; i++)
-            writer.tag(11, runtime_2.WireType.Varint).uint32(message.allUnlockedBgmIdList[i]);
+        if (message.allUnlockedBgmIdList.length) {
+            writer.tag(11, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.allUnlockedBgmIdList.length; i++)
+                writer.uint32(message.allUnlockedBgmIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -7424,7 +7480,7 @@ exports.HomeAllUnlockedBgmIdListNotify = new HomeAllUnlockedBgmIdListNotify$Type
 class HomeNewUnlockedBgmIdListNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HomeNewUnlockedBgmIdListNotify", [
-            { no: 11, name: "new_unlocked_bgm_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 11, name: "new_unlocked_bgm_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -7459,8 +7515,12 @@ class HomeNewUnlockedBgmIdListNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 new_unlocked_bgm_id_list = 11; */
-        for (let i = 0; i < message.newUnlockedBgmIdList.length; i++)
-            writer.tag(11, runtime_2.WireType.Varint).uint32(message.newUnlockedBgmIdList[i]);
+        if (message.newUnlockedBgmIdList.length) {
+            writer.tag(11, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.newUnlockedBgmIdList.length; i++)
+                writer.uint32(message.newUnlockedBgmIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -7818,7 +7878,7 @@ exports.FurnitureMakeData = new FurnitureMakeData$Type();
 class FurnitureMakeSlot$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.FurnitureMakeSlot", [
-            { no: 14, name: "furniture_make_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.FurnitureMakeData }
+            { no: 14, name: "furniture_make_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.FurnitureMakeData }
         ]);
     }
     create(value) {
@@ -8074,11 +8134,11 @@ exports.FurnitureMakeReq = new FurnitureMakeReq$Type();
 class FurnitureMakeRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.FurnitureMakeRsp", [
-            { no: 13, name: "helped_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.FurnitureMakeBeHelpedData },
-            { no: 4, name: "make_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.FurnitureMakeMakeInfo },
+            { no: 13, name: "helped_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.FurnitureMakeBeHelpedData },
+            { no: 4, name: "make_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.FurnitureMakeMakeInfo },
             { no: 1, name: "furniture_make_slot", kind: "message", T: () => exports.FurnitureMakeSlot },
             { no: 3, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 2, name: "help_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.FurnitureMakeHelpData }
+            { no: 2, name: "help_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.FurnitureMakeHelpData }
         ]);
     }
     create(value) {
@@ -8211,10 +8271,10 @@ class TakeFurnitureMakeRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.TakeFurnitureMakeRsp", [
             { no: 8, name: "furniture_make_slot", kind: "message", T: () => exports.FurnitureMakeSlot },
-            { no: 2, name: "return_item_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_2.ItemParam },
+            { no: 2, name: "return_item_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_2.ItemParam },
             { no: 6, name: "make_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 9, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 14, name: "output_item_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_2.ItemParam }
+            { no: 14, name: "output_item_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_2.ItemParam }
         ]);
     }
     create(value) {
@@ -8615,7 +8675,7 @@ class FurnitureMakeHelpRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.FurnitureMakeHelpRsp", [
             { no: 10, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 6, name: "help_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.FurnitureMakeHelpData }
+            { no: 6, name: "help_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.FurnitureMakeHelpData }
         ]);
     }
     create(value) {
@@ -8925,7 +8985,7 @@ class HomeLimitedShopGoods$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HomeLimitedShopGoods", [
             { no: 8, name: "buy_limit", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 15, name: "cost_item_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_2.ItemParam },
+            { no: 15, name: "cost_item_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_2.ItemParam },
             { no: 1, name: "bought_num", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 6, name: "goods_item", kind: "message", T: () => define_2.ItemParam },
             { no: 13, name: "goods_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
@@ -9006,7 +9066,7 @@ exports.HomeLimitedShopGoods = new HomeLimitedShopGoods$Type();
 class HomeLimitedShop$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HomeLimitedShop", [
-            { no: 8, name: "goods_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.HomeLimitedShopGoods }
+            { no: 8, name: "goods_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.HomeLimitedShopGoods }
         ]);
     }
     create(value) {
@@ -9187,7 +9247,7 @@ exports.HomeLimitedShopBuyGoodsReq = new HomeLimitedShopBuyGoodsReq$Type();
 class HomeLimitedShopBuyGoodsRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HomeLimitedShopBuyGoodsRsp", [
-            { no: 13, name: "goods_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.HomeLimitedShopGoods },
+            { no: 13, name: "goods_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.HomeLimitedShopGoods },
             { no: 14, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
             { no: 5, name: "goods", kind: "message", T: () => exports.HomeLimitedShopGoods },
             { no: 8, name: "buy_count", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
@@ -9255,7 +9315,7 @@ exports.HomeLimitedShopBuyGoodsRsp = new HomeLimitedShopBuyGoodsRsp$Type();
 class HomeLimitedShopInfoChangeNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HomeLimitedShopInfoChangeNotify", [
-            { no: 5, name: "goods_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.HomeLimitedShopGoods }
+            { no: 5, name: "goods_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.HomeLimitedShopGoods }
         ]);
     }
     create(value) {
@@ -9578,7 +9638,7 @@ class HomeAvatarTalkFinishInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HomeAvatarTalkFinishInfo", [
             { no: 9, name: "avatar_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 3, name: "finish_talk_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 3, name: "finish_talk_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -9619,8 +9679,12 @@ class HomeAvatarTalkFinishInfo$Type extends runtime_5.MessageType {
         if (message.avatarId !== undefined)
             writer.tag(9, runtime_2.WireType.Varint).uint32(message.avatarId);
         /* repeated uint32 finish_talk_id_list = 3; */
-        for (let i = 0; i < message.finishTalkIdList.length; i++)
-            writer.tag(3, runtime_2.WireType.Varint).uint32(message.finishTalkIdList[i]);
+        if (message.finishTalkIdList.length) {
+            writer.tag(3, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.finishTalkIdList.length; i++)
+                writer.uint32(message.finishTalkIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -9635,7 +9699,7 @@ exports.HomeAvatarTalkFinishInfo = new HomeAvatarTalkFinishInfo$Type();
 class HomeAvatarTalkFinishInfoNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HomeAvatarTalkFinishInfoNotify", [
-            { no: 9, name: "avatar_talk_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.HomeAvatarTalkFinishInfo }
+            { no: 9, name: "avatar_talk_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.HomeAvatarTalkFinishInfo }
         ]);
     }
     create(value) {
@@ -9867,7 +9931,7 @@ class HomeAvatarRewardEventNotify$Type extends runtime_5.MessageType {
         super("com.midnights.game.HomeAvatarRewardEventNotify", [
             { no: 4, name: "is_event_trigger", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 2, name: "reward_event", kind: "message", T: () => exports.HomeAvatarRewardEventInfo },
-            { no: 8, name: "pending_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.HomeAvatarRewardEventInfo }
+            { no: 8, name: "pending_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.HomeAvatarRewardEventInfo }
         ]);
     }
     create(value) {
@@ -9980,7 +10044,7 @@ exports.HomeAvatarRewardEventGetReq = new HomeAvatarRewardEventGetReq$Type();
 class HomeAvatarRewardEventGetRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HomeAvatarRewardEventGetRsp", [
-            { no: 4, name: "item_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_2.ItemParam },
+            { no: 4, name: "item_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_2.ItemParam },
             { no: 14, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
             { no: 8, name: "event_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
@@ -10123,7 +10187,7 @@ exports.HomeAvatarSummonEventInfo = new HomeAvatarSummonEventInfo$Type();
 class HomeAvatarSummonAllEventNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HomeAvatarSummonAllEventNotify", [
-            { no: 1, name: "summon_event_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.HomeAvatarSummonEventInfo }
+            { no: 1, name: "summon_event_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.HomeAvatarSummonEventInfo }
         ]);
     }
     create(value) {
@@ -10440,7 +10504,7 @@ exports.HomeAvatarSummonFinishRsp = new HomeAvatarSummonFinishRsp$Type();
 class HomeAvtarAllFinishRewardNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HomeAvtarAllFinishRewardNotify", [
-            { no: 13, name: "event_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 13, name: "event_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -10475,8 +10539,12 @@ class HomeAvtarAllFinishRewardNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 event_id_list = 13; */
-        for (let i = 0; i < message.eventIdList.length; i++)
-            writer.tag(13, runtime_2.WireType.Varint).uint32(message.eventIdList[i]);
+        if (message.eventIdList.length) {
+            writer.tag(13, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.eventIdList.length; i++)
+                writer.uint32(message.eventIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -10491,7 +10559,7 @@ exports.HomeAvtarAllFinishRewardNotify = new HomeAvtarAllFinishRewardNotify$Type
 class HomeAvatarAllFinishRewardNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HomeAvatarAllFinishRewardNotify", [
-            { no: 7, name: "event_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 7, name: "event_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -10526,8 +10594,12 @@ class HomeAvatarAllFinishRewardNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 event_id_list = 7; */
-        for (let i = 0; i < message.eventIdList.length; i++)
-            writer.tag(7, runtime_2.WireType.Varint).uint32(message.eventIdList[i]);
+        if (message.eventIdList.length) {
+            writer.tag(7, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.eventIdList.length; i++)
+                writer.uint32(message.eventIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -10617,7 +10689,7 @@ class HomePlantSeedReq$Type extends runtime_5.MessageType {
         super("com.midnights.game.HomePlantSeedReq", [
             { no: 4, name: "index", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 14, name: "field_guid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 13, name: "seed_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 13, name: "seed_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -10664,8 +10736,12 @@ class HomePlantSeedReq$Type extends runtime_5.MessageType {
         if (message.fieldGuid !== undefined)
             writer.tag(14, runtime_2.WireType.Varint).uint32(message.fieldGuid);
         /* repeated uint32 seed_id_list = 13; */
-        for (let i = 0; i < message.seedIdList.length; i++)
-            writer.tag(13, runtime_2.WireType.Varint).uint32(message.seedIdList[i]);
+        if (message.seedIdList.length) {
+            writer.tag(13, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.seedIdList.length; i++)
+                writer.uint32(message.seedIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -10828,7 +10904,7 @@ exports.HomePlantWeedRsp = new HomePlantWeedRsp$Type();
 class HomePlantSubFieldData$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HomePlantSubFieldData", [
-            { no: 15, name: "entity_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 15, name: "entity_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 14, name: "field_status", kind: "enum", opt: true, T: () => ["com.midnights.game.HomePlantFieldStatus", HomePlantFieldStatus] },
             { no: 9, name: "home_gather_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "seed_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
@@ -10879,8 +10955,12 @@ class HomePlantSubFieldData$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 entity_id_list = 15; */
-        for (let i = 0; i < message.entityIdList.length; i++)
-            writer.tag(15, runtime_2.WireType.Varint).uint32(message.entityIdList[i]);
+        if (message.entityIdList.length) {
+            writer.tag(15, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.entityIdList.length; i++)
+                writer.uint32(message.entityIdList[i]);
+            writer.join();
+        }
         /* optional com.midnights.game.HomePlantFieldStatus field_status = 14; */
         if (message.fieldStatus !== undefined)
             writer.tag(14, runtime_2.WireType.Varint).int32(message.fieldStatus);
@@ -10907,7 +10987,7 @@ exports.HomePlantSubFieldData = new HomePlantSubFieldData$Type();
 class HomePlantFieldData$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HomePlantFieldData", [
-            { no: 13, name: "sub_field_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.HomePlantSubFieldData },
+            { no: 13, name: "sub_field_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.HomePlantSubFieldData },
             { no: 9, name: "furniture_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 1, name: "scene_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 10, name: "field_guid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
@@ -10982,7 +11062,7 @@ exports.HomePlantFieldData = new HomePlantFieldData$Type();
 class HomePlantInfoNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HomePlantInfoNotify", [
-            { no: 4, name: "field_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.HomePlantFieldData }
+            { no: 4, name: "field_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.HomePlantFieldData }
         ]);
     }
     create(value) {
@@ -11103,7 +11183,7 @@ class HomePlantInfoRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HomePlantInfoRsp", [
             { no: 7, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 15, name: "field_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.HomePlantFieldData }
+            { no: 15, name: "field_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.HomePlantFieldData }
         ]);
     }
     create(value) {
@@ -11257,7 +11337,7 @@ exports.HomeTransferRsp = new HomeTransferRsp$Type();
 class HomeFishFarmingInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HomeFishFarmingInfo", [
-            { no: 11, name: "fish_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 11, name: "fish_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 14, name: "fishpond_guid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -11296,8 +11376,12 @@ class HomeFishFarmingInfo$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 fish_id_list = 11; */
-        for (let i = 0; i < message.fishIdList.length; i++)
-            writer.tag(11, runtime_2.WireType.Varint).uint32(message.fishIdList[i]);
+        if (message.fishIdList.length) {
+            writer.tag(11, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.fishIdList.length; i++)
+                writer.uint32(message.fishIdList[i]);
+            writer.join();
+        }
         /* optional uint32 fishpond_guid = 14; */
         if (message.fishpondGuid !== undefined)
             writer.tag(14, runtime_2.WireType.Varint).uint32(message.fishpondGuid);
@@ -11341,7 +11425,7 @@ exports.HomeGetFishFarmingInfoReq = new HomeGetFishFarmingInfoReq$Type();
 class HomeGetFishFarmingInfoRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HomeGetFishFarmingInfoRsp", [
-            { no: 7, name: "fish_farming_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.HomeFishFarmingInfo },
+            { no: 7, name: "fish_farming_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.HomeFishFarmingInfo },
             { no: 4, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
         ]);
     }
@@ -11395,7 +11479,7 @@ exports.HomeGetFishFarmingInfoRsp = new HomeGetFishFarmingInfoRsp$Type();
 class HomeFishFarmingInfoNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HomeFishFarmingInfoNotify", [
-            { no: 15, name: "fish_farming_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.HomeFishFarmingInfo }
+            { no: 15, name: "fish_farming_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.HomeFishFarmingInfo }
         ]);
     }
     create(value) {
@@ -11537,7 +11621,7 @@ class HomeScenePointFishFarmingInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HomeScenePointFishFarmingInfo", [
             { no: 13, name: "scene_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 1, name: "fish_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 1, name: "fish_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 3, name: "local_entity_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -11582,8 +11666,12 @@ class HomeScenePointFishFarmingInfo$Type extends runtime_5.MessageType {
         if (message.sceneId !== undefined)
             writer.tag(13, runtime_2.WireType.Varint).uint32(message.sceneId);
         /* repeated uint32 fish_id_list = 1; */
-        for (let i = 0; i < message.fishIdList.length; i++)
-            writer.tag(1, runtime_2.WireType.Varint).uint32(message.fishIdList[i]);
+        if (message.fishIdList.length) {
+            writer.tag(1, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.fishIdList.length; i++)
+                writer.uint32(message.fishIdList[i]);
+            writer.join();
+        }
         /* optional uint32 local_entity_id = 3; */
         if (message.localEntityId !== undefined)
             writer.tag(3, runtime_2.WireType.Varint).uint32(message.localEntityId);
@@ -11695,7 +11783,7 @@ exports.HomeUpdateScenePointFishFarmingInfoRsp = new HomeUpdateScenePointFishFar
 class HomeScenePointFishFarmingInfoNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HomeScenePointFishFarmingInfoNotify", [
-            { no: 7, name: "fish_farming_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.HomeScenePointFishFarmingInfo }
+            { no: 7, name: "fish_farming_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.HomeScenePointFishFarmingInfo }
         ]);
     }
     create(value) {
@@ -11742,7 +11830,7 @@ exports.HomeScenePointFishFarmingInfoNotify = new HomeScenePointFishFarmingInfoN
 class HomeCustomFurnitureInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HomeCustomFurnitureInfo", [
-            { no: 12, name: "sub_furniture_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_1.CustomCommonNodeInfo },
+            { no: 12, name: "sub_furniture_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_1.CustomCommonNodeInfo },
             { no: 6, name: "guid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -11796,9 +11884,9 @@ exports.HomeCustomFurnitureInfo = new HomeCustomFurnitureInfo$Type();
 class HomeCustomFurnitureInfoNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HomeCustomFurnitureInfoNotify", [
-            { no: 4, name: "delete_custom_furniture_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 4, name: "delete_custom_furniture_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 15, name: "used_sub_furniture_count_map", kind: "map", K: 13 /*ScalarType.UINT32*/, V: { kind: "scalar", T: 13 /*ScalarType.UINT32*/ } },
-            { no: 11, name: "custom_furniture_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.HomeCustomFurnitureInfo }
+            { no: 11, name: "custom_furniture_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.HomeCustomFurnitureInfo }
         ]);
     }
     create(value) {
@@ -11855,8 +11943,12 @@ class HomeCustomFurnitureInfoNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 delete_custom_furniture_list = 4; */
-        for (let i = 0; i < message.deleteCustomFurnitureList.length; i++)
-            writer.tag(4, runtime_2.WireType.Varint).uint32(message.deleteCustomFurnitureList[i]);
+        if (message.deleteCustomFurnitureList.length) {
+            writer.tag(4, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.deleteCustomFurnitureList.length; i++)
+                writer.uint32(message.deleteCustomFurnitureList[i]);
+            writer.join();
+        }
         /* map<uint32, uint32> used_sub_furniture_count_map = 15; */
         for (let k of Object.keys(message.usedSubFurnitureCountMap))
             writer.tag(15, runtime_2.WireType.LengthDelimited).fork().tag(1, runtime_2.WireType.Varint).uint32(parseInt(k)).tag(2, runtime_2.WireType.Varint).uint32(message.usedSubFurnitureCountMap[k]).join();
@@ -12032,7 +12124,7 @@ exports.HomePictureFrameInfo = new HomePictureFrameInfo$Type();
 class HomePictureFrameInfoNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HomePictureFrameInfoNotify", [
-            { no: 12, name: "picture_frame_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.HomePictureFrameInfo }
+            { no: 12, name: "picture_frame_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.HomePictureFrameInfo }
         ]);
     }
     create(value) {
@@ -12391,7 +12483,7 @@ exports.HomeRacingGalleryRecord = new HomeRacingGalleryRecord$Type();
 class HomeRacingRecord$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HomeRacingRecord", [
-            { no: 7, name: "record_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.HomeRacingGalleryRecord }
+            { no: 7, name: "record_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.HomeRacingGalleryRecord }
         ]);
     }
     create(value) {
@@ -12506,7 +12598,7 @@ exports.HomeBalloonGalleryRecord = new HomeBalloonGalleryRecord$Type();
 class HomeBalloonRecord$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HomeBalloonRecord", [
-            { no: 15, name: "record_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.HomeBalloonGalleryRecord }
+            { no: 15, name: "record_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.HomeBalloonGalleryRecord }
         ]);
     }
     create(value) {
@@ -12553,7 +12645,7 @@ exports.HomeBalloonRecord = new HomeBalloonRecord$Type();
 class HomeStakePlayRecord$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HomeStakePlayRecord", [
-            { no: 14, name: "engaged_player_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.HomeGroupPlayerInfo },
+            { no: 14, name: "engaged_player_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.HomeGroupPlayerInfo },
             { no: 9, name: "timestamp", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -12607,7 +12699,7 @@ exports.HomeStakePlayRecord = new HomeStakePlayRecord$Type();
 class HomeStakeRecord$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HomeStakeRecord", [
-            { no: 13, name: "record_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.HomeStakePlayRecord }
+            { no: 13, name: "record_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.HomeStakePlayRecord }
         ]);
     }
     create(value) {
@@ -12708,7 +12800,7 @@ exports.HomeSeekFurniturePlayerScore = new HomeSeekFurniturePlayerScore$Type();
 class HomeSeekFurnitureOneRecord$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HomeSeekFurnitureOneRecord", [
-            { no: 8, name: "engaged_player_score_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.HomeSeekFurniturePlayerScore },
+            { no: 8, name: "engaged_player_score_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.HomeSeekFurniturePlayerScore },
             { no: 3, name: "timestamp", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -12762,7 +12854,7 @@ exports.HomeSeekFurnitureOneRecord = new HomeSeekFurnitureOneRecord$Type();
 class HomeSeekFurnitureAllRecord$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HomeSeekFurnitureAllRecord", [
-            { no: 5, name: "record_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.HomeSeekFurnitureOneRecord }
+            { no: 5, name: "record_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.HomeSeekFurnitureOneRecord }
         ]);
     }
     create(value) {
@@ -13329,7 +13421,7 @@ class GetHomeExchangeWoodInfoRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GetHomeExchangeWoodInfoRsp", [
             { no: 10, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 5, name: "wood_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.GetHomeExchangeWoodInfoRsp_HomeExchangeWoodInfo }
+            { no: 5, name: "wood_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.GetHomeExchangeWoodInfoRsp_HomeExchangeWoodInfo }
         ]);
     }
     create(value) {
@@ -13703,8 +13795,8 @@ exports.HomeGetBlueprintSlotInfoReq = new HomeGetBlueprintSlotInfoReq$Type();
 class HomeGetBlueprintSlotInfoRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HomeGetBlueprintSlotInfoRsp", [
-            { no: 6, name: "delete_slot_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 3, name: "slot_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.HomeBlueprintSlotInfo },
+            { no: 6, name: "delete_slot_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 3, name: "slot_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.HomeBlueprintSlotInfo },
             { no: 15, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
         ]);
     }
@@ -13746,8 +13838,12 @@ class HomeGetBlueprintSlotInfoRsp$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 delete_slot_id_list = 6; */
-        for (let i = 0; i < message.deleteSlotIdList.length; i++)
-            writer.tag(6, runtime_2.WireType.Varint).uint32(message.deleteSlotIdList[i]);
+        if (message.deleteSlotIdList.length) {
+            writer.tag(6, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.deleteSlotIdList.length; i++)
+                writer.uint32(message.deleteSlotIdList[i]);
+            writer.join();
+        }
         /* repeated com.midnights.game.HomeBlueprintSlotInfo slot_info_list = 3; */
         for (let i = 0; i < message.slotInfoList.length; i++)
             exports.HomeBlueprintSlotInfo.internalBinaryWrite(message.slotInfoList[i], writer.tag(3, runtime_2.WireType.LengthDelimited).fork(), options).join();

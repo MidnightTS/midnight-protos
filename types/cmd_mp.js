@@ -1241,7 +1241,7 @@ class GetPlayerMpModeAvailabilityRsp$Type extends runtime_5.MessageType {
         super("com.midnights.game.GetPlayerMpModeAvailabilityRsp", [
             { no: 15, name: "mp_ret", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
             { no: 2, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 8, name: "param_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 8, name: "param_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -1288,8 +1288,12 @@ class GetPlayerMpModeAvailabilityRsp$Type extends runtime_5.MessageType {
         if (message.retcode !== undefined)
             writer.tag(2, runtime_1.WireType.Varint).int32(message.retcode);
         /* repeated uint32 param_list = 8; */
-        for (let i = 0; i < message.paramList.length; i++)
-            writer.tag(8, runtime_1.WireType.Varint).uint32(message.paramList[i]);
+        if (message.paramList.length) {
+            writer.tag(8, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.paramList.length; i++)
+                writer.uint32(message.paramList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);

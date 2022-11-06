@@ -416,7 +416,7 @@ class ScenePlayBattleInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ScenePlayBattleInfo", [
             { no: 4, name: "mode", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 3, name: "progress_stage_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 3, name: "progress_stage_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 10, name: "start_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 14, name: "duration", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 12, name: "play_type", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
@@ -489,8 +489,12 @@ class ScenePlayBattleInfo$Type extends runtime_5.MessageType {
         if (message.mode !== undefined)
             writer.tag(4, runtime_2.WireType.Varint).uint32(message.mode);
         /* repeated uint32 progress_stage_list = 3; */
-        for (let i = 0; i < message.progressStageList.length; i++)
-            writer.tag(3, runtime_2.WireType.Varint).uint32(message.progressStageList[i]);
+        if (message.progressStageList.length) {
+            writer.tag(3, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.progressStageList.length; i++)
+                writer.uint32(message.progressStageList[i]);
+            writer.join();
+        }
         /* optional uint32 start_time = 10; */
         if (message.startTime !== undefined)
             writer.tag(10, runtime_2.WireType.Varint).uint32(message.startTime);
@@ -630,7 +634,7 @@ exports.ScenePlayOwnerCheckReq = new ScenePlayOwnerCheckReq$Type();
 class ScenePlayOwnerCheckRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ScenePlayOwnerCheckRsp", [
-            { no: 8, name: "param_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 8, name: "param_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 1, name: "is_skip_match", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 9, name: "play_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 5, name: "wrong_uid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
@@ -681,8 +685,12 @@ class ScenePlayOwnerCheckRsp$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 param_list = 8; */
-        for (let i = 0; i < message.paramList.length; i++)
-            writer.tag(8, runtime_2.WireType.Varint).uint32(message.paramList[i]);
+        if (message.paramList.length) {
+            writer.tag(8, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.paramList.length; i++)
+                writer.uint32(message.paramList[i]);
+            writer.join();
+        }
         /* optional bool is_skip_match = 1; */
         if (message.isSkipMatch !== undefined)
             writer.tag(1, runtime_2.WireType.Varint).bool(message.isSkipMatch);
@@ -1183,7 +1191,7 @@ exports.ScenePlayInfo = new ScenePlayInfo$Type();
 class ScenePlayInfoListNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ScenePlayInfoListNotify", [
-            { no: 6, name: "play_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ScenePlayInfo }
+            { no: 6, name: "play_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ScenePlayInfo }
         ]);
     }
     create(value) {
@@ -1291,7 +1299,7 @@ exports.ScenePlayBattleInterruptNotify = new ScenePlayBattleInterruptNotify$Type
 class ScenePlayBattleSettlePlayerInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ScenePlayBattleSettlePlayerInfo", [
-            { no: 14, name: "card_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_3.ExhibitionDisplayInfo },
+            { no: 14, name: "card_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_3.ExhibitionDisplayInfo },
             { no: 10, name: "profile_picture", kind: "message", T: () => define_2.ProfilePicture },
             { no: 11, name: "head_image", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 4, name: "statistic_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
@@ -1387,7 +1395,7 @@ exports.ScenePlayBattleSettlePlayerInfo = new ScenePlayBattleSettlePlayerInfo$Ty
 class ScenePlayBattleSettleRewardInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ScenePlayBattleSettleRewardInfo", [
-            { no: 4, name: "reward_item_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_1.ItemParam },
+            { no: 4, name: "reward_item_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_1.ItemParam },
             { no: 3, name: "uid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -1445,8 +1453,8 @@ class ScenePlayBattleResultNotify$Type extends runtime_5.MessageType {
             { no: 7, name: "cost_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 15, name: "play_type", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 11, name: "play_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 4, name: "settle_player_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ScenePlayBattleSettlePlayerInfo },
-            { no: 14, name: "settle_reward_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ScenePlayBattleSettleRewardInfo }
+            { no: 4, name: "settle_player_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ScenePlayBattleSettlePlayerInfo },
+            { no: 14, name: "settle_reward_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ScenePlayBattleSettleRewardInfo }
         ]);
     }
     create(value) {
@@ -1524,14 +1532,14 @@ class ScenePlayBattleUidOpNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ScenePlayBattleUidOpNotify", [
             { no: 7, name: "op", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 9, name: "param_target_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 9, name: "param_target_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 2, name: "entity_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 3, name: "param_str", kind: "scalar", opt: true, T: 9 /*ScalarType.STRING*/ },
-            { no: 6, name: "uid_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 6, name: "uid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 11, name: "param_index", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "play_type", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 12, name: "param_duration", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 15, name: "param_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 15, name: "param_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 5, name: "play_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -1605,8 +1613,12 @@ class ScenePlayBattleUidOpNotify$Type extends runtime_5.MessageType {
         if (message.op !== undefined)
             writer.tag(7, runtime_2.WireType.Varint).uint32(message.op);
         /* repeated uint32 param_target_list = 9; */
-        for (let i = 0; i < message.paramTargetList.length; i++)
-            writer.tag(9, runtime_2.WireType.Varint).uint32(message.paramTargetList[i]);
+        if (message.paramTargetList.length) {
+            writer.tag(9, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.paramTargetList.length; i++)
+                writer.uint32(message.paramTargetList[i]);
+            writer.join();
+        }
         /* optional uint32 entity_id = 2; */
         if (message.entityId !== undefined)
             writer.tag(2, runtime_2.WireType.Varint).uint32(message.entityId);
@@ -1614,8 +1626,12 @@ class ScenePlayBattleUidOpNotify$Type extends runtime_5.MessageType {
         if (message.paramStr !== undefined)
             writer.tag(3, runtime_2.WireType.LengthDelimited).string(message.paramStr);
         /* repeated uint32 uid_list = 6; */
-        for (let i = 0; i < message.uidList.length; i++)
-            writer.tag(6, runtime_2.WireType.Varint).uint32(message.uidList[i]);
+        if (message.uidList.length) {
+            writer.tag(6, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.uidList.length; i++)
+                writer.uint32(message.uidList[i]);
+            writer.join();
+        }
         /* optional uint32 param_index = 11; */
         if (message.paramIndex !== undefined)
             writer.tag(11, runtime_2.WireType.Varint).uint32(message.paramIndex);
@@ -1626,8 +1642,12 @@ class ScenePlayBattleUidOpNotify$Type extends runtime_5.MessageType {
         if (message.paramDuration !== undefined)
             writer.tag(12, runtime_2.WireType.Varint).uint32(message.paramDuration);
         /* repeated uint32 param_list = 15; */
-        for (let i = 0; i < message.paramList.length; i++)
-            writer.tag(15, runtime_2.WireType.Varint).uint32(message.paramList[i]);
+        if (message.paramList.length) {
+            writer.tag(15, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.paramList.length; i++)
+                writer.uint32(message.paramList[i]);
+            writer.join();
+        }
         /* optional uint32 play_id = 5; */
         if (message.playId !== undefined)
             writer.tag(5, runtime_2.WireType.Varint).uint32(message.playId);
@@ -1645,7 +1665,7 @@ exports.ScenePlayBattleUidOpNotify = new ScenePlayBattleUidOpNotify$Type();
 class ScenePlayBattleInfoListNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ScenePlayBattleInfoListNotify", [
-            { no: 12, name: "battle_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ScenePlayBattleInfo }
+            { no: 12, name: "battle_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ScenePlayBattleInfo }
         ]);
     }
     create(value) {

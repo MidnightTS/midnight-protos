@@ -328,7 +328,7 @@ exports.NpcTalkRsp = new NpcTalkRsp$Type();
 class GetSceneNpcPositionReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GetSceneNpcPositionReq", [
-            { no: 6, name: "npc_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 6, name: "npc_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "scene_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -367,8 +367,12 @@ class GetSceneNpcPositionReq$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 npc_id_list = 6; */
-        for (let i = 0; i < message.npcIdList.length; i++)
-            writer.tag(6, runtime_1.WireType.Varint).uint32(message.npcIdList[i]);
+        if (message.npcIdList.length) {
+            writer.tag(6, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.npcIdList.length; i++)
+                writer.uint32(message.npcIdList[i]);
+            writer.join();
+        }
         /* optional uint32 scene_id = 8; */
         if (message.sceneId !== undefined)
             writer.tag(8, runtime_1.WireType.Varint).uint32(message.sceneId);
@@ -387,7 +391,7 @@ class GetSceneNpcPositionRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GetSceneNpcPositionRsp", [
             { no: 10, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 14, name: "npc_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_1.NpcPositionInfo },
+            { no: 14, name: "npc_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_1.NpcPositionInfo },
             { no: 4, name: "scene_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -447,7 +451,7 @@ exports.GetSceneNpcPositionRsp = new GetSceneNpcPositionRsp$Type();
 class MetNpcIdListNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.MetNpcIdListNotify", [
-            { no: 9, name: "npc_first_met_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 9, name: "npc_first_met_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -482,8 +486,12 @@ class MetNpcIdListNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 npc_first_met_id_list = 9; */
-        for (let i = 0; i < message.npcFirstMetIdList.length; i++)
-            writer.tag(9, runtime_1.WireType.Varint).uint32(message.npcFirstMetIdList[i]);
+        if (message.npcFirstMetIdList.length) {
+            writer.tag(9, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.npcFirstMetIdList.length; i++)
+                writer.uint32(message.npcFirstMetIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -599,7 +607,7 @@ exports.MeetNpcRsp = new MeetNpcRsp$Type();
 class FinishedTalkIdListNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.FinishedTalkIdListNotify", [
-            { no: 1, name: "finished_talk_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 1, name: "finished_talk_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -634,8 +642,12 @@ class FinishedTalkIdListNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 finished_talk_id_list = 1; */
-        for (let i = 0; i < message.finishedTalkIdList.length; i++)
-            writer.tag(1, runtime_1.WireType.Varint).uint32(message.finishedTalkIdList[i]);
+        if (message.finishedTalkIdList.length) {
+            writer.tag(1, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.finishedTalkIdList.length; i++)
+                writer.uint32(message.finishedTalkIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);

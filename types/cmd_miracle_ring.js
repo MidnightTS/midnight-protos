@@ -588,8 +588,8 @@ class MiracleRingDeliverItemReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.MiracleRingDeliverItemReq", [
             { no: 9, name: "op_type", kind: "enum", opt: true, T: () => ["com.midnights.game.InterOpType", cmd_gadget_2.InterOpType] },
-            { no: 1, name: "item_param_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_1.ItemParam },
-            { no: 4, name: "food_weapon_guid_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 1, name: "item_param_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_1.ItemParam },
+            { no: 4, name: "food_weapon_guid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 14, name: "gadget_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 5, name: "gadget_entity_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
@@ -644,8 +644,12 @@ class MiracleRingDeliverItemReq$Type extends runtime_5.MessageType {
         for (let i = 0; i < message.itemParamList.length; i++)
             define_1.ItemParam.internalBinaryWrite(message.itemParamList[i], writer.tag(1, runtime_1.WireType.LengthDelimited).fork(), options).join();
         /* repeated uint64 food_weapon_guid_list = 4; */
-        for (let i = 0; i < message.foodWeaponGuidList.length; i++)
-            writer.tag(4, runtime_1.WireType.Varint).uint64(message.foodWeaponGuidList[i]);
+        if (message.foodWeaponGuidList.length) {
+            writer.tag(4, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.foodWeaponGuidList.length; i++)
+                writer.uint64(message.foodWeaponGuidList[i]);
+            writer.join();
+        }
         /* optional uint32 gadget_id = 14; */
         if (message.gadgetId !== undefined)
             writer.tag(14, runtime_1.WireType.Varint).uint32(message.gadgetId);

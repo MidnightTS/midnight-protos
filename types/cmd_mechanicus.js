@@ -339,12 +339,12 @@ var MechanicusCandidateTeamCreateRsp_CmdId;
 class MechanicusInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.MechanicusInfo", [
-            { no: 14, name: "gear_level_pair_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_1.Uint32Pair },
-            { no: 7, name: "open_sequence_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 14, name: "gear_level_pair_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_1.Uint32Pair },
+            { no: 7, name: "open_sequence_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "coin", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 12, name: "punish_over_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 10, name: "mechanicus_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 13, name: "finish_difficult_level_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 13, name: "finish_difficult_level_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 4, name: "is_finish_teach_dungeon", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ }
         ]);
     }
@@ -405,8 +405,12 @@ class MechanicusInfo$Type extends runtime_5.MessageType {
         for (let i = 0; i < message.gearLevelPairList.length; i++)
             define_1.Uint32Pair.internalBinaryWrite(message.gearLevelPairList[i], writer.tag(14, runtime_2.WireType.LengthDelimited).fork(), options).join();
         /* repeated uint32 open_sequence_id_list = 7; */
-        for (let i = 0; i < message.openSequenceIdList.length; i++)
-            writer.tag(7, runtime_2.WireType.Varint).uint32(message.openSequenceIdList[i]);
+        if (message.openSequenceIdList.length) {
+            writer.tag(7, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.openSequenceIdList.length; i++)
+                writer.uint32(message.openSequenceIdList[i]);
+            writer.join();
+        }
         /* optional uint32 coin = 8; */
         if (message.coin !== undefined)
             writer.tag(8, runtime_2.WireType.Varint).uint32(message.coin);
@@ -417,8 +421,12 @@ class MechanicusInfo$Type extends runtime_5.MessageType {
         if (message.mechanicusId !== undefined)
             writer.tag(10, runtime_2.WireType.Varint).uint32(message.mechanicusId);
         /* repeated uint32 finish_difficult_level_list = 13; */
-        for (let i = 0; i < message.finishDifficultLevelList.length; i++)
-            writer.tag(13, runtime_2.WireType.Varint).uint32(message.finishDifficultLevelList[i]);
+        if (message.finishDifficultLevelList.length) {
+            writer.tag(13, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.finishDifficultLevelList.length; i++)
+                writer.uint32(message.finishDifficultLevelList[i]);
+            writer.join();
+        }
         /* optional bool is_finish_teach_dungeon = 4; */
         if (message.isFinishTeachDungeon !== undefined)
             writer.tag(4, runtime_2.WireType.Varint).bool(message.isFinishTeachDungeon);

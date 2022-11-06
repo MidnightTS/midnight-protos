@@ -144,7 +144,7 @@ exports.RegionalPlayVar = new RegionalPlayVar$Type();
 class RegionalPlayInfoNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.RegionalPlayInfoNotify", [
-            { no: 5, name: "var_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.RegionalPlayVar },
+            { no: 5, name: "var_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.RegionalPlayVar },
             { no: 9, name: "play_name", kind: "scalar", opt: true, T: 9 /*ScalarType.STRING*/ },
             { no: 15, name: "is_enabled", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 7, name: "play_type", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
@@ -273,7 +273,7 @@ exports.DeathZoneInfo = new DeathZoneInfo$Type();
 class DeathZoneInfoNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.DeathZoneInfoNotify", [
-            { no: 8, name: "death_zone_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.DeathZoneInfo }
+            { no: 8, name: "death_zone_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.DeathZoneInfo }
         ]);
     }
     create(value) {

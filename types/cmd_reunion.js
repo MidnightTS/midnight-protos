@@ -509,7 +509,7 @@ class ReunionSignInInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ReunionSignInInfo", [
             { no: 6, name: "sign_in_count", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 8, name: "reward_day_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 8, name: "reward_day_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 12, name: "config_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 11, name: "last_sign_in_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
@@ -558,8 +558,12 @@ class ReunionSignInInfo$Type extends runtime_5.MessageType {
         if (message.signInCount !== undefined)
             writer.tag(6, runtime_2.WireType.Varint).uint32(message.signInCount);
         /* repeated uint32 reward_day_list = 8; */
-        for (let i = 0; i < message.rewardDayList.length; i++)
-            writer.tag(8, runtime_2.WireType.Varint).uint32(message.rewardDayList[i]);
+        if (message.rewardDayList.length) {
+            writer.tag(8, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.rewardDayList.length; i++)
+                writer.uint32(message.rewardDayList[i]);
+            writer.join();
+        }
         /* optional uint32 config_id = 12; */
         if (message.configId !== undefined)
             writer.tag(12, runtime_2.WireType.Varint).uint32(message.configId);
@@ -655,14 +659,14 @@ exports.ReunionWatcherInfo = new ReunionWatcherInfo$Type();
 class ReunionMissionInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ReunionMissionInfo", [
-            { no: 3, name: "cur_day_watcher_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ReunionWatcherInfo },
+            { no: 3, name: "cur_day_watcher_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ReunionWatcherInfo },
             { no: 11, name: "cur_score", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "is_taken_reward", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 6, name: "is_taken_reward_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 8 /*ScalarType.BOOL*/ },
+            { no: 6, name: "is_taken_reward_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 8 /*ScalarType.BOOL*/ },
             { no: 5, name: "next_refresh_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 9, name: "is_finished", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 12, name: "mission_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 2, name: "watcher_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ReunionWatcherInfo }
+            { no: 2, name: "watcher_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ReunionWatcherInfo }
         ]);
     }
     create(value) {
@@ -727,8 +731,12 @@ class ReunionMissionInfo$Type extends runtime_5.MessageType {
         if (message.isTakenReward !== undefined)
             writer.tag(8, runtime_2.WireType.Varint).bool(message.isTakenReward);
         /* repeated bool is_taken_reward_list = 6; */
-        for (let i = 0; i < message.isTakenRewardList.length; i++)
-            writer.tag(6, runtime_2.WireType.Varint).bool(message.isTakenRewardList[i]);
+        if (message.isTakenRewardList.length) {
+            writer.tag(6, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.isTakenRewardList.length; i++)
+                writer.bool(message.isTakenRewardList[i]);
+            writer.join();
+        }
         /* optional uint32 next_refresh_time = 5; */
         if (message.nextRefreshTime !== undefined)
             writer.tag(5, runtime_2.WireType.Varint).uint32(message.nextRefreshTime);

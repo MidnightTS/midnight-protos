@@ -521,7 +521,7 @@ class TowerTeam$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.TowerTeam", [
             { no: 3, name: "tower_team_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 14, name: "avatar_guid_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ }
+            { no: 14, name: "avatar_guid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ }
         ]);
     }
     create(value) {
@@ -562,8 +562,12 @@ class TowerTeam$Type extends runtime_5.MessageType {
         if (message.towerTeamId !== undefined)
             writer.tag(3, runtime_2.WireType.Varint).uint32(message.towerTeamId);
         /* repeated uint64 avatar_guid_list = 14; */
-        for (let i = 0; i < message.avatarGuidList.length; i++)
-            writer.tag(14, runtime_2.WireType.Varint).uint64(message.avatarGuidList[i]);
+        if (message.avatarGuidList.length) {
+            writer.tag(14, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.avatarGuidList.length; i++)
+                writer.uint64(message.avatarGuidList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -578,7 +582,7 @@ exports.TowerTeam = new TowerTeam$Type();
 class TowerLevelRecord$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.TowerLevelRecord", [
-            { no: 13, name: "satisfied_cond_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 13, name: "satisfied_cond_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 10, name: "level_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -617,8 +621,12 @@ class TowerLevelRecord$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 satisfied_cond_list = 13; */
-        for (let i = 0; i < message.satisfiedCondList.length; i++)
-            writer.tag(13, runtime_2.WireType.Varint).uint32(message.satisfiedCondList[i]);
+        if (message.satisfiedCondList.length) {
+            writer.tag(13, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.satisfiedCondList.length; i++)
+                writer.uint32(message.satisfiedCondList[i]);
+            writer.join();
+        }
         /* optional uint32 level_id = 10; */
         if (message.levelId !== undefined)
             writer.tag(10, runtime_2.WireType.Varint).uint32(message.levelId);
@@ -639,7 +647,7 @@ class TowerFloorRecord$Type extends runtime_5.MessageType {
             { no: 15, name: "floor_star_reward_progress", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "passed_level_map", kind: "map", K: 13 /*ScalarType.UINT32*/, V: { kind: "scalar", T: 13 /*ScalarType.UINT32*/ } },
             { no: 12, name: "floor_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 2, name: "passed_level_record_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.TowerLevelRecord }
+            { no: 2, name: "passed_level_record_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.TowerLevelRecord }
         ]);
     }
     create(value) {
@@ -720,9 +728,9 @@ exports.TowerFloorRecord = new TowerFloorRecord$Type();
 class TowerCurLevelRecord$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.TowerCurLevelRecord", [
-            { no: 8, name: "tower_team_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.TowerTeam },
+            { no: 8, name: "tower_team_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.TowerTeam },
             { no: 6, name: "is_empty", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 4, name: "buff_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 4, name: "buff_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 2, name: "is_upper_part", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 1, name: "cur_level_index", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 15, name: "cur_floor_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
@@ -781,8 +789,12 @@ class TowerCurLevelRecord$Type extends runtime_5.MessageType {
         if (message.isEmpty !== undefined)
             writer.tag(6, runtime_2.WireType.Varint).bool(message.isEmpty);
         /* repeated uint32 buff_id_list = 4; */
-        for (let i = 0; i < message.buffIdList.length; i++)
-            writer.tag(4, runtime_2.WireType.Varint).uint32(message.buffIdList[i]);
+        if (message.buffIdList.length) {
+            writer.tag(4, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.buffIdList.length; i++)
+                writer.uint32(message.buffIdList[i]);
+            writer.join();
+        }
         /* optional bool is_upper_part = 2; */
         if (message.isUpperPart !== undefined)
             writer.tag(2, runtime_2.WireType.Varint).bool(message.isUpperPart);
@@ -896,7 +908,7 @@ class TowerFloorRecordChangeNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.TowerFloorRecordChangeNotify", [
             { no: 11, name: "is_finished_entrance_floor", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 8, name: "tower_floor_record_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.TowerFloorRecord }
+            { no: 8, name: "tower_floor_record_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.TowerFloorRecord }
         ]);
     }
     create(value) {
@@ -1050,7 +1062,7 @@ exports.TowerDailyRewardProgressChangeNotify = new TowerDailyRewardProgressChang
 class TowerTeamSelectReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.TowerTeamSelectReq", [
-            { no: 11, name: "tower_team_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.TowerTeam },
+            { no: 11, name: "tower_team_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.TowerTeam },
             { no: 10, name: "floor_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -1271,7 +1283,7 @@ class TowerAllDataRsp$Type extends runtime_5.MessageType {
             { no: 12, name: "skip_floor_granted_reward_item_map", kind: "map", K: 13 /*ScalarType.UINT32*/, V: { kind: "scalar", T: 13 /*ScalarType.UINT32*/ } },
             { no: 3, name: "is_first_interact", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 1, name: "is_finished_entrance_floor", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 5, name: "tower_floor_record_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.TowerFloorRecord },
+            { no: 5, name: "tower_floor_record_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.TowerFloorRecord },
             { no: 11, name: "daily_floor_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 13, name: "commemorative_reward_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 1222, name: "last_schedule_monthly_brief", kind: "message", T: () => exports.TowerMonthlyBrief },
@@ -1504,7 +1516,7 @@ exports.TowerEnterLevelReq = new TowerEnterLevelReq$Type();
 class TowerEnterLevelRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.TowerEnterLevelRsp", [
-            { no: 10, name: "tower_buff_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 10, name: "tower_buff_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 1, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
             { no: 14, name: "level_index", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 5, name: "floor_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
@@ -1551,8 +1563,12 @@ class TowerEnterLevelRsp$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 tower_buff_id_list = 10; */
-        for (let i = 0; i < message.towerBuffIdList.length; i++)
-            writer.tag(10, runtime_2.WireType.Varint).uint32(message.towerBuffIdList[i]);
+        if (message.towerBuffIdList.length) {
+            writer.tag(10, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.towerBuffIdList.length; i++)
+                writer.uint32(message.towerBuffIdList[i]);
+            writer.join();
+        }
         /* optional int32 retcode = 1; */
         if (message.retcode !== undefined)
             writer.tag(1, runtime_2.WireType.Varint).int32(message.retcode);
@@ -1852,10 +1868,10 @@ class TowerLevelEndNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.TowerLevelEndNotify", [
             { no: 4, name: "next_floor_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 12, name: "reward_item_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_1.ItemParam },
+            { no: 12, name: "reward_item_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_1.ItemParam },
             { no: 15, name: "continue_state", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 5, name: "is_success", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 6, name: "finished_star_cond_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 6, name: "finished_star_cond_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -1914,8 +1930,12 @@ class TowerLevelEndNotify$Type extends runtime_5.MessageType {
         if (message.isSuccess !== undefined)
             writer.tag(5, runtime_2.WireType.Varint).bool(message.isSuccess);
         /* repeated uint32 finished_star_cond_list = 6; */
-        for (let i = 0; i < message.finishedStarCondList.length; i++)
-            writer.tag(6, runtime_2.WireType.Varint).uint32(message.finishedStarCondList[i]);
+        if (message.finishedStarCondList.length) {
+            writer.tag(6, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.finishedStarCondList.length; i++)
+                writer.uint32(message.finishedStarCondList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -2000,7 +2020,7 @@ class TowerLevelStarCondNotify$Type extends runtime_5.MessageType {
         super("com.midnights.game.TowerLevelStarCondNotify", [
             { no: 14, name: "level_index", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 11, name: "floor_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 9, name: "cond_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.TowerLevelStarCondData }
+            { no: 9, name: "cond_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.TowerLevelStarCondData }
         ]);
     }
     create(value) {
@@ -2141,7 +2161,7 @@ class TowerMonthlyCombatRecord$Type extends runtime_5.MessageType {
         super("com.midnights.game.TowerMonthlyCombatRecord", [
             { no: 14, name: "most_kill_avatar_pair", kind: "message", T: () => exports.TowerFightRecordPair },
             { no: 8, name: "most_cast_normal_skill_avatar_pair", kind: "message", T: () => exports.TowerFightRecordPair },
-            { no: 6, name: "most_reveal_avatar_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.TowerFightRecordPair },
+            { no: 6, name: "most_reveal_avatar_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.TowerFightRecordPair },
             { no: 4, name: "most_cast_energy_skill_avatar_pair", kind: "message", T: () => exports.TowerFightRecordPair },
             { no: 12, name: "highest_dps_avatr_pair", kind: "message", T: () => exports.TowerFightRecordPair },
             { no: 9, name: "most_take_damage_avatar_pair", kind: "message", T: () => exports.TowerFightRecordPair }
@@ -2302,7 +2322,7 @@ class TowerRecordHandbookRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.TowerRecordHandbookRsp", [
             { no: 7, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 14, name: "monthly_detail_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.TowerMonthlyDetail }
+            { no: 14, name: "monthly_detail_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.TowerMonthlyDetail }
         ]);
     }
     create(value) {

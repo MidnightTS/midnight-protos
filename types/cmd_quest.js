@@ -1306,7 +1306,7 @@ var BargainResultType;
 class QuestListNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.QuestListNotify", [
-            { no: 1, name: "quest_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_2.Quest }
+            { no: 1, name: "quest_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_2.Quest }
         ]);
     }
     create(value) {
@@ -1353,7 +1353,7 @@ exports.QuestListNotify = new QuestListNotify$Type();
 class QuestListUpdateNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.QuestListUpdateNotify", [
-            { no: 6, name: "quest_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_2.Quest }
+            { no: 6, name: "quest_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_2.Quest }
         ]);
     }
     create(value) {
@@ -1508,7 +1508,7 @@ exports.ChildQuest = new ChildQuest$Type();
 class ParentQuestRandomInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ParentQuestRandomInfo", [
-            { no: 1, name: "factor_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 1, name: "factor_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "template_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 2, name: "entrance_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
@@ -1551,8 +1551,12 @@ class ParentQuestRandomInfo$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 factor_list = 1; */
-        for (let i = 0; i < message.factorList.length; i++)
-            writer.tag(1, runtime_1.WireType.Varint).uint32(message.factorList[i]);
+        if (message.factorList.length) {
+            writer.tag(1, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.factorList.length; i++)
+                writer.uint32(message.factorList[i]);
+            writer.join();
+        }
         /* optional uint32 template_id = 8; */
         if (message.templateId !== undefined)
             writer.tag(8, runtime_1.WireType.Varint).uint32(message.templateId);
@@ -1649,7 +1653,7 @@ class InferencePageInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.InferencePageInfo", [
             { no: 3, name: "page_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 15, name: "unlock_word_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.InfernceWordInfo }
+            { no: 15, name: "unlock_word_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.InfernceWordInfo }
         ]);
     }
     create(value) {
@@ -1702,17 +1706,17 @@ exports.InferencePageInfo = new InferencePageInfo$Type();
 class ParentQuest$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ParentQuest", [
-            { no: 14, name: "quest_var", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 5 /*ScalarType.INT32*/ },
+            { no: 14, name: "quest_var", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 5 /*ScalarType.INT32*/ },
             { no: 8, name: "time_var_map", kind: "map", K: 13 /*ScalarType.UINT32*/, V: { kind: "scalar", T: 13 /*ScalarType.UINT32*/ } },
             { no: 1, name: "parent_quest_state", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 7, name: "is_finished", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 15, name: "inference_page_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.InferencePageInfo },
+            { no: 15, name: "inference_page_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.InferencePageInfo },
             { no: 12, name: "random_info", kind: "message", T: () => exports.ParentQuestRandomInfo },
             { no: 3, name: "parent_quest_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 13, name: "is_random", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 6, name: "video_key", kind: "scalar", opt: true, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 11, name: "quest_var_seq", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 9, name: "child_quest_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ChildQuest }
+            { no: 9, name: "child_quest_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ChildQuest }
         ]);
     }
     create(value) {
@@ -1793,8 +1797,12 @@ class ParentQuest$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated int32 quest_var = 14; */
-        for (let i = 0; i < message.questVar.length; i++)
-            writer.tag(14, runtime_1.WireType.Varint).int32(message.questVar[i]);
+        if (message.questVar.length) {
+            writer.tag(14, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.questVar.length; i++)
+                writer.int32(message.questVar[i]);
+            writer.join();
+        }
         /* map<uint32, uint32> time_var_map = 8; */
         for (let k of Object.keys(message.timeVarMap))
             writer.tag(8, runtime_1.WireType.LengthDelimited).fork().tag(1, runtime_1.WireType.Varint).uint32(parseInt(k)).tag(2, runtime_1.WireType.Varint).uint32(message.timeVarMap[k]).join();
@@ -1839,7 +1847,7 @@ exports.ParentQuest = new ParentQuest$Type();
 class FinishedParentQuestNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.FinishedParentQuestNotify", [
-            { no: 2, name: "parent_quest_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ParentQuest }
+            { no: 2, name: "parent_quest_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ParentQuest }
         ]);
     }
     create(value) {
@@ -1886,7 +1894,7 @@ exports.FinishedParentQuestNotify = new FinishedParentQuestNotify$Type();
 class FinishedParentQuestUpdateNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.FinishedParentQuestUpdateNotify", [
-            { no: 9, name: "parent_quest_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ParentQuest }
+            { no: 9, name: "parent_quest_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ParentQuest }
         ]);
     }
     create(value) {
@@ -2095,7 +2103,7 @@ exports.GetQuestTalkHistoryReq = new GetQuestTalkHistoryReq$Type();
 class GetQuestTalkHistoryRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GetQuestTalkHistoryRsp", [
-            { no: 13, name: "talk_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 13, name: "talk_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 7, name: "parent_quest_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 15, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
         ]);
@@ -2138,8 +2146,12 @@ class GetQuestTalkHistoryRsp$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 talk_id_list = 13; */
-        for (let i = 0; i < message.talkIdList.length; i++)
-            writer.tag(13, runtime_1.WireType.Varint).uint32(message.talkIdList[i]);
+        if (message.talkIdList.length) {
+            writer.tag(13, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.talkIdList.length; i++)
+                writer.uint32(message.talkIdList[i]);
+            writer.join();
+        }
         /* optional uint32 parent_quest_id = 7; */
         if (message.parentQuestId !== undefined)
             writer.tag(7, runtime_1.WireType.Varint).uint32(message.parentQuestId);
@@ -2616,8 +2628,8 @@ class QuestProgressUpdateNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.QuestProgressUpdateNotify", [
             { no: 12, name: "quest_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 6, name: "fail_progress_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 13, name: "finish_progress_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 6, name: "fail_progress_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 13, name: "finish_progress_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -2665,11 +2677,19 @@ class QuestProgressUpdateNotify$Type extends runtime_5.MessageType {
         if (message.questId !== undefined)
             writer.tag(12, runtime_1.WireType.Varint).uint32(message.questId);
         /* repeated uint32 fail_progress_list = 6; */
-        for (let i = 0; i < message.failProgressList.length; i++)
-            writer.tag(6, runtime_1.WireType.Varint).uint32(message.failProgressList[i]);
+        if (message.failProgressList.length) {
+            writer.tag(6, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.failProgressList.length; i++)
+                writer.uint32(message.failProgressList[i]);
+            writer.join();
+        }
         /* repeated uint32 finish_progress_list = 13; */
-        for (let i = 0; i < message.finishProgressList.length; i++)
-            writer.tag(13, runtime_1.WireType.Varint).uint32(message.finishProgressList[i]);
+        if (message.finishProgressList.length) {
+            writer.tag(13, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.finishProgressList.length; i++)
+                writer.uint32(message.finishProgressList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -2746,7 +2766,7 @@ class QuestUpdateQuestVarReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.QuestUpdateQuestVarReq", [
             { no: 9, name: "parent_quest_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 4, name: "quest_var_op_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.QuestVarOp },
+            { no: 4, name: "quest_var_op_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.QuestVarOp },
             { no: 11, name: "quest_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 1, name: "parent_quest_var_seq", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
@@ -2881,7 +2901,7 @@ exports.QuestUpdateQuestVarRsp = new QuestUpdateQuestVarRsp$Type();
 class QuestUpdateQuestVarNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.QuestUpdateQuestVarNotify", [
-            { no: 1, name: "quest_var", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 5 /*ScalarType.INT32*/ },
+            { no: 1, name: "quest_var", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 5 /*ScalarType.INT32*/ },
             { no: 12, name: "parent_quest_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "parent_quest_var_seq", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
@@ -2924,8 +2944,12 @@ class QuestUpdateQuestVarNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated int32 quest_var = 1; */
-        for (let i = 0; i < message.questVar.length; i++)
-            writer.tag(1, runtime_1.WireType.Varint).int32(message.questVar[i]);
+        if (message.questVar.length) {
+            writer.tag(1, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.questVar.length; i++)
+                writer.int32(message.questVar[i]);
+            writer.join();
+        }
         /* optional uint32 parent_quest_id = 12; */
         if (message.parentQuestId !== undefined)
             writer.tag(12, runtime_1.WireType.Varint).uint32(message.parentQuestId);
@@ -3486,7 +3510,7 @@ exports.GetAllActivatedBargainDataReq = new GetAllActivatedBargainDataReq$Type()
 class GetAllActivatedBargainDataRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GetAllActivatedBargainDataRsp", [
-            { no: 5, name: "snapshot_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.BargainSnapshot },
+            { no: 5, name: "snapshot_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.BargainSnapshot },
             { no: 9, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
         ]);
     }
@@ -3540,8 +3564,8 @@ exports.GetAllActivatedBargainDataRsp = new GetAllActivatedBargainDataRsp$Type()
 class ServerCondMeetQuestListUpdateNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ServerCondMeetQuestListUpdateNotify", [
-            { no: 1, name: "del_quest_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 12, name: "add_quest_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 1, name: "del_quest_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 12, name: "add_quest_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -3583,11 +3607,19 @@ class ServerCondMeetQuestListUpdateNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 del_quest_id_list = 1; */
-        for (let i = 0; i < message.delQuestIdList.length; i++)
-            writer.tag(1, runtime_1.WireType.Varint).uint32(message.delQuestIdList[i]);
+        if (message.delQuestIdList.length) {
+            writer.tag(1, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.delQuestIdList.length; i++)
+                writer.uint32(message.delQuestIdList[i]);
+            writer.join();
+        }
         /* repeated uint32 add_quest_id_list = 12; */
-        for (let i = 0; i < message.addQuestIdList.length; i++)
-            writer.tag(12, runtime_1.WireType.Varint).uint32(message.addQuestIdList[i]);
+        if (message.addQuestIdList.length) {
+            writer.tag(12, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.addQuestIdList.length; i++)
+                writer.uint32(message.addQuestIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -3656,7 +3688,7 @@ exports.QuestGlobalVar = new QuestGlobalVar$Type();
 class QuestGlobalVarNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.QuestGlobalVarNotify", [
-            { no: 1, name: "var_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.QuestGlobalVar }
+            { no: 1, name: "var_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.QuestGlobalVar }
         ]);
     }
     create(value) {
@@ -3919,11 +3951,11 @@ class PersonalLineAllDataRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.PersonalLineAllDataRsp", [
             { no: 5, name: "cur_finished_daily_task_count", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 13, name: "can_be_unlocked_personal_line_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 13, name: "can_be_unlocked_personal_line_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 15, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 8, name: "ongoing_personal_line_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 8, name: "ongoing_personal_line_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 11, name: "legendary_key_count", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 10, name: "locked_personal_line_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.LockedPersonallineData }
+            { no: 10, name: "locked_personal_line_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.LockedPersonallineData }
         ]);
     }
     create(value) {
@@ -3980,14 +4012,22 @@ class PersonalLineAllDataRsp$Type extends runtime_5.MessageType {
         if (message.curFinishedDailyTaskCount !== undefined)
             writer.tag(5, runtime_1.WireType.Varint).uint32(message.curFinishedDailyTaskCount);
         /* repeated uint32 can_be_unlocked_personal_line_list = 13; */
-        for (let i = 0; i < message.canBeUnlockedPersonalLineList.length; i++)
-            writer.tag(13, runtime_1.WireType.Varint).uint32(message.canBeUnlockedPersonalLineList[i]);
+        if (message.canBeUnlockedPersonalLineList.length) {
+            writer.tag(13, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.canBeUnlockedPersonalLineList.length; i++)
+                writer.uint32(message.canBeUnlockedPersonalLineList[i]);
+            writer.join();
+        }
         /* optional int32 retcode = 15; */
         if (message.retcode !== undefined)
             writer.tag(15, runtime_1.WireType.Varint).int32(message.retcode);
         /* repeated uint32 ongoing_personal_line_list = 8; */
-        for (let i = 0; i < message.ongoingPersonalLineList.length; i++)
-            writer.tag(8, runtime_1.WireType.Varint).uint32(message.ongoingPersonalLineList[i]);
+        if (message.ongoingPersonalLineList.length) {
+            writer.tag(8, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.ongoingPersonalLineList.length; i++)
+                writer.uint32(message.ongoingPersonalLineList[i]);
+            writer.join();
+        }
         /* optional uint32 legendary_key_count = 11; */
         if (message.legendaryKeyCount !== undefined)
             writer.tag(11, runtime_1.WireType.Varint).uint32(message.legendaryKeyCount);
@@ -4326,7 +4366,7 @@ exports.QuestUpdateQuestTimeVarNotify = new QuestUpdateQuestTimeVarNotify$Type()
 class PersonalLineNewUnlockNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.PersonalLineNewUnlockNotify", [
-            { no: 9, name: "personal_line_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 9, name: "personal_line_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -4361,8 +4401,12 @@ class PersonalLineNewUnlockNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 personal_line_id_list = 9; */
-        for (let i = 0; i < message.personalLineIdList.length; i++)
-            writer.tag(9, runtime_1.WireType.Varint).uint32(message.personalLineIdList[i]);
+        if (message.personalLineIdList.length) {
+            writer.tag(9, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.personalLineIdList.length; i++)
+                writer.uint32(message.personalLineIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -4473,8 +4517,8 @@ class GetQuestLackingResourceRsp$Type extends runtime_5.MessageType {
         super("com.midnights.game.GetQuestLackingResourceRsp", [
             { no: 4, name: "quest_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 11, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 8, name: "lacked_npc_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 5, name: "lacked_place_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 8, name: "lacked_npc_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 5, name: "lacked_place_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 10, name: "lacked_npc_map", kind: "map", K: 13 /*ScalarType.UINT32*/, V: { kind: "scalar", T: 13 /*ScalarType.UINT32*/ } },
             { no: 2, name: "lacked_place_map", kind: "map", K: 13 /*ScalarType.UINT32*/, V: { kind: "scalar", T: 13 /*ScalarType.UINT32*/ } }
         ]);
@@ -4568,11 +4612,19 @@ class GetQuestLackingResourceRsp$Type extends runtime_5.MessageType {
         if (message.retcode !== undefined)
             writer.tag(11, runtime_1.WireType.Varint).int32(message.retcode);
         /* repeated uint32 lacked_npc_list = 8; */
-        for (let i = 0; i < message.lackedNpcList.length; i++)
-            writer.tag(8, runtime_1.WireType.Varint).uint32(message.lackedNpcList[i]);
+        if (message.lackedNpcList.length) {
+            writer.tag(8, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.lackedNpcList.length; i++)
+                writer.uint32(message.lackedNpcList[i]);
+            writer.join();
+        }
         /* repeated uint32 lacked_place_list = 5; */
-        for (let i = 0; i < message.lackedPlaceList.length; i++)
-            writer.tag(5, runtime_1.WireType.Varint).uint32(message.lackedPlaceList[i]);
+        if (message.lackedPlaceList.length) {
+            writer.tag(5, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.lackedPlaceList.length; i++)
+                writer.uint32(message.lackedPlaceList[i]);
+            writer.join();
+        }
         /* map<uint32, uint32> lacked_npc_map = 10; */
         for (let k of Object.keys(message.lackedNpcMap))
             writer.tag(10, runtime_1.WireType.LengthDelimited).fork().tag(1, runtime_1.WireType.Varint).uint32(parseInt(k)).tag(2, runtime_1.WireType.Varint).uint32(message.lackedNpcMap[k]).join();
@@ -4702,7 +4754,7 @@ class ParentQuestInferenceDataNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ParentQuestInferenceDataNotify", [
             { no: 2, name: "parent_quest_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 1, name: "inference_page_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.InferencePageInfo }
+            { no: 1, name: "inference_page_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.InferencePageInfo }
         ]);
     }
     create(value) {

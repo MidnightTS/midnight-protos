@@ -614,7 +614,7 @@ class GetCityHuntingOfferRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GetCityHuntingOfferRsp", [
             { no: 9, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 13, name: "hunting_offer_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.HuntingOfferData },
+            { no: 13, name: "hunting_offer_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.HuntingOfferData },
             { no: 2, name: "city_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "ongoing_hunting_pair", kind: "message", T: () => exports.HuntingPair },
             { no: 1, name: "cur_week_finished_count", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },

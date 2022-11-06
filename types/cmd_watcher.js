@@ -294,7 +294,7 @@ var PushTipsState;
 class WatcherAllDataNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.WatcherAllDataNotify", [
-            { no: 4, name: "watcher_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 4, name: "watcher_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -329,8 +329,12 @@ class WatcherAllDataNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 watcher_list = 4; */
-        for (let i = 0; i < message.watcherList.length; i++)
-            writer.tag(4, runtime_2.WireType.Varint).uint32(message.watcherList[i]);
+        if (message.watcherList.length) {
+            writer.tag(4, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.watcherList.length; i++)
+                writer.uint32(message.watcherList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -345,8 +349,8 @@ exports.WatcherAllDataNotify = new WatcherAllDataNotify$Type();
 class WatcherChangeNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.WatcherChangeNotify", [
-            { no: 2, name: "removed_watcher_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 15, name: "new_watcher_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 2, name: "removed_watcher_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 15, name: "new_watcher_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -388,11 +392,19 @@ class WatcherChangeNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 removed_watcher_list = 2; */
-        for (let i = 0; i < message.removedWatcherList.length; i++)
-            writer.tag(2, runtime_2.WireType.Varint).uint32(message.removedWatcherList[i]);
+        if (message.removedWatcherList.length) {
+            writer.tag(2, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.removedWatcherList.length; i++)
+                writer.uint32(message.removedWatcherList[i]);
+            writer.join();
+        }
         /* repeated uint32 new_watcher_list = 15; */
-        for (let i = 0; i < message.newWatcherList.length; i++)
-            writer.tag(15, runtime_2.WireType.Varint).uint32(message.newWatcherList[i]);
+        if (message.newWatcherList.length) {
+            writer.tag(15, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.newWatcherList.length; i++)
+                writer.uint32(message.newWatcherList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -461,7 +473,7 @@ exports.WatcherEventNotify = new WatcherEventNotify$Type();
 class WatcherEventTypeNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.WatcherEventTypeNotify", [
-            { no: 14, name: "param_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 14, name: "param_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 15, name: "add_progress", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 11, name: "watcher_trigger_type", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
@@ -504,8 +516,12 @@ class WatcherEventTypeNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 param_list = 14; */
-        for (let i = 0; i < message.paramList.length; i++)
-            writer.tag(14, runtime_2.WireType.Varint).uint32(message.paramList[i]);
+        if (message.paramList.length) {
+            writer.tag(14, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.paramList.length; i++)
+                writer.uint32(message.paramList[i]);
+            writer.join();
+        }
         /* optional uint32 add_progress = 15; */
         if (message.addProgress !== undefined)
             writer.tag(15, runtime_2.WireType.Varint).uint32(message.addProgress);
@@ -641,7 +657,7 @@ exports.PushTipsData = new PushTipsData$Type();
 class PushTipsAllDataNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.PushTipsAllDataNotify", [
-            { no: 4, name: "push_tips_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.PushTipsData }
+            { no: 4, name: "push_tips_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.PushTipsData }
         ]);
     }
     create(value) {
@@ -688,7 +704,7 @@ exports.PushTipsAllDataNotify = new PushTipsAllDataNotify$Type();
 class PushTipsChangeNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.PushTipsChangeNotify", [
-            { no: 9, name: "push_tips_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.PushTipsData }
+            { no: 9, name: "push_tips_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.PushTipsData }
         ]);
     }
     create(value) {
@@ -836,7 +852,7 @@ exports.PushTipsReadFinishRsp = new PushTipsReadFinishRsp$Type();
 class GetPushTipsRewardReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GetPushTipsRewardReq", [
-            { no: 4, name: "push_tips_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 4, name: "push_tips_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -871,8 +887,12 @@ class GetPushTipsRewardReq$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 push_tips_id_list = 4; */
-        for (let i = 0; i < message.pushTipsIdList.length; i++)
-            writer.tag(4, runtime_2.WireType.Varint).uint32(message.pushTipsIdList[i]);
+        if (message.pushTipsIdList.length) {
+            writer.tag(4, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.pushTipsIdList.length; i++)
+                writer.uint32(message.pushTipsIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -888,7 +908,7 @@ class GetPushTipsRewardRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GetPushTipsRewardRsp", [
             { no: 10, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 9, name: "push_tips_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 9, name: "push_tips_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -929,8 +949,12 @@ class GetPushTipsRewardRsp$Type extends runtime_5.MessageType {
         if (message.retcode !== undefined)
             writer.tag(10, runtime_2.WireType.Varint).int32(message.retcode);
         /* repeated uint32 push_tips_id_list = 9; */
-        for (let i = 0; i < message.pushTipsIdList.length; i++)
-            writer.tag(9, runtime_2.WireType.Varint).uint32(message.pushTipsIdList[i]);
+        if (message.pushTipsIdList.length) {
+            writer.tag(9, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.pushTipsIdList.length; i++)
+                writer.uint32(message.pushTipsIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);

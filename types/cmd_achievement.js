@@ -248,8 +248,8 @@ exports.Achievement = new Achievement$Type();
 class AchievementAllDataNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.AchievementAllDataNotify", [
-            { no: 4, name: "achievement_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.Achievement },
-            { no: 2, name: "reward_taken_goal_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 4, name: "achievement_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.Achievement },
+            { no: 2, name: "reward_taken_goal_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -290,8 +290,12 @@ class AchievementAllDataNotify$Type extends runtime_5.MessageType {
         for (let i = 0; i < message.achievementList.length; i++)
             exports.Achievement.internalBinaryWrite(message.achievementList[i], writer.tag(4, runtime_1.WireType.LengthDelimited).fork(), options).join();
         /* repeated uint32 reward_taken_goal_id_list = 2; */
-        for (let i = 0; i < message.rewardTakenGoalIdList.length; i++)
-            writer.tag(2, runtime_1.WireType.Varint).uint32(message.rewardTakenGoalIdList[i]);
+        if (message.rewardTakenGoalIdList.length) {
+            writer.tag(2, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.rewardTakenGoalIdList.length; i++)
+                writer.uint32(message.rewardTakenGoalIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -306,7 +310,7 @@ exports.AchievementAllDataNotify = new AchievementAllDataNotify$Type();
 class AchievementUpdateNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.AchievementUpdateNotify", [
-            { no: 14, name: "achievement_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.Achievement }
+            { no: 14, name: "achievement_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.Achievement }
         ]);
     }
     create(value) {
@@ -353,7 +357,7 @@ exports.AchievementUpdateNotify = new AchievementUpdateNotify$Type();
 class TakeAchievementRewardReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.TakeAchievementRewardReq", [
-            { no: 13, name: "id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 13, name: "id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -388,8 +392,12 @@ class TakeAchievementRewardReq$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 id_list = 13; */
-        for (let i = 0; i < message.idList.length; i++)
-            writer.tag(13, runtime_1.WireType.Varint).uint32(message.idList[i]);
+        if (message.idList.length) {
+            writer.tag(13, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.idList.length; i++)
+                writer.uint32(message.idList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -404,8 +412,8 @@ exports.TakeAchievementRewardReq = new TakeAchievementRewardReq$Type();
 class TakeAchievementRewardRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.TakeAchievementRewardRsp", [
-            { no: 7, name: "id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 10, name: "item_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_1.ItemParam },
+            { no: 7, name: "id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 10, name: "item_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_1.ItemParam },
             { no: 1, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
         ]);
     }
@@ -447,8 +455,12 @@ class TakeAchievementRewardRsp$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 id_list = 7; */
-        for (let i = 0; i < message.idList.length; i++)
-            writer.tag(7, runtime_1.WireType.Varint).uint32(message.idList[i]);
+        if (message.idList.length) {
+            writer.tag(7, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.idList.length; i++)
+                writer.uint32(message.idList[i]);
+            writer.join();
+        }
         /* repeated com.midnights.game.ItemParam item_list = 10; */
         for (let i = 0; i < message.itemList.length; i++)
             define_1.ItemParam.internalBinaryWrite(message.itemList[i], writer.tag(10, runtime_1.WireType.LengthDelimited).fork(), options).join();
@@ -469,7 +481,7 @@ exports.TakeAchievementRewardRsp = new TakeAchievementRewardRsp$Type();
 class TakeAchievementGoalRewardReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.TakeAchievementGoalRewardReq", [
-            { no: 5, name: "id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 5, name: "id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -504,8 +516,12 @@ class TakeAchievementGoalRewardReq$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 id_list = 5; */
-        for (let i = 0; i < message.idList.length; i++)
-            writer.tag(5, runtime_1.WireType.Varint).uint32(message.idList[i]);
+        if (message.idList.length) {
+            writer.tag(5, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.idList.length; i++)
+                writer.uint32(message.idList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -521,8 +537,8 @@ class TakeAchievementGoalRewardRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.TakeAchievementGoalRewardRsp", [
             { no: 15, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 12, name: "id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 5, name: "item_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_1.ItemParam }
+            { no: 12, name: "id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 5, name: "item_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_1.ItemParam }
         ]);
     }
     create(value) {
@@ -566,8 +582,12 @@ class TakeAchievementGoalRewardRsp$Type extends runtime_5.MessageType {
         if (message.retcode !== undefined)
             writer.tag(15, runtime_1.WireType.Varint).int32(message.retcode);
         /* repeated uint32 id_list = 12; */
-        for (let i = 0; i < message.idList.length; i++)
-            writer.tag(12, runtime_1.WireType.Varint).uint32(message.idList[i]);
+        if (message.idList.length) {
+            writer.tag(12, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.idList.length; i++)
+                writer.uint32(message.idList[i]);
+            writer.join();
+        }
         /* repeated com.midnights.game.ItemParam item_list = 5; */
         for (let i = 0; i < message.itemList.length; i++)
             define_1.ItemParam.internalBinaryWrite(message.itemList[i], writer.tag(5, runtime_1.WireType.LengthDelimited).fork(), options).join();

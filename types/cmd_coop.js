@@ -694,7 +694,7 @@ class MainCoop$Type extends runtime_5.MessageType {
             { no: 13, name: "seen_ending_map", kind: "map", K: 13 /*ScalarType.UINT32*/, V: { kind: "scalar", T: 13 /*ScalarType.UINT32*/ } },
             { no: 4, name: "normal_var_map", kind: "map", K: 13 /*ScalarType.UINT32*/, V: { kind: "scalar", T: 5 /*ScalarType.INT32*/ } },
             { no: 5, name: "self_confidence", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 1, name: "save_point_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 1, name: "save_point_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 6, name: "status", kind: "enum", opt: true, T: () => ["com.midnights.game.MainCoop.Status", MainCoop_Status] },
             { no: 11, name: "temp_var_map", kind: "map", K: 13 /*ScalarType.UINT32*/, V: { kind: "scalar", T: 5 /*ScalarType.INT32*/ } },
             { no: 9, name: "id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
@@ -807,8 +807,12 @@ class MainCoop$Type extends runtime_5.MessageType {
         if (message.selfConfidence !== undefined)
             writer.tag(5, runtime_2.WireType.Varint).uint32(message.selfConfidence);
         /* repeated uint32 save_point_id_list = 1; */
-        for (let i = 0; i < message.savePointIdList.length; i++)
-            writer.tag(1, runtime_2.WireType.Varint).uint32(message.savePointIdList[i]);
+        if (message.savePointIdList.length) {
+            writer.tag(1, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.savePointIdList.length; i++)
+                writer.uint32(message.savePointIdList[i]);
+            writer.join();
+        }
         /* optional com.midnights.game.MainCoop.Status status = 6; */
         if (message.status !== undefined)
             writer.tag(6, runtime_2.WireType.Varint).int32(message.status);
@@ -832,7 +836,7 @@ exports.MainCoop = new MainCoop$Type();
 class AllCoopInfoNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.AllCoopInfoNotify", [
-            { no: 14, name: "main_coop_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.MainCoop }
+            { no: 14, name: "main_coop_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.MainCoop }
         ]);
     }
     create(value) {
@@ -879,7 +883,7 @@ exports.AllCoopInfoNotify = new AllCoopInfoNotify$Type();
 class MainCoopUpdateNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.MainCoopUpdateNotify", [
-            { no: 5, name: "main_coop_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.MainCoop }
+            { no: 5, name: "main_coop_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.MainCoop }
         ]);
     }
     create(value) {
@@ -1034,7 +1038,7 @@ class SaveMainCoopRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.SaveMainCoopRsp", [
             { no: 2, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 15, name: "save_point_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 15, name: "save_point_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 14, name: "id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -1079,8 +1083,12 @@ class SaveMainCoopRsp$Type extends runtime_5.MessageType {
         if (message.retcode !== undefined)
             writer.tag(2, runtime_2.WireType.Varint).int32(message.retcode);
         /* repeated uint32 save_point_id_list = 15; */
-        for (let i = 0; i < message.savePointIdList.length; i++)
-            writer.tag(15, runtime_2.WireType.Varint).uint32(message.savePointIdList[i]);
+        if (message.savePointIdList.length) {
+            writer.tag(15, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.savePointIdList.length; i++)
+                writer.uint32(message.savePointIdList[i]);
+            writer.join();
+        }
         /* optional uint32 id = 14; */
         if (message.id !== undefined)
             writer.tag(14, runtime_2.WireType.Varint).uint32(message.id);
@@ -1382,14 +1390,14 @@ exports.CoopCg = new CoopCg$Type();
 class CoopChapter$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.CoopChapter", [
-            { no: 1, name: "coop_cg_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.CoopCg },
+            { no: 1, name: "coop_cg_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.CoopCg },
             { no: 2, name: "id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 11, name: "coop_point_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.CoopPoint },
-            { no: 10, name: "finish_dialog_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 11, name: "coop_point_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.CoopPoint },
+            { no: 10, name: "finish_dialog_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 14, name: "finished_end_count", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 7, name: "total_end_count", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 5, name: "coop_reward_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.CoopReward },
-            { no: 12, name: "lock_reason_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 5, name: "coop_reward_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.CoopReward },
+            { no: 12, name: "lock_reason_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 4, name: "state", kind: "enum", opt: true, T: () => ["com.midnights.game.CoopChapter.State", CoopChapter_State, "STATE_"] },
             { no: 9, name: "seen_ending_map", kind: "map", K: 13 /*ScalarType.UINT32*/, V: { kind: "scalar", T: 13 /*ScalarType.UINT32*/ } }
         ]);
@@ -1482,8 +1490,12 @@ class CoopChapter$Type extends runtime_5.MessageType {
         for (let i = 0; i < message.coopPointList.length; i++)
             exports.CoopPoint.internalBinaryWrite(message.coopPointList[i], writer.tag(11, runtime_2.WireType.LengthDelimited).fork(), options).join();
         /* repeated uint32 finish_dialog_list = 10; */
-        for (let i = 0; i < message.finishDialogList.length; i++)
-            writer.tag(10, runtime_2.WireType.Varint).uint32(message.finishDialogList[i]);
+        if (message.finishDialogList.length) {
+            writer.tag(10, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.finishDialogList.length; i++)
+                writer.uint32(message.finishDialogList[i]);
+            writer.join();
+        }
         /* optional uint32 finished_end_count = 14; */
         if (message.finishedEndCount !== undefined)
             writer.tag(14, runtime_2.WireType.Varint).uint32(message.finishedEndCount);
@@ -1494,8 +1506,12 @@ class CoopChapter$Type extends runtime_5.MessageType {
         for (let i = 0; i < message.coopRewardList.length; i++)
             exports.CoopReward.internalBinaryWrite(message.coopRewardList[i], writer.tag(5, runtime_2.WireType.LengthDelimited).fork(), options).join();
         /* repeated uint32 lock_reason_list = 12; */
-        for (let i = 0; i < message.lockReasonList.length; i++)
-            writer.tag(12, runtime_2.WireType.Varint).uint32(message.lockReasonList[i]);
+        if (message.lockReasonList.length) {
+            writer.tag(12, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.lockReasonList.length; i++)
+                writer.uint32(message.lockReasonList[i]);
+            writer.join();
+        }
         /* optional com.midnights.game.CoopChapter.State state = 4; */
         if (message.state !== undefined)
             writer.tag(4, runtime_2.WireType.Varint).int32(message.state);
@@ -1516,8 +1532,8 @@ exports.CoopChapter = new CoopChapter$Type();
 class CoopDataNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.CoopDataNotify", [
-            { no: 15, name: "chapter_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.CoopChapter },
-            { no: 7, name: "viewed_chapter_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 15, name: "chapter_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.CoopChapter },
+            { no: 7, name: "viewed_chapter_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 10, name: "is_have_progress", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 5, name: "cur_coop_point", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
@@ -1566,8 +1582,12 @@ class CoopDataNotify$Type extends runtime_5.MessageType {
         for (let i = 0; i < message.chapterList.length; i++)
             exports.CoopChapter.internalBinaryWrite(message.chapterList[i], writer.tag(15, runtime_2.WireType.LengthDelimited).fork(), options).join();
         /* repeated uint32 viewed_chapter_list = 7; */
-        for (let i = 0; i < message.viewedChapterList.length; i++)
-            writer.tag(7, runtime_2.WireType.Varint).uint32(message.viewedChapterList[i]);
+        if (message.viewedChapterList.length) {
+            writer.tag(7, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.viewedChapterList.length; i++)
+                writer.uint32(message.viewedChapterList[i]);
+            writer.join();
+        }
         /* optional bool is_have_progress = 10; */
         if (message.isHaveProgress !== undefined)
             writer.tag(10, runtime_2.WireType.Varint).bool(message.isHaveProgress);
@@ -1588,7 +1608,7 @@ exports.CoopDataNotify = new CoopDataNotify$Type();
 class CoopChapterUpdateNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.CoopChapterUpdateNotify", [
-            { no: 14, name: "chapter_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.CoopChapter }
+            { no: 14, name: "chapter_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.CoopChapter }
         ]);
     }
     create(value) {
@@ -1635,7 +1655,7 @@ exports.CoopChapterUpdateNotify = new CoopChapterUpdateNotify$Type();
 class CoopCgUpdateNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.CoopCgUpdateNotify", [
-            { no: 13, name: "cg_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 13, name: "cg_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -1670,8 +1690,12 @@ class CoopCgUpdateNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 cg_list = 13; */
-        for (let i = 0; i < message.cgList.length; i++)
-            writer.tag(13, runtime_2.WireType.Varint).uint32(message.cgList[i]);
+        if (message.cgList.length) {
+            writer.tag(13, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.cgList.length; i++)
+                writer.uint32(message.cgList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -1686,7 +1710,7 @@ exports.CoopCgUpdateNotify = new CoopCgUpdateNotify$Type();
 class CoopRewardUpdateNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.CoopRewardUpdateNotify", [
-            { no: 7, name: "reward_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.CoopReward }
+            { no: 7, name: "reward_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.CoopReward }
         ]);
     }
     create(value) {
@@ -2367,7 +2391,7 @@ exports.SaveCoopDialogRsp = new SaveCoopDialogRsp$Type();
 class CoopCgShowNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.CoopCgShowNotify", [
-            { no: 10, name: "cg_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 10, name: "cg_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -2402,8 +2426,12 @@ class CoopCgShowNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 cg_list = 10; */
-        for (let i = 0; i < message.cgList.length; i++)
-            writer.tag(10, runtime_2.WireType.Varint).uint32(message.cgList[i]);
+        if (message.cgList.length) {
+            writer.tag(10, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.cgList.length; i++)
+                writer.uint32(message.cgList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);

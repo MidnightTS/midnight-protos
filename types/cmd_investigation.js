@@ -523,8 +523,8 @@ exports.InvestigationTarget = new InvestigationTarget$Type();
 class PlayerInvestigationAllInfoNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.PlayerInvestigationAllInfoNotify", [
-            { no: 15, name: "investigation_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.Investigation },
-            { no: 12, name: "investigation_target_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.InvestigationTarget }
+            { no: 15, name: "investigation_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.Investigation },
+            { no: 12, name: "investigation_target_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.InvestigationTarget }
         ]);
     }
     create(value) {
@@ -779,7 +779,7 @@ exports.TakeInvestigationTargetRewardRsp = new TakeInvestigationTargetRewardRsp$
 class GetInvestigationMonsterReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GetInvestigationMonsterReq", [
-            { no: 3, name: "city_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 3, name: "city_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 4, name: "is_for_mark", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ }
         ]);
     }
@@ -818,8 +818,12 @@ class GetInvestigationMonsterReq$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 city_id_list = 3; */
-        for (let i = 0; i < message.cityIdList.length; i++)
-            writer.tag(3, runtime_1.WireType.Varint).uint32(message.cityIdList[i]);
+        if (message.cityIdList.length) {
+            writer.tag(3, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.cityIdList.length; i++)
+                writer.uint32(message.cityIdList[i]);
+            writer.join();
+        }
         /* optional bool is_for_mark = 4; */
         if (message.isForMark !== undefined)
             writer.tag(4, runtime_1.WireType.Varint).bool(message.isForMark);
@@ -996,7 +1000,7 @@ exports.InvestigationMonster = new InvestigationMonster$Type();
 class GetInvestigationMonsterRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GetInvestigationMonsterRsp", [
-            { no: 10, name: "monster_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.InvestigationMonster },
+            { no: 10, name: "monster_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.InvestigationMonster },
             { no: 1, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
             { no: 2, name: "is_for_mark", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ }
         ]);
@@ -1057,7 +1061,7 @@ exports.GetInvestigationMonsterRsp = new GetInvestigationMonsterRsp$Type();
 class PlayerInvestigationNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.PlayerInvestigationNotify", [
-            { no: 1, name: "investigation_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.Investigation }
+            { no: 1, name: "investigation_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.Investigation }
         ]);
     }
     create(value) {
@@ -1104,7 +1108,7 @@ exports.PlayerInvestigationNotify = new PlayerInvestigationNotify$Type();
 class PlayerInvestigationTargetNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.PlayerInvestigationTargetNotify", [
-            { no: 1, name: "investigation_target_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.InvestigationTarget }
+            { no: 1, name: "investigation_target_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.InvestigationTarget }
         ]);
     }
     create(value) {

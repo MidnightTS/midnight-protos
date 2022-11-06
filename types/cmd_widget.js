@@ -1294,7 +1294,7 @@ exports.AnchorPointData = new AnchorPointData$Type();
 class AnchorPointDataNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.AnchorPointDataNotify", [
-            { no: 10, name: "anchor_point_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.AnchorPointData },
+            { no: 10, name: "anchor_point_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.AnchorPointData },
             { no: 14, name: "next_usable_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -1780,7 +1780,7 @@ class TreasureMapDetectorData$Type extends runtime_5.MessageType {
             { no: 4, name: "region_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 7, name: "center_pos", kind: "message", T: () => define_1.Vector },
             { no: 6, name: "is_region_detected", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 10, name: "spot_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_1.Vector },
+            { no: 10, name: "spot_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_1.Vector },
             { no: 14, name: "radius", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -2021,7 +2021,7 @@ exports.WidgetCameraInfo = new WidgetCameraInfo$Type();
 class WidgetThunderBirdFeatherInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.WidgetThunderBirdFeatherInfo", [
-            { no: 4, name: "entity_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 4, name: "entity_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -2056,8 +2056,12 @@ class WidgetThunderBirdFeatherInfo$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 entity_id_list = 4; */
-        for (let i = 0; i < message.entityIdList.length; i++)
-            writer.tag(4, runtime_1.WireType.Varint).uint32(message.entityIdList[i]);
+        if (message.entityIdList.length) {
+            writer.tag(4, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.entityIdList.length; i++)
+                writer.uint32(message.entityIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -2297,8 +2301,8 @@ exports.WidgetCoolDownData = new WidgetCoolDownData$Type();
 class WidgetCoolDownNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.WidgetCoolDownNotify", [
-            { no: 1, name: "normal_cool_down_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.WidgetCoolDownData },
-            { no: 12, name: "group_cool_down_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.WidgetCoolDownData }
+            { no: 1, name: "normal_cool_down_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.WidgetCoolDownData },
+            { no: 12, name: "group_cool_down_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.WidgetCoolDownData }
         ]);
     }
     create(value) {
@@ -2473,7 +2477,7 @@ exports.WidgetReportRsp = new WidgetReportRsp$Type();
 class ClientCollectorDataNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ClientCollectorDataNotify", [
-            { no: 13, name: "client_collector_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ClientCollectorData }
+            { no: 13, name: "client_collector_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ClientCollectorData }
         ]);
     }
     create(value) {
@@ -2520,7 +2524,7 @@ exports.ClientCollectorDataNotify = new ClientCollectorDataNotify$Type();
 class OneoffGatherPointDetectorDataNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.OneoffGatherPointDetectorDataNotify", [
-            { no: 3, name: "oneoff_gather_point_detector_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.OneoffGatherPointDetectorData }
+            { no: 3, name: "oneoff_gather_point_detector_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.OneoffGatherPointDetectorData }
         ]);
     }
     create(value) {
@@ -2729,7 +2733,7 @@ exports.WidgetSlotData = new WidgetSlotData$Type();
 class SetWidgetSlotReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.SetWidgetSlotReq", [
-            { no: 15, name: "tag_list", kind: "enum", repeat: 2 /*RepeatType.UNPACKED*/, T: () => ["com.midnights.game.WidgetSlotTag", WidgetSlotTag] },
+            { no: 15, name: "tag_list", kind: "enum", repeat: 1 /*RepeatType.PACKED*/, T: () => ["com.midnights.game.WidgetSlotTag", WidgetSlotTag] },
             { no: 6, name: "material_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 2, name: "op", kind: "enum", opt: true, T: () => ["com.midnights.game.WidgetSlotOp", WidgetSlotOp, "WIDGET_SLOT_OP_"] }
         ]);
@@ -2772,8 +2776,12 @@ class SetWidgetSlotReq$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated com.midnights.game.WidgetSlotTag tag_list = 15; */
-        for (let i = 0; i < message.tagList.length; i++)
-            writer.tag(15, runtime_1.WireType.Varint).int32(message.tagList[i]);
+        if (message.tagList.length) {
+            writer.tag(15, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.tagList.length; i++)
+                writer.int32(message.tagList[i]);
+            writer.join();
+        }
         /* optional uint32 material_id = 6; */
         if (message.materialId !== undefined)
             writer.tag(6, runtime_1.WireType.Varint).uint32(message.materialId);
@@ -2794,7 +2802,7 @@ exports.SetWidgetSlotReq = new SetWidgetSlotReq$Type();
 class SetWidgetSlotRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.SetWidgetSlotRsp", [
-            { no: 15, name: "tag_list", kind: "enum", repeat: 2 /*RepeatType.UNPACKED*/, T: () => ["com.midnights.game.WidgetSlotTag", WidgetSlotTag] },
+            { no: 15, name: "tag_list", kind: "enum", repeat: 1 /*RepeatType.PACKED*/, T: () => ["com.midnights.game.WidgetSlotTag", WidgetSlotTag] },
             { no: 6, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
             { no: 1, name: "material_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 4, name: "op", kind: "enum", opt: true, T: () => ["com.midnights.game.WidgetSlotOp", WidgetSlotOp, "WIDGET_SLOT_OP_"] }
@@ -2841,8 +2849,12 @@ class SetWidgetSlotRsp$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated com.midnights.game.WidgetSlotTag tag_list = 15; */
-        for (let i = 0; i < message.tagList.length; i++)
-            writer.tag(15, runtime_1.WireType.Varint).int32(message.tagList[i]);
+        if (message.tagList.length) {
+            writer.tag(15, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.tagList.length; i++)
+                writer.int32(message.tagList[i]);
+            writer.join();
+        }
         /* optional int32 retcode = 6; */
         if (message.retcode !== undefined)
             writer.tag(6, runtime_1.WireType.Varint).int32(message.retcode);
@@ -2946,7 +2958,7 @@ exports.GetWidgetSlotReq = new GetWidgetSlotReq$Type();
 class GetWidgetSlotRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GetWidgetSlotRsp", [
-            { no: 13, name: "slot_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.WidgetSlotData },
+            { no: 13, name: "slot_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.WidgetSlotData },
             { no: 9, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
         ]);
     }
@@ -3000,15 +3012,15 @@ exports.GetWidgetSlotRsp = new GetWidgetSlotRsp$Type();
 class AllWidgetDataNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.AllWidgetDataNotify", [
-            { no: 11, name: "background_active_widget_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 11, name: "background_active_widget_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 1, name: "lunch_box_data", kind: "message", T: () => exports.LunchBoxData },
-            { no: 13, name: "cool_down_group_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.WidgetCoolDownData },
-            { no: 3, name: "anchor_point_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.AnchorPointData },
-            { no: 6, name: "slot_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.WidgetSlotData },
+            { no: 13, name: "cool_down_group_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.WidgetCoolDownData },
+            { no: 3, name: "anchor_point_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.AnchorPointData },
+            { no: 6, name: "slot_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.WidgetSlotData },
             { no: 10, name: "next_anchor_point_usable_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 4, name: "client_collector_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ClientCollectorData },
-            { no: 15, name: "oneoff_gather_point_detector_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.OneoffGatherPointDetectorData },
-            { no: 9, name: "normal_cool_down_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.WidgetCoolDownData },
+            { no: 4, name: "client_collector_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ClientCollectorData },
+            { no: 15, name: "oneoff_gather_point_detector_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.OneoffGatherPointDetectorData },
+            { no: 9, name: "normal_cool_down_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.WidgetCoolDownData },
             { no: 12, name: "sky_crystal_detector_data", kind: "message", T: () => exports.SkyCrystalDetectorData }
         ]);
     }
@@ -3071,8 +3083,12 @@ class AllWidgetDataNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 background_active_widget_list = 11; */
-        for (let i = 0; i < message.backgroundActiveWidgetList.length; i++)
-            writer.tag(11, runtime_1.WireType.Varint).uint32(message.backgroundActiveWidgetList[i]);
+        if (message.backgroundActiveWidgetList.length) {
+            writer.tag(11, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.backgroundActiveWidgetList.length; i++)
+                writer.uint32(message.backgroundActiveWidgetList[i]);
+            writer.join();
+        }
         /* optional com.midnights.game.LunchBoxData lunch_box_data = 1; */
         if (message.lunchBoxData)
             exports.LunchBoxData.internalBinaryWrite(message.lunchBoxData, writer.tag(1, runtime_1.WireType.LengthDelimited).fork(), options).join();
@@ -3330,7 +3346,7 @@ exports.UseWidgetRetractGadgetRsp = new UseWidgetRetractGadgetRsp$Type();
 class WidgetGadgetData$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.WidgetGadgetData", [
-            { no: 1, name: "gadget_entity_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 1, name: "gadget_entity_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "gadget_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -3369,8 +3385,12 @@ class WidgetGadgetData$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 gadget_entity_id_list = 1; */
-        for (let i = 0; i < message.gadgetEntityIdList.length; i++)
-            writer.tag(1, runtime_1.WireType.Varint).uint32(message.gadgetEntityIdList[i]);
+        if (message.gadgetEntityIdList.length) {
+            writer.tag(1, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.gadgetEntityIdList.length; i++)
+                writer.uint32(message.gadgetEntityIdList[i]);
+            writer.join();
+        }
         /* optional uint32 gadget_id = 8; */
         if (message.gadgetId !== undefined)
             writer.tag(8, runtime_1.WireType.Varint).uint32(message.gadgetId);
@@ -3388,7 +3408,7 @@ exports.WidgetGadgetData = new WidgetGadgetData$Type();
 class WidgetGadgetAllDataNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.WidgetGadgetAllDataNotify", [
-            { no: 13, name: "widget_gadget_data", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.WidgetGadgetData }
+            { no: 13, name: "widget_gadget_data", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.WidgetGadgetData }
         ]);
     }
     create(value) {
@@ -3765,7 +3785,7 @@ exports.WidgetDoBagRsp = new WidgetDoBagRsp$Type();
 class WidgetActiveChangeNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.WidgetActiveChangeNotify", [
-            { no: 5, name: "widget_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.WidgetSlotData }
+            { no: 5, name: "widget_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.WidgetSlotData }
         ]);
     }
     create(value) {
@@ -4186,7 +4206,7 @@ class FireworksReformData$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.FireworksReformData", [
             { no: 13, name: "id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 10, name: "reform_param_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.FireworksReformParam }
+            { no: 10, name: "reform_param_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.FireworksReformParam }
         ]);
     }
     create(value) {
@@ -4239,7 +4259,7 @@ exports.FireworksReformData = new FireworksReformData$Type();
 class FireworksReformDataNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.FireworksReformDataNotify", [
-            { no: 6, name: "fireworks_reform_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.FireworksReformData }
+            { no: 6, name: "fireworks_reform_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.FireworksReformData }
         ]);
     }
     create(value) {
@@ -4435,8 +4455,8 @@ class FireworksLaunchSchemeData$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.FireworksLaunchSchemeData", [
             { no: 3, name: "scheme_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 2, name: "fireworks_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 7, name: "launch_param_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.FireworksLaunchParam }
+            { no: 2, name: "fireworks_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 7, name: "launch_param_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.FireworksLaunchParam }
         ]);
     }
     create(value) {
@@ -4480,8 +4500,12 @@ class FireworksLaunchSchemeData$Type extends runtime_5.MessageType {
         if (message.schemeId !== undefined)
             writer.tag(3, runtime_1.WireType.Varint).uint32(message.schemeId);
         /* repeated uint32 fireworks_id_list = 2; */
-        for (let i = 0; i < message.fireworksIdList.length; i++)
-            writer.tag(2, runtime_1.WireType.Varint).uint32(message.fireworksIdList[i]);
+        if (message.fireworksIdList.length) {
+            writer.tag(2, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.fireworksIdList.length; i++)
+                writer.uint32(message.fireworksIdList[i]);
+            writer.join();
+        }
         /* repeated com.midnights.game.FireworksLaunchParam launch_param_list = 7; */
         for (let i = 0; i < message.launchParamList.length; i++)
             exports.FireworksLaunchParam.internalBinaryWrite(message.launchParamList[i], writer.tag(7, runtime_1.WireType.LengthDelimited).fork(), options).join();
@@ -4593,7 +4617,7 @@ exports.LaunchFireworksRsp = new LaunchFireworksRsp$Type();
 class FireworksLaunchDataNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.FireworksLaunchDataNotify", [
-            { no: 12, name: "scheme_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.FireworksLaunchSchemeData },
+            { no: 12, name: "scheme_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.FireworksLaunchSchemeData },
             { no: 4, name: "last_use_scheme_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -4755,7 +4779,7 @@ exports.ChangeWidgetBackgroundActiveStateRsp = new ChangeWidgetBackgroundActiveS
 class AllWidgetBackgroundActiveStateNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.AllWidgetBackgroundActiveStateNotify", [
-            { no: 3, name: "background_active_widget_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 3, name: "background_active_widget_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -4790,8 +4814,12 @@ class AllWidgetBackgroundActiveStateNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 background_active_widget_list = 3; */
-        for (let i = 0; i < message.backgroundActiveWidgetList.length; i++)
-            writer.tag(3, runtime_1.WireType.Varint).uint32(message.backgroundActiveWidgetList[i]);
+        if (message.backgroundActiveWidgetList.length) {
+            writer.tag(3, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.backgroundActiveWidgetList.length; i++)
+                writer.uint32(message.backgroundActiveWidgetList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -4807,7 +4835,7 @@ class PlayerWidgetInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.PlayerWidgetInfo", [
             { no: 14, name: "uid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 13, name: "slot_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.WidgetSlotData }
+            { no: 13, name: "slot_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.WidgetSlotData }
         ]);
     }
     create(value) {
@@ -4860,7 +4888,7 @@ exports.PlayerWidgetInfo = new PlayerWidgetInfo$Type();
 class RemotePlayerWidgetNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.RemotePlayerWidgetNotify", [
-            { no: 3, name: "player_widget_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.PlayerWidgetInfo }
+            { no: 3, name: "player_widget_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.PlayerWidgetInfo }
         ]);
     }
     create(value) {

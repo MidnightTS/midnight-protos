@@ -396,8 +396,8 @@ class CityReputationQuestInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.CityReputationQuestInfo", [
             { no: 2, name: "is_open", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 12, name: "taken_parent_quest_reward_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 7, name: "finished_parent_quest_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 12, name: "taken_parent_quest_reward_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 7, name: "finished_parent_quest_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -445,11 +445,19 @@ class CityReputationQuestInfo$Type extends runtime_5.MessageType {
         if (message.isOpen !== undefined)
             writer.tag(2, runtime_2.WireType.Varint).bool(message.isOpen);
         /* repeated uint32 taken_parent_quest_reward_list = 12; */
-        for (let i = 0; i < message.takenParentQuestRewardList.length; i++)
-            writer.tag(12, runtime_2.WireType.Varint).uint32(message.takenParentQuestRewardList[i]);
+        if (message.takenParentQuestRewardList.length) {
+            writer.tag(12, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.takenParentQuestRewardList.length; i++)
+                writer.uint32(message.takenParentQuestRewardList[i]);
+            writer.join();
+        }
         /* repeated uint32 finished_parent_quest_list = 7; */
-        for (let i = 0; i < message.finishedParentQuestList.length; i++)
-            writer.tag(7, runtime_2.WireType.Varint).uint32(message.finishedParentQuestList[i]);
+        if (message.finishedParentQuestList.length) {
+            writer.tag(7, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.finishedParentQuestList.length; i++)
+                writer.uint32(message.finishedParentQuestList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -465,7 +473,7 @@ class CityReputationRequestInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.CityReputationRequestInfo", [
             { no: 2, name: "is_open", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 1, name: "request_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.CityReputationRequestInfo_RequestInfo }
+            { no: 1, name: "request_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.CityReputationRequestInfo_RequestInfo }
         ]);
     }
     create(value) {
@@ -579,7 +587,7 @@ exports.CityReputationRequestInfo_RequestInfo = new CityReputationRequestInfo_Re
 class CityReputationExploreInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.CityReputationExploreInfo", [
-            { no: 2, name: "taken_explore_reward_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 2, name: "taken_explore_reward_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 14, name: "explore_percent", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 15, name: "is_open", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ }
         ]);
@@ -622,8 +630,12 @@ class CityReputationExploreInfo$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 taken_explore_reward_list = 2; */
-        for (let i = 0; i < message.takenExploreRewardList.length; i++)
-            writer.tag(2, runtime_2.WireType.Varint).uint32(message.takenExploreRewardList[i]);
+        if (message.takenExploreRewardList.length) {
+            writer.tag(2, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.takenExploreRewardList.length; i++)
+                writer.uint32(message.takenExploreRewardList[i]);
+            writer.join();
+        }
         /* optional uint32 explore_percent = 14; */
         if (message.explorePercent !== undefined)
             writer.tag(14, runtime_2.WireType.Varint).uint32(message.explorePercent);
@@ -708,7 +720,7 @@ class CityReputationInfo$Type extends runtime_5.MessageType {
             { no: 4, name: "level", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 3, name: "next_refresh_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 11, name: "hunt_info", kind: "message", T: () => exports.CityReputationHuntInfo },
-            { no: 2, name: "taken_level_reward_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 2, name: "taken_level_reward_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 6, name: "total_accept_request_num", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 5, name: "request_info", kind: "message", T: () => exports.CityReputationRequestInfo },
             { no: 9, name: "quest_info", kind: "message", T: () => exports.CityReputationQuestInfo },
@@ -781,8 +793,12 @@ class CityReputationInfo$Type extends runtime_5.MessageType {
         if (message.huntInfo)
             exports.CityReputationHuntInfo.internalBinaryWrite(message.huntInfo, writer.tag(11, runtime_2.WireType.LengthDelimited).fork(), options).join();
         /* repeated uint32 taken_level_reward_list = 2; */
-        for (let i = 0; i < message.takenLevelRewardList.length; i++)
-            writer.tag(2, runtime_2.WireType.Varint).uint32(message.takenLevelRewardList[i]);
+        if (message.takenLevelRewardList.length) {
+            writer.tag(2, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.takenLevelRewardList.length; i++)
+                writer.uint32(message.takenLevelRewardList[i]);
+            writer.join();
+        }
         /* optional uint32 total_accept_request_num = 6; */
         if (message.totalAcceptRequestNum !== undefined)
             writer.tag(6, runtime_2.WireType.Varint).uint32(message.totalAcceptRequestNum);
@@ -976,7 +992,7 @@ class TakeCityReputationLevelRewardRsp$Type extends runtime_5.MessageType {
         super("com.midnights.game.TakeCityReputationLevelRewardRsp", [
             { no: 15, name: "city_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 11, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 13, name: "item_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_1.ItemParam },
+            { no: 13, name: "item_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_1.ItemParam },
             { no: 9, name: "level", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -1097,7 +1113,7 @@ class TakeCityReputationParentQuestReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.TakeCityReputationParentQuestReq", [
             { no: 1, name: "city_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 6, name: "parent_quest_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 6, name: "parent_quest_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -1138,8 +1154,12 @@ class TakeCityReputationParentQuestReq$Type extends runtime_5.MessageType {
         if (message.cityId !== undefined)
             writer.tag(1, runtime_2.WireType.Varint).uint32(message.cityId);
         /* repeated uint32 parent_quest_list = 6; */
-        for (let i = 0; i < message.parentQuestList.length; i++)
-            writer.tag(6, runtime_2.WireType.Varint).uint32(message.parentQuestList[i]);
+        if (message.parentQuestList.length) {
+            writer.tag(6, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.parentQuestList.length; i++)
+                writer.uint32(message.parentQuestList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -1156,8 +1176,8 @@ class TakeCityReputationParentQuestRsp$Type extends runtime_5.MessageType {
         super("com.midnights.game.TakeCityReputationParentQuestRsp", [
             { no: 7, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
             { no: 14, name: "city_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 9, name: "parent_quest_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 13, name: "item_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_1.ItemParam }
+            { no: 9, name: "parent_quest_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 13, name: "item_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_1.ItemParam }
         ]);
     }
     create(value) {
@@ -1207,8 +1227,12 @@ class TakeCityReputationParentQuestRsp$Type extends runtime_5.MessageType {
         if (message.cityId !== undefined)
             writer.tag(14, runtime_2.WireType.Varint).uint32(message.cityId);
         /* repeated uint32 parent_quest_list = 9; */
-        for (let i = 0; i < message.parentQuestList.length; i++)
-            writer.tag(9, runtime_2.WireType.Varint).uint32(message.parentQuestList[i]);
+        if (message.parentQuestList.length) {
+            writer.tag(9, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.parentQuestList.length; i++)
+                writer.uint32(message.parentQuestList[i]);
+            writer.join();
+        }
         /* repeated com.midnights.game.ItemParam item_list = 13; */
         for (let i = 0; i < message.itemList.length; i++)
             define_1.ItemParam.internalBinaryWrite(message.itemList[i], writer.tag(13, runtime_2.WireType.LengthDelimited).fork(), options).join();
@@ -1485,8 +1509,8 @@ class GetCityReputationMapInfoRsp$Type extends runtime_5.MessageType {
             { no: 11, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
             { no: 10, name: "is_new_hunting", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 2, name: "is_new_request", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 9, name: "unlock_hunting_city_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 3, name: "reward_city_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 9, name: "unlock_hunting_city_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 3, name: "reward_city_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -1546,11 +1570,19 @@ class GetCityReputationMapInfoRsp$Type extends runtime_5.MessageType {
         if (message.isNewRequest !== undefined)
             writer.tag(2, runtime_2.WireType.Varint).bool(message.isNewRequest);
         /* repeated uint32 unlock_hunting_city_list = 9; */
-        for (let i = 0; i < message.unlockHuntingCityList.length; i++)
-            writer.tag(9, runtime_2.WireType.Varint).uint32(message.unlockHuntingCityList[i]);
+        if (message.unlockHuntingCityList.length) {
+            writer.tag(9, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.unlockHuntingCityList.length; i++)
+                writer.uint32(message.unlockHuntingCityList[i]);
+            writer.join();
+        }
         /* repeated uint32 reward_city_list = 3; */
-        for (let i = 0; i < message.rewardCityList.length; i++)
-            writer.tag(3, runtime_2.WireType.Varint).uint32(message.rewardCityList[i]);
+        if (message.rewardCityList.length) {
+            writer.tag(3, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.rewardCityList.length; i++)
+                writer.uint32(message.rewardCityList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -1566,7 +1598,7 @@ class TakeCityReputationExploreRewardReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.TakeCityReputationExploreRewardReq", [
             { no: 15, name: "city_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 12, name: "explore_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 12, name: "explore_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -1607,8 +1639,12 @@ class TakeCityReputationExploreRewardReq$Type extends runtime_5.MessageType {
         if (message.cityId !== undefined)
             writer.tag(15, runtime_2.WireType.Varint).uint32(message.cityId);
         /* repeated uint32 explore_id_list = 12; */
-        for (let i = 0; i < message.exploreIdList.length; i++)
-            writer.tag(12, runtime_2.WireType.Varint).uint32(message.exploreIdList[i]);
+        if (message.exploreIdList.length) {
+            writer.tag(12, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.exploreIdList.length; i++)
+                writer.uint32(message.exploreIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -1623,8 +1659,8 @@ exports.TakeCityReputationExploreRewardReq = new TakeCityReputationExploreReward
 class TakeCityReputationExploreRewardRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.TakeCityReputationExploreRewardRsp", [
-            { no: 8, name: "explore_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 12, name: "item_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_1.ItemParam },
+            { no: 8, name: "explore_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 12, name: "item_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_1.ItemParam },
             { no: 6, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
             { no: 13, name: "city_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
@@ -1670,8 +1706,12 @@ class TakeCityReputationExploreRewardRsp$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 explore_id_list = 8; */
-        for (let i = 0; i < message.exploreIdList.length; i++)
-            writer.tag(8, runtime_2.WireType.Varint).uint32(message.exploreIdList[i]);
+        if (message.exploreIdList.length) {
+            writer.tag(8, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.exploreIdList.length; i++)
+                writer.uint32(message.exploreIdList[i]);
+            writer.join();
+        }
         /* repeated com.midnights.game.ItemParam item_list = 12; */
         for (let i = 0; i < message.itemList.length; i++)
             define_1.ItemParam.internalBinaryWrite(message.itemList[i], writer.tag(12, runtime_2.WireType.LengthDelimited).fork(), options).join();
@@ -1749,7 +1789,7 @@ exports.CityReputationSimpleInfo = new CityReputationSimpleInfo$Type();
 class CityReputationDataNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.CityReputationDataNotify", [
-            { no: 7, name: "simple_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.CityReputationSimpleInfo }
+            { no: 7, name: "simple_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.CityReputationSimpleInfo }
         ]);
     }
     create(value) {

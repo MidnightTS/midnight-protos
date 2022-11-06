@@ -181,7 +181,7 @@ exports.GroupLinkBundle = new GroupLinkBundle$Type();
 class GroupLinkAllNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GroupLinkAllNotify", [
-            { no: 5, name: "bundle_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.GroupLinkBundle }
+            { no: 5, name: "bundle_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.GroupLinkBundle }
         ]);
     }
     create(value) {

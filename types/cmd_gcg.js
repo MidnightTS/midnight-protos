@@ -1811,10 +1811,10 @@ class GCGCostReviseInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GCGCostReviseInfo", [
             { no: 4, name: "is_can_attack", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 11, name: "can_use_hand_card_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 5, name: "play_card_cost_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.GCGPlayCardCostInfo },
-            { no: 10, name: "select_on_stage_cost_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.GCGSelectOnStageCostInfo },
-            { no: 2, name: "attack_cost_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.GCGAttackCostInfo }
+            { no: 11, name: "can_use_hand_card_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 5, name: "play_card_cost_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.GCGPlayCardCostInfo },
+            { no: 10, name: "select_on_stage_cost_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.GCGSelectOnStageCostInfo },
+            { no: 2, name: "attack_cost_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.GCGAttackCostInfo }
         ]);
     }
     create(value) {
@@ -1864,8 +1864,12 @@ class GCGCostReviseInfo$Type extends runtime_5.MessageType {
         if (message.isCanAttack !== undefined)
             writer.tag(4, runtime_1.WireType.Varint).bool(message.isCanAttack);
         /* repeated uint32 can_use_hand_card_id_list = 11; */
-        for (let i = 0; i < message.canUseHandCardIdList.length; i++)
-            writer.tag(11, runtime_1.WireType.Varint).uint32(message.canUseHandCardIdList[i]);
+        if (message.canUseHandCardIdList.length) {
+            writer.tag(11, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.canUseHandCardIdList.length; i++)
+                writer.uint32(message.canUseHandCardIdList[i]);
+            writer.join();
+        }
         /* repeated com.midnights.game.GCGPlayCardCostInfo play_card_cost_list = 5; */
         for (let i = 0; i < message.playCardCostList.length; i++)
             exports.GCGPlayCardCostInfo.internalBinaryWrite(message.playCardCostList[i], writer.tag(5, runtime_1.WireType.LengthDelimited).fork(), options).join();
@@ -2045,7 +2049,7 @@ class GCGMsgAddCards$Type extends runtime_5.MessageType {
             { no: 2, name: "zone", kind: "enum", opt: true, T: () => ["com.midnights.game.GCGZoneType", cmd_gcg_common_6.GCGZoneType] },
             { no: 15, name: "reason", kind: "enum", opt: true, T: () => ["com.midnights.game.GCGReason", cmd_gcg_common_8.GCGReason] },
             { no: 13, name: "controller_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 14, name: "card_guid_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 14, name: "card_guid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -2104,8 +2108,12 @@ class GCGMsgAddCards$Type extends runtime_5.MessageType {
         if (message.controllerId !== undefined)
             writer.tag(13, runtime_1.WireType.Varint).uint32(message.controllerId);
         /* repeated uint32 card_guid_list = 14; */
-        for (let i = 0; i < message.cardGuidList.length; i++)
-            writer.tag(14, runtime_1.WireType.Varint).uint32(message.cardGuidList[i]);
+        if (message.cardGuidList.length) {
+            writer.tag(14, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.cardGuidList.length; i++)
+                writer.uint32(message.cardGuidList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -2123,7 +2131,7 @@ class GCGMsgRemoveCards$Type extends runtime_5.MessageType {
             { no: 15, name: "controller_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 10, name: "zone", kind: "enum", opt: true, T: () => ["com.midnights.game.GCGZoneType", cmd_gcg_common_6.GCGZoneType] },
             { no: 5, name: "reason", kind: "enum", opt: true, T: () => ["com.midnights.game.GCGReason", cmd_gcg_common_8.GCGReason] },
-            { no: 1, name: "card_guid_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 1, name: "card_guid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -2176,8 +2184,12 @@ class GCGMsgRemoveCards$Type extends runtime_5.MessageType {
         if (message.reason !== undefined)
             writer.tag(5, runtime_1.WireType.Varint).int32(message.reason);
         /* repeated uint32 card_guid_list = 1; */
-        for (let i = 0; i < message.cardGuidList.length; i++)
-            writer.tag(1, runtime_1.WireType.Varint).uint32(message.cardGuidList[i]);
+        if (message.cardGuidList.length) {
+            writer.tag(1, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.cardGuidList.length; i++)
+                writer.uint32(message.cardGuidList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -2396,7 +2408,7 @@ exports.GCGMsgSelectOnStageByEffect = new GCGMsgSelectOnStageByEffect$Type();
 class GCGMsgDiceRoll$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GCGMsgDiceRoll", [
-            { no: 10, name: "dice_side_list", kind: "enum", repeat: 2 /*RepeatType.UNPACKED*/, T: () => ["com.midnights.game.GCGDiceSideType", cmd_gcg_common_5.GCGDiceSideType] },
+            { no: 10, name: "dice_side_list", kind: "enum", repeat: 1 /*RepeatType.PACKED*/, T: () => ["com.midnights.game.GCGDiceSideType", cmd_gcg_common_5.GCGDiceSideType] },
             { no: 15, name: "dice_num", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 5, name: "controller_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
@@ -2439,8 +2451,12 @@ class GCGMsgDiceRoll$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated com.midnights.game.GCGDiceSideType dice_side_list = 10; */
-        for (let i = 0; i < message.diceSideList.length; i++)
-            writer.tag(10, runtime_1.WireType.Varint).int32(message.diceSideList[i]);
+        if (message.diceSideList.length) {
+            writer.tag(10, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.diceSideList.length; i++)
+                writer.int32(message.diceSideList[i]);
+            writer.join();
+        }
         /* optional uint32 dice_num = 15; */
         if (message.diceNum !== undefined)
             writer.tag(15, runtime_1.WireType.Varint).uint32(message.diceNum);
@@ -2462,8 +2478,8 @@ class GCGMsgDiceReroll$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GCGMsgDiceReroll", [
             { no: 2, name: "controller_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 1, name: "select_dice_index_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 6, name: "dice_side_list", kind: "enum", repeat: 2 /*RepeatType.UNPACKED*/, T: () => ["com.midnights.game.GCGDiceSideType", cmd_gcg_common_5.GCGDiceSideType] }
+            { no: 1, name: "select_dice_index_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 6, name: "dice_side_list", kind: "enum", repeat: 1 /*RepeatType.PACKED*/, T: () => ["com.midnights.game.GCGDiceSideType", cmd_gcg_common_5.GCGDiceSideType] }
         ]);
     }
     create(value) {
@@ -2511,11 +2527,19 @@ class GCGMsgDiceReroll$Type extends runtime_5.MessageType {
         if (message.controllerId !== undefined)
             writer.tag(2, runtime_1.WireType.Varint).uint32(message.controllerId);
         /* repeated uint32 select_dice_index_list = 1; */
-        for (let i = 0; i < message.selectDiceIndexList.length; i++)
-            writer.tag(1, runtime_1.WireType.Varint).uint32(message.selectDiceIndexList[i]);
+        if (message.selectDiceIndexList.length) {
+            writer.tag(1, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.selectDiceIndexList.length; i++)
+                writer.uint32(message.selectDiceIndexList[i]);
+            writer.join();
+        }
         /* repeated com.midnights.game.GCGDiceSideType dice_side_list = 6; */
-        for (let i = 0; i < message.diceSideList.length; i++)
-            writer.tag(6, runtime_1.WireType.Varint).int32(message.diceSideList[i]);
+        if (message.diceSideList.length) {
+            writer.tag(6, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.diceSideList.length; i++)
+                writer.int32(message.diceSideList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -2795,7 +2819,7 @@ class GCGMsgSkillResult$Type extends runtime_5.MessageType {
         super("com.midnights.game.GCGMsgSkillResult", [
             { no: 12, name: "skill_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 14, name: "last_hp", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 2, name: "detail_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.GCGDamageDetail },
+            { no: 2, name: "detail_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.GCGDamageDetail },
             { no: 7, name: "target_card_guid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 5, name: "effect_element", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 15, name: "from_result_seq", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
@@ -2897,7 +2921,7 @@ class GCGMsgCostDice$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GCGMsgCostDice", [
             { no: 6, name: "controller_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 13, name: "select_dice_index_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 13, name: "select_dice_index_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 9, name: "reason", kind: "enum", opt: true, T: () => ["com.midnights.game.GCGReason", cmd_gcg_common_8.GCGReason] }
         ]);
     }
@@ -2942,8 +2966,12 @@ class GCGMsgCostDice$Type extends runtime_5.MessageType {
         if (message.controllerId !== undefined)
             writer.tag(6, runtime_1.WireType.Varint).uint32(message.controllerId);
         /* repeated uint32 select_dice_index_list = 13; */
-        for (let i = 0; i < message.selectDiceIndexList.length; i++)
-            writer.tag(13, runtime_1.WireType.Varint).uint32(message.selectDiceIndexList[i]);
+        if (message.selectDiceIndexList.length) {
+            writer.tag(13, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.selectDiceIndexList.length; i++)
+                writer.uint32(message.selectDiceIndexList[i]);
+            writer.join();
+        }
         /* optional com.midnights.game.GCGReason reason = 9; */
         if (message.reason !== undefined)
             writer.tag(9, runtime_1.WireType.Varint).int32(message.reason);
@@ -3157,7 +3185,7 @@ class GCGMsgModifyAdd$Type extends runtime_5.MessageType {
         super("com.midnights.game.GCGMsgModifyAdd", [
             { no: 9, name: "pos", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 10, name: "owner_card_guid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 15, name: "card_guid_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 15, name: "card_guid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 14, name: "controller_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 11, name: "reason", kind: "enum", opt: true, T: () => ["com.midnights.game.GCGReason", cmd_gcg_common_8.GCGReason] }
         ]);
@@ -3212,8 +3240,12 @@ class GCGMsgModifyAdd$Type extends runtime_5.MessageType {
         if (message.ownerCardGuid !== undefined)
             writer.tag(10, runtime_1.WireType.Varint).uint32(message.ownerCardGuid);
         /* repeated uint32 card_guid_list = 15; */
-        for (let i = 0; i < message.cardGuidList.length; i++)
-            writer.tag(15, runtime_1.WireType.Varint).uint32(message.cardGuidList[i]);
+        if (message.cardGuidList.length) {
+            writer.tag(15, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.cardGuidList.length; i++)
+                writer.uint32(message.cardGuidList[i]);
+            writer.join();
+        }
         /* optional uint32 controller_id = 14; */
         if (message.controllerId !== undefined)
             writer.tag(14, runtime_1.WireType.Varint).uint32(message.controllerId);
@@ -3237,7 +3269,7 @@ class GCGMsgModifyRemove$Type extends runtime_5.MessageType {
             { no: 14, name: "controller_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 12, name: "reason", kind: "enum", opt: true, T: () => ["com.midnights.game.GCGReason", cmd_gcg_common_8.GCGReason] },
             { no: 5, name: "owner_card_guid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 4, name: "card_guid_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 4, name: "card_guid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -3290,8 +3322,12 @@ class GCGMsgModifyRemove$Type extends runtime_5.MessageType {
         if (message.ownerCardGuid !== undefined)
             writer.tag(5, runtime_1.WireType.Varint).uint32(message.ownerCardGuid);
         /* repeated uint32 card_guid_list = 4; */
-        for (let i = 0; i < message.cardGuidList.length; i++)
-            writer.tag(4, runtime_1.WireType.Varint).uint32(message.cardGuidList[i]);
+        if (message.cardGuidList.length) {
+            writer.tag(4, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.cardGuidList.length; i++)
+                writer.uint32(message.cardGuidList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -3306,7 +3342,7 @@ exports.GCGMsgModifyRemove = new GCGMsgModifyRemove$Type();
 class GCGMsgPVEGenCardOp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GCGMsgPVEGenCardOp", [
-            { no: 1, name: "skill_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 1, name: "skill_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 11, name: "card_guid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -3345,8 +3381,12 @@ class GCGMsgPVEGenCardOp$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 skill_id_list = 1; */
-        for (let i = 0; i < message.skillIdList.length; i++)
-            writer.tag(1, runtime_1.WireType.Varint).uint32(message.skillIdList[i]);
+        if (message.skillIdList.length) {
+            writer.tag(1, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.skillIdList.length; i++)
+                writer.uint32(message.skillIdList[i]);
+            writer.join();
+        }
         /* optional uint32 card_guid = 11; */
         if (message.cardGuid !== undefined)
             writer.tag(11, runtime_1.WireType.Varint).uint32(message.cardGuid);
@@ -3465,7 +3505,7 @@ exports.GCGMsgDuelDataChange = new GCGMsgDuelDataChange$Type();
 class GCGMsgClientPerform$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GCGMsgClientPerform", [
-            { no: 2, name: "param_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 2, name: "param_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 5, name: "perform_type", kind: "enum", opt: true, T: () => ["com.midnights.game.GCGClientPerformType", cmd_gcg_common_4.GCGClientPerformType] }
         ]);
     }
@@ -3504,8 +3544,12 @@ class GCGMsgClientPerform$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 param_list = 2; */
-        for (let i = 0; i < message.paramList.length; i++)
-            writer.tag(2, runtime_1.WireType.Varint).uint32(message.paramList[i]);
+        if (message.paramList.length) {
+            writer.tag(2, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.paramList.length; i++)
+                writer.uint32(message.paramList[i]);
+            writer.join();
+        }
         /* optional com.midnights.game.GCGClientPerformType perform_type = 5; */
         if (message.performType !== undefined)
             writer.tag(5, runtime_1.WireType.Varint).int32(message.performType);
@@ -4131,7 +4175,7 @@ class GCGMessagePack$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GCGMessagePack", [
             { no: 10, name: "msg_seq", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 13, name: "msg_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.GCGMessage }
+            { no: 13, name: "msg_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.GCGMessage }
         ]);
     }
     create(value) {
@@ -4184,7 +4228,7 @@ exports.GCGMessagePack = new GCGMessagePack$Type();
 class GCGOperationRedraw$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GCGOperationRedraw", [
-            { no: 2, name: "card_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 2, name: "card_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -4219,8 +4263,12 @@ class GCGOperationRedraw$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 card_list = 2; */
-        for (let i = 0; i < message.cardList.length; i++)
-            writer.tag(2, runtime_1.WireType.Varint).uint32(message.cardList[i]);
+        if (message.cardList.length) {
+            writer.tag(2, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.cardList.length; i++)
+                writer.uint32(message.cardList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -4236,7 +4284,7 @@ class GCGOperationOnStageSelect$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GCGOperationOnStageSelect", [
             { no: 5, name: "card_guid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 4, name: "cost_dice_index_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 4, name: "cost_dice_index_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -4277,8 +4325,12 @@ class GCGOperationOnStageSelect$Type extends runtime_5.MessageType {
         if (message.cardGuid !== undefined)
             writer.tag(5, runtime_1.WireType.Varint).uint32(message.cardGuid);
         /* repeated uint32 cost_dice_index_list = 4; */
-        for (let i = 0; i < message.costDiceIndexList.length; i++)
-            writer.tag(4, runtime_1.WireType.Varint).uint32(message.costDiceIndexList[i]);
+        if (message.costDiceIndexList.length) {
+            writer.tag(4, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.costDiceIndexList.length; i++)
+                writer.uint32(message.costDiceIndexList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -4293,7 +4345,7 @@ exports.GCGOperationOnStageSelect = new GCGOperationOnStageSelect$Type();
 class GCGOperationReroll$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GCGOperationReroll", [
-            { no: 12, name: "dice_index_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 12, name: "dice_index_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -4328,8 +4380,12 @@ class GCGOperationReroll$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 dice_index_list = 12; */
-        for (let i = 0; i < message.diceIndexList.length; i++)
-            writer.tag(12, runtime_1.WireType.Varint).uint32(message.diceIndexList[i]);
+        if (message.diceIndexList.length) {
+            writer.tag(12, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.diceIndexList.length; i++)
+                writer.uint32(message.diceIndexList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -4344,7 +4400,7 @@ exports.GCGOperationReroll = new GCGOperationReroll$Type();
 class GCGOperationAttack$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GCGOperationAttack", [
-            { no: 8, name: "cost_dice_index_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 8, name: "cost_dice_index_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 2, name: "skill_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -4383,8 +4439,12 @@ class GCGOperationAttack$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 cost_dice_index_list = 8; */
-        for (let i = 0; i < message.costDiceIndexList.length; i++)
-            writer.tag(8, runtime_1.WireType.Varint).uint32(message.costDiceIndexList[i]);
+        if (message.costDiceIndexList.length) {
+            writer.tag(8, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.costDiceIndexList.length; i++)
+                writer.uint32(message.costDiceIndexList[i]);
+            writer.join();
+        }
         /* optional uint32 skill_id = 2; */
         if (message.skillId !== undefined)
             writer.tag(2, runtime_1.WireType.Varint).uint32(message.skillId);
@@ -4429,8 +4489,8 @@ class GCGOperationPlayCard$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GCGOperationPlayCard", [
             { no: 12, name: "card_guid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 4, name: "cost_dice_index_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 10, name: "target_card_guid_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 4, name: "cost_dice_index_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 10, name: "target_card_guid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -4478,11 +4538,19 @@ class GCGOperationPlayCard$Type extends runtime_5.MessageType {
         if (message.cardGuid !== undefined)
             writer.tag(12, runtime_1.WireType.Varint).uint32(message.cardGuid);
         /* repeated uint32 cost_dice_index_list = 4; */
-        for (let i = 0; i < message.costDiceIndexList.length; i++)
-            writer.tag(4, runtime_1.WireType.Varint).uint32(message.costDiceIndexList[i]);
+        if (message.costDiceIndexList.length) {
+            writer.tag(4, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.costDiceIndexList.length; i++)
+                writer.uint32(message.costDiceIndexList[i]);
+            writer.join();
+        }
         /* repeated uint32 target_card_guid_list = 10; */
-        for (let i = 0; i < message.targetCardGuidList.length; i++)
-            writer.tag(10, runtime_1.WireType.Varint).uint32(message.targetCardGuidList[i]);
+        if (message.targetCardGuidList.length) {
+            writer.tag(10, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.targetCardGuidList.length; i++)
+                writer.uint32(message.targetCardGuidList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -4497,8 +4565,8 @@ exports.GCGOperationPlayCard = new GCGOperationPlayCard$Type();
 class GCGOperationReboot$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GCGOperationReboot", [
-            { no: 7, name: "cost_card_guid_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 6, name: "dice_index_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 7, name: "cost_card_guid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 6, name: "dice_index_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -4540,11 +4608,19 @@ class GCGOperationReboot$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 cost_card_guid_list = 7; */
-        for (let i = 0; i < message.costCardGuidList.length; i++)
-            writer.tag(7, runtime_1.WireType.Varint).uint32(message.costCardGuidList[i]);
+        if (message.costCardGuidList.length) {
+            writer.tag(7, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.costCardGuidList.length; i++)
+                writer.uint32(message.costCardGuidList[i]);
+            writer.join();
+        }
         /* repeated uint32 dice_index_list = 6; */
-        for (let i = 0; i < message.diceIndexList.length; i++)
-            writer.tag(6, runtime_1.WireType.Varint).uint32(message.diceIndexList[i]);
+        if (message.diceIndexList.length) {
+            writer.tag(6, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.diceIndexList.length; i++)
+                writer.uint32(message.diceIndexList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -4761,7 +4837,7 @@ class GCGOperationReplay$Type extends runtime_5.MessageType {
         super("com.midnights.game.GCGOperationReplay", [
             { no: 1, name: "game_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 11, name: "seed", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 9, name: "operation_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.GCGOperationData }
+            { no: 9, name: "operation_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.GCGOperationData }
         ]);
     }
     create(value) {
@@ -4875,11 +4951,11 @@ class GCGCard$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GCGCard", [
             { no: 15, name: "guid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 2, name: "token_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.GCGToken },
+            { no: 2, name: "token_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.GCGToken },
             { no: 14, name: "is_show", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 7, name: "controller_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 6, name: "id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 3, name: "tag_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 3, name: "tag_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 5, name: "face_type", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -4948,8 +5024,12 @@ class GCGCard$Type extends runtime_5.MessageType {
         if (message.id !== undefined)
             writer.tag(6, runtime_1.WireType.Varint).uint32(message.id);
         /* repeated uint32 tag_list = 3; */
-        for (let i = 0; i < message.tagList.length; i++)
-            writer.tag(3, runtime_1.WireType.Varint).uint32(message.tagList[i]);
+        if (message.tagList.length) {
+            writer.tag(3, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.tagList.length; i++)
+                writer.uint32(message.tagList[i]);
+            writer.join();
+        }
         /* optional uint32 face_type = 5; */
         if (message.faceType !== undefined)
             writer.tag(5, runtime_1.WireType.Varint).uint32(message.faceType);
@@ -4967,7 +5047,7 @@ exports.GCGCard = new GCGCard$Type();
 class GCGZone$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GCGZone", [
-            { no: 4, name: "card_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 4, name: "card_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -5002,8 +5082,12 @@ class GCGZone$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 card_list = 4; */
-        for (let i = 0; i < message.cardList.length; i++)
-            writer.tag(4, runtime_1.WireType.Varint).uint32(message.cardList[i]);
+        if (message.cardList.length) {
+            writer.tag(4, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.cardList.length; i++)
+                writer.uint32(message.cardList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -5085,10 +5169,10 @@ class GCGPlayerField$Type extends runtime_5.MessageType {
             { no: 6, name: "on_stage_character_guid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 15, name: "assist_zone", kind: "message", T: () => exports.GCGZone },
             { no: 13, name: "deck_card_num", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 11, name: "dice_side_list", kind: "enum", repeat: 2 /*RepeatType.UNPACKED*/, T: () => ["com.midnights.game.GCGDiceSideType", cmd_gcg_common_5.GCGDiceSideType] },
+            { no: 11, name: "dice_side_list", kind: "enum", repeat: 1 /*RepeatType.PACKED*/, T: () => ["com.midnights.game.GCGDiceSideType", cmd_gcg_common_5.GCGDiceSideType] },
             { no: 9, name: "hand_zone", kind: "message", T: () => exports.GCGZone },
-            { no: 1192, name: "intention_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.GCGPVEIntention },
-            { no: 4, name: "waiting_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.GCGWaitingCharacter }
+            { no: 1192, name: "intention_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.GCGPVEIntention },
+            { no: 4, name: "waiting_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.GCGWaitingCharacter }
         ]);
     }
     create(value) {
@@ -5230,8 +5314,12 @@ class GCGPlayerField$Type extends runtime_5.MessageType {
         if (message.deckCardNum !== undefined)
             writer.tag(13, runtime_1.WireType.Varint).uint32(message.deckCardNum);
         /* repeated com.midnights.game.GCGDiceSideType dice_side_list = 11; */
-        for (let i = 0; i < message.diceSideList.length; i++)
-            writer.tag(11, runtime_1.WireType.Varint).int32(message.diceSideList[i]);
+        if (message.diceSideList.length) {
+            writer.tag(11, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.diceSideList.length; i++)
+                writer.int32(message.diceSideList[i]);
+            writer.join();
+        }
         /* optional com.midnights.game.GCGZone hand_zone = 9; */
         if (message.handZone)
             exports.GCGZone.internalBinaryWrite(message.handZone, writer.tag(9, runtime_1.WireType.LengthDelimited).fork(), options).join();
@@ -5387,7 +5475,7 @@ class GCGPVEIntention$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GCGPVEIntention", [
             { no: 9, name: "card_guid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 7, name: "skill_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 7, name: "skill_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -5428,8 +5516,12 @@ class GCGPVEIntention$Type extends runtime_5.MessageType {
         if (message.cardGuid !== undefined)
             writer.tag(9, runtime_1.WireType.Varint).uint32(message.cardGuid);
         /* repeated uint32 skill_id_list = 7; */
-        for (let i = 0; i < message.skillIdList.length; i++)
-            writer.tag(7, runtime_1.WireType.Varint).uint32(message.skillIdList[i]);
+        if (message.skillIdList.length) {
+            writer.tag(7, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.skillIdList.length; i++)
+                writer.uint32(message.skillIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -5506,18 +5598,18 @@ class GCGDuel$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GCGDuel", [
             { no: 3, name: "server_seq", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 7, name: "field_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.GCGPlayerField },
+            { no: 7, name: "field_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.GCGPlayerField },
             { no: 14, name: "business_type", kind: "enum", opt: true, T: () => ["com.midnights.game.GCGGameBusinessType", cmd_gcg_common_2.GCGGameBusinessType] },
-            { no: 5, name: "challenge_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.GCGDuelChallenge },
+            { no: 5, name: "challenge_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.GCGDuelChallenge },
             { no: 11, name: "game_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 13, name: "controller_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 15, name: "round", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 12, name: "cur_controller_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 1, name: "intetion_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.GCGPVEIntention },
+            { no: 1, name: "intetion_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.GCGPVEIntention },
             { no: 10, name: "cost_revise", kind: "message", T: () => exports.GCGCostReviseInfo },
-            { no: 4, name: "card_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 9, name: "card_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.GCGCard },
-            { no: 6, name: "show_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.GCGControllerShowInfo },
+            { no: 4, name: "card_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 9, name: "card_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.GCGCard },
+            { no: 6, name: "show_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.GCGControllerShowInfo },
             { no: 2, name: "game_type", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "phase", kind: "message", T: () => exports.GCGPhase }
         ]);
@@ -5626,8 +5718,12 @@ class GCGDuel$Type extends runtime_5.MessageType {
         if (message.costRevise)
             exports.GCGCostReviseInfo.internalBinaryWrite(message.costRevise, writer.tag(10, runtime_1.WireType.LengthDelimited).fork(), options).join();
         /* repeated uint32 card_id_list = 4; */
-        for (let i = 0; i < message.cardIdList.length; i++)
-            writer.tag(4, runtime_1.WireType.Varint).uint32(message.cardIdList[i]);
+        if (message.cardIdList.length) {
+            writer.tag(4, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.cardIdList.length; i++)
+                writer.uint32(message.cardIdList[i]);
+            writer.join();
+        }
         /* repeated com.midnights.game.GCGCard card_list = 9; */
         for (let i = 0; i < message.cardList.length; i++)
             exports.GCGCard.internalBinaryWrite(message.cardList[i], writer.tag(9, runtime_1.WireType.LengthDelimited).fork(), options).join();
@@ -5953,7 +6049,7 @@ class GCGPlayerBriefData$Type extends runtime_5.MessageType {
             { no: 8, name: "card_face_map", kind: "map", K: 13 /*ScalarType.UINT32*/, V: { kind: "scalar", T: 13 /*ScalarType.UINT32*/ } },
             { no: 9, name: "nick_name", kind: "scalar", opt: true, T: 9 /*ScalarType.STRING*/ },
             { no: 12, name: "profile_picture", kind: "message", T: () => define_2.ProfilePicture },
-            { no: 3, name: "card_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 3, name: "card_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 5, name: "controller_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 10, name: "uid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
@@ -6030,8 +6126,12 @@ class GCGPlayerBriefData$Type extends runtime_5.MessageType {
         if (message.profilePicture)
             define_2.ProfilePicture.internalBinaryWrite(message.profilePicture, writer.tag(12, runtime_1.WireType.LengthDelimited).fork(), options).join();
         /* repeated uint32 card_id_list = 3; */
-        for (let i = 0; i < message.cardIdList.length; i++)
-            writer.tag(3, runtime_1.WireType.Varint).uint32(message.cardIdList[i]);
+        if (message.cardIdList.length) {
+            writer.tag(3, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.cardIdList.length; i++)
+                writer.uint32(message.cardIdList[i]);
+            writer.join();
+        }
         /* optional uint32 controller_id = 5; */
         if (message.controllerId !== undefined)
             writer.tag(5, runtime_1.WireType.Varint).uint32(message.controllerId);
@@ -6056,7 +6156,7 @@ class GCGGameBriefData$Type extends runtime_5.MessageType {
             { no: 9, name: "game_uid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 13, name: "business_type", kind: "enum", opt: true, T: () => ["com.midnights.game.GCGGameBusinessType", cmd_gcg_common_2.GCGGameBusinessType] },
             { no: 5, name: "verify_code", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 12, name: "player_brief_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.GCGPlayerBriefData }
+            { no: 12, name: "player_brief_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.GCGPlayerBriefData }
         ]);
     }
     create(value) {
@@ -6402,9 +6502,9 @@ exports.GCGSkillPreviewReactionInfo = new GCGSkillPreviewReactionInfo$Type();
 class GCGSkillPreviewElementReactionInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GCGSkillPreviewElementReactionInfo", [
-            { no: 8, name: "fresh_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 2, name: "source_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 14, name: "reaction_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.GCGSkillPreviewReactionInfo }
+            { no: 8, name: "fresh_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 2, name: "source_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 14, name: "reaction_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.GCGSkillPreviewReactionInfo }
         ]);
     }
     create(value) {
@@ -6449,11 +6549,19 @@ class GCGSkillPreviewElementReactionInfo$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 fresh_list = 8; */
-        for (let i = 0; i < message.freshList.length; i++)
-            writer.tag(8, runtime_1.WireType.Varint).uint32(message.freshList[i]);
+        if (message.freshList.length) {
+            writer.tag(8, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.freshList.length; i++)
+                writer.uint32(message.freshList[i]);
+            writer.join();
+        }
         /* repeated uint32 source_list = 2; */
-        for (let i = 0; i < message.sourceList.length; i++)
-            writer.tag(2, runtime_1.WireType.Varint).uint32(message.sourceList[i]);
+        if (message.sourceList.length) {
+            writer.tag(2, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.sourceList.length; i++)
+                writer.uint32(message.sourceList[i]);
+            writer.join();
+        }
         /* repeated com.midnights.game.GCGSkillPreviewReactionInfo reaction_list = 14; */
         for (let i = 0; i < message.reactionList.length; i++)
             exports.GCGSkillPreviewReactionInfo.internalBinaryWrite(message.reactionList[i], writer.tag(14, runtime_1.WireType.LengthDelimited).fork(), options).join();
@@ -6661,7 +6769,7 @@ exports.GCGSkillPreviewTokenInfo = new GCGSkillPreviewTokenInfo$Type();
 class GCGSkillPreviewTokenChangeInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GCGSkillPreviewTokenChangeInfo", [
-            { no: 14, name: "token_change_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.GCGSkillPreviewTokenInfo }
+            { no: 14, name: "token_change_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.GCGSkillPreviewTokenInfo }
         ]);
     }
     create(value) {
@@ -6708,13 +6816,13 @@ exports.GCGSkillPreviewTokenChangeInfo = new GCGSkillPreviewTokenChangeInfo$Type
 class GCGSkillPreviewInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GCGSkillPreviewInfo", [
-            { no: 12, name: "rm_card_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.GCGSkillPreviewCardInfo },
+            { no: 12, name: "rm_card_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.GCGSkillPreviewCardInfo },
             { no: 8, name: "hp_info_map", kind: "map", K: 13 /*ScalarType.UINT32*/, V: { kind: "message", T: () => exports.GCGSkillPreviewHpInfo } },
             { no: 5, name: "reaction_info_map", kind: "map", K: 13 /*ScalarType.UINT32*/, V: { kind: "message", T: () => exports.GCGSkillPreviewElementReactionInfo } },
-            { no: 9, name: "change_onstage_character_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.GCGSkillPreviewOnstageChangeInfo },
+            { no: 9, name: "change_onstage_character_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.GCGSkillPreviewOnstageChangeInfo },
             { no: 6, name: "skill_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 3, name: "card_token_change_map", kind: "map", K: 13 /*ScalarType.UINT32*/, V: { kind: "message", T: () => exports.GCGSkillPreviewTokenChangeInfo } },
-            { no: 11, name: "add_card_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.GCGSkillPreviewCardInfo }
+            { no: 11, name: "add_card_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.GCGSkillPreviewCardInfo }
         ]);
     }
     create(value) {
@@ -6857,7 +6965,7 @@ exports.GCGSkillPreviewInfo = new GCGSkillPreviewInfo$Type();
 class GCGSkillPreviewNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GCGSkillPreviewNotify", [
-            { no: 9, name: "skill_preview_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.GCGSkillPreviewInfo },
+            { no: 9, name: "skill_preview_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.GCGSkillPreviewInfo },
             { no: 5, name: "onstage_card_guid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 15, name: "controller_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
@@ -7045,9 +7153,9 @@ exports.GCGChallengeUpdateNotify = new GCGChallengeUpdateNotify$Type();
 class GCGDSDeckData$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GCGDSDeckData", [
-            { no: 1, name: "card_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 1, name: "card_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 15, name: "card_back_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 10, name: "character_card_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 10, name: "character_card_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 5, name: "name", kind: "scalar", opt: true, T: 9 /*ScalarType.STRING*/ },
             { no: 3, name: "id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 13, name: "create_time", kind: "scalar", opt: true, T: 7 /*ScalarType.FIXED32*/ },
@@ -7112,14 +7220,22 @@ class GCGDSDeckData$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 card_list = 1; */
-        for (let i = 0; i < message.cardList.length; i++)
-            writer.tag(1, runtime_1.WireType.Varint).uint32(message.cardList[i]);
+        if (message.cardList.length) {
+            writer.tag(1, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.cardList.length; i++)
+                writer.uint32(message.cardList[i]);
+            writer.join();
+        }
         /* optional uint32 card_back_id = 15; */
         if (message.cardBackId !== undefined)
             writer.tag(15, runtime_1.WireType.Varint).uint32(message.cardBackId);
         /* repeated uint32 character_card_list = 10; */
-        for (let i = 0; i < message.characterCardList.length; i++)
-            writer.tag(10, runtime_1.WireType.Varint).uint32(message.characterCardList[i]);
+        if (message.characterCardList.length) {
+            writer.tag(10, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.characterCardList.length; i++)
+                writer.uint32(message.characterCardList[i]);
+            writer.join();
+        }
         /* optional string name = 5; */
         if (message.name !== undefined)
             writer.tag(5, runtime_1.WireType.LengthDelimited).string(message.name);
@@ -7150,7 +7266,7 @@ class GCGDSCardData$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GCGDSCardData", [
             { no: 14, name: "card_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 9, name: "unlock_face_type_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 9, name: "unlock_face_type_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 12, name: "num", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "proficiency", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 6, name: "face_type", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
@@ -7203,8 +7319,12 @@ class GCGDSCardData$Type extends runtime_5.MessageType {
         if (message.cardId !== undefined)
             writer.tag(14, runtime_1.WireType.Varint).uint32(message.cardId);
         /* repeated uint32 unlock_face_type_list = 9; */
-        for (let i = 0; i < message.unlockFaceTypeList.length; i++)
-            writer.tag(9, runtime_1.WireType.Varint).uint32(message.unlockFaceTypeList[i]);
+        if (message.unlockFaceTypeList.length) {
+            writer.tag(9, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.unlockFaceTypeList.length; i++)
+                writer.uint32(message.unlockFaceTypeList[i]);
+            writer.join();
+        }
         /* optional uint32 num = 12; */
         if (message.num !== undefined)
             writer.tag(12, runtime_1.WireType.Varint).uint32(message.num);
@@ -7228,12 +7348,12 @@ exports.GCGDSCardData = new GCGDSCardData$Type();
 class GCGDSDataNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GCGDSDataNotify", [
-            { no: 4, name: "deck_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.GCGDSDeckData },
-            { no: 5, name: "unlock_card_back_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 6, name: "unlock_field_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 4, name: "deck_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.GCGDSDeckData },
+            { no: 5, name: "unlock_card_back_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 6, name: "unlock_field_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 10, name: "cur_deck_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 3, name: "card_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.GCGDSCardData },
-            { no: 1, name: "unlock_deck_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 3, name: "card_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.GCGDSCardData },
+            { no: 1, name: "unlock_deck_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -7294,11 +7414,19 @@ class GCGDSDataNotify$Type extends runtime_5.MessageType {
         for (let i = 0; i < message.deckList.length; i++)
             exports.GCGDSDeckData.internalBinaryWrite(message.deckList[i], writer.tag(4, runtime_1.WireType.LengthDelimited).fork(), options).join();
         /* repeated uint32 unlock_card_back_id_list = 5; */
-        for (let i = 0; i < message.unlockCardBackIdList.length; i++)
-            writer.tag(5, runtime_1.WireType.Varint).uint32(message.unlockCardBackIdList[i]);
+        if (message.unlockCardBackIdList.length) {
+            writer.tag(5, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.unlockCardBackIdList.length; i++)
+                writer.uint32(message.unlockCardBackIdList[i]);
+            writer.join();
+        }
         /* repeated uint32 unlock_field_id_list = 6; */
-        for (let i = 0; i < message.unlockFieldIdList.length; i++)
-            writer.tag(6, runtime_1.WireType.Varint).uint32(message.unlockFieldIdList[i]);
+        if (message.unlockFieldIdList.length) {
+            writer.tag(6, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.unlockFieldIdList.length; i++)
+                writer.uint32(message.unlockFieldIdList[i]);
+            writer.join();
+        }
         /* optional uint32 cur_deck_id = 10; */
         if (message.curDeckId !== undefined)
             writer.tag(10, runtime_1.WireType.Varint).uint32(message.curDeckId);
@@ -7306,8 +7434,12 @@ class GCGDSDataNotify$Type extends runtime_5.MessageType {
         for (let i = 0; i < message.cardList.length; i++)
             exports.GCGDSCardData.internalBinaryWrite(message.cardList[i], writer.tag(3, runtime_1.WireType.LengthDelimited).fork(), options).join();
         /* repeated uint32 unlock_deck_id_list = 1; */
-        for (let i = 0; i < message.unlockDeckIdList.length; i++)
-            writer.tag(1, runtime_1.WireType.Varint).uint32(message.unlockDeckIdList[i]);
+        if (message.unlockDeckIdList.length) {
+            writer.tag(1, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.unlockDeckIdList.length; i++)
+                writer.uint32(message.unlockDeckIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -7985,8 +8117,8 @@ class GCGDSDeckSaveReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GCGDSDeckSaveReq", [
             { no: 1, name: "deck_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 4, name: "card_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 9, name: "character_card_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 4, name: "card_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 9, name: "character_card_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 14, name: "name", kind: "scalar", opt: true, T: 9 /*ScalarType.STRING*/ }
         ]);
     }
@@ -8038,11 +8170,19 @@ class GCGDSDeckSaveReq$Type extends runtime_5.MessageType {
         if (message.deckId !== undefined)
             writer.tag(1, runtime_1.WireType.Varint).uint32(message.deckId);
         /* repeated uint32 card_list = 4; */
-        for (let i = 0; i < message.cardList.length; i++)
-            writer.tag(4, runtime_1.WireType.Varint).uint32(message.cardList[i]);
+        if (message.cardList.length) {
+            writer.tag(4, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.cardList.length; i++)
+                writer.uint32(message.cardList[i]);
+            writer.join();
+        }
         /* repeated uint32 character_card_list = 9; */
-        for (let i = 0; i < message.characterCardList.length; i++)
-            writer.tag(9, runtime_1.WireType.Varint).uint32(message.characterCardList[i]);
+        if (message.characterCardList.length) {
+            writer.tag(9, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.characterCardList.length; i++)
+                writer.uint32(message.characterCardList[i]);
+            writer.join();
+        }
         /* optional string name = 14; */
         if (message.name !== undefined)
             writer.tag(14, runtime_1.WireType.LengthDelimited).string(message.name);
@@ -8675,7 +8815,7 @@ exports.GCGTCInviteRsp = new GCGTCInviteRsp$Type();
 class GCGTCTavernChallengeData$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GCGTCTavernChallengeData", [
-            { no: 1, name: "unlock_level_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 1, name: "unlock_level_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "character_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -8714,8 +8854,12 @@ class GCGTCTavernChallengeData$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 unlock_level_id_list = 1; */
-        for (let i = 0; i < message.unlockLevelIdList.length; i++)
-            writer.tag(1, runtime_1.WireType.Varint).uint32(message.unlockLevelIdList[i]);
+        if (message.unlockLevelIdList.length) {
+            writer.tag(1, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.unlockLevelIdList.length; i++)
+                writer.uint32(message.unlockLevelIdList[i]);
+            writer.join();
+        }
         /* optional uint32 character_id = 8; */
         if (message.characterId !== undefined)
             writer.tag(8, runtime_1.WireType.Varint).uint32(message.characterId);
@@ -8733,7 +8877,7 @@ exports.GCGTCTavernChallengeData = new GCGTCTavernChallengeData$Type();
 class GCGTCTavernChallengeDataNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GCGTCTavernChallengeDataNotify", [
-            { no: 13, name: "tavern_challenge_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.GCGTCTavernChallengeData }
+            { no: 13, name: "tavern_challenge_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.GCGTCTavernChallengeData }
         ]);
     }
     create(value) {
@@ -8881,7 +9025,7 @@ exports.GCGGrowthLevelNotify = new GCGGrowthLevelNotify$Type();
 class GCGGrowthLevelRewardNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GCGGrowthLevelRewardNotify", [
-            { no: 8, name: "level_reward_taken_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 8, name: "level_reward_taken_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -8916,8 +9060,12 @@ class GCGGrowthLevelRewardNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 level_reward_taken_list = 8; */
-        for (let i = 0; i < message.levelRewardTakenList.length; i++)
-            writer.tag(8, runtime_1.WireType.Varint).uint32(message.levelRewardTakenList[i]);
+        if (message.levelRewardTakenList.length) {
+            writer.tag(8, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.levelRewardTakenList.length; i++)
+                writer.uint32(message.levelRewardTakenList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -9311,8 +9459,8 @@ class GCGSettleNotify$Type extends runtime_5.MessageType {
             { no: 7, name: "game_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 2, name: "business_type", kind: "enum", opt: true, T: () => ["com.midnights.game.GCGGameBusinessType", cmd_gcg_common_2.GCGGameBusinessType] },
             { no: 13, name: "is_win", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 9, name: "reward_item_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_1.ItemParam },
-            { no: 6, name: "finished_challenge_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 9, name: "reward_item_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_1.ItemParam },
+            { no: 6, name: "finished_challenge_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 3, name: "reason", kind: "enum", opt: true, T: () => ["com.midnights.game.GCGEndReason", cmd_gcg_common_3.GCGEndReason] }
         ]);
     }
@@ -9375,8 +9523,12 @@ class GCGSettleNotify$Type extends runtime_5.MessageType {
         for (let i = 0; i < message.rewardItemList.length; i++)
             define_1.ItemParam.internalBinaryWrite(message.rewardItemList[i], writer.tag(9, runtime_1.WireType.LengthDelimited).fork(), options).join();
         /* repeated uint32 finished_challenge_id_list = 6; */
-        for (let i = 0; i < message.finishedChallengeIdList.length; i++)
-            writer.tag(6, runtime_1.WireType.Varint).uint32(message.finishedChallengeIdList[i]);
+        if (message.finishedChallengeIdList.length) {
+            writer.tag(6, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.finishedChallengeIdList.length; i++)
+                writer.uint32(message.finishedChallengeIdList[i]);
+            writer.join();
+        }
         /* optional com.midnights.game.GCGEndReason reason = 3; */
         if (message.reason !== undefined)
             writer.tag(3, runtime_1.WireType.Varint).int32(message.reason);
@@ -9624,7 +9776,7 @@ class GCGBasicDataNotify$Type extends runtime_5.MessageType {
         super("com.midnights.game.GCGBasicDataNotify", [
             { no: 9, name: "level", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 4, name: "exp", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 12, name: "level_reward_taken_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 12, name: "level_reward_taken_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -9671,8 +9823,12 @@ class GCGBasicDataNotify$Type extends runtime_5.MessageType {
         if (message.exp !== undefined)
             writer.tag(4, runtime_1.WireType.Varint).uint32(message.exp);
         /* repeated uint32 level_reward_taken_list = 12; */
-        for (let i = 0; i < message.levelRewardTakenList.length; i++)
-            writer.tag(12, runtime_1.WireType.Varint).uint32(message.levelRewardTakenList[i]);
+        if (message.levelRewardTakenList.length) {
+            writer.tag(12, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.levelRewardTakenList.length; i++)
+                writer.uint32(message.levelRewardTakenList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -9748,9 +9904,9 @@ exports.GCGTavernNpcInfo = new GCGTavernNpcInfo$Type();
 class GCGTavernNpcInfoNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GCGTavernNpcInfoNotify", [
-            { no: 1, name: "week_npc_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.GCGTavernNpcInfo },
+            { no: 1, name: "week_npc_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.GCGTavernNpcInfo },
             { no: 5, name: "character_npc", kind: "message", T: () => exports.GCGTavernNpcInfo },
-            { no: 15, name: "const_npc_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.GCGTavernNpcInfo }
+            { no: 15, name: "const_npc_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.GCGTavernNpcInfo }
         ]);
     }
     create(value) {
@@ -9999,7 +10155,7 @@ exports.GCGWeekChallengeInfo = new GCGWeekChallengeInfo$Type();
 class GCGWeekChallengeInfoNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GCGWeekChallengeInfoNotify", [
-            { no: 15, name: "challenge_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.GCGWeekChallengeInfo },
+            { no: 15, name: "challenge_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.GCGWeekChallengeInfo },
             { no: 7, name: "next_refresh_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -10053,7 +10209,7 @@ exports.GCGWeekChallengeInfoNotify = new GCGWeekChallengeInfoNotify$Type();
 class GCGLevelData$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GCGLevelData", [
-            { no: 10, name: "finished_challenge_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 10, name: "finished_challenge_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 9, name: "level_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -10092,8 +10248,12 @@ class GCGLevelData$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 finished_challenge_id_list = 10; */
-        for (let i = 0; i < message.finishedChallengeIdList.length; i++)
-            writer.tag(10, runtime_1.WireType.Varint).uint32(message.finishedChallengeIdList[i]);
+        if (message.finishedChallengeIdList.length) {
+            writer.tag(10, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.finishedChallengeIdList.length; i++)
+                writer.uint32(message.finishedChallengeIdList[i]);
+            writer.join();
+        }
         /* optional uint32 level_id = 9; */
         if (message.levelId !== undefined)
             writer.tag(9, runtime_1.WireType.Varint).uint32(message.levelId);
@@ -10112,7 +10272,7 @@ class GCGBossChallengeData$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GCGBossChallengeData", [
             { no: 9, name: "id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 14, name: "unlock_level_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 14, name: "unlock_level_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -10153,8 +10313,12 @@ class GCGBossChallengeData$Type extends runtime_5.MessageType {
         if (message.id !== undefined)
             writer.tag(9, runtime_1.WireType.Varint).uint32(message.id);
         /* repeated uint32 unlock_level_id_list = 14; */
-        for (let i = 0; i < message.unlockLevelIdList.length; i++)
-            writer.tag(14, runtime_1.WireType.Varint).uint32(message.unlockLevelIdList[i]);
+        if (message.unlockLevelIdList.length) {
+            writer.tag(14, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.unlockLevelIdList.length; i++)
+                writer.uint32(message.unlockLevelIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -10169,9 +10333,9 @@ exports.GCGBossChallengeData = new GCGBossChallengeData$Type();
 class GCGLevelChallengeNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GCGLevelChallengeNotify", [
-            { no: 3, name: "unlock_boss_challenge_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.GCGBossChallengeData },
-            { no: 8, name: "unlock_world_challenge_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 10, name: "level_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.GCGLevelData }
+            { no: 3, name: "unlock_boss_challenge_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.GCGBossChallengeData },
+            { no: 8, name: "unlock_world_challenge_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 10, name: "level_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.GCGLevelData }
         ]);
     }
     create(value) {
@@ -10215,8 +10379,12 @@ class GCGLevelChallengeNotify$Type extends runtime_5.MessageType {
         for (let i = 0; i < message.unlockBossChallengeList.length; i++)
             exports.GCGBossChallengeData.internalBinaryWrite(message.unlockBossChallengeList[i], writer.tag(3, runtime_1.WireType.LengthDelimited).fork(), options).join();
         /* repeated uint32 unlock_world_challenge_list = 8; */
-        for (let i = 0; i < message.unlockWorldChallengeList.length; i++)
-            writer.tag(8, runtime_1.WireType.Varint).uint32(message.unlockWorldChallengeList[i]);
+        if (message.unlockWorldChallengeList.length) {
+            writer.tag(8, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.unlockWorldChallengeList.length; i++)
+                writer.uint32(message.unlockWorldChallengeList[i]);
+            writer.join();
+        }
         /* repeated com.midnights.game.GCGLevelData level_list = 10; */
         for (let i = 0; i < message.levelList.length; i++)
             exports.GCGLevelData.internalBinaryWrite(message.levelList[i], writer.tag(10, runtime_1.WireType.LengthDelimited).fork(), options).join();
@@ -10234,7 +10402,7 @@ exports.GCGLevelChallengeNotify = new GCGLevelChallengeNotify$Type();
 class GCGLevelChallengeFinishNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GCGLevelChallengeFinishNotify", [
-            { no: 10, name: "finished_challenge_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 10, name: "finished_challenge_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 15, name: "level_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -10273,8 +10441,12 @@ class GCGLevelChallengeFinishNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 finished_challenge_id_list = 10; */
-        for (let i = 0; i < message.finishedChallengeIdList.length; i++)
-            writer.tag(10, runtime_1.WireType.Varint).uint32(message.finishedChallengeIdList[i]);
+        if (message.finishedChallengeIdList.length) {
+            writer.tag(10, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.finishedChallengeIdList.length; i++)
+                writer.uint32(message.finishedChallengeIdList[i]);
+            writer.join();
+        }
         /* optional uint32 level_id = 15; */
         if (message.levelId !== undefined)
             writer.tag(15, runtime_1.WireType.Varint).uint32(message.levelId);
@@ -10292,7 +10464,7 @@ exports.GCGLevelChallengeFinishNotify = new GCGLevelChallengeFinishNotify$Type()
 class GCGWorldChallengeUnlockNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GCGWorldChallengeUnlockNotify", [
-            { no: 8, name: "unlock_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 8, name: "unlock_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -10327,8 +10499,12 @@ class GCGWorldChallengeUnlockNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 unlock_id_list = 8; */
-        for (let i = 0; i < message.unlockIdList.length; i++)
-            writer.tag(8, runtime_1.WireType.Varint).uint32(message.unlockIdList[i]);
+        if (message.unlockIdList.length) {
+            writer.tag(8, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.unlockIdList.length; i++)
+                writer.uint32(message.unlockIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);

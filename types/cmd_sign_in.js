@@ -308,8 +308,8 @@ exports.OpActivityTagBriefInfo = new OpActivityTagBriefInfo$Type();
 class OpActivityStateNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.OpActivityStateNotify", [
-            { no: 14, name: "finished_bonus_activity_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 13, name: "opened_op_activity_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.OpActivityTagBriefInfo }
+            { no: 14, name: "finished_bonus_activity_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 13, name: "opened_op_activity_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.OpActivityTagBriefInfo }
         ]);
     }
     create(value) {
@@ -347,8 +347,12 @@ class OpActivityStateNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 finished_bonus_activity_id_list = 14; */
-        for (let i = 0; i < message.finishedBonusActivityIdList.length; i++)
-            writer.tag(14, runtime_1.WireType.Varint).uint32(message.finishedBonusActivityIdList[i]);
+        if (message.finishedBonusActivityIdList.length) {
+            writer.tag(14, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.finishedBonusActivityIdList.length; i++)
+                writer.uint32(message.finishedBonusActivityIdList[i]);
+            writer.join();
+        }
         /* repeated com.midnights.game.OpActivityTagBriefInfo opened_op_activity_info_list = 13; */
         for (let i = 0; i < message.openedOpActivityInfoList.length; i++)
             exports.OpActivityTagBriefInfo.internalBinaryWrite(message.openedOpActivityInfoList[i], writer.tag(13, runtime_1.WireType.LengthDelimited).fork(), options).join();
@@ -367,7 +371,7 @@ class SignInData$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.SignInData", [
             { no: 14, name: "day_count", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 5, name: "reward_item_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_1.ItemParam }
+            { no: 5, name: "reward_item_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_1.ItemParam }
         ]);
     }
     create(value) {
@@ -421,8 +425,8 @@ class SignInInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.SignInInfo", [
             { no: 7, name: "is_cond_satisfied", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 15, name: "reward_day_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 12, name: "signin_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.SignInData },
+            { no: 15, name: "reward_day_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 12, name: "signin_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.SignInData },
             { no: 8, name: "config_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 2, name: "sign_in_count", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 3, name: "schedule_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
@@ -490,8 +494,12 @@ class SignInInfo$Type extends runtime_5.MessageType {
         if (message.isCondSatisfied !== undefined)
             writer.tag(7, runtime_1.WireType.Varint).bool(message.isCondSatisfied);
         /* repeated uint32 reward_day_list = 15; */
-        for (let i = 0; i < message.rewardDayList.length; i++)
-            writer.tag(15, runtime_1.WireType.Varint).uint32(message.rewardDayList[i]);
+        if (message.rewardDayList.length) {
+            writer.tag(15, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.rewardDayList.length; i++)
+                writer.uint32(message.rewardDayList[i]);
+            writer.join();
+        }
         /* repeated com.midnights.game.SignInData signin_data_list = 12; */
         for (let i = 0; i < message.signinDataList.length; i++)
             exports.SignInData.internalBinaryWrite(message.signinDataList[i], writer.tag(12, runtime_1.WireType.LengthDelimited).fork(), options).join();
@@ -553,7 +561,7 @@ exports.SignInInfoReq = new SignInInfoReq$Type();
 class SignInInfoRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.SignInInfoRsp", [
-            { no: 1, name: "sign_in_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.SignInInfo },
+            { no: 1, name: "sign_in_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.SignInInfo },
             { no: 11, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
         ]);
     }
@@ -769,7 +777,7 @@ exports.BonusActivityInfo = new BonusActivityInfo$Type();
 class BonusActivityUpdateNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.BonusActivityUpdateNotify", [
-            { no: 8, name: "bonus_activity_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.BonusActivityInfo }
+            { no: 8, name: "bonus_activity_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.BonusActivityInfo }
         ]);
     }
     create(value) {
@@ -842,7 +850,7 @@ exports.BonusActivityInfoReq = new BonusActivityInfoReq$Type();
 class BonusActivityInfoRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.BonusActivityInfoRsp", [
-            { no: 2, name: "bonus_activity_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.BonusActivityInfo },
+            { no: 2, name: "bonus_activity_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.BonusActivityInfo },
             { no: 7, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
         ]);
     }

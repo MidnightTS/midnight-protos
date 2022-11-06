@@ -50,7 +50,7 @@ var DebugNotify_Enum;
 class PacketHead$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.PacketHead", [
-            { no: 1, name: "packet_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
+            { no: 1, name: "cmd_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 2, name: "rpc_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 3, name: "client_sequence_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 4, name: "enet_channel_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
@@ -85,8 +85,8 @@ class PacketHead$Type extends runtime_5.MessageType {
         while (reader.pos < end) {
             let [fieldNo, wireType] = reader.tag();
             switch (fieldNo) {
-                case /* optional uint32 packet_id */ 1:
-                    message.packetId = reader.uint32();
+                case /* optional uint32 cmd_id */ 1:
+                    message.cmdId = reader.uint32();
                     break;
                 case /* optional uint32 rpc_id */ 2:
                     message.rpcId = reader.uint32();
@@ -192,9 +192,9 @@ class PacketHead$Type extends runtime_5.MessageType {
         map[key ?? 0] = val ?? 0;
     }
     internalBinaryWrite(message, writer, options) {
-        /* optional uint32 packet_id = 1; */
-        if (message.packetId !== undefined)
-            writer.tag(1, runtime_1.WireType.Varint).uint32(message.packetId);
+        /* optional uint32 cmd_id = 1; */
+        if (message.cmdId !== undefined)
+            writer.tag(1, runtime_1.WireType.Varint).uint32(message.cmdId);
         /* optional uint32 rpc_id = 2; */
         if (message.rpcId !== undefined)
             writer.tag(2, runtime_1.WireType.Varint).uint32(message.rpcId);

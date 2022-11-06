@@ -672,7 +672,7 @@ class BattlePassSchedule$Type extends runtime_5.MessageType {
             { no: 1, name: "point", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 4, name: "cur_cycle", kind: "message", T: () => exports.BattlePassCycle },
             { no: 7, name: "unlock_status", kind: "enum", opt: true, T: () => ["com.midnights.game.BattlePassUnlockStatus", BattlePassUnlockStatus] },
-            { no: 11, name: "reward_taken_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.BattlePassRewardTag },
+            { no: 11, name: "reward_taken_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.BattlePassRewardTag },
             { no: 10, name: "cur_cycle_points", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 12, name: "paid_platform_flags", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 13, name: "product_info", kind: "message", T: () => exports.BattlePassProduct },
@@ -798,7 +798,7 @@ class BattlePassAllDataNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.BattlePassAllDataNotify", [
             { no: 2, name: "have_cur_schedule", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 4, name: "mission_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.BattlePassMission },
+            { no: 4, name: "mission_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.BattlePassMission },
             { no: 1, name: "cur_schedule", kind: "message", T: () => exports.BattlePassSchedule }
         ]);
     }
@@ -858,7 +858,7 @@ exports.BattlePassAllDataNotify = new BattlePassAllDataNotify$Type();
 class BattlePassMissionUpdateNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.BattlePassMissionUpdateNotify", [
-            { no: 1, name: "mission_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.BattlePassMission }
+            { no: 1, name: "mission_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.BattlePassMission }
         ]);
     }
     create(value) {
@@ -905,7 +905,7 @@ exports.BattlePassMissionUpdateNotify = new BattlePassMissionUpdateNotify$Type()
 class BattlePassMissionDelNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.BattlePassMissionDelNotify", [
-            { no: 10, name: "del_mission_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 10, name: "del_mission_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -940,8 +940,12 @@ class BattlePassMissionDelNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 del_mission_id_list = 10; */
-        for (let i = 0; i < message.delMissionIdList.length; i++)
-            writer.tag(10, runtime_1.WireType.Varint).uint32(message.delMissionIdList[i]);
+        if (message.delMissionIdList.length) {
+            writer.tag(10, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.delMissionIdList.length; i++)
+                writer.uint32(message.delMissionIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -1064,7 +1068,7 @@ exports.BattlePassRewardTakeOption = new BattlePassRewardTakeOption$Type();
 class TakeBattlePassRewardReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.TakeBattlePassRewardReq", [
-            { no: 12, name: "take_option_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.BattlePassRewardTakeOption }
+            { no: 12, name: "take_option_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.BattlePassRewardTakeOption }
         ]);
     }
     create(value) {
@@ -1111,9 +1115,9 @@ exports.TakeBattlePassRewardReq = new TakeBattlePassRewardReq$Type();
 class TakeBattlePassRewardRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.TakeBattlePassRewardRsp", [
-            { no: 7, name: "item_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_1.ItemParam },
+            { no: 7, name: "item_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_1.ItemParam },
             { no: 13, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 9, name: "take_option_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.BattlePassRewardTakeOption }
+            { no: 9, name: "take_option_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.BattlePassRewardTakeOption }
         ]);
     }
     create(value) {
@@ -1172,7 +1176,7 @@ exports.TakeBattlePassRewardRsp = new TakeBattlePassRewardRsp$Type();
 class TakeBattlePassMissionPointReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.TakeBattlePassMissionPointReq", [
-            { no: 5, name: "mission_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 5, name: "mission_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -1207,8 +1211,12 @@ class TakeBattlePassMissionPointReq$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 mission_id_list = 5; */
-        for (let i = 0; i < message.missionIdList.length; i++)
-            writer.tag(5, runtime_1.WireType.Varint).uint32(message.missionIdList[i]);
+        if (message.missionIdList.length) {
+            writer.tag(5, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.missionIdList.length; i++)
+                writer.uint32(message.missionIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -1224,7 +1232,7 @@ class TakeBattlePassMissionPointRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.TakeBattlePassMissionPointRsp", [
             { no: 4, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 11, name: "mission_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 11, name: "mission_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -1265,8 +1273,12 @@ class TakeBattlePassMissionPointRsp$Type extends runtime_5.MessageType {
         if (message.retcode !== undefined)
             writer.tag(4, runtime_1.WireType.Varint).int32(message.retcode);
         /* repeated uint32 mission_id_list = 11; */
-        for (let i = 0; i < message.missionIdList.length; i++)
-            writer.tag(11, runtime_1.WireType.Varint).uint32(message.missionIdList[i]);
+        if (message.missionIdList.length) {
+            writer.tag(11, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.missionIdList.length; i++)
+                writer.uint32(message.missionIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -1507,7 +1519,7 @@ class BattlePassBuySuccNotify$Type extends runtime_5.MessageType {
             { no: 4, name: "schedule_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 11, name: "product_play_type", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 12, name: "add_point", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 9, name: "item_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_1.ItemParam }
+            { no: 9, name: "item_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_1.ItemParam }
         ]);
     }
     create(value) {

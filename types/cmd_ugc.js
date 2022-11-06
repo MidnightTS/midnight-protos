@@ -432,7 +432,7 @@ exports.UgcMusicNote = new UgcMusicNote$Type();
 class UgcMusicTrack$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.UgcMusicTrack", [
-            { no: 6, name: "music_note_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.UgcMusicNote }
+            { no: 6, name: "music_note_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.UgcMusicNote }
         ]);
     }
     create(value) {
@@ -479,7 +479,7 @@ exports.UgcMusicTrack = new UgcMusicTrack$Type();
 class UgcMusicRecord$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.UgcMusicRecord", [
-            { no: 4, name: "music_track_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.UgcMusicTrack },
+            { no: 4, name: "music_track_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.UgcMusicTrack },
             { no: 13, name: "music_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -542,8 +542,8 @@ class UgcMusicBriefInfo$Type extends runtime_5.MessageType {
             { no: 10, name: "creator_nickname", kind: "scalar", opt: true, T: 9 /*ScalarType.STRING*/ },
             { no: 15, name: "version", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 3, name: "save_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 1002, name: "after_note_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 982, name: "before_note_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 1002, name: "after_note_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 982, name: "before_note_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 9, name: "is_psn_platform", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 1822, name: "time_line_edit_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 11, name: "is_changed_after_publish", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
@@ -675,11 +675,19 @@ class UgcMusicBriefInfo$Type extends runtime_5.MessageType {
         if (message.saveTime !== undefined)
             writer.tag(3, runtime_1.WireType.Varint).uint32(message.saveTime);
         /* repeated uint32 after_note_list = 1002; */
-        for (let i = 0; i < message.afterNoteList.length; i++)
-            writer.tag(1002, runtime_1.WireType.Varint).uint32(message.afterNoteList[i]);
+        if (message.afterNoteList.length) {
+            writer.tag(1002, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.afterNoteList.length; i++)
+                writer.uint32(message.afterNoteList[i]);
+            writer.join();
+        }
         /* repeated uint32 before_note_list = 982; */
-        for (let i = 0; i < message.beforeNoteList.length; i++)
-            writer.tag(982, runtime_1.WireType.Varint).uint32(message.beforeNoteList[i]);
+        if (message.beforeNoteList.length) {
+            writer.tag(982, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.beforeNoteList.length; i++)
+                writer.uint32(message.beforeNoteList[i]);
+            writer.join();
+        }
         /* optional bool is_psn_platform = 9; */
         if (message.isPsnPlatform !== undefined)
             writer.tag(9, runtime_1.WireType.Varint).bool(message.isPsnPlatform);
@@ -1299,7 +1307,7 @@ exports.CheckUgcUpdateReq = new CheckUgcUpdateReq$Type();
 class CheckUgcUpdateRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.CheckUgcUpdateRsp", [
-            { no: 15, name: "update_ugc_guid_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 15, name: "update_ugc_guid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 10, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
             { no: 12, name: "ugc_type", kind: "enum", opt: true, T: () => ["com.midnights.game.UgcType", UgcType, "UGC_TYPE_"] }
         ]);
@@ -1342,8 +1350,12 @@ class CheckUgcUpdateRsp$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint64 update_ugc_guid_list = 15; */
-        for (let i = 0; i < message.updateUgcGuidList.length; i++)
-            writer.tag(15, runtime_1.WireType.Varint).uint64(message.updateUgcGuidList[i]);
+        if (message.updateUgcGuidList.length) {
+            writer.tag(15, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.updateUgcGuidList.length; i++)
+                writer.uint64(message.updateUgcGuidList[i]);
+            writer.join();
+        }
         /* optional int32 retcode = 10; */
         if (message.retcode !== undefined)
             writer.tag(10, runtime_1.WireType.Varint).int32(message.retcode);

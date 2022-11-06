@@ -1101,7 +1101,7 @@ class InBattleMechanicusPlayerInfo$Type extends runtime_5.MessageType {
         super("com.midnights.game.InBattleMechanicusPlayerInfo", [
             { no: 5, name: "pick_card_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 14, name: "uid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 4, name: "building_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.InBattleMechanicusBuildingInfo },
+            { no: 4, name: "building_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.InBattleMechanicusBuildingInfo },
             { no: 13, name: "is_card_confirmed", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 3, name: "building_points", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
@@ -1319,19 +1319,19 @@ class InBattleMechanicusInfo$Type extends runtime_5.MessageType {
         super("com.midnights.game.InBattleMechanicusInfo", [
             { no: 5, name: "left_monster", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 13, name: "wait_seconds", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 410, name: "entrance_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 115, name: "exit_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 11, name: "history_card_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.InBattleMechanicusCardInfo },
+            { no: 410, name: "entrance_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 115, name: "exit_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 11, name: "history_card_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.InBattleMechanicusCardInfo },
             { no: 10, name: "max_excape_monster_num", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 4, name: "building_stage_duration", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "duration_ms", kind: "scalar", opt: true, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 9, name: "stage", kind: "enum", opt: true, T: () => ["com.midnights.game.InBattleMechanicusStageType", InBattleMechanicusStageType] },
             { no: 12, name: "total_round", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 14, name: "monster_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.InBattleMechanicusMonsterInfo },
+            { no: 14, name: "monster_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.InBattleMechanicusMonsterInfo },
             { no: 6, name: "excaped_monster_num", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 3, name: "round", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 15, name: "pick_card_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.InBattleMechanicusCardInfo },
-            { no: 7, name: "player_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.InBattleMechanicusPlayerInfo },
+            { no: 15, name: "pick_card_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.InBattleMechanicusCardInfo },
+            { no: 7, name: "player_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.InBattleMechanicusPlayerInfo },
             { no: 1, name: "wait_begin_time_us", kind: "scalar", opt: true, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 2, name: "begin_time_ms", kind: "scalar", opt: true, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ }
         ]);
@@ -1426,11 +1426,19 @@ class InBattleMechanicusInfo$Type extends runtime_5.MessageType {
         if (message.waitSeconds !== undefined)
             writer.tag(13, runtime_1.WireType.Varint).uint32(message.waitSeconds);
         /* repeated uint32 entrance_list = 410; */
-        for (let i = 0; i < message.entranceList.length; i++)
-            writer.tag(410, runtime_1.WireType.Varint).uint32(message.entranceList[i]);
+        if (message.entranceList.length) {
+            writer.tag(410, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.entranceList.length; i++)
+                writer.uint32(message.entranceList[i]);
+            writer.join();
+        }
         /* repeated uint32 exit_list = 115; */
-        for (let i = 0; i < message.exitList.length; i++)
-            writer.tag(115, runtime_1.WireType.Varint).uint32(message.exitList[i]);
+        if (message.exitList.length) {
+            writer.tag(115, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.exitList.length; i++)
+                writer.uint32(message.exitList[i]);
+            writer.join();
+        }
         /* repeated com.midnights.game.InBattleMechanicusCardInfo history_card_list = 11; */
         for (let i = 0; i < message.historyCardList.length; i++)
             exports.InBattleMechanicusCardInfo.internalBinaryWrite(message.historyCardList[i], writer.tag(11, runtime_1.WireType.LengthDelimited).fork(), options).join();
@@ -1484,10 +1492,10 @@ exports.InBattleMechanicusInfo = new InBattleMechanicusInfo$Type();
 class InBattleFleurFairInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.InBattleFleurFairInfo", [
-            { no: 5, name: "gallery_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 5, name: "gallery_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 6, name: "gallery_stage_index", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "preview_stage_index", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 2, name: "ability_group_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 2, name: "ability_group_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 12, name: "preview_display_duration", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -1539,8 +1547,12 @@ class InBattleFleurFairInfo$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 gallery_id_list = 5; */
-        for (let i = 0; i < message.galleryIdList.length; i++)
-            writer.tag(5, runtime_1.WireType.Varint).uint32(message.galleryIdList[i]);
+        if (message.galleryIdList.length) {
+            writer.tag(5, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.galleryIdList.length; i++)
+                writer.uint32(message.galleryIdList[i]);
+            writer.join();
+        }
         /* optional uint32 gallery_stage_index = 6; */
         if (message.galleryStageIndex !== undefined)
             writer.tag(6, runtime_1.WireType.Varint).uint32(message.galleryStageIndex);
@@ -1548,8 +1560,12 @@ class InBattleFleurFairInfo$Type extends runtime_5.MessageType {
         if (message.previewStageIndex !== undefined)
             writer.tag(8, runtime_1.WireType.Varint).uint32(message.previewStageIndex);
         /* repeated uint32 ability_group_id_list = 2; */
-        for (let i = 0; i < message.abilityGroupIdList.length; i++)
-            writer.tag(2, runtime_1.WireType.Varint).uint32(message.abilityGroupIdList[i]);
+        if (message.abilityGroupIdList.length) {
+            writer.tag(2, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.abilityGroupIdList.length; i++)
+                writer.uint32(message.abilityGroupIdList[i]);
+            writer.join();
+        }
         /* optional uint32 preview_display_duration = 12; */
         if (message.previewDisplayDuration !== undefined)
             writer.tag(12, runtime_1.WireType.Varint).uint32(message.previewDisplayDuration);
@@ -1569,7 +1585,7 @@ class CharAmusementAvatarInfo$Type extends runtime_5.MessageType {
         super("com.midnights.game.CharAmusementAvatarInfo", [
             { no: 11, name: "uid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 7, name: "punish_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 10, name: "avatar_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 10, name: "avatar_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -1616,8 +1632,12 @@ class CharAmusementAvatarInfo$Type extends runtime_5.MessageType {
         if (message.punishTime !== undefined)
             writer.tag(7, runtime_1.WireType.Varint).uint32(message.punishTime);
         /* repeated uint32 avatar_id_list = 10; */
-        for (let i = 0; i < message.avatarIdList.length; i++)
-            writer.tag(10, runtime_1.WireType.Varint).uint32(message.avatarIdList[i]);
+        if (message.avatarIdList.length) {
+            writer.tag(10, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.avatarIdList.length; i++)
+                writer.uint32(message.avatarIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -1636,7 +1656,7 @@ class CharAmusementInfo$Type extends runtime_5.MessageType {
             { no: 2, name: "stage_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 10, name: "level_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 4, name: "preview_stage_index", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 5, name: "avatar_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.CharAmusementAvatarInfo }
+            { no: 5, name: "avatar_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.CharAmusementAvatarInfo }
         ]);
     }
     create(value) {
@@ -2510,7 +2530,7 @@ class InBattleMechanicusCardResultNotify$Type extends runtime_5.MessageType {
         super("com.midnights.game.InBattleMechanicusCardResultNotify", [
             { no: 6, name: "wait_seconds", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 2, name: "group_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 9, name: "card_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.InBattleMechanicusCardInfo },
+            { no: 9, name: "card_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.InBattleMechanicusCardInfo },
             { no: 7, name: "wait_begin_time_us", kind: "scalar", opt: true, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 12, name: "player_confirmed_card_map", kind: "map", K: 13 /*ScalarType.UINT32*/, V: { kind: "scalar", T: 13 /*ScalarType.UINT32*/ } },
             { no: 8, name: "play_index", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
@@ -2739,7 +2759,7 @@ class InBattleMechanicusSettleNotify$Type extends runtime_5.MessageType {
             { no: 11, name: "scene_time_ms", kind: "scalar", opt: true, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 6, name: "difficulty_percentage", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 7, name: "total_token", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 3, name: "watcher_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.MultistageSettleWatcherInfo },
+            { no: 3, name: "watcher_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.MultistageSettleWatcherInfo },
             { no: 13, name: "real_token", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 2, name: "is_success", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 14, name: "play_index", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
@@ -2834,7 +2854,7 @@ class InBattleMechanicusSettleInfo$Type extends runtime_5.MessageType {
             { no: 15, name: "scene_time_ms", kind: "scalar", opt: true, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 4, name: "total_token", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "real_token", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 7, name: "watcher_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.MultistageSettleWatcherInfo },
+            { no: 7, name: "watcher_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.MultistageSettleWatcherInfo },
             { no: 6, name: "is_success", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 3, name: "play_index", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 10, name: "difficulty_percentage", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
@@ -3347,7 +3367,7 @@ class FleurFairBossSettleInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.FleurFairBossSettleInfo", [
             { no: 15, name: "reward_token_num", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 1, name: "stat_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.FleurFairPlayerStatInfo },
+            { no: 1, name: "stat_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.FleurFairPlayerStatInfo },
             { no: 10, name: "is_success", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 12, name: "energy", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "cost_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
@@ -3515,7 +3535,7 @@ class HideAndSeekPlayerBattleInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HideAndSeekPlayerBattleInfo", [
             { no: 3, name: "costume_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 15, name: "skill_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 15, name: "skill_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 12, name: "is_ready", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 6, name: "avatar_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
@@ -3564,8 +3584,12 @@ class HideAndSeekPlayerBattleInfo$Type extends runtime_5.MessageType {
         if (message.costumeId !== undefined)
             writer.tag(3, runtime_1.WireType.Varint).uint32(message.costumeId);
         /* repeated uint32 skill_list = 15; */
-        for (let i = 0; i < message.skillList.length; i++)
-            writer.tag(15, runtime_1.WireType.Varint).uint32(message.skillList[i]);
+        if (message.skillList.length) {
+            writer.tag(15, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.skillList.length; i++)
+                writer.uint32(message.skillList[i]);
+            writer.join();
+        }
         /* optional bool is_ready = 12; */
         if (message.isReady !== undefined)
             writer.tag(12, runtime_1.WireType.Varint).bool(message.isReady);
@@ -3590,7 +3614,7 @@ class HideAndSeekStageInfo$Type extends runtime_5.MessageType {
             { no: 3, name: "is_record_score", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 7, name: "stage_type", kind: "enum", opt: true, T: () => ["com.midnights.game.HideAndSeekStageType", HideAndSeekStageType] },
             { no: 2, name: "battle_info_map", kind: "map", K: 13 /*ScalarType.UINT32*/, V: { kind: "message", T: () => exports.HideAndSeekPlayerBattleInfo } },
-            { no: 1, name: "hider_uid_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 1, name: "hider_uid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 10, name: "hunter_uid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -3673,8 +3697,12 @@ class HideAndSeekStageInfo$Type extends runtime_5.MessageType {
             writer.join().join();
         }
         /* repeated uint32 hider_uid_list = 1; */
-        for (let i = 0; i < message.hiderUidList.length; i++)
-            writer.tag(1, runtime_1.WireType.Varint).uint32(message.hiderUidList[i]);
+        if (message.hiderUidList.length) {
+            writer.tag(1, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.hiderUidList.length; i++)
+                writer.uint32(message.hiderUidList[i]);
+            writer.join();
+        }
         /* optional uint32 hunter_uid = 10; */
         if (message.hunterUid !== undefined)
             writer.tag(10, runtime_1.WireType.Varint).uint32(message.hunterUid);
@@ -3868,7 +3896,7 @@ class HideAndSeekSettleInfo$Type extends runtime_5.MessageType {
         super("com.midnights.game.HideAndSeekSettleInfo", [
             { no: 2, name: "uid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 1, name: "profile_picture", kind: "message", T: () => define_3.ProfilePicture },
-            { no: 8, name: "card_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_2.ExhibitionDisplayInfo },
+            { no: 8, name: "card_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_2.ExhibitionDisplayInfo },
             { no: 3, name: "nickname", kind: "scalar", opt: true, T: 9 /*ScalarType.STRING*/ },
             { no: 4, name: "head_image", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 10, name: "online_id", kind: "scalar", opt: true, T: 9 /*ScalarType.STRING*/ }
@@ -3949,12 +3977,12 @@ class HideAndSeekSettleNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HideAndSeekSettleNotify", [
             { no: 2, name: "cost_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 8, name: "settle_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.HideAndSeekSettleInfo },
-            { no: 15, name: "winner_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 8, name: "settle_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.HideAndSeekSettleInfo },
+            { no: 15, name: "winner_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 4, name: "reason", kind: "enum", opt: true, T: () => ["com.midnights.game.HideAndSeekSettleNotify.SettleReason", HideAndSeekSettleNotify_SettleReason] },
             { no: 13, name: "play_index", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 6, name: "is_record_score", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 9, name: "score_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_2.ExhibitionDisplayInfo },
+            { no: 9, name: "score_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_2.ExhibitionDisplayInfo },
             { no: 14, name: "stage_type", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -4017,8 +4045,12 @@ class HideAndSeekSettleNotify$Type extends runtime_5.MessageType {
         for (let i = 0; i < message.settleInfoList.length; i++)
             exports.HideAndSeekSettleInfo.internalBinaryWrite(message.settleInfoList[i], writer.tag(8, runtime_1.WireType.LengthDelimited).fork(), options).join();
         /* repeated uint32 winner_list = 15; */
-        for (let i = 0; i < message.winnerList.length; i++)
-            writer.tag(15, runtime_1.WireType.Varint).uint32(message.winnerList[i]);
+        if (message.winnerList.length) {
+            writer.tag(15, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.winnerList.length; i++)
+                writer.uint32(message.winnerList[i]);
+            writer.join();
+        }
         /* optional com.midnights.game.HideAndSeekSettleNotify.SettleReason reason = 4; */
         if (message.reason !== undefined)
             writer.tag(4, runtime_1.WireType.Varint).int32(message.reason);
@@ -4048,7 +4080,7 @@ exports.HideAndSeekSettleNotify = new HideAndSeekSettleNotify$Type();
 class HideAndSeekPlayerReadyNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HideAndSeekPlayerReadyNotify", [
-            { no: 5, name: "uid_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 5, name: "uid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -4083,8 +4115,12 @@ class HideAndSeekPlayerReadyNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 uid_list = 5; */
-        for (let i = 0; i < message.uidList.length; i++)
-            writer.tag(5, runtime_1.WireType.Varint).uint32(message.uidList[i]);
+        if (message.uidList.length) {
+            writer.tag(5, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.uidList.length; i++)
+                writer.uint32(message.uidList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -4214,9 +4250,9 @@ exports.ChessCardInfo = new ChessCardInfo$Type();
 class InBattleChessInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.InBattleChessInfo", [
-            { no: 2, name: "ban_card_tag_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 2, name: "ban_card_tag_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 4, name: "round", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 9, name: "selected_card_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ChessCardInfo },
+            { no: 9, name: "selected_card_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ChessCardInfo },
             { no: 1, name: "mystery_info", kind: "message", T: () => exports.ChessMysteryInfo },
             { no: 8, name: "player_info_map", kind: "map", K: 13 /*ScalarType.UINT32*/, V: { kind: "message", T: () => exports.ChessPlayerInfo } },
             { no: 6, name: "max_escapable_monsters", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
@@ -4297,8 +4333,12 @@ class InBattleChessInfo$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 ban_card_tag_list = 2; */
-        for (let i = 0; i < message.banCardTagList.length; i++)
-            writer.tag(2, runtime_1.WireType.Varint).uint32(message.banCardTagList[i]);
+        if (message.banCardTagList.length) {
+            writer.tag(2, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.banCardTagList.length; i++)
+                writer.uint32(message.banCardTagList[i]);
+            writer.join();
+        }
         /* optional uint32 round = 4; */
         if (message.round !== undefined)
             writer.tag(4, runtime_1.WireType.Varint).uint32(message.round);
@@ -4345,7 +4385,7 @@ class InBattleChessSettleInfo$Type extends runtime_5.MessageType {
             { no: 11, name: "chess_exp", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 13, name: "chess_level", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 10, name: "old_chess_level", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 1, name: "score_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_2.ExhibitionDisplayInfo },
+            { no: 1, name: "score_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_2.ExhibitionDisplayInfo },
             { no: 14, name: "scene_time_ms", kind: "scalar", opt: true, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 2, name: "old_chess_exp", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
@@ -4432,7 +4472,7 @@ class ChessPlayerInfo$Type extends runtime_5.MessageType {
         super("com.midnights.game.ChessPlayerInfo", [
             { no: 5, name: "uid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 10, name: "free_refresh_limit", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 3, name: "candidate_card_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ChessNormalCardInfo },
+            { no: 3, name: "candidate_card_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ChessNormalCardInfo },
             { no: 12, name: "building_points", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 6, name: "candidate_index", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 13, name: "free_refresh_count", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
@@ -4521,7 +4561,7 @@ class ChessMonsterInfo$Type extends runtime_5.MessageType {
         super("com.midnights.game.ChessMonsterInfo", [
             { no: 12, name: "monster_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 2, name: "level", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 13, name: "affix_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 13, name: "affix_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -4568,8 +4608,12 @@ class ChessMonsterInfo$Type extends runtime_5.MessageType {
         if (message.level !== undefined)
             writer.tag(2, runtime_1.WireType.Varint).uint32(message.level);
         /* repeated uint32 affix_list = 13; */
-        for (let i = 0; i < message.affixList.length; i++)
-            writer.tag(13, runtime_1.WireType.Varint).uint32(message.affixList[i]);
+        if (message.affixList.length) {
+            writer.tag(13, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.affixList.length; i++)
+                writer.uint32(message.affixList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -4584,7 +4628,7 @@ exports.ChessMonsterInfo = new ChessMonsterInfo$Type();
 class ChessEntranceInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ChessEntranceInfo", [
-            { no: 14, name: "monster_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ChessMonsterInfo },
+            { no: 14, name: "monster_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ChessMonsterInfo },
             { no: 15, name: "entrance_index", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "entrance_point_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
@@ -4645,7 +4689,7 @@ exports.ChessEntranceInfo = new ChessEntranceInfo$Type();
 class ChessEntranceDetailInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ChessEntranceDetailInfo", [
-            { no: 4, name: "info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ChessEntranceInfo }
+            { no: 4, name: "info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ChessEntranceInfo }
         ]);
     }
     create(value) {
@@ -4693,7 +4737,7 @@ class ChessMysteryInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ChessMysteryInfo", [
             { no: 13, name: "entrance_point_map", kind: "map", K: 13 /*ScalarType.UINT32*/, V: { kind: "scalar", T: 13 /*ScalarType.UINT32*/ } },
-            { no: 3, name: "exit_point_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 3, name: "exit_point_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 5, name: "detail_info_map", kind: "map", K: 13 /*ScalarType.UINT32*/, V: { kind: "message", T: () => exports.ChessEntranceDetailInfo } }
         ]);
     }
@@ -4770,8 +4814,12 @@ class ChessMysteryInfo$Type extends runtime_5.MessageType {
         for (let k of Object.keys(message.entrancePointMap))
             writer.tag(13, runtime_1.WireType.LengthDelimited).fork().tag(1, runtime_1.WireType.Varint).uint32(parseInt(k)).tag(2, runtime_1.WireType.Varint).uint32(message.entrancePointMap[k]).join();
         /* repeated uint32 exit_point_id_list = 3; */
-        for (let i = 0; i < message.exitPointIdList.length; i++)
-            writer.tag(3, runtime_1.WireType.Varint).uint32(message.exitPointIdList[i]);
+        if (message.exitPointIdList.length) {
+            writer.tag(3, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.exitPointIdList.length; i++)
+                writer.uint32(message.exitPointIdList[i]);
+            writer.join();
+        }
         /* map<uint32, com.midnights.game.ChessEntranceDetailInfo> detail_info_map = 5; */
         for (let k of Object.keys(message.detailInfoMap)) {
             writer.tag(5, runtime_1.WireType.LengthDelimited).fork().tag(1, runtime_1.WireType.Varint).uint32(parseInt(k));
@@ -5237,7 +5285,7 @@ exports.ChessEscapedMonstersNotify = new ChessEscapedMonstersNotify$Type();
 class ChessSelectedCardsNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ChessSelectedCardsNotify", [
-            { no: 4, name: "selected_card_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ChessCardInfo }
+            { no: 4, name: "selected_card_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ChessCardInfo }
         ]);
     }
     create(value) {
@@ -5285,7 +5333,7 @@ class GlobalBuildingInfoNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GlobalBuildingInfoNotify", [
             { no: 5, name: "current_num", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 3, name: "building_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_1.BuildingInfo },
+            { no: 3, name: "building_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_1.BuildingInfo },
             { no: 13, name: "max_num", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -5347,7 +5395,7 @@ class InBattleIrodoriChessInfo$Type extends runtime_5.MessageType {
         super("com.midnights.game.InBattleIrodoriChessInfo", [
             { no: 3, name: "mystery_info", kind: "message", T: () => exports.IrodoriChessMysteryInfo },
             { no: 12, name: "left_monsters", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 13, name: "selected_card_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 13, name: "selected_card_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 7, name: "building_points", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 4, name: "settle_score", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
@@ -5402,8 +5450,12 @@ class InBattleIrodoriChessInfo$Type extends runtime_5.MessageType {
         if (message.leftMonsters !== undefined)
             writer.tag(12, runtime_1.WireType.Varint).uint32(message.leftMonsters);
         /* repeated uint32 selected_card_id_list = 13; */
-        for (let i = 0; i < message.selectedCardIdList.length; i++)
-            writer.tag(13, runtime_1.WireType.Varint).uint32(message.selectedCardIdList[i]);
+        if (message.selectedCardIdList.length) {
+            writer.tag(13, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.selectedCardIdList.length; i++)
+                writer.uint32(message.selectedCardIdList[i]);
+            writer.join();
+        }
         /* optional uint32 building_points = 7; */
         if (message.buildingPoints !== undefined)
             writer.tag(7, runtime_1.WireType.Varint).uint32(message.buildingPoints);
@@ -5427,7 +5479,7 @@ class IrodoriChessMonsterInfo$Type extends runtime_5.MessageType {
             { no: 6, name: "grant_points", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 13, name: "level", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 14, name: "monster_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 11, name: "affix_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 11, name: "affix_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -5480,8 +5532,12 @@ class IrodoriChessMonsterInfo$Type extends runtime_5.MessageType {
         if (message.monsterId !== undefined)
             writer.tag(14, runtime_1.WireType.Varint).uint32(message.monsterId);
         /* repeated uint32 affix_list = 11; */
-        for (let i = 0; i < message.affixList.length; i++)
-            writer.tag(11, runtime_1.WireType.Varint).uint32(message.affixList[i]);
+        if (message.affixList.length) {
+            writer.tag(11, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.affixList.length; i++)
+                writer.uint32(message.affixList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -5496,7 +5552,7 @@ exports.IrodoriChessMonsterInfo = new IrodoriChessMonsterInfo$Type();
 class IrodoriChessEntranceInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.IrodoriChessEntranceInfo", [
-            { no: 6, name: "monster_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.IrodoriChessMonsterInfo },
+            { no: 6, name: "monster_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.IrodoriChessMonsterInfo },
             { no: 4, name: "entrance_point_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -5550,7 +5606,7 @@ exports.IrodoriChessEntranceInfo = new IrodoriChessEntranceInfo$Type();
 class IrodoriChessEntranceDetailInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.IrodoriChessEntranceDetailInfo", [
-            { no: 15, name: "info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.IrodoriChessEntranceInfo }
+            { no: 15, name: "info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.IrodoriChessEntranceInfo }
         ]);
     }
     create(value) {
@@ -5598,8 +5654,8 @@ class IrodoriChessMysteryInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.IrodoriChessMysteryInfo", [
             { no: 5, name: "entrance_detail_info", kind: "message", T: () => exports.IrodoriChessEntranceDetailInfo },
-            { no: 2, name: "entrance_point_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 13, name: "exit_point_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 2, name: "entrance_point_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 13, name: "exit_point_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -5647,11 +5703,19 @@ class IrodoriChessMysteryInfo$Type extends runtime_5.MessageType {
         if (message.entranceDetailInfo)
             exports.IrodoriChessEntranceDetailInfo.internalBinaryWrite(message.entranceDetailInfo, writer.tag(5, runtime_1.WireType.LengthDelimited).fork(), options).join();
         /* repeated uint32 entrance_point_id_list = 2; */
-        for (let i = 0; i < message.entrancePointIdList.length; i++)
-            writer.tag(2, runtime_1.WireType.Varint).uint32(message.entrancePointIdList[i]);
+        if (message.entrancePointIdList.length) {
+            writer.tag(2, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.entrancePointIdList.length; i++)
+                writer.uint32(message.entrancePointIdList[i]);
+            writer.join();
+        }
         /* repeated uint32 exit_point_id_list = 13; */
-        for (let i = 0; i < message.exitPointIdList.length; i++)
-            writer.tag(13, runtime_1.WireType.Varint).uint32(message.exitPointIdList[i]);
+        if (message.exitPointIdList.length) {
+            writer.tag(13, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.exitPointIdList.length; i++)
+                writer.uint32(message.exitPointIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);

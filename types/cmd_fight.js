@@ -2479,7 +2479,7 @@ class EvtCreateGadgetNotify$Type extends runtime_5.MessageType {
             { no: 8, name: "is_async_load", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 5, name: "camp_type", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 10, name: "sight_group_with_owner", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 889, name: "target_entity_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 889, name: "target_entity_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 12, name: "forward_type", kind: "enum", opt: true, T: () => ["com.midnights.game.ForwardType", ForwardType] },
             { no: 2, name: "entity_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 3, name: "target_entity_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
@@ -2487,7 +2487,7 @@ class EvtCreateGadgetNotify$Type extends runtime_5.MessageType {
             { no: 6, name: "guid", kind: "scalar", opt: true, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 13, name: "init_euler_angles", kind: "message", T: () => define_11.Vector },
             { no: 11, name: "target_lock_point_index", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 1920, name: "target_lock_point_index_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 1920, name: "target_lock_point_index_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 4, name: "init_pos", kind: "message", T: () => define_11.Vector },
             { no: 9, name: "owner_entity_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 7, name: "room_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
@@ -2596,8 +2596,12 @@ class EvtCreateGadgetNotify$Type extends runtime_5.MessageType {
         if (message.sightGroupWithOwner !== undefined)
             writer.tag(10, runtime_1.WireType.Varint).bool(message.sightGroupWithOwner);
         /* repeated uint32 target_entity_id_list = 889; */
-        for (let i = 0; i < message.targetEntityIdList.length; i++)
-            writer.tag(889, runtime_1.WireType.Varint).uint32(message.targetEntityIdList[i]);
+        if (message.targetEntityIdList.length) {
+            writer.tag(889, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.targetEntityIdList.length; i++)
+                writer.uint32(message.targetEntityIdList[i]);
+            writer.join();
+        }
         /* optional com.midnights.game.ForwardType forward_type = 12; */
         if (message.forwardType !== undefined)
             writer.tag(12, runtime_1.WireType.Varint).int32(message.forwardType);
@@ -2620,8 +2624,12 @@ class EvtCreateGadgetNotify$Type extends runtime_5.MessageType {
         if (message.targetLockPointIndex !== undefined)
             writer.tag(11, runtime_1.WireType.Varint).uint32(message.targetLockPointIndex);
         /* repeated uint32 target_lock_point_index_list = 1920; */
-        for (let i = 0; i < message.targetLockPointIndexList.length; i++)
-            writer.tag(1920, runtime_1.WireType.Varint).uint32(message.targetLockPointIndexList[i]);
+        if (message.targetLockPointIndexList.length) {
+            writer.tag(1920, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.targetLockPointIndexList.length; i++)
+                writer.uint32(message.targetLockPointIndexList[i]);
+            writer.join();
+        }
         /* optional com.midnights.game.Vector init_pos = 4; */
         if (message.initPos)
             define_11.Vector.internalBinaryWrite(message.initPos, writer.tag(4, runtime_1.WireType.LengthDelimited).fork(), options).join();
@@ -3291,7 +3299,7 @@ class EvtFixedRushMove$Type extends runtime_5.MessageType {
             { no: 15, name: "entity_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 3, name: "speed", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
             { no: 7, name: "need_set_is_in_air", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 2, name: "animator_state_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 2, name: "animator_state_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 9, name: "target_pos", kind: "message", T: () => define_11.Vector },
             { no: 6, name: "check_animator_state_on_exit_only", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 13, name: "override_collider", kind: "scalar", opt: true, T: 9 /*ScalarType.STRING*/ }
@@ -3356,8 +3364,12 @@ class EvtFixedRushMove$Type extends runtime_5.MessageType {
         if (message.needSetIsInAir !== undefined)
             writer.tag(7, runtime_1.WireType.Varint).bool(message.needSetIsInAir);
         /* repeated uint32 animator_state_id_list = 2; */
-        for (let i = 0; i < message.animatorStateIdList.length; i++)
-            writer.tag(2, runtime_1.WireType.Varint).uint32(message.animatorStateIdList[i]);
+        if (message.animatorStateIdList.length) {
+            writer.tag(2, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.animatorStateIdList.length; i++)
+                writer.uint32(message.animatorStateIdList[i]);
+            writer.join();
+        }
         /* optional com.midnights.game.Vector target_pos = 9; */
         if (message.targetPos)
             define_11.Vector.internalBinaryWrite(message.targetPos, writer.tag(9, runtime_1.WireType.LengthDelimited).fork(), options).join();
@@ -3518,7 +3530,7 @@ class EvtGrapplingHookMove$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.EvtGrapplingHookMove", [
             { no: 1, name: "acceleration", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
-            { no: 2, name: "animator_state_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 2, name: "animator_state_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 3, name: "entity_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 13, name: "need_set_is_in_air", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 12, name: "speed", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
@@ -3587,8 +3599,12 @@ class EvtGrapplingHookMove$Type extends runtime_5.MessageType {
         if (message.acceleration !== undefined)
             writer.tag(1, runtime_1.WireType.Bit32).float(message.acceleration);
         /* repeated uint32 animator_state_id_list = 2; */
-        for (let i = 0; i < message.animatorStateIdList.length; i++)
-            writer.tag(2, runtime_1.WireType.Varint).uint32(message.animatorStateIdList[i]);
+        if (message.animatorStateIdList.length) {
+            writer.tag(2, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.animatorStateIdList.length; i++)
+                writer.uint32(message.animatorStateIdList[i]);
+            writer.join();
+        }
         /* optional uint32 entity_id = 3; */
         if (message.entityId !== undefined)
             writer.tag(3, runtime_1.WireType.Varint).uint32(message.entityId);
@@ -4714,7 +4730,7 @@ exports.AuthorityChange = new AuthorityChange$Type();
 class EntityAuthorityChangeNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.EntityAuthorityChangeNotify", [
-            { no: 15, name: "authority_change_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.AuthorityChange }
+            { no: 15, name: "authority_change_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.AuthorityChange }
         ]);
     }
     create(value) {
@@ -4870,7 +4886,7 @@ class MonsterAlertChangeNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.MonsterAlertChangeNotify", [
             { no: 15, name: "avatar_entity_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 5, name: "monster_entity_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 5, name: "monster_entity_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 13, name: "is_alert", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -4915,8 +4931,12 @@ class MonsterAlertChangeNotify$Type extends runtime_5.MessageType {
         if (message.avatarEntityId !== undefined)
             writer.tag(15, runtime_1.WireType.Varint).uint32(message.avatarEntityId);
         /* repeated uint32 monster_entity_list = 5; */
-        for (let i = 0; i < message.monsterEntityList.length; i++)
-            writer.tag(5, runtime_1.WireType.Varint).uint32(message.monsterEntityList[i]);
+        if (message.monsterEntityList.length) {
+            writer.tag(5, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.monsterEntityList.length; i++)
+                writer.uint32(message.monsterEntityList[i]);
+            writer.join();
+        }
         /* optional uint32 is_alert = 13; */
         if (message.isAlert !== undefined)
             writer.tag(13, runtime_1.WireType.Varint).uint32(message.isAlert);
@@ -5386,7 +5406,7 @@ class EvtBeingHitsCombineNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.EvtBeingHitsCombineNotify", [
             { no: 11, name: "forward_type", kind: "enum", opt: true, T: () => ["com.midnights.game.ForwardType", ForwardType] },
-            { no: 7, name: "evt_being_hit_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.EvtBeingHitInfo }
+            { no: 7, name: "evt_being_hit_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.EvtBeingHitInfo }
         ]);
     }
     create(value) {
@@ -5568,7 +5588,7 @@ exports.EvtAvatarStandUpNotify = new EvtAvatarStandUpNotify$Type();
 class CreateMassiveEntityReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.CreateMassiveEntityReq", [
-            { no: 1, name: "massive_entity_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_7.ClientMassiveEntity }
+            { no: 1, name: "massive_entity_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_7.ClientMassiveEntity }
         ]);
     }
     create(value) {
@@ -5662,7 +5682,7 @@ exports.CreateMassiveEntityRsp = new CreateMassiveEntityRsp$Type();
 class CreateMassiveEntityNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.CreateMassiveEntityNotify", [
-            { no: 15, name: "massive_entity_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_6.ServerMassiveEntity }
+            { no: 15, name: "massive_entity_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_6.ServerMassiveEntity }
         ]);
     }
     create(value) {
@@ -5709,7 +5729,7 @@ exports.CreateMassiveEntityNotify = new CreateMassiveEntityNotify$Type();
 class DestroyMassiveEntityNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.DestroyMassiveEntityNotify", [
-            { no: 7, name: "massive_entity_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_7.ClientMassiveEntity }
+            { no: 7, name: "massive_entity_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_7.ClientMassiveEntity }
         ]);
     }
     create(value) {
@@ -5756,7 +5776,7 @@ exports.DestroyMassiveEntityNotify = new DestroyMassiveEntityNotify$Type();
 class MassiveEntityStateChangedNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.MassiveEntityStateChangedNotify", [
-            { no: 4, name: "massive_entity_state_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_5.MassiveEntityState }
+            { no: 4, name: "massive_entity_state_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_5.MassiveEntityState }
         ]);
     }
     create(value) {
@@ -5865,7 +5885,7 @@ class SyncTeamEntityNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.SyncTeamEntityNotify", [
             { no: 13, name: "scene_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 15, name: "team_entity_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.TeamEntityInfo }
+            { no: 15, name: "team_entity_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.TeamEntityInfo }
         ]);
     }
     create(value) {
@@ -5918,7 +5938,7 @@ exports.SyncTeamEntityNotify = new SyncTeamEntityNotify$Type();
 class DelTeamEntityNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.DelTeamEntityNotify", [
-            { no: 15, name: "del_entity_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 15, name: "del_entity_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "scene_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -5957,8 +5977,12 @@ class DelTeamEntityNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 del_entity_id_list = 15; */
-        for (let i = 0; i < message.delEntityIdList.length; i++)
-            writer.tag(15, runtime_1.WireType.Varint).uint32(message.delEntityIdList[i]);
+        if (message.delEntityIdList.length) {
+            writer.tag(15, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.delEntityIdList.length; i++)
+                writer.uint32(message.delEntityIdList[i]);
+            writer.join();
+        }
         /* optional uint32 scene_id = 8; */
         if (message.sceneId !== undefined)
             writer.tag(8, runtime_1.WireType.Varint).uint32(message.sceneId);
@@ -6091,7 +6115,7 @@ exports.CombatInvokeEntry = new CombatInvokeEntry$Type();
 class CombatInvocationsNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.CombatInvocationsNotify", [
-            { no: 14, name: "invoke_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.CombatInvokeEntry }
+            { no: 14, name: "invoke_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.CombatInvokeEntry }
         ]);
     }
     create(value) {
@@ -6140,9 +6164,9 @@ class ServerBuffChangeNotify$Type extends runtime_5.MessageType {
         super("com.midnights.game.ServerBuffChangeNotify", [
             { no: 7, name: "server_buff_change_type", kind: "enum", opt: true, T: () => ["com.midnights.game.ServerBuffChangeNotify.ServerBuffChangeType", ServerBuffChangeNotify_ServerBuffChangeType] },
             { no: 10, name: "is_creature_buff", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 1, name: "entity_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 12, name: "avatar_guid_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 11, name: "server_buff_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_3.ServerBuff }
+            { no: 1, name: "entity_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 12, name: "avatar_guid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 11, name: "server_buff_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_3.ServerBuff }
         ]);
     }
     create(value) {
@@ -6199,11 +6223,19 @@ class ServerBuffChangeNotify$Type extends runtime_5.MessageType {
         if (message.isCreatureBuff !== undefined)
             writer.tag(10, runtime_1.WireType.Varint).bool(message.isCreatureBuff);
         /* repeated uint32 entity_id_list = 1; */
-        for (let i = 0; i < message.entityIdList.length; i++)
-            writer.tag(1, runtime_1.WireType.Varint).uint32(message.entityIdList[i]);
+        if (message.entityIdList.length) {
+            writer.tag(1, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.entityIdList.length; i++)
+                writer.uint32(message.entityIdList[i]);
+            writer.join();
+        }
         /* repeated uint64 avatar_guid_list = 12; */
-        for (let i = 0; i < message.avatarGuidList.length; i++)
-            writer.tag(12, runtime_1.WireType.Varint).uint64(message.avatarGuidList[i]);
+        if (message.avatarGuidList.length) {
+            writer.tag(12, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.avatarGuidList.length; i++)
+                writer.uint64(message.avatarGuidList[i]);
+            writer.join();
+        }
         /* repeated com.midnights.game.ServerBuff server_buff_list = 11; */
         for (let i = 0; i < message.serverBuffList.length; i++)
             define_3.ServerBuff.internalBinaryWrite(message.serverBuffList[i], writer.tag(11, runtime_1.WireType.LengthDelimited).fork(), options).join();
@@ -6521,8 +6553,8 @@ exports.AiSyncInfo = new AiSyncInfo$Type();
 class EntityAiSyncNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.EntityAiSyncNotify", [
-            { no: 15, name: "local_avatar_alerted_monster_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 1, name: "info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.AiSyncInfo }
+            { no: 15, name: "local_avatar_alerted_monster_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 1, name: "info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.AiSyncInfo }
         ]);
     }
     create(value) {
@@ -6560,8 +6592,12 @@ class EntityAiSyncNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 local_avatar_alerted_monster_list = 15; */
-        for (let i = 0; i < message.localAvatarAlertedMonsterList.length; i++)
-            writer.tag(15, runtime_1.WireType.Varint).uint32(message.localAvatarAlertedMonsterList[i]);
+        if (message.localAvatarAlertedMonsterList.length) {
+            writer.tag(15, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.localAvatarAlertedMonsterList.length; i++)
+                writer.uint32(message.localAvatarAlertedMonsterList[i]);
+            writer.join();
+        }
         /* repeated com.midnights.game.AiSyncInfo info_list = 1; */
         for (let i = 0; i < message.infoList.length; i++)
             exports.AiSyncInfo.internalBinaryWrite(message.infoList[i], writer.tag(1, runtime_1.WireType.LengthDelimited).fork(), options).join();

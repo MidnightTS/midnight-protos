@@ -246,7 +246,7 @@ exports.GetAllH5ActivityInfoReq = new GetAllH5ActivityInfoReq$Type();
 class GetAllH5ActivityInfoRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GetAllH5ActivityInfoRsp", [
-            { no: 15, name: "h5_activity_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.H5ActivityInfo },
+            { no: 15, name: "h5_activity_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.H5ActivityInfo },
             { no: 5, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
             { no: 12, name: "client_red_dot_timestamp", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);

@@ -447,7 +447,7 @@ class LifeStateChangeNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.LifeStateChangeNotify", [
             { no: 4, name: "entity_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 6, name: "server_buff_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_3.ServerBuff },
+            { no: 6, name: "server_buff_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_3.ServerBuff },
             { no: 7, name: "attack_tag", kind: "scalar", opt: true, T: 9 /*ScalarType.STRING*/ },
             { no: 15, name: "move_reliable_seq", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 14, name: "die_type", kind: "enum", opt: true, T: () => ["com.midnights.game.PlayerDieType", define_2.PlayerDieType] },
@@ -815,7 +815,7 @@ exports.AvatarFightPropUpdateNotify = new AvatarFightPropUpdateNotify$Type();
 class EntityFightPropChangeReasonNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.EntityFightPropChangeReasonNotify", [
-            { no: 10, name: "param_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 10, name: "param_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 1, name: "prop_delta", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
             { no: 14, name: "change_hp_reason", kind: "enum", opt: true, T: () => ["com.midnights.game.ChangHpReason", define_1.ChangHpReason] },
             { no: 6, name: "reason", kind: "enum", opt: true, T: () => ["com.midnights.game.PropChangeReason", PropChangeReason] },
@@ -874,8 +874,12 @@ class EntityFightPropChangeReasonNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 param_list = 10; */
-        for (let i = 0; i < message.paramList.length; i++)
-            writer.tag(10, runtime_1.WireType.Varint).uint32(message.paramList[i]);
+        if (message.paramList.length) {
+            writer.tag(10, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.paramList.length; i++)
+                writer.uint32(message.paramList[i]);
+            writer.join();
+        }
         /* optional float prop_delta = 1; */
         if (message.propDelta !== undefined)
             writer.tag(1, runtime_1.WireType.Bit32).float(message.propDelta);
@@ -911,7 +915,7 @@ class AvatarLifeStateChangeNotify$Type extends runtime_5.MessageType {
             { no: 13, name: "life_state", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 10, name: "attack_tag", kind: "scalar", opt: true, T: 9 /*ScalarType.STRING*/ },
             { no: 2, name: "die_type", kind: "enum", opt: true, T: () => ["com.midnights.game.PlayerDieType", define_2.PlayerDieType] },
-            { no: 12, name: "server_buff_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_3.ServerBuff },
+            { no: 12, name: "server_buff_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_3.ServerBuff },
             { no: 5, name: "move_reliable_seq", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 3, name: "source_entity_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 11, name: "avatar_guid", kind: "scalar", opt: true, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ }
@@ -1210,7 +1214,7 @@ exports.AvatarPropNotify = new AvatarPropNotify$Type();
 class MarkNewNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.MarkNewNotify", [
-            { no: 7, name: "id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 7, name: "id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 11, name: "mark_new_type", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -1249,8 +1253,12 @@ class MarkNewNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 id_list = 7; */
-        for (let i = 0; i < message.idList.length; i++)
-            writer.tag(7, runtime_1.WireType.Varint).uint32(message.idList[i]);
+        if (message.idList.length) {
+            writer.tag(7, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.idList.length; i++)
+                writer.uint32(message.idList[i]);
+            writer.join();
+        }
         /* optional uint32 mark_new_type = 11; */
         if (message.markNewType !== undefined)
             writer.tag(11, runtime_1.WireType.Varint).uint32(message.markNewType);

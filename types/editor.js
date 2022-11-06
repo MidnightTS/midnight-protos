@@ -52,7 +52,7 @@ class MapInfo$Type extends runtime_5.MessageType {
             { no: 2, name: "maxx", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
             { no: 3, name: "minz", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
             { no: 4, name: "maxz", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 5, name: "cells", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.CellInfo }
+            { no: 5, name: "cells", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.CellInfo }
         ]);
     }
     create(value) {

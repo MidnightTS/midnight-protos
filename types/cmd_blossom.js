@@ -325,7 +325,7 @@ exports.BlossomBriefInfo = new BlossomBriefInfo$Type();
 class GetBlossomBriefInfoListReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GetBlossomBriefInfoListReq", [
-            { no: 4, name: "city_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 4, name: "city_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -360,8 +360,12 @@ class GetBlossomBriefInfoListReq$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 city_id_list = 4; */
-        for (let i = 0; i < message.cityIdList.length; i++)
-            writer.tag(4, runtime_1.WireType.Varint).uint32(message.cityIdList[i]);
+        if (message.cityIdList.length) {
+            writer.tag(4, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.cityIdList.length; i++)
+                writer.uint32(message.cityIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -377,7 +381,7 @@ class GetBlossomBriefInfoListRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GetBlossomBriefInfoListRsp", [
             { no: 12, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 11, name: "brief_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.BlossomBriefInfo }
+            { no: 11, name: "brief_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.BlossomBriefInfo }
         ]);
     }
     create(value) {
@@ -430,7 +434,7 @@ exports.GetBlossomBriefInfoListRsp = new GetBlossomBriefInfoListRsp$Type();
 class BlossomBriefInfoNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.BlossomBriefInfoNotify", [
-            { no: 4, name: "brief_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.BlossomBriefInfo }
+            { no: 4, name: "brief_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.BlossomBriefInfo }
         ]);
     }
     create(value) {
@@ -477,7 +481,7 @@ exports.BlossomBriefInfoNotify = new BlossomBriefInfoNotify$Type();
 class WorldOwnerBlossomBriefInfoNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.WorldOwnerBlossomBriefInfoNotify", [
-            { no: 13, name: "brief_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.BlossomBriefInfo }
+            { no: 13, name: "brief_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.BlossomBriefInfo }
         ]);
     }
     create(value) {
@@ -708,7 +712,7 @@ class OpenBlossomCircleCampGuideNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.OpenBlossomCircleCampGuideNotify", [
             { no: 7, name: "refresh_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 11, name: "circle_camp_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 11, name: "circle_camp_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -749,8 +753,12 @@ class OpenBlossomCircleCampGuideNotify$Type extends runtime_5.MessageType {
         if (message.refreshId !== undefined)
             writer.tag(7, runtime_1.WireType.Varint).uint32(message.refreshId);
         /* repeated uint32 circle_camp_id_list = 11; */
-        for (let i = 0; i < message.circleCampIdList.length; i++)
-            writer.tag(11, runtime_1.WireType.Varint).uint32(message.circleCampIdList[i]);
+        if (message.circleCampIdList.length) {
+            writer.tag(11, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.circleCampIdList.length; i++)
+                writer.uint32(message.circleCampIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);

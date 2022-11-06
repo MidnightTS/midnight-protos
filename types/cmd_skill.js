@@ -586,8 +586,8 @@ class AvatarSkillDepotChangeNotify$Type extends runtime_5.MessageType {
         super("com.midnights.game.AvatarSkillDepotChangeNotify", [
             { no: 15, name: "skill_depot_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 14, name: "proud_skill_extra_level_map", kind: "map", K: 13 /*ScalarType.UINT32*/, V: { kind: "scalar", T: 13 /*ScalarType.UINT32*/ } },
-            { no: 9, name: "talent_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 4, name: "proud_skill_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 9, name: "talent_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 4, name: "proud_skill_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 2, name: "core_proud_skill_level", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 7, name: "entity_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 12, name: "avatar_guid", kind: "scalar", opt: true, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
@@ -689,11 +689,19 @@ class AvatarSkillDepotChangeNotify$Type extends runtime_5.MessageType {
         for (let k of Object.keys(message.proudSkillExtraLevelMap))
             writer.tag(14, runtime_1.WireType.LengthDelimited).fork().tag(1, runtime_1.WireType.Varint).uint32(parseInt(k)).tag(2, runtime_1.WireType.Varint).uint32(message.proudSkillExtraLevelMap[k]).join();
         /* repeated uint32 talent_id_list = 9; */
-        for (let i = 0; i < message.talentIdList.length; i++)
-            writer.tag(9, runtime_1.WireType.Varint).uint32(message.talentIdList[i]);
+        if (message.talentIdList.length) {
+            writer.tag(9, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.talentIdList.length; i++)
+                writer.uint32(message.talentIdList[i]);
+            writer.join();
+        }
         /* repeated uint32 proud_skill_list = 4; */
-        for (let i = 0; i < message.proudSkillList.length; i++)
-            writer.tag(4, runtime_1.WireType.Varint).uint32(message.proudSkillList[i]);
+        if (message.proudSkillList.length) {
+            writer.tag(4, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.proudSkillList.length; i++)
+                writer.uint32(message.proudSkillList[i]);
+            writer.join();
+        }
         /* optional uint32 core_proud_skill_level = 2; */
         if (message.coreProudSkillLevel !== undefined)
             writer.tag(2, runtime_1.WireType.Varint).uint32(message.coreProudSkillLevel);
@@ -720,7 +728,7 @@ exports.AvatarSkillDepotChangeNotify = new AvatarSkillDepotChangeNotify$Type();
 class BigTalentPointConvertReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.BigTalentPointConvertReq", [
-            { no: 6, name: "item_guid_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 6, name: "item_guid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 3, name: "avatar_guid", kind: "scalar", opt: true, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ }
         ]);
     }
@@ -759,8 +767,12 @@ class BigTalentPointConvertReq$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint64 item_guid_list = 6; */
-        for (let i = 0; i < message.itemGuidList.length; i++)
-            writer.tag(6, runtime_1.WireType.Varint).uint64(message.itemGuidList[i]);
+        if (message.itemGuidList.length) {
+            writer.tag(6, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.itemGuidList.length; i++)
+                writer.uint64(message.itemGuidList[i]);
+            writer.join();
+        }
         /* optional uint64 avatar_guid = 3; */
         if (message.avatarGuid !== undefined)
             writer.tag(3, runtime_1.WireType.Varint).uint64(message.avatarGuid);
@@ -1092,7 +1104,7 @@ class ProudSkillChangeNotify$Type extends runtime_5.MessageType {
             { no: 11, name: "avatar_guid", kind: "scalar", opt: true, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 4, name: "entity_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "skill_depot_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 12, name: "proud_skill_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 12, name: "proud_skill_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -1145,8 +1157,12 @@ class ProudSkillChangeNotify$Type extends runtime_5.MessageType {
         if (message.skillDepotId !== undefined)
             writer.tag(8, runtime_1.WireType.Varint).uint32(message.skillDepotId);
         /* repeated uint32 proud_skill_list = 12; */
-        for (let i = 0; i < message.proudSkillList.length; i++)
-            writer.tag(12, runtime_1.WireType.Varint).uint32(message.proudSkillList[i]);
+        if (message.proudSkillList.length) {
+            writer.tag(12, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.proudSkillList.length; i++)
+                writer.uint32(message.proudSkillList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -1494,10 +1510,10 @@ exports.CanUseSkillNotify = new CanUseSkillNotify$Type();
 class AvatarTeamResonanceInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.AvatarTeamResonanceInfo", [
-            { no: 5, name: "add_team_resonance_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 5, name: "add_team_resonance_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 11, name: "entity_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 3, name: "avatar_guid", kind: "scalar", opt: true, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 14, name: "del_team_resonance_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 14, name: "del_team_resonance_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -1545,8 +1561,12 @@ class AvatarTeamResonanceInfo$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 add_team_resonance_id_list = 5; */
-        for (let i = 0; i < message.addTeamResonanceIdList.length; i++)
-            writer.tag(5, runtime_1.WireType.Varint).uint32(message.addTeamResonanceIdList[i]);
+        if (message.addTeamResonanceIdList.length) {
+            writer.tag(5, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.addTeamResonanceIdList.length; i++)
+                writer.uint32(message.addTeamResonanceIdList[i]);
+            writer.join();
+        }
         /* optional uint32 entity_id = 11; */
         if (message.entityId !== undefined)
             writer.tag(11, runtime_1.WireType.Varint).uint32(message.entityId);
@@ -1554,8 +1574,12 @@ class AvatarTeamResonanceInfo$Type extends runtime_5.MessageType {
         if (message.avatarGuid !== undefined)
             writer.tag(3, runtime_1.WireType.Varint).uint64(message.avatarGuid);
         /* repeated uint32 del_team_resonance_id_list = 14; */
-        for (let i = 0; i < message.delTeamResonanceIdList.length; i++)
-            writer.tag(14, runtime_1.WireType.Varint).uint32(message.delTeamResonanceIdList[i]);
+        if (message.delTeamResonanceIdList.length) {
+            writer.tag(14, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.delTeamResonanceIdList.length; i++)
+                writer.uint32(message.delTeamResonanceIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -1570,7 +1594,7 @@ exports.AvatarTeamResonanceInfo = new AvatarTeamResonanceInfo$Type();
 class TeamResonanceChangeNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.TeamResonanceChangeNotify", [
-            { no: 1, name: "info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.AvatarTeamResonanceInfo }
+            { no: 1, name: "info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.AvatarTeamResonanceInfo }
         ]);
     }
     create(value) {

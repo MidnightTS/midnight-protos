@@ -382,7 +382,7 @@ class OrderFinishNotify$Type extends runtime_5.MessageType {
         super("com.midnights.game.OrderFinishNotify", [
             { no: 3, name: "order_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 15, name: "card_product_remain_days", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 9, name: "item_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_1.ItemParam },
+            { no: 9, name: "item_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_1.ItemParam },
             { no: 7, name: "add_mcoin", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 6, name: "product_id", kind: "scalar", opt: true, T: 9 /*ScalarType.STRING*/ }
         ]);
@@ -639,7 +639,7 @@ class PlayerRechargeDataNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.PlayerRechargeDataNotify", [
             { no: 12, name: "card_product_remain_days", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 11, name: "product_price_tier_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ProductPriceTier }
+            { no: 11, name: "product_price_tier_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ProductPriceTier }
         ]);
     }
     create(value) {
@@ -861,7 +861,7 @@ exports.TakeResinCardDailyRewardReq = new TakeResinCardDailyRewardReq$Type();
 class TakeResinCardDailyRewardRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.TakeResinCardDailyRewardRsp", [
-            { no: 6, name: "item_vec", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_1.ItemParam },
+            { no: 6, name: "item_vec", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_1.ItemParam },
             { no: 4, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
             { no: 12, name: "product_config_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
@@ -923,7 +923,7 @@ class ResinCardDataUpdateNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ResinCardDataUpdateNotify", [
             { no: 6, name: "today_start_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 2, name: "card_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ResinCardData }
+            { no: 2, name: "card_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ResinCardData }
         ]);
     }
     create(value) {

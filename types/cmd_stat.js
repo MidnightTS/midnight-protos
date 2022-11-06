@@ -87,7 +87,7 @@ class AISnapshotEntityData$Type extends runtime_5.MessageType {
         super("com.midnights.game.AISnapshotEntityData", [
             { no: 5, name: "tick_time", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
             { no: 2, name: "tactic", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 9, name: "finished_skill_cycles", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.AISnapshotEntitySkillCycle },
+            { no: 9, name: "finished_skill_cycles", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.AISnapshotEntitySkillCycle },
             { no: 4, name: "moved_distance", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
             { no: 13, name: "ai_target_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 3, name: "threat_target_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
@@ -225,7 +225,7 @@ exports.AISnapshotEntityData = new AISnapshotEntityData$Type();
 class AISnapshotInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.AISnapshotInfo", [
-            { no: 13, name: "ai_snapshots", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.AISnapshotEntityData }
+            { no: 13, name: "ai_snapshots", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.AISnapshotEntityData }
         ]);
     }
     create(value) {

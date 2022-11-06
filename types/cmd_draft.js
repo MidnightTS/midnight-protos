@@ -421,7 +421,7 @@ exports.DraftInviteFailInfo = new DraftInviteFailInfo$Type();
 class DraftOwnerStartInviteRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.DraftOwnerStartInviteRsp", [
-            { no: 15, name: "invite_fail_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.DraftInviteFailInfo },
+            { no: 15, name: "invite_fail_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.DraftInviteFailInfo },
             { no: 9, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
             { no: 3, name: "wrong_uid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 14, name: "draft_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }

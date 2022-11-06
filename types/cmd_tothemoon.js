@@ -467,9 +467,9 @@ class ToTheMoonQueryPathRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ToTheMoonQueryPathRsp", [
             { no: 7, name: "query_status", kind: "enum", opt: true, T: () => ["com.midnights.game.ToTheMoonQueryPathRsp.PathStatusType", ToTheMoonQueryPathRsp_PathStatusType] },
-            { no: 3, name: "index", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 14, name: "corners", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_2.Vector },
-            { no: 1, name: "level", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 5 /*ScalarType.INT32*/ },
+            { no: 3, name: "index", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 14, name: "corners", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_2.Vector },
+            { no: 1, name: "level", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 5 /*ScalarType.INT32*/ },
             { no: 8, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
             { no: 9, name: "query_id", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
         ]);
@@ -528,14 +528,22 @@ class ToTheMoonQueryPathRsp$Type extends runtime_5.MessageType {
         if (message.queryStatus !== undefined)
             writer.tag(7, runtime_1.WireType.Varint).int32(message.queryStatus);
         /* repeated int64 index = 3; */
-        for (let i = 0; i < message.index.length; i++)
-            writer.tag(3, runtime_1.WireType.Varint).int64(message.index[i]);
+        if (message.index.length) {
+            writer.tag(3, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.index.length; i++)
+                writer.int64(message.index[i]);
+            writer.join();
+        }
         /* repeated com.midnights.game.Vector corners = 14; */
         for (let i = 0; i < message.corners.length; i++)
             define_2.Vector.internalBinaryWrite(message.corners[i], writer.tag(14, runtime_1.WireType.LengthDelimited).fork(), options).join();
         /* repeated int32 level = 1; */
-        for (let i = 0; i < message.level.length; i++)
-            writer.tag(1, runtime_1.WireType.Varint).int32(message.level[i]);
+        if (message.level.length) {
+            writer.tag(1, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.level.length; i++)
+                writer.int32(message.level[i]);
+            writer.join();
+        }
         /* optional int32 retcode = 8; */
         if (message.retcode !== undefined)
             writer.tag(8, runtime_1.WireType.Varint).int32(message.retcode);
@@ -888,7 +896,7 @@ class DynamicLayerNodes$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.DynamicLayerNodes", [
             { no: 10, name: "level", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 6, name: "nodes", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.DynamicSVONode }
+            { no: 6, name: "nodes", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.DynamicSVONode }
         ]);
     }
     create(value) {
@@ -941,7 +949,7 @@ exports.DynamicLayerNodes = new DynamicLayerNodes$Type();
 class DynamicNodes$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.DynamicNodes", [
-            { no: 3, name: "nodes", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.DynamicLayerNodes }
+            { no: 3, name: "nodes", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.DynamicLayerNodes }
         ]);
     }
     create(value) {
@@ -1171,8 +1179,8 @@ exports.ToTheMoonRemoveObstacleRsp = new ToTheMoonRemoveObstacleRsp$Type();
 class ToTheMoonObstaclesModifyNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ToTheMoonObstaclesModifyNotify", [
-            { no: 4, name: "add_obstacles", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ToTheMoonObstacleInfo },
-            { no: 13, name: "remove_obstacle_ids", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 5 /*ScalarType.INT32*/ },
+            { no: 4, name: "add_obstacles", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ToTheMoonObstacleInfo },
+            { no: 13, name: "remove_obstacle_ids", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 5 /*ScalarType.INT32*/ },
             { no: 15, name: "scene_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 1, name: "use_edge", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ }
         ]);
@@ -1221,8 +1229,12 @@ class ToTheMoonObstaclesModifyNotify$Type extends runtime_5.MessageType {
         for (let i = 0; i < message.addObstacles.length; i++)
             exports.ToTheMoonObstacleInfo.internalBinaryWrite(message.addObstacles[i], writer.tag(4, runtime_1.WireType.LengthDelimited).fork(), options).join();
         /* repeated int32 remove_obstacle_ids = 13; */
-        for (let i = 0; i < message.removeObstacleIds.length; i++)
-            writer.tag(13, runtime_1.WireType.Varint).int32(message.removeObstacleIds[i]);
+        if (message.removeObstacleIds.length) {
+            writer.tag(13, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.removeObstacleIds.length; i++)
+                writer.int32(message.removeObstacleIds[i]);
+            writer.join();
+        }
         /* optional uint32 scene_id = 15; */
         if (message.sceneId !== undefined)
             writer.tag(15, runtime_1.WireType.Varint).uint32(message.sceneId);

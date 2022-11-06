@@ -11,7 +11,6 @@ done
 npx protoc \
   --proto_path schemas \
   --ts_out types \
-  --ts_opt generate_dependencies \
   --ts_opt output_typescript \
   ${schemas[@]}
 

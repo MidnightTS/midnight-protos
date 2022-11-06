@@ -251,7 +251,7 @@ class ShopGoods$Type extends runtime_5.MessageType {
             { no: 258, name: "discount_end_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "min_level", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 11, name: "end_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 3, name: "cost_item_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_4.ItemParam },
+            { no: 3, name: "cost_item_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_4.ItemParam },
             { no: 318, name: "secondary_sheet_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 1, name: "hcoin", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 14, name: "mcoin", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
@@ -262,7 +262,7 @@ class ShopGoods$Type extends runtime_5.MessageType {
             { no: 4, name: "max_level", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 6, name: "disable_type", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 574, name: "discount_begin_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 2, name: "pre_goods_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 2, name: "pre_goods_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 5, name: "begin_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 15, name: "scoin", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 10, name: "bought_num", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
@@ -401,8 +401,12 @@ class ShopGoods$Type extends runtime_5.MessageType {
         if (message.discountBeginTime !== undefined)
             writer.tag(574, runtime_2.WireType.Varint).uint32(message.discountBeginTime);
         /* repeated uint32 pre_goods_id_list = 2; */
-        for (let i = 0; i < message.preGoodsIdList.length; i++)
-            writer.tag(2, runtime_2.WireType.Varint).uint32(message.preGoodsIdList[i]);
+        if (message.preGoodsIdList.length) {
+            writer.tag(2, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.preGoodsIdList.length; i++)
+                writer.uint32(message.preGoodsIdList[i]);
+            writer.join();
+        }
         /* optional uint32 begin_time = 5; */
         if (message.beginTime !== undefined)
             writer.tag(5, runtime_2.WireType.Varint).uint32(message.beginTime);
@@ -432,11 +436,11 @@ exports.ShopGoods = new ShopGoods$Type();
 class Shop$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.Shop", [
-            { no: 3, name: "concert_product_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_3.ShopConcertProduct },
-            { no: 15, name: "goods_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ShopGoods },
+            { no: 3, name: "concert_product_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_3.ShopConcertProduct },
+            { no: 15, name: "goods_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ShopGoods },
             { no: 2, name: "city_reputation_level", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 14, name: "card_product_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_2.ShopCardProduct },
-            { no: 7, name: "mcoin_product_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_1.ShopMcoinProduct },
+            { no: 14, name: "card_product_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_2.ShopCardProduct },
+            { no: 7, name: "mcoin_product_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_1.ShopMcoinProduct },
             { no: 11, name: "next_refresh_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 10, name: "city_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 13, name: "shop_type", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
@@ -694,7 +698,7 @@ class BuyGoodsRsp$Type extends runtime_5.MessageType {
             { no: 12, name: "goods", kind: "message", T: () => exports.ShopGoods },
             { no: 11, name: "shop_type", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 2, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 5, name: "goods_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ShopGoods }
+            { no: 5, name: "goods_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ShopGoods }
         ]);
     }
     create(value) {
@@ -791,7 +795,7 @@ exports.GetShopmallDataReq = new GetShopmallDataReq$Type();
 class GetShopmallDataRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GetShopmallDataRsp", [
-            { no: 15, name: "shop_type_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 15, name: "shop_type_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 3, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
         ]);
     }
@@ -830,8 +834,12 @@ class GetShopmallDataRsp$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 shop_type_list = 15; */
-        for (let i = 0; i < message.shopTypeList.length; i++)
-            writer.tag(15, runtime_2.WireType.Varint).uint32(message.shopTypeList[i]);
+        if (message.shopTypeList.length) {
+            writer.tag(15, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.shopTypeList.length; i++)
+                writer.uint32(message.shopTypeList[i]);
+            writer.join();
+        }
         /* optional int32 retcode = 3; */
         if (message.retcode !== undefined)
             writer.tag(3, runtime_2.WireType.Varint).int32(message.retcode);
@@ -957,7 +965,7 @@ exports.GetActivityShopSheetInfoReq = new GetActivityShopSheetInfoReq$Type();
 class GetActivityShopSheetInfoRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GetActivityShopSheetInfoRsp", [
-            { no: 6, name: "sheet_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ActivityShopSheetInfo },
+            { no: 6, name: "sheet_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ActivityShopSheetInfo },
             { no: 8, name: "shop_type", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 13, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
         ]);

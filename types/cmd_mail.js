@@ -366,8 +366,8 @@ var AuthkeySignType;
 class MailChangeNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.MailChangeNotify", [
-            { no: 14, name: "mail_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_2.MailData },
-            { no: 8, name: "del_mail_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 14, name: "mail_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_2.MailData },
+            { no: 8, name: "del_mail_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -408,8 +408,12 @@ class MailChangeNotify$Type extends runtime_5.MessageType {
         for (let i = 0; i < message.mailList.length; i++)
             define_2.MailData.internalBinaryWrite(message.mailList[i], writer.tag(14, runtime_2.WireType.LengthDelimited).fork(), options).join();
         /* repeated uint32 del_mail_id_list = 8; */
-        for (let i = 0; i < message.delMailIdList.length; i++)
-            writer.tag(8, runtime_2.WireType.Varint).uint32(message.delMailIdList[i]);
+        if (message.delMailIdList.length) {
+            writer.tag(8, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.delMailIdList.length; i++)
+                writer.uint32(message.delMailIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -424,7 +428,7 @@ exports.MailChangeNotify = new MailChangeNotify$Type();
 class ReadMailNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ReadMailNotify", [
-            { no: 2, name: "mail_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 2, name: "mail_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -459,8 +463,12 @@ class ReadMailNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 mail_id_list = 2; */
-        for (let i = 0; i < message.mailIdList.length; i++)
-            writer.tag(2, runtime_2.WireType.Varint).uint32(message.mailIdList[i]);
+        if (message.mailIdList.length) {
+            writer.tag(2, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.mailIdList.length; i++)
+                writer.uint32(message.mailIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -475,7 +483,7 @@ exports.ReadMailNotify = new ReadMailNotify$Type();
 class GetMailItemReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GetMailItemReq", [
-            { no: 6, name: "mail_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 6, name: "mail_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -510,8 +518,12 @@ class GetMailItemReq$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 mail_id_list = 6; */
-        for (let i = 0; i < message.mailIdList.length; i++)
-            writer.tag(6, runtime_2.WireType.Varint).uint32(message.mailIdList[i]);
+        if (message.mailIdList.length) {
+            writer.tag(6, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.mailIdList.length; i++)
+                writer.uint32(message.mailIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -527,8 +539,8 @@ class GetMailItemRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GetMailItemRsp", [
             { no: 7, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 3, name: "mail_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 2, name: "item_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_1.EquipParam }
+            { no: 3, name: "mail_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 2, name: "item_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_1.EquipParam }
         ]);
     }
     create(value) {
@@ -572,8 +584,12 @@ class GetMailItemRsp$Type extends runtime_5.MessageType {
         if (message.retcode !== undefined)
             writer.tag(7, runtime_2.WireType.Varint).int32(message.retcode);
         /* repeated uint32 mail_id_list = 3; */
-        for (let i = 0; i < message.mailIdList.length; i++)
-            writer.tag(3, runtime_2.WireType.Varint).uint32(message.mailIdList[i]);
+        if (message.mailIdList.length) {
+            writer.tag(3, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.mailIdList.length; i++)
+                writer.uint32(message.mailIdList[i]);
+            writer.join();
+        }
         /* repeated com.midnights.game.EquipParam item_list = 2; */
         for (let i = 0; i < message.itemList.length; i++)
             define_1.EquipParam.internalBinaryWrite(message.itemList[i], writer.tag(2, runtime_2.WireType.LengthDelimited).fork(), options).join();
@@ -591,7 +607,7 @@ exports.GetMailItemRsp = new GetMailItemRsp$Type();
 class DelMailReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.DelMailReq", [
-            { no: 12, name: "mail_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 12, name: "mail_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -626,8 +642,12 @@ class DelMailReq$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 mail_id_list = 12; */
-        for (let i = 0; i < message.mailIdList.length; i++)
-            writer.tag(12, runtime_2.WireType.Varint).uint32(message.mailIdList[i]);
+        if (message.mailIdList.length) {
+            writer.tag(12, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.mailIdList.length; i++)
+                writer.uint32(message.mailIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -643,7 +663,7 @@ class DelMailRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.DelMailRsp", [
             { no: 11, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 5, name: "mail_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 5, name: "mail_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -684,8 +704,12 @@ class DelMailRsp$Type extends runtime_5.MessageType {
         if (message.retcode !== undefined)
             writer.tag(11, runtime_2.WireType.Varint).int32(message.retcode);
         /* repeated uint32 mail_id_list = 5; */
-        for (let i = 0; i < message.mailIdList.length; i++)
-            writer.tag(5, runtime_2.WireType.Varint).uint32(message.mailIdList[i]);
+        if (message.mailIdList.length) {
+            writer.tag(5, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.mailIdList.length; i++)
+                writer.uint32(message.mailIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -945,7 +969,7 @@ class GetAllMailRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GetAllMailRsp", [
             { no: 8, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 14, name: "mail_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_2.MailData },
+            { no: 14, name: "mail_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_2.MailData },
             { no: 1, name: "is_collected", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 2, name: "is_truncated", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ }
         ]);
@@ -1013,7 +1037,7 @@ class ChangeMailStarNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ChangeMailStarNotify", [
             { no: 14, name: "is_star", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 2, name: "mail_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 2, name: "mail_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -1054,8 +1078,12 @@ class ChangeMailStarNotify$Type extends runtime_5.MessageType {
         if (message.isStar !== undefined)
             writer.tag(14, runtime_2.WireType.Varint).bool(message.isStar);
         /* repeated uint32 mail_id_list = 2; */
-        for (let i = 0; i < message.mailIdList.length; i++)
-            writer.tag(2, runtime_2.WireType.Varint).uint32(message.mailIdList[i]);
+        if (message.mailIdList.length) {
+            writer.tag(2, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.mailIdList.length; i++)
+                writer.uint32(message.mailIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -1118,7 +1146,7 @@ class GetAllMailResultNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GetAllMailResultNotify", [
             { no: 9, name: "transaction", kind: "scalar", opt: true, T: 9 /*ScalarType.STRING*/ },
-            { no: 5, name: "mail_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_2.MailData },
+            { no: 5, name: "mail_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_2.MailData },
             { no: 11, name: "page_index", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 4, name: "total_page_count", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 7, name: "is_collected", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },

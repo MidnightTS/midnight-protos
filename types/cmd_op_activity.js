@@ -261,7 +261,7 @@ class GetOpActivityInfoRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GetOpActivityInfoRsp", [
             { no: 10, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 7, name: "op_activity_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.OpActivityInfo }
+            { no: 7, name: "op_activity_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.OpActivityInfo }
         ]);
     }
     create(value) {
@@ -314,7 +314,7 @@ exports.GetOpActivityInfoRsp = new GetOpActivityInfoRsp$Type();
 class OpActivityDataNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.OpActivityDataNotify", [
-            { no: 15, name: "op_activity_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.OpActivityInfo }
+            { no: 15, name: "op_activity_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.OpActivityInfo }
         ]);
     }
     create(value) {

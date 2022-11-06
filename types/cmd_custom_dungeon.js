@@ -1026,7 +1026,7 @@ class CustomDungeonRoom$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.CustomDungeonRoom", [
             { no: 15, name: "room_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 4, name: "block_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.CustomDungeonBlock }
+            { no: 4, name: "block_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.CustomDungeonBlock }
         ]);
     }
     create(value) {
@@ -1079,7 +1079,7 @@ exports.CustomDungeonRoom = new CustomDungeonRoom$Type();
 class CustomDungeonSetting$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.CustomDungeonSetting", [
-            { no: 1, name: "open_room_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 1, name: "open_room_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 14, name: "is_arrive_finish", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 6, name: "life_num", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 4, name: "start_room_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
@@ -1138,8 +1138,12 @@ class CustomDungeonSetting$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 open_room_list = 1; */
-        for (let i = 0; i < message.openRoomList.length; i++)
-            writer.tag(1, runtime_1.WireType.Varint).uint32(message.openRoomList[i]);
+        if (message.openRoomList.length) {
+            writer.tag(1, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.openRoomList.length; i++)
+                writer.uint32(message.openRoomList[i]);
+            writer.join();
+        }
         /* optional bool is_arrive_finish = 14; */
         if (message.isArriveFinish !== undefined)
             writer.tag(14, runtime_1.WireType.Varint).bool(message.isArriveFinish);
@@ -1173,7 +1177,7 @@ class CustomDungeon$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.CustomDungeon", [
             { no: 1, name: "setting", kind: "message", T: () => exports.CustomDungeonSetting },
-            { no: 15, name: "room_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.CustomDungeonRoom },
+            { no: 15, name: "room_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.CustomDungeonRoom },
             { no: 3, name: "dungeon_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 10, name: "dungeon_guid", kind: "scalar", opt: true, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ }
         ]);
@@ -1447,7 +1451,7 @@ class SaveCustomDungeonRoomRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.SaveCustomDungeonRoomRsp", [
             { no: 14, name: "room_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 9, name: "error_block_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.CustomDungeonBlock },
+            { no: 9, name: "error_block_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.CustomDungeonBlock },
             { no: 12, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
         ]);
     }
@@ -1671,7 +1675,7 @@ class CustomDungeonBrief$Type extends runtime_5.MessageType {
             { no: 7, name: "social", kind: "message", T: () => exports.CustomDungeonSocial },
             { no: 10, name: "dungeon_guid", kind: "scalar", opt: true, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 14, name: "last_save_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 15, name: "tag_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 15, name: "tag_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 5, name: "dungeon_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 12, name: "battle_min_cost_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 1, name: "state", kind: "enum", opt: true, T: () => ["com.midnights.game.CustomDungeonState", CustomDungeonState, "CUSTOM_DUNGEON_STATE_"] },
@@ -1752,8 +1756,12 @@ class CustomDungeonBrief$Type extends runtime_5.MessageType {
         if (message.lastSaveTime !== undefined)
             writer.tag(14, runtime_1.WireType.Varint).uint32(message.lastSaveTime);
         /* repeated uint32 tag_list = 15; */
-        for (let i = 0; i < message.tagList.length; i++)
-            writer.tag(15, runtime_1.WireType.Varint).uint32(message.tagList[i]);
+        if (message.tagList.length) {
+            writer.tag(15, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.tagList.length; i++)
+                writer.uint32(message.tagList[i]);
+            writer.join();
+        }
         /* optional uint32 dungeon_id = 5; */
         if (message.dungeonId !== undefined)
             writer.tag(5, runtime_1.WireType.Varint).uint32(message.dungeonId);
@@ -1786,7 +1794,7 @@ class OtherCustomDungeonBrief$Type extends runtime_5.MessageType {
             { no: 14, name: "dungeon_guid", kind: "scalar", opt: true, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 10, name: "setting", kind: "message", T: () => exports.CustomDungeonSetting },
             { no: 6, name: "dungeon_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 1, name: "tag_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 1, name: "tag_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 11, name: "is_adventure_dungeon", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 9, name: "is_psn_platform", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 3, name: "is_stored", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
@@ -1873,8 +1881,12 @@ class OtherCustomDungeonBrief$Type extends runtime_5.MessageType {
         if (message.dungeonId !== undefined)
             writer.tag(6, runtime_1.WireType.Varint).uint32(message.dungeonId);
         /* repeated uint32 tag_list = 1; */
-        for (let i = 0; i < message.tagList.length; i++)
-            writer.tag(1, runtime_1.WireType.Varint).uint32(message.tagList[i]);
+        if (message.tagList.length) {
+            writer.tag(1, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.tagList.length; i++)
+                writer.uint32(message.tagList[i]);
+            writer.join();
+        }
         /* optional bool is_adventure_dungeon = 11; */
         if (message.isAdventureDungeon !== undefined)
             writer.tag(11, runtime_1.WireType.Varint).bool(message.isAdventureDungeon);
@@ -2265,7 +2277,7 @@ exports.TryCustomDungeonRsp = new TryCustomDungeonRsp$Type();
 class PublishCustomDungeonReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.PublishCustomDungeonReq", [
-            { no: 1, name: "tag_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 1, name: "tag_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 5, name: "dungeon_guid", kind: "scalar", opt: true, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ }
         ]);
     }
@@ -2304,8 +2316,12 @@ class PublishCustomDungeonReq$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 tag_list = 1; */
-        for (let i = 0; i < message.tagList.length; i++)
-            writer.tag(1, runtime_1.WireType.Varint).uint32(message.tagList[i]);
+        if (message.tagList.length) {
+            writer.tag(1, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.tagList.length; i++)
+                writer.uint32(message.tagList[i]);
+            writer.join();
+        }
         /* optional uint64 dungeon_guid = 5; */
         if (message.dungeonGuid !== undefined)
             writer.tag(5, runtime_1.WireType.Varint).uint64(message.dungeonGuid);
@@ -2537,7 +2553,7 @@ exports.GetRecommendCustomDungeonReq = new GetRecommendCustomDungeonReq$Type();
 class GetRecommendCustomDungeonRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GetRecommendCustomDungeonRsp", [
-            { no: 8, name: "custom_dungeon_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.OtherCustomDungeonBrief },
+            { no: 8, name: "custom_dungeon_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.OtherCustomDungeonBrief },
             { no: 14, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
         ]);
     }
@@ -2618,7 +2634,7 @@ class GetStoreCustomDungeonRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GetStoreCustomDungeonRsp", [
             { no: 13, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 7, name: "custom_dungeon_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.OtherCustomDungeonBrief }
+            { no: 7, name: "custom_dungeon_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.OtherCustomDungeonBrief }
         ]);
     }
     create(value) {
@@ -3002,7 +3018,7 @@ class GetCustomDungeonRsp$Type extends runtime_5.MessageType {
         super("com.midnights.game.GetCustomDungeonRsp", [
             { no: 10, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
             { no: 14, name: "ban_info", kind: "message", T: () => exports.CustomDungeonBanInfo },
-            { no: 5, name: "brief_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.CustomDungeonBrief }
+            { no: 5, name: "brief_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.CustomDungeonBrief }
         ]);
     }
     create(value) {
@@ -3064,7 +3080,7 @@ class CustomDungeonRecoverNotify$Type extends runtime_5.MessageType {
             { no: 14, name: "enter_type", kind: "enum", opt: true, T: () => ["com.midnights.game.EnterCustomDungeonType", EnterCustomDungeonType] },
             { no: 3, name: "try_type", kind: "enum", opt: true, T: () => ["com.midnights.game.TryCustomDungeonType", TryCustomDungeonType] },
             { no: 10, name: "custom_dungeon", kind: "message", T: () => exports.CustomDungeon },
-            { no: 12, name: "official_black_coin_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 12, name: "official_black_coin_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -3117,8 +3133,12 @@ class CustomDungeonRecoverNotify$Type extends runtime_5.MessageType {
         if (message.customDungeon)
             exports.CustomDungeon.internalBinaryWrite(message.customDungeon, writer.tag(10, runtime_1.WireType.LengthDelimited).fork(), options).join();
         /* repeated uint32 official_black_coin_list = 12; */
-        for (let i = 0; i < message.officialBlackCoinList.length; i++)
-            writer.tag(12, runtime_1.WireType.Varint).uint32(message.officialBlackCoinList[i]);
+        if (message.officialBlackCoinList.length) {
+            writer.tag(12, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.officialBlackCoinList.length; i++)
+                writer.uint32(message.officialBlackCoinList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -3228,7 +3248,7 @@ class CustomDungeonOfficialNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.CustomDungeonOfficialNotify", [
             { no: 9, name: "try_type", kind: "enum", opt: true, T: () => ["com.midnights.game.TryCustomDungeonType", TryCustomDungeonType] },
-            { no: 14, name: "official_black_coin_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 14, name: "official_black_coin_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 15, name: "enter_type", kind: "enum", opt: true, T: () => ["com.midnights.game.EnterCustomDungeonType", EnterCustomDungeonType] }
         ]);
     }
@@ -3273,8 +3293,12 @@ class CustomDungeonOfficialNotify$Type extends runtime_5.MessageType {
         if (message.tryType !== undefined)
             writer.tag(9, runtime_1.WireType.Varint).int32(message.tryType);
         /* repeated uint32 official_black_coin_list = 14; */
-        for (let i = 0; i < message.officialBlackCoinList.length; i++)
-            writer.tag(14, runtime_1.WireType.Varint).uint32(message.officialBlackCoinList[i]);
+        if (message.officialBlackCoinList.length) {
+            writer.tag(14, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.officialBlackCoinList.length; i++)
+                writer.uint32(message.officialBlackCoinList[i]);
+            writer.join();
+        }
         /* optional com.midnights.game.EnterCustomDungeonType enter_type = 15; */
         if (message.enterType !== undefined)
             writer.tag(15, runtime_1.WireType.Varint).int32(message.enterType);

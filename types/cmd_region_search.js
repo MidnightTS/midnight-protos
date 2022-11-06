@@ -220,7 +220,7 @@ class RegionSearchInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.RegionSearchInfo", [
             { no: 5, name: "id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 1, name: "region_search_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.RegionSearch },
+            { no: 1, name: "region_search_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.RegionSearch },
             { no: 7, name: "is_entered", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ }
         ]);
     }
@@ -280,7 +280,7 @@ exports.RegionSearchInfo = new RegionSearchInfo$Type();
 class RegionSearchNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.RegionSearchNotify", [
-            { no: 1, name: "region_search_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.RegionSearchInfo },
+            { no: 1, name: "region_search_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.RegionSearchInfo },
             { no: 8, name: "uid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }

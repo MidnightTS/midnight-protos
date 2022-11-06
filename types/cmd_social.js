@@ -1785,7 +1785,7 @@ class SocialDetail$Type extends runtime_5.MessageType {
             { no: 5, name: "signature", kind: "scalar", opt: true, T: 9 /*ScalarType.STRING*/ },
             { no: 6, name: "birthday", kind: "message", T: () => define_7.Birthday },
             { no: 7, name: "world_level", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 8, name: "reserved_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 8, name: "reserved_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 9, name: "online_state", kind: "enum", opt: true, T: () => ["com.midnights.game.FriendOnlineState", FriendOnlineState] },
             { no: 10, name: "param", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 11, name: "is_friend", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
@@ -1799,8 +1799,8 @@ class SocialDetail$Type extends runtime_5.MessageType {
             { no: 19, name: "tower_floor_index", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 20, name: "tower_level_index", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 21, name: "is_show_avatar", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 22, name: "show_avatar_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.SocialShowAvatarInfo },
-            { no: 23, name: "show_name_card_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 22, name: "show_avatar_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.SocialShowAvatarInfo },
+            { no: 23, name: "show_name_card_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 24, name: "friend_enter_home_option", kind: "enum", opt: true, T: () => ["com.midnights.game.FriendEnterHomeOption", define_6.FriendEnterHomeOption, "FRIEND_ENTER_HOME_OPTION_"] },
             { no: 25, name: "profile_picture", kind: "message", T: () => define_5.ProfilePicture }
         ]);
@@ -1934,8 +1934,12 @@ class SocialDetail$Type extends runtime_5.MessageType {
         if (message.worldLevel !== undefined)
             writer.tag(7, runtime_1.WireType.Varint).uint32(message.worldLevel);
         /* repeated uint32 reserved_list = 8; */
-        for (let i = 0; i < message.reservedList.length; i++)
-            writer.tag(8, runtime_1.WireType.Varint).uint32(message.reservedList[i]);
+        if (message.reservedList.length) {
+            writer.tag(8, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.reservedList.length; i++)
+                writer.uint32(message.reservedList[i]);
+            writer.join();
+        }
         /* optional com.midnights.game.FriendOnlineState online_state = 9; */
         if (message.onlineState !== undefined)
             writer.tag(9, runtime_1.WireType.Varint).int32(message.onlineState);
@@ -1979,8 +1983,12 @@ class SocialDetail$Type extends runtime_5.MessageType {
         for (let i = 0; i < message.showAvatarInfoList.length; i++)
             exports.SocialShowAvatarInfo.internalBinaryWrite(message.showAvatarInfoList[i], writer.tag(22, runtime_1.WireType.LengthDelimited).fork(), options).join();
         /* repeated uint32 show_name_card_id_list = 23; */
-        for (let i = 0; i < message.showNameCardIdList.length; i++)
-            writer.tag(23, runtime_1.WireType.Varint).uint32(message.showNameCardIdList[i]);
+        if (message.showNameCardIdList.length) {
+            writer.tag(23, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.showNameCardIdList.length; i++)
+                writer.uint32(message.showNameCardIdList[i]);
+            writer.join();
+        }
         /* optional com.midnights.game.FriendEnterHomeOption friend_enter_home_option = 24; */
         if (message.friendEnterHomeOption !== undefined)
             writer.tag(24, runtime_1.WireType.Varint).int32(message.friendEnterHomeOption);
@@ -2017,7 +2025,7 @@ class FriendBrief$Type extends runtime_5.MessageType {
             { no: 15, name: "is_chat_no_disturb", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 16, name: "chat_sequence", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 17, name: "remark_name", kind: "scalar", opt: true, T: 9 /*ScalarType.STRING*/ },
-            { no: 22, name: "show_avatar_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.SocialShowAvatarInfo },
+            { no: 22, name: "show_avatar_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.SocialShowAvatarInfo },
             { no: 23, name: "friend_enter_home_option", kind: "enum", opt: true, T: () => ["com.midnights.game.FriendEnterHomeOption", define_6.FriendEnterHomeOption, "FRIEND_ENTER_HOME_OPTION_"] },
             { no: 24, name: "profile_picture", kind: "message", T: () => define_5.ProfilePicture },
             { no: 25, name: "is_game_source", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
@@ -2195,7 +2203,7 @@ exports.FriendBrief = new FriendBrief$Type();
 class ChatEmojiCollectionData$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ChatEmojiCollectionData", [
-            { no: 1, name: "emoji_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 1, name: "emoji_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -2230,8 +2238,12 @@ class ChatEmojiCollectionData$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 emoji_id_list = 1; */
-        for (let i = 0; i < message.emojiIdList.length; i++)
-            writer.tag(1, runtime_1.WireType.Varint).uint32(message.emojiIdList[i]);
+        if (message.emojiIdList.length) {
+            writer.tag(1, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.emojiIdList.length; i++)
+                writer.uint32(message.emojiIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -2273,8 +2285,8 @@ class GetPlayerFriendListRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GetPlayerFriendListRsp", [
             { no: 9, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 8, name: "ask_friend_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.FriendBrief },
-            { no: 14, name: "friend_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.FriendBrief }
+            { no: 8, name: "ask_friend_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.FriendBrief },
+            { no: 14, name: "friend_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.FriendBrief }
         ]);
     }
     create(value) {
@@ -3398,7 +3410,7 @@ class GetAllUnlockNameCardRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GetAllUnlockNameCardRsp", [
             { no: 4, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 14, name: "name_card_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 14, name: "name_card_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -3439,8 +3451,12 @@ class GetAllUnlockNameCardRsp$Type extends runtime_5.MessageType {
         if (message.retcode !== undefined)
             writer.tag(4, runtime_1.WireType.Varint).int32(message.retcode);
         /* repeated uint32 name_card_list = 14; */
-        for (let i = 0; i < message.nameCardList.length; i++)
-            writer.tag(14, runtime_1.WireType.Varint).uint32(message.nameCardList[i]);
+        if (message.nameCardList.length) {
+            writer.tag(14, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.nameCardList.length; i++)
+                writer.uint32(message.nameCardList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -3731,7 +3747,7 @@ class GetRecentMpPlayerListRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GetRecentMpPlayerListRsp", [
             { no: 13, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 14, name: "recent_mp_player_brief_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.FriendBrief }
+            { no: 14, name: "recent_mp_player_brief_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.FriendBrief }
         ]);
     }
     create(value) {
@@ -4025,7 +4041,7 @@ class GetPlayerBlacklistRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GetPlayerBlacklistRsp", [
             { no: 2, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 3, name: "blacklist", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.FriendBrief }
+            { no: 3, name: "blacklist", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.FriendBrief }
         ]);
     }
     create(value) {
@@ -4337,7 +4353,7 @@ class UpdatePlayerShowAvatarListReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.UpdatePlayerShowAvatarListReq", [
             { no: 15, name: "is_show_avatar", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 13, name: "show_avatar_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 13, name: "show_avatar_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -4378,8 +4394,12 @@ class UpdatePlayerShowAvatarListReq$Type extends runtime_5.MessageType {
         if (message.isShowAvatar !== undefined)
             writer.tag(15, runtime_1.WireType.Varint).bool(message.isShowAvatar);
         /* repeated uint32 show_avatar_id_list = 13; */
-        for (let i = 0; i < message.showAvatarIdList.length; i++)
-            writer.tag(13, runtime_1.WireType.Varint).uint32(message.showAvatarIdList[i]);
+        if (message.showAvatarIdList.length) {
+            writer.tag(13, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.showAvatarIdList.length; i++)
+                writer.uint32(message.showAvatarIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -4394,7 +4414,7 @@ exports.UpdatePlayerShowAvatarListReq = new UpdatePlayerShowAvatarListReq$Type()
 class UpdatePlayerShowAvatarListRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.UpdatePlayerShowAvatarListRsp", [
-            { no: 1, name: "show_avatar_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 1, name: "show_avatar_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 3, name: "is_show_avatar", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 10, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
         ]);
@@ -4437,8 +4457,12 @@ class UpdatePlayerShowAvatarListRsp$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 show_avatar_id_list = 1; */
-        for (let i = 0; i < message.showAvatarIdList.length; i++)
-            writer.tag(1, runtime_1.WireType.Varint).uint32(message.showAvatarIdList[i]);
+        if (message.showAvatarIdList.length) {
+            writer.tag(1, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.showAvatarIdList.length; i++)
+                writer.uint32(message.showAvatarIdList[i]);
+            writer.join();
+        }
         /* optional bool is_show_avatar = 3; */
         if (message.isShowAvatar !== undefined)
             writer.tag(3, runtime_1.WireType.Varint).bool(message.isShowAvatar);
@@ -4508,7 +4532,7 @@ class GetFriendShowAvatarInfoRsp$Type extends runtime_5.MessageType {
         super("com.midnights.game.GetFriendShowAvatarInfoRsp", [
             { no: 6, name: "uid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 3, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 9, name: "show_avatar_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_2.ShowAvatarInfo }
+            { no: 9, name: "show_avatar_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_2.ShowAvatarInfo }
         ]);
     }
     create(value) {
@@ -4567,7 +4591,7 @@ exports.GetFriendShowAvatarInfoRsp = new GetFriendShowAvatarInfoRsp$Type();
 class UpdatePlayerShowNameCardListReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.UpdatePlayerShowNameCardListReq", [
-            { no: 15, name: "show_name_card_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 15, name: "show_name_card_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -4602,8 +4626,12 @@ class UpdatePlayerShowNameCardListReq$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 show_name_card_id_list = 15; */
-        for (let i = 0; i < message.showNameCardIdList.length; i++)
-            writer.tag(15, runtime_1.WireType.Varint).uint32(message.showNameCardIdList[i]);
+        if (message.showNameCardIdList.length) {
+            writer.tag(15, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.showNameCardIdList.length; i++)
+                writer.uint32(message.showNameCardIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -4619,7 +4647,7 @@ class UpdatePlayerShowNameCardListRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.UpdatePlayerShowNameCardListRsp", [
             { no: 13, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 12, name: "show_name_card_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 12, name: "show_name_card_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -4660,8 +4688,12 @@ class UpdatePlayerShowNameCardListRsp$Type extends runtime_5.MessageType {
         if (message.retcode !== undefined)
             writer.tag(13, runtime_1.WireType.Varint).int32(message.retcode);
         /* repeated uint32 show_name_card_id_list = 12; */
-        for (let i = 0; i < message.showNameCardIdList.length; i++)
-            writer.tag(12, runtime_1.WireType.Varint).uint32(message.showNameCardIdList[i]);
+        if (message.showNameCardIdList.length) {
+            writer.tag(12, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.showNameCardIdList.length; i++)
+                writer.uint32(message.showNameCardIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -4725,7 +4757,7 @@ class GetFriendShowNameCardInfoRsp$Type extends runtime_5.MessageType {
         super("com.midnights.game.GetFriendShowNameCardInfoRsp", [
             { no: 15, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
             { no: 7, name: "uid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 10, name: "show_name_card_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 10, name: "show_name_card_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -4772,8 +4804,12 @@ class GetFriendShowNameCardInfoRsp$Type extends runtime_5.MessageType {
         if (message.uid !== undefined)
             writer.tag(7, runtime_1.WireType.Varint).uint32(message.uid);
         /* repeated uint32 show_name_card_id_list = 10; */
-        for (let i = 0; i < message.showNameCardIdList.length; i++)
-            writer.tag(10, runtime_1.WireType.Varint).uint32(message.showNameCardIdList[i]);
+        if (message.showNameCardIdList.length) {
+            writer.tag(10, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.showNameCardIdList.length; i++)
+                writer.uint32(message.showNameCardIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -4943,7 +4979,7 @@ exports.ProfilePictureChangeNotify = new ProfilePictureChangeNotify$Type();
 class PSNFriendListNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.PSNFriendListNotify", [
-            { no: 8, name: "psn_friend_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.FriendBrief }
+            { no: 8, name: "psn_friend_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.FriendBrief }
         ]);
     }
     create(value) {
@@ -4990,7 +5026,7 @@ exports.PSNFriendListNotify = new PSNFriendListNotify$Type();
 class PSNBlackListNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.PSNBlackListNotify", [
-            { no: 11, name: "psn_blacklist", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.FriendBrief }
+            { no: 11, name: "psn_blacklist", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.FriendBrief }
         ]);
     }
     create(value) {
@@ -5064,7 +5100,7 @@ class GetPlayerAskFriendListRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GetPlayerAskFriendListRsp", [
             { no: 13, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 15, name: "ask_friend_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.FriendBrief }
+            { no: 15, name: "ask_friend_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.FriendBrief }
         ]);
     }
     create(value) {

@@ -1633,7 +1633,7 @@ class DungeonEntryInfoReq$Type extends runtime_5.MessageType {
         super("com.midnights.game.DungeonEntryInfoReq", [
             { no: 2, name: "point_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 9, name: "scene_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 4, name: "scene_point_id_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_9.Uint32Pair }
+            { no: 4, name: "scene_point_id_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_9.Uint32Pair }
         ]);
     }
     create(value) {
@@ -1797,7 +1797,7 @@ class DungeonEntryPointInfo$Type extends runtime_5.MessageType {
         super("com.midnights.game.DungeonEntryPointInfo", [
             { no: 12, name: "scene_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 6, name: "point_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 1, name: "dungeon_entry_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.DungeonEntryInfo },
+            { no: 1, name: "dungeon_entry_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.DungeonEntryInfo },
             { no: 8, name: "recommend_dungeon_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -1863,9 +1863,9 @@ exports.DungeonEntryPointInfo = new DungeonEntryPointInfo$Type();
 class DungeonEntryInfoRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.DungeonEntryInfoRsp", [
-            { no: 12, name: "dungeon_entry_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.DungeonEntryInfo },
+            { no: 12, name: "dungeon_entry_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.DungeonEntryInfo },
             { no: 15, name: "point_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 4, name: "dungeon_entry_point_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.DungeonEntryPointInfo },
+            { no: 4, name: "dungeon_entry_point_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.DungeonEntryPointInfo },
             { no: 14, name: "recommend_dungeon_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 11, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
         ]);
@@ -2223,7 +2223,7 @@ class DungeonWayPointNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.DungeonWayPointNotify", [
             { no: 9, name: "is_add", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 4, name: "active_way_point_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 4, name: "active_way_point_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -2264,8 +2264,12 @@ class DungeonWayPointNotify$Type extends runtime_5.MessageType {
         if (message.isAdd !== undefined)
             writer.tag(9, runtime_1.WireType.Varint).bool(message.isAdd);
         /* repeated uint32 active_way_point_list = 4; */
-        for (let i = 0; i < message.activeWayPointList.length; i++)
-            writer.tag(4, runtime_1.WireType.Varint).uint32(message.activeWayPointList[i]);
+        if (message.activeWayPointList.length) {
+            writer.tag(4, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.activeWayPointList.length; i++)
+                writer.uint32(message.activeWayPointList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -2436,7 +2440,7 @@ class DungeonSettleExhibitionInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.DungeonSettleExhibitionInfo", [
             { no: 3, name: "player_info", kind: "message", T: () => define_7.OnlinePlayerInfo },
-            { no: 13, name: "card_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_6.ExhibitionDisplayInfo }
+            { no: 13, name: "card_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_6.ExhibitionDisplayInfo }
         ]);
     }
     create(value) {
@@ -2633,7 +2637,7 @@ class InstableSprayDungeonSettleInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.InstableSprayDungeonSettleInfo", [
             { no: 1, name: "stage_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 4, name: "score_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 4, name: "score_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 13, name: "is_new_record", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 5, name: "difficulty", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
@@ -2682,8 +2686,12 @@ class InstableSprayDungeonSettleInfo$Type extends runtime_5.MessageType {
         if (message.stageId !== undefined)
             writer.tag(1, runtime_1.WireType.Varint).uint32(message.stageId);
         /* repeated uint32 score_list = 4; */
-        for (let i = 0; i < message.scoreList.length; i++)
-            writer.tag(4, runtime_1.WireType.Varint).uint32(message.scoreList[i]);
+        if (message.scoreList.length) {
+            writer.tag(4, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.scoreList.length; i++)
+                writer.uint32(message.scoreList[i]);
+            writer.join();
+        }
         /* optional bool is_new_record = 13; */
         if (message.isNewRecord !== undefined)
             writer.tag(13, runtime_1.WireType.Varint).bool(message.isNewRecord);
@@ -2704,8 +2712,8 @@ exports.InstableSprayDungeonSettleInfo = new InstableSprayDungeonSettleInfo$Type
 class WindFieldDungeonSettleInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.WindFieldDungeonSettleInfo", [
-            { no: 11, name: "after_watcher_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 7, name: "before_watcher_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 11, name: "after_watcher_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 7, name: "before_watcher_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 2, name: "fail_reason", kind: "enum", opt: true, T: () => ["com.midnights.game.WindFieldDungeonFailReason", WindFieldDungeonFailReason] }
         ]);
     }
@@ -2751,11 +2759,19 @@ class WindFieldDungeonSettleInfo$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 after_watcher_id_list = 11; */
-        for (let i = 0; i < message.afterWatcherIdList.length; i++)
-            writer.tag(11, runtime_1.WireType.Varint).uint32(message.afterWatcherIdList[i]);
+        if (message.afterWatcherIdList.length) {
+            writer.tag(11, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.afterWatcherIdList.length; i++)
+                writer.uint32(message.afterWatcherIdList[i]);
+            writer.join();
+        }
         /* repeated uint32 before_watcher_id_list = 7; */
-        for (let i = 0; i < message.beforeWatcherIdList.length; i++)
-            writer.tag(7, runtime_1.WireType.Varint).uint32(message.beforeWatcherIdList[i]);
+        if (message.beforeWatcherIdList.length) {
+            writer.tag(7, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.beforeWatcherIdList.length; i++)
+                writer.uint32(message.beforeWatcherIdList[i]);
+            writer.join();
+        }
         /* optional com.midnights.game.WindFieldDungeonFailReason fail_reason = 2; */
         if (message.failReason !== undefined)
             writer.tag(2, runtime_1.WireType.Varint).int32(message.failReason);
@@ -2858,9 +2874,9 @@ class DungeonSettleNotify$Type extends runtime_5.MessageType {
             { no: 10, name: "result", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 13, name: "dungeon_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 14, name: "strengthen_point_data_map", kind: "map", K: 13 /*ScalarType.UINT32*/, V: { kind: "message", T: () => exports.StrengthenPointData } },
-            { no: 8, name: "exhibition_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.DungeonSettleExhibitionInfo },
+            { no: 8, name: "exhibition_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.DungeonSettleExhibitionInfo },
             { no: 12, name: "create_player_uid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 11, name: "fail_cond_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 11, name: "fail_cond_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 1, name: "use_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 4, name: "close_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 7, name: "is_success", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
@@ -3047,8 +3063,12 @@ class DungeonSettleNotify$Type extends runtime_5.MessageType {
         if (message.createPlayerUid !== undefined)
             writer.tag(12, runtime_1.WireType.Varint).uint32(message.createPlayerUid);
         /* repeated uint32 fail_cond_list = 11; */
-        for (let i = 0; i < message.failCondList.length; i++)
-            writer.tag(11, runtime_1.WireType.Varint).uint32(message.failCondList[i]);
+        if (message.failCondList.length) {
+            writer.tag(11, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.failCondList.length; i++)
+                writer.uint32(message.failCondList[i]);
+            writer.join();
+        }
         /* optional uint32 use_time = 1; */
         if (message.useTime !== undefined)
             writer.tag(1, runtime_1.WireType.Varint).uint32(message.useTime);
@@ -3558,11 +3578,11 @@ class DungeonChallengeBeginNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.DungeonChallengeBeginNotify", [
             { no: 5, name: "father_index", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 14, name: "param_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 14, name: "param_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 6, name: "challenge_index", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 1, name: "challenge_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 4, name: "group_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 12, name: "uid_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 12, name: "uid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -3619,8 +3639,12 @@ class DungeonChallengeBeginNotify$Type extends runtime_5.MessageType {
         if (message.fatherIndex !== undefined)
             writer.tag(5, runtime_1.WireType.Varint).uint32(message.fatherIndex);
         /* repeated uint32 param_list = 14; */
-        for (let i = 0; i < message.paramList.length; i++)
-            writer.tag(14, runtime_1.WireType.Varint).uint32(message.paramList[i]);
+        if (message.paramList.length) {
+            writer.tag(14, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.paramList.length; i++)
+                writer.uint32(message.paramList[i]);
+            writer.join();
+        }
         /* optional uint32 challenge_index = 6; */
         if (message.challengeIndex !== undefined)
             writer.tag(6, runtime_1.WireType.Varint).uint32(message.challengeIndex);
@@ -3631,8 +3655,12 @@ class DungeonChallengeBeginNotify$Type extends runtime_5.MessageType {
         if (message.groupId !== undefined)
             writer.tag(4, runtime_1.WireType.Varint).uint32(message.groupId);
         /* repeated uint32 uid_list = 12; */
-        for (let i = 0; i < message.uidList.length; i++)
-            writer.tag(12, runtime_1.WireType.Varint).uint32(message.uidList[i]);
+        if (message.uidList.length) {
+            writer.tag(12, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.uidList.length; i++)
+                writer.uint32(message.uidList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -3717,7 +3745,7 @@ class CustomDungeonResultInfo$Type extends runtime_5.MessageType {
         super("com.midnights.game.CustomDungeonResultInfo", [
             { no: 12, name: "is_liked", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 9, name: "got_coin_num", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 6, name: "child_challenge_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ChallengeBrief },
+            { no: 6, name: "child_challenge_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ChallengeBrief },
             { no: 3, name: "dungeon_guid", kind: "scalar", opt: true, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 7, name: "finish_type", kind: "enum", opt: true, T: () => ["com.midnights.game.CustomDungeonFinishType", CustomDungeonFinishType] },
             { no: 11, name: "time_cost", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
@@ -4217,7 +4245,7 @@ class ChallengeRecordNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ChallengeRecordNotify", [
             { no: 2, name: "group_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 5, name: "challenge_record_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ChallengeRecord }
+            { no: 5, name: "challenge_record_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ChallengeRecord }
         ]);
     }
     create(value) {
@@ -4326,9 +4354,9 @@ class DungeonCandidateTeamInfoNotify$Type extends runtime_5.MessageType {
         super("com.midnights.game.DungeonCandidateTeamInfoNotify", [
             { no: 10, name: "player_state_map", kind: "map", K: 13 /*ScalarType.UINT32*/, V: { kind: "enum", T: () => ["com.midnights.game.DungeonCandidateTeamPlayerState", define_1.DungeonCandidateTeamPlayerState, "DUNGEON_CANDIDATE_TEAM_PLAYER_STATE_"] } },
             { no: 9, name: "dungeon_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 13, name: "ready_player_uid", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 13, name: "ready_player_uid", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 2, name: "match_type", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 4, name: "avatar_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.DungeonCandidateTeamAvatar }
+            { no: 4, name: "avatar_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.DungeonCandidateTeamAvatar }
         ]);
     }
     create(value) {
@@ -4397,8 +4425,12 @@ class DungeonCandidateTeamInfoNotify$Type extends runtime_5.MessageType {
         if (message.dungeonId !== undefined)
             writer.tag(9, runtime_1.WireType.Varint).uint32(message.dungeonId);
         /* repeated uint32 ready_player_uid = 13; */
-        for (let i = 0; i < message.readyPlayerUid.length; i++)
-            writer.tag(13, runtime_1.WireType.Varint).uint32(message.readyPlayerUid[i]);
+        if (message.readyPlayerUid.length) {
+            writer.tag(13, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.readyPlayerUid.length; i++)
+                writer.uint32(message.readyPlayerUid[i]);
+            writer.join();
+        }
         /* optional uint32 match_type = 2; */
         if (message.matchType !== undefined)
             writer.tag(2, runtime_1.WireType.Varint).uint32(message.matchType);
@@ -4736,7 +4768,7 @@ exports.DungeonCandidateTeamCreateRsp = new DungeonCandidateTeamCreateRsp$Type()
 class DungeonCandidateTeamInviteReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.DungeonCandidateTeamInviteReq", [
-            { no: 5, name: "player_uids", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 5, name: "player_uids", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -4771,8 +4803,12 @@ class DungeonCandidateTeamInviteReq$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 player_uids = 5; */
-        for (let i = 0; i < message.playerUids.length; i++)
-            writer.tag(5, runtime_1.WireType.Varint).uint32(message.playerUids[i]);
+        if (message.playerUids.length) {
+            writer.tag(5, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.playerUids.length; i++)
+                writer.uint32(message.playerUids[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -4788,7 +4824,7 @@ class DungeonCandidateTeamInviteRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.DungeonCandidateTeamInviteRsp", [
             { no: 12, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 7, name: "invalid_player_uids", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 7, name: "invalid_player_uids", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -4829,8 +4865,12 @@ class DungeonCandidateTeamInviteRsp$Type extends runtime_5.MessageType {
         if (message.retcode !== undefined)
             writer.tag(12, runtime_1.WireType.Varint).int32(message.retcode);
         /* repeated uint32 invalid_player_uids = 7; */
-        for (let i = 0; i < message.invalidPlayerUids.length; i++)
-            writer.tag(7, runtime_1.WireType.Varint).uint32(message.invalidPlayerUids[i]);
+        if (message.invalidPlayerUids.length) {
+            writer.tag(7, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.invalidPlayerUids.length; i++)
+                writer.uint32(message.invalidPlayerUids[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -5207,7 +5247,7 @@ exports.DungeonCandidateTeamSetReadyRsp = new DungeonCandidateTeamSetReadyRsp$Ty
 class DungeonCandidateTeamChangeAvatarReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.DungeonCandidateTeamChangeAvatarReq", [
-            { no: 5, name: "avatar_guid_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ }
+            { no: 5, name: "avatar_guid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ }
         ]);
     }
     create(value) {
@@ -5242,8 +5282,12 @@ class DungeonCandidateTeamChangeAvatarReq$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint64 avatar_guid_list = 5; */
-        for (let i = 0; i < message.avatarGuidList.length; i++)
-            writer.tag(5, runtime_1.WireType.Varint).uint64(message.avatarGuidList[i]);
+        if (message.avatarGuidList.length) {
+            writer.tag(5, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.avatarGuidList.length; i++)
+                writer.uint64(message.avatarGuidList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -5420,7 +5464,7 @@ exports.GetDailyDungeonEntryInfoReq = new GetDailyDungeonEntryInfoReq$Type();
 class GetDailyDungeonEntryInfoRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GetDailyDungeonEntryInfoRsp", [
-            { no: 2, name: "daily_dungeon_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.DailyDungeonEntryInfo },
+            { no: 2, name: "daily_dungeon_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.DailyDungeonEntryInfo },
             { no: 14, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
         ]);
     }

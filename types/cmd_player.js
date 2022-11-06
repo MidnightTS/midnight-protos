@@ -2383,7 +2383,7 @@ class GetPlayerTokenRsp$Type extends runtime_5.MessageType {
             { no: 12, name: "account_uid", kind: "scalar", opt: true, T: 9 /*ScalarType.STRING*/ },
             { no: 4, name: "is_guest", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 1529, name: "client_version_random_key", kind: "scalar", opt: true, T: 9 /*ScalarType.STRING*/ },
-            { no: 1640, name: "finish_collection_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 1640, name: "finish_collection_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "platform_type", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 1112, name: "reg_platform", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 573, name: "is_login_white_list", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
@@ -2590,8 +2590,12 @@ class GetPlayerTokenRsp$Type extends runtime_5.MessageType {
         if (message.clientVersionRandomKey !== undefined)
             writer.tag(1529, runtime_1.WireType.LengthDelimited).string(message.clientVersionRandomKey);
         /* repeated uint32 finish_collection_id_list = 1640; */
-        for (let i = 0; i < message.finishCollectionIdList.length; i++)
-            writer.tag(1640, runtime_1.WireType.Varint).uint32(message.finishCollectionIdList[i]);
+        if (message.finishCollectionIdList.length) {
+            writer.tag(1640, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.finishCollectionIdList.length; i++)
+                writer.uint32(message.finishCollectionIdList[i]);
+            writer.join();
+        }
         /* optional uint32 platform_type = 8; */
         if (message.platformType !== undefined)
             writer.tag(8, runtime_1.WireType.Varint).uint32(message.platformType);
@@ -3200,12 +3204,12 @@ class PlayerLoginRsp$Type extends runtime_5.MessageType {
             { no: 1649, name: "is_login_rsp_split", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 2, name: "is_use_ability_hash", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 11, name: "ability_hash_map", kind: "map", K: 9 /*ScalarType.STRING*/, V: { kind: "scalar", T: 5 /*ScalarType.INT32*/ } },
-            { no: 250, name: "short_ability_hash_map", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ShortAbilityHashPair },
+            { no: 250, name: "short_ability_hash_map", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ShortAbilityHashPair },
             { no: 1830, name: "client_md5", kind: "scalar", opt: true, T: 9 /*ScalarType.STRING*/ },
             { no: 1900, name: "country_code", kind: "scalar", opt: true, T: 9 /*ScalarType.STRING*/ },
             { no: 951, name: "is_data_need_relogin", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 1969, name: "res_version_config", kind: "message", T: () => define_8.ResVersionConfig },
-            { no: 1352, name: "feature_block_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_7.FeatureBlockInfo },
+            { no: 1352, name: "feature_block_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_7.FeatureBlockInfo },
             { no: 624, name: "birthday", kind: "scalar", opt: true, T: 9 /*ScalarType.STRING*/ },
             { no: 14, name: "target_uid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 13, name: "player_data", kind: "scalar", opt: true, T: 12 /*ScalarType.BYTES*/ },
@@ -4038,7 +4042,7 @@ exports.ClientTriggerEventNotify = new ClientTriggerEventNotify$Type();
 class SetPlayerPropReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.SetPlayerPropReq", [
-            { no: 7, name: "prop_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_6.PropValue }
+            { no: 7, name: "prop_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_6.PropValue }
         ]);
     }
     create(value) {
@@ -4723,9 +4727,9 @@ exports.PlayerCookReq = new PlayerCookReq$Type();
 class PlayerCookRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.PlayerCookRsp", [
-            { no: 15, name: "extral_item_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_4.ItemParam },
+            { no: 15, name: "extral_item_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_4.ItemParam },
             { no: 12, name: "cook_count", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 11, name: "item_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_4.ItemParam },
+            { no: 11, name: "item_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_4.ItemParam },
             { no: 3, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
             { no: 5, name: "qte_quality", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 7, name: "recipe_data", kind: "message", T: () => exports.CookRecipeData }
@@ -4805,7 +4809,7 @@ exports.PlayerCookRsp = new PlayerCookRsp$Type();
 class PlayerRandomCookReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.PlayerRandomCookReq", [
-            { no: 13, name: "material_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_4.ItemParam }
+            { no: 13, name: "material_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_4.ItemParam }
         ]);
     }
     create(value) {
@@ -4953,7 +4957,7 @@ exports.CookRecipeData = new CookRecipeData$Type();
 class CookDataNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.CookDataNotify", [
-            { no: 2, name: "recipe_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.CookRecipeData },
+            { no: 2, name: "recipe_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.CookRecipeData },
             { no: 11, name: "grade", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -5331,7 +5335,7 @@ exports.TakeCompoundOutputReq = new TakeCompoundOutputReq$Type();
 class TakeCompoundOutputRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.TakeCompoundOutputRsp", [
-            { no: 6, name: "item_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_4.ItemParam },
+            { no: 6, name: "item_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_4.ItemParam },
             { no: 2, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
         ]);
     }
@@ -5385,8 +5389,8 @@ exports.TakeCompoundOutputRsp = new TakeCompoundOutputRsp$Type();
 class CompoundDataNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.CompoundDataNotify", [
-            { no: 1, name: "unlock_compound_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 9, name: "compound_que_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.CompoundQueueData }
+            { no: 1, name: "unlock_compound_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 9, name: "compound_que_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.CompoundQueueData }
         ]);
     }
     create(value) {
@@ -5424,8 +5428,12 @@ class CompoundDataNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 unlock_compound_list = 1; */
-        for (let i = 0; i < message.unlockCompoundList.length; i++)
-            writer.tag(1, runtime_1.WireType.Varint).uint32(message.unlockCompoundList[i]);
+        if (message.unlockCompoundList.length) {
+            writer.tag(1, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.unlockCompoundList.length; i++)
+                writer.uint32(message.unlockCompoundList[i]);
+            writer.join();
+        }
         /* repeated com.midnights.game.CompoundQueueData compound_que_data_list = 9; */
         for (let i = 0; i < message.compoundQueDataList.length; i++)
             exports.CompoundQueueData.internalBinaryWrite(message.compoundQueDataList[i], writer.tag(9, runtime_1.WireType.LengthDelimited).fork(), options).join();
@@ -5470,8 +5478,8 @@ class GetCompoundDataRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GetCompoundDataRsp", [
             { no: 3, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 11, name: "unlock_compound_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 7, name: "compound_que_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.CompoundQueueData }
+            { no: 11, name: "unlock_compound_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 7, name: "compound_que_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.CompoundQueueData }
         ]);
     }
     create(value) {
@@ -5515,8 +5523,12 @@ class GetCompoundDataRsp$Type extends runtime_5.MessageType {
         if (message.retcode !== undefined)
             writer.tag(3, runtime_1.WireType.Varint).int32(message.retcode);
         /* repeated uint32 unlock_compound_list = 11; */
-        for (let i = 0; i < message.unlockCompoundList.length; i++)
-            writer.tag(11, runtime_1.WireType.Varint).uint32(message.unlockCompoundList[i]);
+        if (message.unlockCompoundList.length) {
+            writer.tag(11, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.unlockCompoundList.length; i++)
+                writer.uint32(message.unlockCompoundList[i]);
+            writer.join();
+        }
         /* repeated com.midnights.game.CompoundQueueData compound_que_data_list = 7; */
         for (let i = 0; i < message.compoundQueDataList.length; i++)
             exports.CompoundQueueData.internalBinaryWrite(message.compoundQueDataList[i], writer.tag(7, runtime_1.WireType.LengthDelimited).fork(), options).join();
@@ -6117,7 +6129,7 @@ class WorldOwnerDailyTaskNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.WorldOwnerDailyTaskNotify", [
             { no: 2, name: "filter_city_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 1, name: "task_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.DailyTaskInfo }
+            { no: 1, name: "task_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.DailyTaskInfo }
         ]);
     }
     create(value) {
@@ -6393,7 +6405,7 @@ exports.TakePlayerLevelRewardRsp = new TakePlayerLevelRewardRsp$Type();
 class PlayerLevelRewardUpdateNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.PlayerLevelRewardUpdateNotify", [
-            { no: 9, name: "level_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 9, name: "level_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -6428,8 +6440,12 @@ class PlayerLevelRewardUpdateNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 level_list = 9; */
-        for (let i = 0; i < message.levelList.length; i++)
-            writer.tag(9, runtime_1.WireType.Varint).uint32(message.levelList[i]);
+        if (message.levelList.length) {
+            writer.tag(9, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.levelList.length; i++)
+                writer.uint32(message.levelList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -6549,7 +6565,7 @@ exports.GivingRecord = new GivingRecord$Type();
 class GivingRecordNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GivingRecordNotify", [
-            { no: 14, name: "giving_record_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.GivingRecord }
+            { no: 14, name: "giving_record_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.GivingRecord }
         ]);
     }
     create(value) {
@@ -6652,7 +6668,7 @@ class ItemGivingReq$Type extends runtime_5.MessageType {
         super("com.midnights.game.ItemGivingReq", [
             { no: 15, name: "item_guid_count_map", kind: "map", K: 4 /*ScalarType.UINT64*/, V: { kind: "scalar", T: 13 /*ScalarType.UINT32*/ } },
             { no: 13, name: "giving_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 4, name: "item_param_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_4.ItemParam },
+            { no: 4, name: "item_param_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_4.ItemParam },
             { no: 2, name: "item_giving_type", kind: "enum", opt: true, T: () => ["com.midnights.game.ItemGivingReq.ItemGivingType", ItemGivingReq_ItemGivingType] }
         ]);
     }
@@ -7207,7 +7223,7 @@ class TaskVar$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.TaskVar", [
             { no: 8, name: "key", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 6, name: "value_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 5 /*ScalarType.INT32*/ }
+            { no: 6, name: "value_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 5 /*ScalarType.INT32*/ }
         ]);
     }
     create(value) {
@@ -7248,8 +7264,12 @@ class TaskVar$Type extends runtime_5.MessageType {
         if (message.key !== undefined)
             writer.tag(8, runtime_1.WireType.Varint).uint32(message.key);
         /* repeated int32 value_list = 6; */
-        for (let i = 0; i < message.valueList.length; i++)
-            writer.tag(6, runtime_1.WireType.Varint).int32(message.valueList[i]);
+        if (message.valueList.length) {
+            writer.tag(6, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.valueList.length; i++)
+                writer.int32(message.valueList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -7264,7 +7284,7 @@ exports.TaskVar = new TaskVar$Type();
 class TaskVarNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.TaskVarNotify", [
-            { no: 7, name: "task_var_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.TaskVar }
+            { no: 7, name: "task_var_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.TaskVar }
         ]);
     }
     create(value) {
@@ -7661,7 +7681,7 @@ exports.DailyTaskFilterCityRsp = new DailyTaskFilterCityRsp$Type();
 class DailyTaskUnlockedCitiesNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.DailyTaskUnlockedCitiesNotify", [
-            { no: 12, name: "unlocked_city_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 12, name: "unlocked_city_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -7696,8 +7716,12 @@ class DailyTaskUnlockedCitiesNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 unlocked_city_list = 12; */
-        for (let i = 0; i < message.unlockedCityList.length; i++)
-            writer.tag(12, runtime_1.WireType.Varint).uint32(message.unlockedCityList[i]);
+        if (message.unlockedCityList.length) {
+            writer.tag(12, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.unlockedCityList.length; i++)
+                writer.uint32(message.unlockedCityList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -7712,7 +7736,7 @@ exports.DailyTaskUnlockedCitiesNotify = new DailyTaskUnlockedCitiesNotify$Type()
 class ExclusiveRuleInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ExclusiveRuleInfo", [
-            { no: 1, name: "object_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 1, name: "object_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 10, name: "rule_type", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -7751,8 +7775,12 @@ class ExclusiveRuleInfo$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 object_id_list = 1; */
-        for (let i = 0; i < message.objectIdList.length; i++)
-            writer.tag(1, runtime_1.WireType.Varint).uint32(message.objectIdList[i]);
+        if (message.objectIdList.length) {
+            writer.tag(1, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.objectIdList.length; i++)
+                writer.uint32(message.objectIdList[i]);
+            writer.join();
+        }
         /* optional uint32 rule_type = 10; */
         if (message.ruleType !== undefined)
             writer.tag(10, runtime_1.WireType.Varint).uint32(message.ruleType);
@@ -7770,7 +7798,7 @@ exports.ExclusiveRuleInfo = new ExclusiveRuleInfo$Type();
 class ExclusiveRuleNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ExclusiveRuleNotify", [
-            { no: 5, name: "rule_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ExclusiveRuleInfo }
+            { no: 5, name: "rule_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ExclusiveRuleInfo }
         ]);
     }
     create(value) {
@@ -8090,7 +8118,7 @@ class GameplayRecommendationSkillResponse$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GameplayRecommendationSkillResponse", [
             { no: 13, name: "skill_depot_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 9, name: "skill_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 9, name: "skill_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -8131,8 +8159,12 @@ class GameplayRecommendationSkillResponse$Type extends runtime_5.MessageType {
         if (message.skillDepotId !== undefined)
             writer.tag(13, runtime_1.WireType.Varint).uint32(message.skillDepotId);
         /* repeated uint32 skill_id_list = 9; */
-        for (let i = 0; i < message.skillIdList.length; i++)
-            writer.tag(9, runtime_1.WireType.Varint).uint32(message.skillIdList[i]);
+        if (message.skillIdList.length) {
+            writer.tag(9, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.skillIdList.length; i++)
+                writer.uint32(message.skillIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -8201,7 +8233,7 @@ exports.GameplayRecommendationReliquaryMainPropData = new GameplayRecommendation
 class GameplayRecommendationReliquaryResponse$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GameplayRecommendationReliquaryResponse", [
-            { no: 8, name: "main_prop_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.GameplayRecommendationReliquaryMainPropData },
+            { no: 8, name: "main_prop_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.GameplayRecommendationReliquaryMainPropData },
             { no: 3, name: "equip_type", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -8256,7 +8288,7 @@ class GameplayRecommendationElementReliquaryResponse$Type extends runtime_5.Mess
     constructor() {
         super("com.midnights.game.GameplayRecommendationElementReliquaryResponse", [
             { no: 11, name: "element_type", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 5, name: "main_prop_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.GameplayRecommendationReliquaryMainPropData },
+            { no: 5, name: "main_prop_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.GameplayRecommendationReliquaryMainPropData },
             { no: 15, name: "equip_type", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -8790,10 +8822,10 @@ exports.PlayerCompoundMaterialBoostReq = new PlayerCompoundMaterialBoostReq$Type
 class PlayerCompoundMaterialBoostRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.PlayerCompoundMaterialBoostRsp", [
-            { no: 2, name: "take_item_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_4.ItemParam },
+            { no: 2, name: "take_item_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_4.ItemParam },
             { no: 6, name: "take_status", kind: "enum", opt: true, T: () => ["com.midnights.game.CompoundBoostTakeStatusType", CompoundBoostTakeStatusType] },
             { no: 7, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 1, name: "compound_que_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.CompoundQueueData }
+            { no: 1, name: "compound_que_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.CompoundQueueData }
         ]);
     }
     create(value) {

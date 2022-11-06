@@ -475,7 +475,7 @@ class PlayerStartMatchReq$Type extends runtime_5.MessageType {
         super("com.midnights.game.PlayerStartMatchReq", [
             { no: 3, name: "match_type", kind: "enum", opt: true, T: () => ["com.midnights.game.MatchType", define_3.MatchType, "MATCH_TYPE_"] },
             { no: 12, name: "mechanicus_difficult_level", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 11, name: "match_param_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 11, name: "match_param_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 1, name: "dungeon_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 15, name: "mp_play_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 6, name: "match_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
@@ -534,8 +534,12 @@ class PlayerStartMatchReq$Type extends runtime_5.MessageType {
         if (message.mechanicusDifficultLevel !== undefined)
             writer.tag(12, runtime_2.WireType.Varint).uint32(message.mechanicusDifficultLevel);
         /* repeated uint32 match_param_list = 11; */
-        for (let i = 0; i < message.matchParamList.length; i++)
-            writer.tag(11, runtime_2.WireType.Varint).uint32(message.matchParamList[i]);
+        if (message.matchParamList.length) {
+            writer.tag(11, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.matchParamList.length; i++)
+                writer.uint32(message.matchParamList[i]);
+            writer.join();
+        }
         /* optional uint32 dungeon_id = 1; */
         if (message.dungeonId !== undefined)
             writer.tag(1, runtime_2.WireType.Varint).uint32(message.dungeonId);
@@ -660,7 +664,7 @@ class PlayerMatchInfoNotify$Type extends runtime_5.MessageType {
             { no: 10, name: "dungeon_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 11, name: "match_type", kind: "enum", opt: true, T: () => ["com.midnights.game.MatchType", define_3.MatchType, "MATCH_TYPE_"] },
             { no: 12, name: "mechanicus_difficult_level", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 6, name: "match_param_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 6, name: "match_param_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 3, name: "estimate_match_cost_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 5, name: "mp_play_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 13, name: "host_uid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
@@ -737,8 +741,12 @@ class PlayerMatchInfoNotify$Type extends runtime_5.MessageType {
         if (message.mechanicusDifficultLevel !== undefined)
             writer.tag(12, runtime_2.WireType.Varint).uint32(message.mechanicusDifficultLevel);
         /* repeated uint32 match_param_list = 6; */
-        for (let i = 0; i < message.matchParamList.length; i++)
-            writer.tag(6, runtime_2.WireType.Varint).uint32(message.matchParamList[i]);
+        if (message.matchParamList.length) {
+            writer.tag(6, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.matchParamList.length; i++)
+                writer.uint32(message.matchParamList[i]);
+            writer.join();
+        }
         /* optional uint32 estimate_match_cost_time = 3; */
         if (message.estimateMatchCostTime !== undefined)
             writer.tag(3, runtime_2.WireType.Varint).uint32(message.estimateMatchCostTime);
@@ -973,7 +981,7 @@ class GeneralMatchInfo$Type extends runtime_5.MessageType {
         super("com.midnights.game.GeneralMatchInfo", [
             { no: 1, name: "match_param", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 9, name: "match_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 5, name: "player_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.MatchPlayerInfo }
+            { no: 5, name: "player_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.MatchPlayerInfo }
         ]);
     }
     create(value) {
@@ -1032,7 +1040,7 @@ exports.GeneralMatchInfo = new GeneralMatchInfo$Type();
 class GCGMatchInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GCGMatchInfo", [
-            { no: 13, name: "player_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.MatchPlayerInfo }
+            { no: 13, name: "player_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.MatchPlayerInfo }
         ]);
     }
     create(value) {
@@ -1466,7 +1474,7 @@ exports.PlayerApplyEnterMpAfterMatchAgreedNotify = new PlayerApplyEnterMpAfterMa
 class PlayerGeneralMatchDismissNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.PlayerGeneralMatchDismissNotify", [
-            { no: 3, name: "uid_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 3, name: "uid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 13, name: "reason", kind: "enum", opt: true, T: () => ["com.midnights.game.MatchReason", define_2.MatchReason] },
             { no: 1, name: "match_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
@@ -1509,8 +1517,12 @@ class PlayerGeneralMatchDismissNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 uid_list = 3; */
-        for (let i = 0; i < message.uidList.length; i++)
-            writer.tag(3, runtime_2.WireType.Varint).uint32(message.uidList[i]);
+        if (message.uidList.length) {
+            writer.tag(3, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.uidList.length; i++)
+                writer.uint32(message.uidList[i]);
+            writer.join();
+        }
         /* optional com.midnights.game.MatchReason reason = 13; */
         if (message.reason !== undefined)
             writer.tag(13, runtime_2.WireType.Varint).int32(message.reason);
@@ -1728,7 +1740,7 @@ class PlayerGCGMatchDismissNotify$Type extends runtime_5.MessageType {
         super("com.midnights.game.PlayerGCGMatchDismissNotify", [
             { no: 11, name: "match_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 5, name: "reason", kind: "enum", opt: true, T: () => ["com.midnights.game.MatchReason", define_2.MatchReason] },
-            { no: 7, name: "uid_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 7, name: "uid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -1775,8 +1787,12 @@ class PlayerGCGMatchDismissNotify$Type extends runtime_5.MessageType {
         if (message.reason !== undefined)
             writer.tag(5, runtime_2.WireType.Varint).int32(message.reason);
         /* repeated uint32 uid_list = 7; */
-        for (let i = 0; i < message.uidList.length; i++)
-            writer.tag(7, runtime_2.WireType.Varint).uint32(message.uidList[i]);
+        if (message.uidList.length) {
+            writer.tag(7, runtime_2.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.uidList.length; i++)
+                writer.uint32(message.uidList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_1.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);

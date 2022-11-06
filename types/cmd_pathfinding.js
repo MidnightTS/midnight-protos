@@ -415,7 +415,7 @@ class QueryPathReq$Type extends runtime_5.MessageType {
             { no: 12, name: "filter", kind: "message", T: () => exports.QueryFilter },
             { no: 15, name: "query_id", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
             { no: 4, name: "destination_extend", kind: "message", T: () => define_3.Vector3Int },
-            { no: 10, name: "destination_pos", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_2.Vector },
+            { no: 10, name: "destination_pos", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_2.Vector },
             { no: 11, name: "scene_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -506,7 +506,7 @@ class QueryPathRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.QueryPathRsp", [
             { no: 12, name: "query_id", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 6, name: "corners", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_2.Vector },
+            { no: 6, name: "corners", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_2.Vector },
             { no: 8, name: "query_status", kind: "enum", opt: true, T: () => ["com.midnights.game.QueryPathRsp.PathStatusType", QueryPathRsp_PathStatusType] },
             { no: 1, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
         ]);
@@ -648,8 +648,8 @@ exports.ObstacleInfo = new ObstacleInfo$Type();
 class ObstacleModifyNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ObstacleModifyNotify", [
-            { no: 9, name: "remove_obstacle_ids", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 5 /*ScalarType.INT32*/ },
-            { no: 6, name: "add_obstacles", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ObstacleInfo },
+            { no: 9, name: "remove_obstacle_ids", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 5 /*ScalarType.INT32*/ },
+            { no: 6, name: "add_obstacles", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ObstacleInfo },
             { no: 5, name: "scene_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -691,8 +691,12 @@ class ObstacleModifyNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated int32 remove_obstacle_ids = 9; */
-        for (let i = 0; i < message.removeObstacleIds.length; i++)
-            writer.tag(9, runtime_1.WireType.Varint).int32(message.removeObstacleIds[i]);
+        if (message.removeObstacleIds.length) {
+            writer.tag(9, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.removeObstacleIds.length; i++)
+                writer.int32(message.removeObstacleIds[i]);
+            writer.join();
+        }
         /* repeated com.midnights.game.ObstacleInfo add_obstacles = 6; */
         for (let i = 0; i < message.addObstacles.length; i++)
             exports.ObstacleInfo.internalBinaryWrite(message.addObstacles[i], writer.tag(6, runtime_1.WireType.LengthDelimited).fork(), options).join();
@@ -740,11 +744,11 @@ class PathfindingEnterSceneReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.PathfindingEnterSceneReq", [
             { no: 12, name: "scene_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 14, name: "activity_id", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 14, name: "activity_id", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 15, name: "scene_tag_hash", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 6, name: "version", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 11, name: "is_editor", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 13, name: "obstacles", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ObstacleInfo },
+            { no: 13, name: "obstacles", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ObstacleInfo },
             { no: 4, name: "polygon_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -801,8 +805,12 @@ class PathfindingEnterSceneReq$Type extends runtime_5.MessageType {
         if (message.sceneId !== undefined)
             writer.tag(12, runtime_1.WireType.Varint).uint32(message.sceneId);
         /* repeated uint32 activity_id = 14; */
-        for (let i = 0; i < message.activityId.length; i++)
-            writer.tag(14, runtime_1.WireType.Varint).uint32(message.activityId[i]);
+        if (message.activityId.length) {
+            writer.tag(14, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.activityId.length; i++)
+                writer.uint32(message.activityId[i]);
+            writer.join();
+        }
         /* optional uint32 scene_tag_hash = 15; */
         if (message.sceneTagHash !== undefined)
             writer.tag(15, runtime_1.WireType.Varint).uint32(message.sceneTagHash);
@@ -988,7 +996,7 @@ class GMShowObstacleRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GMShowObstacleRsp", [
             { no: 5, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 6, name: "obstacles", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.GMObstacleInfo }
+            { no: 6, name: "obstacles", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.GMObstacleInfo }
         ]);
     }
     create(value) {
@@ -1095,9 +1103,9 @@ exports.GMShowNavMeshReq = new GMShowNavMeshReq$Type();
 class PBNavMeshPoly$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.PBNavMeshPoly", [
-            { no: 10, name: "edge_types", kind: "enum", repeat: 2 /*RepeatType.UNPACKED*/, T: () => ["com.midnights.game.PBNavMeshPoly.EdgeType", PBNavMeshPoly_EdgeType] },
+            { no: 10, name: "edge_types", kind: "enum", repeat: 1 /*RepeatType.PACKED*/, T: () => ["com.midnights.game.PBNavMeshPoly.EdgeType", PBNavMeshPoly_EdgeType] },
             { no: 6, name: "area", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 7, name: "vects", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 5 /*ScalarType.INT32*/ }
+            { no: 7, name: "vects", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 5 /*ScalarType.INT32*/ }
         ]);
     }
     create(value) {
@@ -1142,14 +1150,22 @@ class PBNavMeshPoly$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated com.midnights.game.PBNavMeshPoly.EdgeType edge_types = 10; */
-        for (let i = 0; i < message.edgeTypes.length; i++)
-            writer.tag(10, runtime_1.WireType.Varint).int32(message.edgeTypes[i]);
+        if (message.edgeTypes.length) {
+            writer.tag(10, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.edgeTypes.length; i++)
+                writer.int32(message.edgeTypes[i]);
+            writer.join();
+        }
         /* optional int32 area = 6; */
         if (message.area !== undefined)
             writer.tag(6, runtime_1.WireType.Varint).int32(message.area);
         /* repeated int32 vects = 7; */
-        for (let i = 0; i < message.vects.length; i++)
-            writer.tag(7, runtime_1.WireType.Varint).int32(message.vects[i]);
+        if (message.vects.length) {
+            writer.tag(7, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.vects.length; i++)
+                writer.int32(message.vects[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -1164,8 +1180,8 @@ exports.PBNavMeshPoly = new PBNavMeshPoly$Type();
 class PBNavMeshTile$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.PBNavMeshTile", [
-            { no: 4, name: "vecs", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_2.Vector },
-            { no: 8, name: "polys", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.PBNavMeshPoly }
+            { no: 4, name: "vecs", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_2.Vector },
+            { no: 8, name: "polys", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.PBNavMeshPoly }
         ]);
     }
     create(value) {
@@ -1218,7 +1234,7 @@ exports.PBNavMeshTile = new PBNavMeshTile$Type();
 class GMShowNavMeshRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GMShowNavMeshRsp", [
-            { no: 11, name: "tiles", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.PBNavMeshTile },
+            { no: 11, name: "tiles", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.PBNavMeshTile },
             { no: 5, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
         ]);
     }
@@ -1340,7 +1356,7 @@ exports.PbNavMeshStatsInfo = new PbNavMeshStatsInfo$Type();
 class NavMeshStatsNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.NavMeshStatsNotify", [
-            { no: 4, name: "infos", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.PbNavMeshStatsInfo }
+            { no: 4, name: "infos", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.PbNavMeshStatsInfo }
         ]);
     }
     create(value) {

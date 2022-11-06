@@ -2130,8 +2130,8 @@ exports.SceneGalleryBrokenFloorInfo = new SceneGalleryBrokenFloorInfo$Type();
 class SceneGalleryHideAndSeekInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.SceneGalleryHideAndSeekInfo", [
-            { no: 13, name: "visible_uid_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 4, name: "caught_uid_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 13, name: "visible_uid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 4, name: "caught_uid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -2173,11 +2173,19 @@ class SceneGalleryHideAndSeekInfo$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 visible_uid_list = 13; */
-        for (let i = 0; i < message.visibleUidList.length; i++)
-            writer.tag(13, runtime_1.WireType.Varint).uint32(message.visibleUidList[i]);
+        if (message.visibleUidList.length) {
+            writer.tag(13, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.visibleUidList.length; i++)
+                writer.uint32(message.visibleUidList[i]);
+            writer.join();
+        }
         /* repeated uint32 caught_uid_list = 4; */
-        for (let i = 0; i < message.caughtUidList.length; i++)
-            writer.tag(4, runtime_1.WireType.Varint).uint32(message.caughtUidList[i]);
+        if (message.caughtUidList.length) {
+            writer.tag(4, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.caughtUidList.length; i++)
+                writer.uint32(message.caughtUidList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -2253,7 +2261,7 @@ exports.SceneGalleryBuoyantCombatInfo = new SceneGalleryBuoyantCombatInfo$Type()
 class SceneGalleryProgressInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.SceneGalleryProgressInfo", [
-            { no: 8, name: "progress_stage_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 8, name: "progress_stage_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 11, name: "key", kind: "scalar", opt: true, T: 9 /*ScalarType.STRING*/ },
             { no: 5, name: "progress", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 12, name: "ui_form", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
@@ -2300,8 +2308,12 @@ class SceneGalleryProgressInfo$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 progress_stage_list = 8; */
-        for (let i = 0; i < message.progressStageList.length; i++)
-            writer.tag(8, runtime_1.WireType.Varint).uint32(message.progressStageList[i]);
+        if (message.progressStageList.length) {
+            writer.tag(8, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.progressStageList.length; i++)
+                writer.uint32(message.progressStageList[i]);
+            writer.join();
+        }
         /* optional string key = 11; */
         if (message.key !== undefined)
             writer.tag(11, runtime_1.WireType.LengthDelimited).string(message.key);
@@ -3285,7 +3297,7 @@ class SceneGalleryInstaleSprayInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.SceneGalleryInstaleSprayInfo", [
             { no: 5, name: "score", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 12, name: "buff_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.SceneGalleryInstableSprayBuffInfo }
+            { no: 12, name: "buff_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.SceneGalleryInstableSprayBuffInfo }
         ]);
     }
     create(value) {
@@ -3775,7 +3787,7 @@ class SceneGalleryInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.SceneGalleryInfo", [
             { no: 5, name: "stage", kind: "enum", opt: true, T: () => ["com.midnights.game.GalleryStageType", GalleryStageType] },
-            { no: 4, name: "progress_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.SceneGalleryProgressInfo },
+            { no: 4, name: "progress_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.SceneGalleryProgressInfo },
             { no: 2, name: "gallery_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 3, name: "start_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 11, name: "end_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
@@ -4196,7 +4208,7 @@ exports.GetAllSceneGalleryInfoReq = new GetAllSceneGalleryInfoReq$Type();
 class GetAllSceneGalleryInfoRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GetAllSceneGalleryInfoRsp", [
-            { no: 12, name: "gallery_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.SceneGalleryInfo },
+            { no: 12, name: "gallery_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.SceneGalleryInfo },
             { no: 2, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
         ]);
     }
@@ -4718,7 +4730,7 @@ class BounceConjuringGallerySettleInfo$Type extends runtime_5.MessageType {
             { no: 15, name: "gadget_count_map", kind: "map", K: 13 /*ScalarType.UINT32*/, V: { kind: "scalar", T: 13 /*ScalarType.UINT32*/ } },
             { no: 12, name: "score", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "perfect_hit_count", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 7, name: "card_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_1.ExhibitionDisplayInfo }
+            { no: 7, name: "card_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_1.ExhibitionDisplayInfo }
         ]);
     }
     create(value) {
@@ -5182,7 +5194,7 @@ class FishingGallerySettleInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.FishingGallerySettleInfo", [
             { no: 11, name: "fish_map", kind: "map", K: 13 /*ScalarType.UINT32*/, V: { kind: "message", T: () => exports.FishInfo } },
-            { no: 15, name: "fishing_score_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.FishingScore }
+            { no: 15, name: "fishing_score_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.FishingScore }
         ]);
     }
     create(value) {
@@ -6037,7 +6049,7 @@ class IslandPartyGallerySettleInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.IslandPartyGallerySettleInfo", [
             { no: 13, name: "player_info", kind: "message", T: () => define_3.OnlinePlayerInfo },
-            { no: 11, name: "card_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_1.ExhibitionDisplayInfo }
+            { no: 11, name: "card_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_1.ExhibitionDisplayInfo }
         ]);
     }
     create(value) {

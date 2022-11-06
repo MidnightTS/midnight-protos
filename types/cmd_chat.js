@@ -498,7 +498,7 @@ exports.PullPrivateChatReq = new PullPrivateChatReq$Type();
 class PullPrivateChatRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.PullPrivateChatRsp", [
-            { no: 15, name: "chat_info", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => cmd_scene_1.ChatInfo },
+            { no: 15, name: "chat_info", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => cmd_scene_1.ChatInfo },
             { no: 11, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
         ]);
     }
@@ -606,7 +606,7 @@ exports.PullRecentChatReq = new PullRecentChatReq$Type();
 class PullRecentChatRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.PullRecentChatRsp", [
-            { no: 15, name: "chat_info", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => cmd_scene_1.ChatInfo },
+            { no: 15, name: "chat_info", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => cmd_scene_1.ChatInfo },
             { no: 3, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
         ]);
     }
@@ -808,7 +808,7 @@ exports.ChatChannelUpdateNotify = new ChatChannelUpdateNotify$Type();
 class ChatChannelDataNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ChatChannelDataNotify", [
-            { no: 3, name: "channel_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 3, name: "channel_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -843,8 +843,12 @@ class ChatChannelDataNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 channel_list = 3; */
-        for (let i = 0; i < message.channelList.length; i++)
-            writer.tag(3, runtime_1.WireType.Varint).uint32(message.channelList[i]);
+        if (message.channelList.length) {
+            writer.tag(3, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.channelList.length; i++)
+                writer.uint32(message.channelList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);

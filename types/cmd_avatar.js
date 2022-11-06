@@ -1559,7 +1559,7 @@ exports.AvatarAddNotify = new AvatarAddNotify$Type();
 class AvatarDelNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.AvatarDelNotify", [
-            { no: 13, name: "avatar_guid_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ }
+            { no: 13, name: "avatar_guid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ }
         ]);
     }
     create(value) {
@@ -1594,8 +1594,12 @@ class AvatarDelNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint64 avatar_guid_list = 13; */
-        for (let i = 0; i < message.avatarGuidList.length; i++)
-            writer.tag(13, runtime_1.WireType.Varint).uint64(message.avatarGuidList[i]);
+        if (message.avatarGuidList.length) {
+            writer.tag(13, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.avatarGuidList.length; i++)
+                writer.uint64(message.avatarGuidList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -1610,7 +1614,7 @@ exports.AvatarDelNotify = new AvatarDelNotify$Type();
 class AvatarTeam$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.AvatarTeam", [
-            { no: 7, name: "avatar_guid_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 7, name: "avatar_guid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 14, name: "team_name", kind: "scalar", opt: true, T: 9 /*ScalarType.STRING*/ }
         ]);
     }
@@ -1649,8 +1653,12 @@ class AvatarTeam$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint64 avatar_guid_list = 7; */
-        for (let i = 0; i < message.avatarGuidList.length; i++)
-            writer.tag(7, runtime_1.WireType.Varint).uint64(message.avatarGuidList[i]);
+        if (message.avatarGuidList.length) {
+            writer.tag(7, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.avatarGuidList.length; i++)
+                writer.uint64(message.avatarGuidList[i]);
+            writer.join();
+        }
         /* optional string team_name = 14; */
         if (message.teamName !== undefined)
             writer.tag(14, runtime_1.WireType.LengthDelimited).string(message.teamName);
@@ -1669,7 +1677,7 @@ class SetUpAvatarTeamReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.SetUpAvatarTeamReq", [
             { no: 3, name: "team_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 7, name: "avatar_team_guid_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 7, name: "avatar_team_guid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 5, name: "cur_avatar_guid", kind: "scalar", opt: true, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ }
         ]);
     }
@@ -1714,8 +1722,12 @@ class SetUpAvatarTeamReq$Type extends runtime_5.MessageType {
         if (message.teamId !== undefined)
             writer.tag(3, runtime_1.WireType.Varint).uint32(message.teamId);
         /* repeated uint64 avatar_team_guid_list = 7; */
-        for (let i = 0; i < message.avatarTeamGuidList.length; i++)
-            writer.tag(7, runtime_1.WireType.Varint).uint64(message.avatarTeamGuidList[i]);
+        if (message.avatarTeamGuidList.length) {
+            writer.tag(7, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.avatarTeamGuidList.length; i++)
+                writer.uint64(message.avatarTeamGuidList[i]);
+            writer.join();
+        }
         /* optional uint64 cur_avatar_guid = 5; */
         if (message.curAvatarGuid !== undefined)
             writer.tag(5, runtime_1.WireType.Varint).uint64(message.curAvatarGuid);
@@ -1733,7 +1745,7 @@ exports.SetUpAvatarTeamReq = new SetUpAvatarTeamReq$Type();
 class SetUpAvatarTeamRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.SetUpAvatarTeamRsp", [
-            { no: 1, name: "avatar_team_guid_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 1, name: "avatar_team_guid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 6, name: "team_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
             { no: 13, name: "cur_avatar_guid", kind: "scalar", opt: true, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ }
@@ -1780,8 +1792,12 @@ class SetUpAvatarTeamRsp$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint64 avatar_team_guid_list = 1; */
-        for (let i = 0; i < message.avatarTeamGuidList.length; i++)
-            writer.tag(1, runtime_1.WireType.Varint).uint64(message.avatarTeamGuidList[i]);
+        if (message.avatarTeamGuidList.length) {
+            writer.tag(1, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.avatarTeamGuidList.length; i++)
+                writer.uint64(message.avatarTeamGuidList[i]);
+            writer.join();
+        }
         /* optional uint32 team_id = 6; */
         if (message.teamId !== undefined)
             writer.tag(6, runtime_1.WireType.Varint).uint32(message.teamId);
@@ -2334,7 +2350,7 @@ class AvatarTeamUpdateNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.AvatarTeamUpdateNotify", [
             { no: 2, name: "avatar_team_map", kind: "map", K: 13 /*ScalarType.UINT32*/, V: { kind: "message", T: () => exports.AvatarTeam } },
-            { no: 13, name: "temp_avatar_guid_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ }
+            { no: 13, name: "temp_avatar_guid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ }
         ]);
     }
     create(value) {
@@ -2395,8 +2411,12 @@ class AvatarTeamUpdateNotify$Type extends runtime_5.MessageType {
             writer.join().join();
         }
         /* repeated uint64 temp_avatar_guid_list = 13; */
-        for (let i = 0; i < message.tempAvatarGuidList.length; i++)
-            writer.tag(13, runtime_1.WireType.Varint).uint64(message.tempAvatarGuidList[i]);
+        if (message.tempAvatarGuidList.length) {
+            writer.tag(13, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.tempAvatarGuidList.length; i++)
+                writer.uint64(message.tempAvatarGuidList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -2411,13 +2431,13 @@ exports.AvatarTeamUpdateNotify = new AvatarTeamUpdateNotify$Type();
 class AvatarDataNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.AvatarDataNotify", [
-            { no: 11, name: "owned_costume_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 11, name: "owned_costume_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "choose_avatar_guid", kind: "scalar", opt: true, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 7, name: "avatar_team_map", kind: "map", K: 13 /*ScalarType.UINT32*/, V: { kind: "message", T: () => exports.AvatarTeam } },
-            { no: 9, name: "backup_avatar_team_order_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 12, name: "temp_avatar_guid_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 1, name: "owned_flycloak_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 6, name: "avatar_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_11.AvatarInfo },
+            { no: 9, name: "backup_avatar_team_order_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 12, name: "temp_avatar_guid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 1, name: "owned_flycloak_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 6, name: "avatar_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_11.AvatarInfo },
             { no: 2, name: "cur_avatar_team_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -2502,8 +2522,12 @@ class AvatarDataNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 owned_costume_list = 11; */
-        for (let i = 0; i < message.ownedCostumeList.length; i++)
-            writer.tag(11, runtime_1.WireType.Varint).uint32(message.ownedCostumeList[i]);
+        if (message.ownedCostumeList.length) {
+            writer.tag(11, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.ownedCostumeList.length; i++)
+                writer.uint32(message.ownedCostumeList[i]);
+            writer.join();
+        }
         /* optional uint64 choose_avatar_guid = 8; */
         if (message.chooseAvatarGuid !== undefined)
             writer.tag(8, runtime_1.WireType.Varint).uint64(message.chooseAvatarGuid);
@@ -2515,14 +2539,26 @@ class AvatarDataNotify$Type extends runtime_5.MessageType {
             writer.join().join();
         }
         /* repeated uint32 backup_avatar_team_order_list = 9; */
-        for (let i = 0; i < message.backupAvatarTeamOrderList.length; i++)
-            writer.tag(9, runtime_1.WireType.Varint).uint32(message.backupAvatarTeamOrderList[i]);
+        if (message.backupAvatarTeamOrderList.length) {
+            writer.tag(9, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.backupAvatarTeamOrderList.length; i++)
+                writer.uint32(message.backupAvatarTeamOrderList[i]);
+            writer.join();
+        }
         /* repeated uint64 temp_avatar_guid_list = 12; */
-        for (let i = 0; i < message.tempAvatarGuidList.length; i++)
-            writer.tag(12, runtime_1.WireType.Varint).uint64(message.tempAvatarGuidList[i]);
+        if (message.tempAvatarGuidList.length) {
+            writer.tag(12, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.tempAvatarGuidList.length; i++)
+                writer.uint64(message.tempAvatarGuidList[i]);
+            writer.join();
+        }
         /* repeated uint32 owned_flycloak_list = 1; */
-        for (let i = 0; i < message.ownedFlycloakList.length; i++)
-            writer.tag(1, runtime_1.WireType.Varint).uint32(message.ownedFlycloakList[i]);
+        if (message.ownedFlycloakList.length) {
+            writer.tag(1, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.ownedFlycloakList.length; i++)
+                writer.uint32(message.ownedFlycloakList[i]);
+            writer.join();
+        }
         /* repeated com.midnights.game.AvatarInfo avatar_list = 6; */
         for (let i = 0; i < message.avatarList.length; i++)
             define_11.AvatarInfo.internalBinaryWrite(message.avatarList[i], writer.tag(6, runtime_1.WireType.LengthDelimited).fork(), options).join();
@@ -3101,7 +3137,7 @@ exports.AvatarExpeditionAllDataReq = new AvatarExpeditionAllDataReq$Type();
 class AvatarExpeditionAllDataRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.AvatarExpeditionAllDataRsp", [
-            { no: 3, name: "open_expedition_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 3, name: "open_expedition_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 15, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
             { no: 12, name: "expedition_count_limit", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 4, name: "expedition_info_map", kind: "map", K: 4 /*ScalarType.UINT64*/, V: { kind: "message", T: () => define_8.AvatarExpeditionInfo } }
@@ -3164,8 +3200,12 @@ class AvatarExpeditionAllDataRsp$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 open_expedition_list = 3; */
-        for (let i = 0; i < message.openExpeditionList.length; i++)
-            writer.tag(3, runtime_1.WireType.Varint).uint32(message.openExpeditionList[i]);
+        if (message.openExpeditionList.length) {
+            writer.tag(3, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.openExpeditionList.length; i++)
+                writer.uint32(message.openExpeditionList[i]);
+            writer.join();
+        }
         /* optional int32 retcode = 15; */
         if (message.retcode !== undefined)
             writer.tag(15, runtime_1.WireType.Varint).int32(message.retcode);
@@ -3328,7 +3368,7 @@ exports.AvatarExpeditionStartRsp = new AvatarExpeditionStartRsp$Type();
 class AvatarExpeditionCallBackReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.AvatarExpeditionCallBackReq", [
-            { no: 13, name: "avatar_guid", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ }
+            { no: 13, name: "avatar_guid", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ }
         ]);
     }
     create(value) {
@@ -3363,8 +3403,12 @@ class AvatarExpeditionCallBackReq$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint64 avatar_guid = 13; */
-        for (let i = 0; i < message.avatarGuid.length; i++)
-            writer.tag(13, runtime_1.WireType.Varint).uint64(message.avatarGuid[i]);
+        if (message.avatarGuid.length) {
+            writer.tag(13, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.avatarGuid.length; i++)
+                writer.uint64(message.avatarGuid[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -3500,8 +3544,8 @@ exports.AvatarExpeditionGetRewardReq = new AvatarExpeditionGetRewardReq$Type();
 class AvatarExpeditionGetRewardRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.AvatarExpeditionGetRewardRsp", [
-            { no: 9, name: "extra_item_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_7.ItemParam },
-            { no: 8, name: "item_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_7.ItemParam },
+            { no: 9, name: "extra_item_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_7.ItemParam },
+            { no: 8, name: "item_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_7.ItemParam },
             { no: 12, name: "expedition_info_map", kind: "map", K: 4 /*ScalarType.UINT64*/, V: { kind: "message", T: () => define_8.AvatarExpeditionInfo } },
             { no: 2, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
         ]);
@@ -3589,7 +3633,7 @@ class ChangeMpTeamAvatarReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ChangeMpTeamAvatarReq", [
             { no: 4, name: "cur_avatar_guid", kind: "scalar", opt: true, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 8, name: "avatar_guid_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ }
+            { no: 8, name: "avatar_guid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ }
         ]);
     }
     create(value) {
@@ -3630,8 +3674,12 @@ class ChangeMpTeamAvatarReq$Type extends runtime_5.MessageType {
         if (message.curAvatarGuid !== undefined)
             writer.tag(4, runtime_1.WireType.Varint).uint64(message.curAvatarGuid);
         /* repeated uint64 avatar_guid_list = 8; */
-        for (let i = 0; i < message.avatarGuidList.length; i++)
-            writer.tag(8, runtime_1.WireType.Varint).uint64(message.avatarGuidList[i]);
+        if (message.avatarGuidList.length) {
+            writer.tag(8, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.avatarGuidList.length; i++)
+                writer.uint64(message.avatarGuidList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -3647,7 +3695,7 @@ class ChangeMpTeamAvatarRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ChangeMpTeamAvatarRsp", [
             { no: 4, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 3, name: "avatar_guid_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 3, name: "avatar_guid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 13, name: "cur_avatar_guid", kind: "scalar", opt: true, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ }
         ]);
     }
@@ -3692,8 +3740,12 @@ class ChangeMpTeamAvatarRsp$Type extends runtime_5.MessageType {
         if (message.retcode !== undefined)
             writer.tag(4, runtime_1.WireType.Varint).int32(message.retcode);
         /* repeated uint64 avatar_guid_list = 3; */
-        for (let i = 0; i < message.avatarGuidList.length; i++)
-            writer.tag(3, runtime_1.WireType.Varint).uint64(message.avatarGuidList[i]);
+        if (message.avatarGuidList.length) {
+            writer.tag(3, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.avatarGuidList.length; i++)
+                writer.uint64(message.avatarGuidList[i]);
+            writer.join();
+        }
         /* optional uint64 cur_avatar_guid = 13; */
         if (message.curAvatarGuid !== undefined)
             writer.tag(13, runtime_1.WireType.Varint).uint64(message.curAvatarGuid);
@@ -3841,7 +3893,7 @@ class SceneTeamAvatar$Type extends runtime_5.MessageType {
             { no: 6, name: "is_reconnect", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 2, name: "ability_control_block", kind: "message", T: () => define_3.AbilityControlBlock },
             { no: 13, name: "is_player_cur_avatar", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 10, name: "server_buff_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_2.ServerBuff }
+            { no: 10, name: "server_buff_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_2.ServerBuff }
         ]);
     }
     create(value) {
@@ -3978,7 +4030,7 @@ exports.SceneTeamAvatar = new SceneTeamAvatar$Type();
 class SceneTeamUpdateNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.SceneTeamUpdateNotify", [
-            { no: 11, name: "scene_team_avatar_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.SceneTeamAvatar },
+            { no: 11, name: "scene_team_avatar_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.SceneTeamAvatar },
             { no: 15, name: "is_in_mp", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ }
         ]);
     }
@@ -4208,7 +4260,7 @@ exports.AvatarSatiationData = new AvatarSatiationData$Type();
 class AvatarSatiationDataNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.AvatarSatiationDataNotify", [
-            { no: 6, name: "satiation_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.AvatarSatiationData }
+            { no: 6, name: "satiation_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.AvatarSatiationData }
         ]);
     }
     create(value) {
@@ -4708,7 +4760,7 @@ exports.AddNoGachaAvatarCardTransferItem = new AddNoGachaAvatarCardTransferItem$
 class AddNoGachaAvatarCardNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.AddNoGachaAvatarCardNotify", [
-            { no: 4, name: "transfer_item_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.AddNoGachaAvatarCardTransferItem },
+            { no: 4, name: "transfer_item_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.AddNoGachaAvatarCardTransferItem },
             { no: 2, name: "initial_promote_level", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "avatar_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 6, name: "is_transfer_to_item", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
@@ -5244,7 +5296,7 @@ class PersistentDungeonSwitchAvatarReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.PersistentDungeonSwitchAvatarReq", [
             { no: 8, name: "cur_avatar_guid", kind: "scalar", opt: true, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 3, name: "avatar_team_guid_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ }
+            { no: 3, name: "avatar_team_guid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ }
         ]);
     }
     create(value) {
@@ -5285,8 +5337,12 @@ class PersistentDungeonSwitchAvatarReq$Type extends runtime_5.MessageType {
         if (message.curAvatarGuid !== undefined)
             writer.tag(8, runtime_1.WireType.Varint).uint64(message.curAvatarGuid);
         /* repeated uint64 avatar_team_guid_list = 3; */
-        for (let i = 0; i < message.avatarTeamGuidList.length; i++)
-            writer.tag(3, runtime_1.WireType.Varint).uint64(message.avatarTeamGuidList[i]);
+        if (message.avatarTeamGuidList.length) {
+            writer.tag(3, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.avatarTeamGuidList.length; i++)
+                writer.uint64(message.avatarTeamGuidList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -5301,7 +5357,7 @@ exports.PersistentDungeonSwitchAvatarReq = new PersistentDungeonSwitchAvatarReq$
 class PersistentDungeonSwitchAvatarRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.PersistentDungeonSwitchAvatarRsp", [
-            { no: 14, name: "avatar_team_guid_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 14, name: "avatar_team_guid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 7, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
             { no: 15, name: "cur_avatar_guid", kind: "scalar", opt: true, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ }
         ]);
@@ -5344,8 +5400,12 @@ class PersistentDungeonSwitchAvatarRsp$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint64 avatar_team_guid_list = 14; */
-        for (let i = 0; i < message.avatarTeamGuidList.length; i++)
-            writer.tag(14, runtime_1.WireType.Varint).uint64(message.avatarTeamGuidList[i]);
+        if (message.avatarTeamGuidList.length) {
+            writer.tag(14, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.avatarTeamGuidList.length; i++)
+                writer.uint64(message.avatarTeamGuidList[i]);
+            writer.join();
+        }
         /* optional int32 retcode = 7; */
         if (message.retcode !== undefined)
             writer.tag(7, runtime_1.WireType.Varint).int32(message.retcode);
@@ -5540,9 +5600,9 @@ exports.DelBackupAvatarTeamRsp = new DelBackupAvatarTeamRsp$Type();
 class AvatarTeamAllDataNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.AvatarTeamAllDataNotify", [
-            { no: 6, name: "temp_avatar_guid_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 6, name: "temp_avatar_guid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 3, name: "avatar_team_map", kind: "map", K: 13 /*ScalarType.UINT32*/, V: { kind: "message", T: () => exports.AvatarTeam } },
-            { no: 1, name: "backup_avatar_team_order_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 1, name: "backup_avatar_team_order_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -5603,8 +5663,12 @@ class AvatarTeamAllDataNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint64 temp_avatar_guid_list = 6; */
-        for (let i = 0; i < message.tempAvatarGuidList.length; i++)
-            writer.tag(6, runtime_1.WireType.Varint).uint64(message.tempAvatarGuidList[i]);
+        if (message.tempAvatarGuidList.length) {
+            writer.tag(6, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.tempAvatarGuidList.length; i++)
+                writer.uint64(message.tempAvatarGuidList[i]);
+            writer.join();
+        }
         /* map<uint32, com.midnights.game.AvatarTeam> avatar_team_map = 3; */
         for (let k of Object.keys(message.avatarTeamMap)) {
             writer.tag(3, runtime_1.WireType.LengthDelimited).fork().tag(1, runtime_1.WireType.Varint).uint32(parseInt(k));
@@ -5613,8 +5677,12 @@ class AvatarTeamAllDataNotify$Type extends runtime_5.MessageType {
             writer.join().join();
         }
         /* repeated uint32 backup_avatar_team_order_list = 1; */
-        for (let i = 0; i < message.backupAvatarTeamOrderList.length; i++)
-            writer.tag(1, runtime_1.WireType.Varint).uint32(message.backupAvatarTeamOrderList[i]);
+        if (message.backupAvatarTeamOrderList.length) {
+            writer.tag(1, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.backupAvatarTeamOrderList.length; i++)
+                writer.uint32(message.backupAvatarTeamOrderList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);

@@ -27,8 +27,8 @@ exports.GearColumnInfo = exports.GearActivityStartPlayGearRsp = exports.GearActi
 exports.VintageHuntingStageData = exports.RockBoardExploreDetailInfo = exports.RockBoardExploreStageData = exports.TreasureSeelieCollectOrbsNotify = exports.TreasureSeelieActivityDetailInfo = exports.TreasureSeelieRegionData = exports.MuqadasPotionCaptureWeaknessRsp = exports.MuqadasPotionCaptureWeaknessReq = exports.MuqadasPotionRestartDungeonRsp = exports.MuqadasPotionRestartDungeonReq = exports.MuqadasPotionDungeonSettleNotify = exports.MuqadasPotionActivityEnterDungeonRsp = exports.MuqadasPotionActivityEnterDungeonReq = exports.MuqadasPotionActivityDetailInfo = exports.MuqadasPotionLevelData = exports.InstableSprayRestartDungeonRsp = exports.InstableSprayRestartDungeonReq = exports.InstableSprayLevelFinishNotify = exports.InstableSpraySwitchTeamRsp = exports.InstableSpraySwitchTeamReq = exports.InstableSprayEnterDungeonRsp = exports.InstableSprayEnterDungeonReq = exports.InstableSprayAvatarInfo = exports.InstableSprayDetailInfo = exports.InstableSprayStageInfo = exports.InstableSprayTeamInfo = exports.GravenInnocencePhotoReminderNotify = exports.GravenInnocencePhotoFinishRsp = exports.GravenInnocencePhotoFinishReq = exports.GravenInnocenceEditCarveCombinationRsp = exports.GravenInnocenceEditCarveCombinationReq = exports.GravenInnocenceRaceRestartRsp = exports.GravenInnocenceRaceRestartReq = exports.GravenInnocenceRaceSettleNotify = exports.GravenInnocenceDetailInfo = exports.GravenInnocenceCarveInfo = exports.GravenInnocenceCarveStageInfo = exports.GravenInnocenceRaceInfo = exports.GravenInnocenceRaceLevelInfo = exports.GravenInnocenceCampInfo = exports.GravenInnocenceCampStageInfo = exports.GravenInnocencePhotoInfo = exports.GravenInnocencePhotoObjectInfo = exports.GravenInnocencePhotoStageInfo = exports.GearActivityFinishPlayPictureRsp = exports.GearActivityFinishPlayPictureReq = exports.GearActivityStartPlayPictureRsp = exports.GearActivityStartPlayPictureReq = exports.GearActivityFinishPlayGearRsp = exports.GearActivityFinishPlayGearReq = void 0;
 exports.EnterFungusFighterPlotDungeonReq = exports.FungusFighterDetailInfo = exports.FungusTrainingProgressDetail = exports.FungusTrainingPoolPreviewDetail = exports.FungusTrainingMonsterPreviewDetail = exports.FungusFighterMonsterDetail = exports.FungusTrainingDungeonDetail = exports.FungusPlotStageDetail = exports.FungusDetail = exports.WindFieldRestartDungeonRsp = exports.WindFieldRestartDungeonReq = exports.WindFieldStageInfo = exports.WindFieldDetailInfo = exports.VintageMarketNpcEventFinishNotify = exports.VintageMarketDividendFinishNotify = exports.VintageMarketStoreViewStrategyRsp = exports.VintageMarketStoreViewStrategyReq = exports.VintageMarketStoreChooseStrategyRsp = exports.VintageMarketStoreChooseStrategyReq = exports.VintageMarketStoreUnlockSlotRsp = exports.VintageMarketStoreUnlockSlotReq = exports.VintagePresentFinishNotify = exports.VintageMarketFinishStorePlayRsp = exports.VintageMarketFinishStorePlayReq = exports.VintageMarketStartStorePlayRsp = exports.VintageMarketStartStorePlayReq = exports.VintageCampStageFinishNotify = exports.VintageCampGroupBundleRegisterNotify = exports.VintageHuntingStartGalleryRsp = exports.VintageHuntingStartGalleryReq = exports.VintageDecorateBoothRsp = exports.VintageDecorateBoothReq = exports.VintagePresentFinishNoify = exports.SceneGalleryVintageHuntingSettleNotify = exports.VintageHuntingThirdStageSettleInfo = exports.VintageHuntingSecondStageSettleInfo = exports.VintageHuntingFirstStageSettleInfo = exports.VintageMarketDeliverItemRsp = exports.VintageMarketDeliverItemReq = exports.VintageActivityDetailInfo = exports.VintageMarketInfo = exports.VintageMarketStoreOpInfo = exports.VintageMarketStoreInfo = exports.VintageMarketDealInfo = exports.VintageMarketTraderInfo = exports.VintageCampChallengeStageData = exports.VintageCampChallengeLevelData = exports.VintageBoothUsedItemData = exports.VintagePresentStageData = exports.VintagePresentLevelData = void 0;
 exports.EffigyChallengeV2DungeonInfoNotify = exports.EffigyChallengeV2ChooseSkillRsp = exports.EffigyChallengeV2ChooseSkillReq = exports.EffigyChallengeV2RestartDungeonRsp = exports.EffigyChallengeV2RestartDungeonReq = exports.EffigyChallengeV2EnterDungeonRsp = exports.EffigyChallengeV2EnterDungeonReq = exports.EffigyChallengeV2DetailInfo = exports.EffigyChallengeV2LevelData = exports.CharAmusementSettleNotify = exports.CharAmusementDetailInfo = exports.CharAmusementStageData = exports.FungusFighterRestartTraningDungeonRsp = exports.FungusFighterRestartTraningDungeonReq = exports.FungusFighterUseBackupFungusRsp = exports.FungusFighterUseBackupFungusReq = exports.FungusFighterClearTrainingRuntimeDataRsp = exports.FungusFighterClearTrainingRuntimeDataReq = exports.FungusFighterTrainingGallerySettleNotify = exports.FungusFighterTrainingSelectFungusRsp = exports.FungusFighterTrainingSelectFungusReq = exports.FungusFighterRuntimeDataNotify = exports.EnterFungusFighterTrainingDungeonRsp = exports.EnterFungusFighterTrainingDungeonReq = exports.FungusRenameRsp = exports.FungusRenameReq = exports.FungusCultivateRsp = exports.FungusCultivateReq = exports.FungusFighterPlotInfoNotify = exports.EnterFungusFighterPlotDungeonRsp = void 0;
-// @generated by protobuf-ts 2.8.1 with parameter generate_dependencies,output_typescript
-// @generated from protobuf file "cmd_activity.proto" (package "com.midnights.game", syntax proto2)
+// @generated by protobuf-ts 2.8.1 with parameter output_typescript
+// @generated from protobuf file "cmd_activity.proto" (package "com.midnights.game", syntax proto3)
 // tslint:disable
 const runtime_1 = require("@protobuf-ts/runtime");
 const runtime_2 = require("@protobuf-ts/runtime");
@@ -13075,7 +13075,7 @@ exports.ActivityScheduleInfo = new ActivityScheduleInfo$Type();
 class GetActivityScheduleRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GetActivityScheduleRsp", [
-            { no: 9, name: "activity_schedule_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ActivityScheduleInfo },
+            { no: 9, name: "activity_schedule_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ActivityScheduleInfo },
             { no: 13, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
             { no: 4, name: "remain_fly_sea_lamp_num", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
@@ -13136,7 +13136,7 @@ exports.GetActivityScheduleRsp = new GetActivityScheduleRsp$Type();
 class GetActivityInfoReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GetActivityInfoReq", [
-            { no: 4, name: "activity_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 4, name: "activity_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -13171,8 +13171,12 @@ class GetActivityInfoReq$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 activity_id_list = 4; */
-        for (let i = 0; i < message.activityIdList.length; i++)
-            writer.tag(4, runtime_1.WireType.Varint).uint32(message.activityIdList[i]);
+        if (message.activityIdList.length) {
+            writer.tag(4, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.activityIdList.length; i++)
+                writer.uint32(message.activityIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -13190,10 +13194,10 @@ class ActivityInfo$Type extends runtime_5.MessageType {
             { no: 6, name: "is_finished", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 4, name: "activity_type", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "begin_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 329, name: "taken_reward_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 329, name: "taken_reward_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 919, name: "is_hidden", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 1449, name: "is_quick_open", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 10, name: "meet_cond_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 10, name: "meet_cond_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 682, name: "activity_coin_map", kind: "map", K: 13 /*ScalarType.UINT32*/, V: { kind: "scalar", T: 13 /*ScalarType.UINT32*/ } },
             { no: 102, name: "is_banner_cleared", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 1906, name: "cur_score", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
@@ -13205,9 +13209,9 @@ class ActivityInfo$Type extends runtime_5.MessageType {
             { no: 1399, name: "wish_gift_num_map", kind: "map", K: 13 /*ScalarType.UINT32*/, V: { kind: "scalar", T: 13 /*ScalarType.UINT32*/ } },
             { no: 1290, name: "selected_avatar_reward_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 1963, name: "is_common_content_closed", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 3, name: "expire_cond_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 864, name: "activity_push_tips_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ActivityPushTipsData },
-            { no: 2, name: "watcher_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ActivityWatcherInfo },
+            { no: 3, name: "expire_cond_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 864, name: "activity_push_tips_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ActivityPushTipsData },
+            { no: 2, name: "watcher_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ActivityWatcherInfo },
             { no: 15, name: "schedule_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 9, name: "is_starting", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 7, name: "sam_lamp_info", kind: "message", oneof: "detail", T: () => exports.SeaLampActivityDetailInfo },
@@ -13786,8 +13790,12 @@ class ActivityInfo$Type extends runtime_5.MessageType {
         if (message.beginTime !== undefined)
             writer.tag(8, runtime_1.WireType.Varint).uint32(message.beginTime);
         /* repeated uint32 taken_reward_list = 329; */
-        for (let i = 0; i < message.takenRewardList.length; i++)
-            writer.tag(329, runtime_1.WireType.Varint).uint32(message.takenRewardList[i]);
+        if (message.takenRewardList.length) {
+            writer.tag(329, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.takenRewardList.length; i++)
+                writer.uint32(message.takenRewardList[i]);
+            writer.join();
+        }
         /* optional bool is_hidden = 919; */
         if (message.isHidden !== undefined)
             writer.tag(919, runtime_1.WireType.Varint).bool(message.isHidden);
@@ -13795,8 +13803,12 @@ class ActivityInfo$Type extends runtime_5.MessageType {
         if (message.isQuickOpen !== undefined)
             writer.tag(1449, runtime_1.WireType.Varint).bool(message.isQuickOpen);
         /* repeated uint32 meet_cond_list = 10; */
-        for (let i = 0; i < message.meetCondList.length; i++)
-            writer.tag(10, runtime_1.WireType.Varint).uint32(message.meetCondList[i]);
+        if (message.meetCondList.length) {
+            writer.tag(10, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.meetCondList.length; i++)
+                writer.uint32(message.meetCondList[i]);
+            writer.join();
+        }
         /* map<uint32, uint32> activity_coin_map = 682; */
         for (let k of Object.keys(message.activityCoinMap))
             writer.tag(682, runtime_1.WireType.LengthDelimited).fork().tag(1, runtime_1.WireType.Varint).uint32(parseInt(k)).tag(2, runtime_1.WireType.Varint).uint32(message.activityCoinMap[k]).join();
@@ -13831,8 +13843,12 @@ class ActivityInfo$Type extends runtime_5.MessageType {
         if (message.isCommonContentClosed !== undefined)
             writer.tag(1963, runtime_1.WireType.Varint).bool(message.isCommonContentClosed);
         /* repeated uint32 expire_cond_list = 3; */
-        for (let i = 0; i < message.expireCondList.length; i++)
-            writer.tag(3, runtime_1.WireType.Varint).uint32(message.expireCondList[i]);
+        if (message.expireCondList.length) {
+            writer.tag(3, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.expireCondList.length; i++)
+                writer.uint32(message.expireCondList[i]);
+            writer.join();
+        }
         /* repeated com.midnights.game.ActivityPushTipsData activity_push_tips_data_list = 864; */
         for (let i = 0; i < message.activityPushTipsDataList.length; i++)
             exports.ActivityPushTipsData.internalBinaryWrite(message.activityPushTipsDataList[i], writer.tag(864, runtime_1.WireType.LengthDelimited).fork(), options).join();
@@ -14043,9 +14059,9 @@ class GetActivityInfoRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GetActivityInfoRsp", [
             { no: 13, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 5, name: "activity_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ActivityInfo },
-            { no: 11, name: "activated_sale_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 10, name: "disable_transfer_point_interaction_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_13.Uint32Pair }
+            { no: 5, name: "activity_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ActivityInfo },
+            { no: 11, name: "activated_sale_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 10, name: "disable_transfer_point_interaction_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_13.Uint32Pair }
         ]);
     }
     create(value) {
@@ -14095,8 +14111,12 @@ class GetActivityInfoRsp$Type extends runtime_5.MessageType {
         for (let i = 0; i < message.activityInfoList.length; i++)
             exports.ActivityInfo.internalBinaryWrite(message.activityInfoList[i], writer.tag(5, runtime_1.WireType.LengthDelimited).fork(), options).join();
         /* repeated uint32 activated_sale_id_list = 11; */
-        for (let i = 0; i < message.activatedSaleIdList.length; i++)
-            writer.tag(11, runtime_1.WireType.Varint).uint32(message.activatedSaleIdList[i]);
+        if (message.activatedSaleIdList.length) {
+            writer.tag(11, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.activatedSaleIdList.length; i++)
+                writer.uint32(message.activatedSaleIdList[i]);
+            writer.join();
+        }
         /* repeated com.midnights.game.Uint32Pair disable_transfer_point_interaction_list = 10; */
         for (let i = 0; i < message.disableTransferPointInteractionList.length; i++)
             define_13.Uint32Pair.internalBinaryWrite(message.disableTransferPointInteractionList[i], writer.tag(10, runtime_1.WireType.LengthDelimited).fork(), options).join();
@@ -14208,7 +14228,7 @@ exports.ActivityInfoNotify = new ActivityInfoNotify$Type();
 class ActivityScheduleInfoNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ActivityScheduleInfoNotify", [
-            { no: 12, name: "activity_schedule_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ActivityScheduleInfo },
+            { no: 12, name: "activity_schedule_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ActivityScheduleInfo },
             { no: 6, name: "remain_fly_sea_lamp_num", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -14692,8 +14712,8 @@ class SeaLampActivityDetailInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.SeaLampActivityDetailInfo", [
             { no: 14, name: "phase_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 1, name: "taken_phase_reward_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 7, name: "taken_contribution_reward_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 1, name: "taken_phase_reward_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 7, name: "taken_contribution_reward_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "progress", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 15, name: "contribution", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 13, name: "factor", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
@@ -14757,11 +14777,19 @@ class SeaLampActivityDetailInfo$Type extends runtime_5.MessageType {
         if (message.phaseId !== undefined)
             writer.tag(14, runtime_1.WireType.Varint).uint32(message.phaseId);
         /* repeated uint32 taken_phase_reward_list = 1; */
-        for (let i = 0; i < message.takenPhaseRewardList.length; i++)
-            writer.tag(1, runtime_1.WireType.Varint).uint32(message.takenPhaseRewardList[i]);
+        if (message.takenPhaseRewardList.length) {
+            writer.tag(1, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.takenPhaseRewardList.length; i++)
+                writer.uint32(message.takenPhaseRewardList[i]);
+            writer.join();
+        }
         /* repeated uint32 taken_contribution_reward_list = 7; */
-        for (let i = 0; i < message.takenContributionRewardList.length; i++)
-            writer.tag(7, runtime_1.WireType.Varint).uint32(message.takenContributionRewardList[i]);
+        if (message.takenContributionRewardList.length) {
+            writer.tag(7, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.takenContributionRewardList.length; i++)
+                writer.uint32(message.takenContributionRewardList[i]);
+            writer.join();
+        }
         /* optional uint32 progress = 8; */
         if (message.progress !== undefined)
             writer.tag(8, runtime_1.WireType.Varint).uint32(message.progress);
@@ -15134,7 +15162,7 @@ class SeaLampContributeItemReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.SeaLampContributeItemReq", [
             { no: 8, name: "activity_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 1, name: "item_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_11.ItemParam }
+            { no: 1, name: "item_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_11.ItemParam }
         ]);
     }
     create(value) {
@@ -15304,7 +15332,7 @@ class SeaLampActivityInfo$Type extends runtime_5.MessageType {
         super("com.midnights.game.SeaLampActivityInfo", [
             { no: 14, name: "is_mechanicus_open", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 1, name: "day_index", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 6, name: "section_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.SeaLampSectionInfo },
+            { no: 6, name: "section_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.SeaLampSectionInfo },
             { no: 10, name: "popularity", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 15, name: "sea_lamp_coin", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 11, name: "first_day_start_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
@@ -15717,7 +15745,7 @@ exports.LoadActivityTerrainNotify = new LoadActivityTerrainNotify$Type();
 class ServerAnnounceNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ServerAnnounceNotify", [
-            { no: 11, name: "announce_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.AnnounceData }
+            { no: 11, name: "announce_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.AnnounceData }
         ]);
     }
     create(value) {
@@ -15764,7 +15792,7 @@ exports.ServerAnnounceNotify = new ServerAnnounceNotify$Type();
 class ServerAnnounceRevokeNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ServerAnnounceRevokeNotify", [
-            { no: 15, name: "config_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 15, name: "config_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -15799,8 +15827,12 @@ class ServerAnnounceRevokeNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 config_id_list = 15; */
-        for (let i = 0; i < message.configIdList.length; i++)
-            writer.tag(15, runtime_1.WireType.Varint).uint32(message.configIdList[i]);
+        if (message.configIdList.length) {
+            writer.tag(15, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.configIdList.length; i++)
+                writer.uint32(message.configIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -16333,12 +16365,12 @@ exports.SalesmanTakeRewardRsp = new SalesmanTakeRewardRsp$Type();
 class ActivityCondStateChangeNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ActivityCondStateChangeNotify", [
-            { no: 9, name: "activated_sale_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 9, name: "activated_sale_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 4, name: "activity_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 5, name: "schedule_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 11, name: "expire_cond_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 12, name: "disable_transfer_point_interaction_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_13.Uint32Pair },
-            { no: 1, name: "meet_cond_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 11, name: "expire_cond_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 12, name: "disable_transfer_point_interaction_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_13.Uint32Pair },
+            { no: 1, name: "meet_cond_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -16396,8 +16428,12 @@ class ActivityCondStateChangeNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 activated_sale_id_list = 9; */
-        for (let i = 0; i < message.activatedSaleIdList.length; i++)
-            writer.tag(9, runtime_1.WireType.Varint).uint32(message.activatedSaleIdList[i]);
+        if (message.activatedSaleIdList.length) {
+            writer.tag(9, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.activatedSaleIdList.length; i++)
+                writer.uint32(message.activatedSaleIdList[i]);
+            writer.join();
+        }
         /* optional uint32 activity_id = 4; */
         if (message.activityId !== undefined)
             writer.tag(4, runtime_1.WireType.Varint).uint32(message.activityId);
@@ -16405,14 +16441,22 @@ class ActivityCondStateChangeNotify$Type extends runtime_5.MessageType {
         if (message.scheduleId !== undefined)
             writer.tag(5, runtime_1.WireType.Varint).uint32(message.scheduleId);
         /* repeated uint32 expire_cond_list = 11; */
-        for (let i = 0; i < message.expireCondList.length; i++)
-            writer.tag(11, runtime_1.WireType.Varint).uint32(message.expireCondList[i]);
+        if (message.expireCondList.length) {
+            writer.tag(11, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.expireCondList.length; i++)
+                writer.uint32(message.expireCondList[i]);
+            writer.join();
+        }
         /* repeated com.midnights.game.Uint32Pair disable_transfer_point_interaction_list = 12; */
         for (let i = 0; i < message.disableTransferPointInteractionList.length; i++)
             define_13.Uint32Pair.internalBinaryWrite(message.disableTransferPointInteractionList[i], writer.tag(12, runtime_1.WireType.LengthDelimited).fork(), options).join();
         /* repeated uint32 meet_cond_list = 1; */
-        for (let i = 0; i < message.meetCondList.length; i++)
-            writer.tag(1, runtime_1.WireType.Varint).uint32(message.meetCondList[i]);
+        if (message.meetCondList.length) {
+            writer.tag(1, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.meetCondList.length; i++)
+                writer.uint32(message.meetCondList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -16704,7 +16748,7 @@ exports.TrialAvatarActivityRewardDetailInfo = new TrialAvatarActivityRewardDetai
 class TrialAvatarActivityDetailInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.TrialAvatarActivityDetailInfo", [
-            { no: 13, name: "reward_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.TrialAvatarActivityRewardDetailInfo }
+            { no: 13, name: "reward_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.TrialAvatarActivityRewardDetailInfo }
         ]);
     }
     create(value) {
@@ -17152,7 +17196,7 @@ class CrucibleActivityDetailInfo$Type extends runtime_5.MessageType {
         super("com.midnights.game.CrucibleActivityDetailInfo", [
             { no: 5, name: "cost_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 12, name: "battle_world_level", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 3, name: "uid_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.CrucibleBattleUidInfo },
+            { no: 3, name: "uid_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.CrucibleBattleUidInfo },
             { no: 9, name: "pos", kind: "message", T: () => define_12.Vector }
         ]);
     }
@@ -17220,7 +17264,7 @@ class DeliveryActivityDetailInfo$Type extends runtime_5.MessageType {
         super("com.midnights.game.DeliveryActivityDetailInfo", [
             { no: 14, name: "day_index", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 13, name: "is_taken_reward", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 4, name: "finished_delivery_quest_index", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 4, name: "finished_delivery_quest_index", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -17267,8 +17311,12 @@ class DeliveryActivityDetailInfo$Type extends runtime_5.MessageType {
         if (message.isTakenReward !== undefined)
             writer.tag(13, runtime_1.WireType.Varint).bool(message.isTakenReward);
         /* repeated uint32 finished_delivery_quest_index = 4; */
-        for (let i = 0; i < message.finishedDeliveryQuestIndex.length; i++)
-            writer.tag(4, runtime_1.WireType.Varint).uint32(message.finishedDeliveryQuestIndex[i]);
+        if (message.finishedDeliveryQuestIndex.length) {
+            writer.tag(4, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.finishedDeliveryQuestIndex.length; i++)
+                writer.uint32(message.finishedDeliveryQuestIndex[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -17575,7 +17623,7 @@ class AsterMidDetailInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.AsterMidDetailInfo", [
             { no: 10, name: "begin_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 7, name: "camp_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.AsterMidCampInfo },
+            { no: 7, name: "camp_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.AsterMidCampInfo },
             { no: 4, name: "is_open", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 11, name: "collect_count", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
@@ -18327,7 +18375,7 @@ class FlightDailyRecord$Type extends runtime_5.MessageType {
         super("com.midnights.game.FlightDailyRecord", [
             { no: 4, name: "group_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 1, name: "is_touched", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 11, name: "watcher_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 11, name: "watcher_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 7, name: "best_score", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 3, name: "start_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
@@ -18382,8 +18430,12 @@ class FlightDailyRecord$Type extends runtime_5.MessageType {
         if (message.isTouched !== undefined)
             writer.tag(1, runtime_1.WireType.Varint).bool(message.isTouched);
         /* repeated uint32 watcher_id_list = 11; */
-        for (let i = 0; i < message.watcherIdList.length; i++)
-            writer.tag(11, runtime_1.WireType.Varint).uint32(message.watcherIdList[i]);
+        if (message.watcherIdList.length) {
+            writer.tag(11, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.watcherIdList.length; i++)
+                writer.uint32(message.watcherIdList[i]);
+            writer.join();
+        }
         /* optional uint32 best_score = 7; */
         if (message.bestScore !== undefined)
             writer.tag(7, runtime_1.WireType.Varint).uint32(message.bestScore);
@@ -18406,7 +18458,7 @@ class FlightActivityDetailInfo$Type extends runtime_5.MessageType {
         super("com.midnights.game.FlightActivityDetailInfo", [
             { no: 15, name: "preview_reward_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 11, name: "min_open_player_level", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 1, name: "daily_record_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.FlightDailyRecord }
+            { no: 1, name: "daily_record_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.FlightDailyRecord }
         ]);
     }
     create(value) {
@@ -18676,7 +18728,7 @@ exports.FlightActivityRestartRsp = new FlightActivityRestartRsp$Type();
 class AsterMidCampInfoNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.AsterMidCampInfoNotify", [
-            { no: 5, name: "camp_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.AsterMidCampInfo }
+            { no: 5, name: "camp_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.AsterMidCampInfo }
         ]);
     }
     create(value) {
@@ -18724,7 +18776,7 @@ class DragonSpineActivityDetailInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.DragonSpineActivityDetailInfo", [
             { no: 10, name: "is_content_closed", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 4, name: "chapter_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.DragonSpineChapterInfo },
+            { no: 4, name: "chapter_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.DragonSpineChapterInfo },
             { no: 2, name: "weapon_enhance_level", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 15, name: "content_finish_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 13, name: "shimmering_essence", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
@@ -19275,9 +19327,9 @@ class EffigyActivityDetailInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.EffigyActivityDetailInfo", [
             { no: 5, name: "cur_score", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 14, name: "daily_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.EffigyDailyInfo },
+            { no: 14, name: "daily_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.EffigyDailyInfo },
             { no: 9, name: "last_difficulty_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 2, name: "taken_reward_index_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 2, name: "taken_reward_index_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -19330,8 +19382,12 @@ class EffigyActivityDetailInfo$Type extends runtime_5.MessageType {
         if (message.lastDifficultyId !== undefined)
             writer.tag(9, runtime_1.WireType.Varint).uint32(message.lastDifficultyId);
         /* repeated uint32 taken_reward_index_list = 2; */
-        for (let i = 0; i < message.takenRewardIndexList.length; i++)
-            writer.tag(2, runtime_1.WireType.Varint).uint32(message.takenRewardIndexList[i]);
+        if (message.takenRewardIndexList.length) {
+            writer.tag(2, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.takenRewardIndexList.length; i++)
+                writer.uint32(message.takenRewardIndexList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -19347,7 +19403,7 @@ class StartEffigyChallengeReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.StartEffigyChallengeReq", [
             { no: 9, name: "difficulty_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 6, name: "condition_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 6, name: "condition_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 1, name: "challenge_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 12, name: "point_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
@@ -19396,8 +19452,12 @@ class StartEffigyChallengeReq$Type extends runtime_5.MessageType {
         if (message.difficultyId !== undefined)
             writer.tag(9, runtime_1.WireType.Varint).uint32(message.difficultyId);
         /* repeated uint32 condition_id_list = 6; */
-        for (let i = 0; i < message.conditionIdList.length; i++)
-            writer.tag(6, runtime_1.WireType.Varint).uint32(message.conditionIdList[i]);
+        if (message.conditionIdList.length) {
+            writer.tag(6, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.conditionIdList.length; i++)
+                writer.uint32(message.conditionIdList[i]);
+            writer.join();
+        }
         /* optional uint32 challenge_id = 1; */
         if (message.challengeId !== undefined)
             writer.tag(1, runtime_1.WireType.Varint).uint32(message.challengeId);
@@ -19418,7 +19478,7 @@ exports.StartEffigyChallengeReq = new StartEffigyChallengeReq$Type();
 class StartEffigyChallengeRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.StartEffigyChallengeRsp", [
-            { no: 2, name: "condition_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 2, name: "condition_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
             { no: 15, name: "challenge_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 10, name: "difficulty_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
@@ -19469,8 +19529,12 @@ class StartEffigyChallengeRsp$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 condition_id_list = 2; */
-        for (let i = 0; i < message.conditionIdList.length; i++)
-            writer.tag(2, runtime_1.WireType.Varint).uint32(message.conditionIdList[i]);
+        if (message.conditionIdList.length) {
+            writer.tag(2, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.conditionIdList.length; i++)
+                writer.uint32(message.conditionIdList[i]);
+            writer.join();
+        }
         /* optional int32 retcode = 8; */
         if (message.retcode !== undefined)
             writer.tag(8, runtime_1.WireType.Varint).int32(message.retcode);
@@ -19498,7 +19562,7 @@ class EffigyChallengeInfoNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.EffigyChallengeInfoNotify", [
             { no: 9, name: "difficulty_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 11, name: "condition_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 11, name: "condition_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 14, name: "challenge_score", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "challenge_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
@@ -19547,8 +19611,12 @@ class EffigyChallengeInfoNotify$Type extends runtime_5.MessageType {
         if (message.difficultyId !== undefined)
             writer.tag(9, runtime_1.WireType.Varint).uint32(message.difficultyId);
         /* repeated uint32 condition_id_list = 11; */
-        for (let i = 0; i < message.conditionIdList.length; i++)
-            writer.tag(11, runtime_1.WireType.Varint).uint32(message.conditionIdList[i]);
+        if (message.conditionIdList.length) {
+            writer.tag(11, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.conditionIdList.length; i++)
+                writer.uint32(message.conditionIdList[i]);
+            writer.join();
+        }
         /* optional uint32 challenge_score = 14; */
         if (message.challengeScore !== undefined)
             writer.tag(14, runtime_1.WireType.Varint).uint32(message.challengeScore);
@@ -19916,7 +19984,7 @@ class SelectEffigyChallengeConditionReq$Type extends runtime_5.MessageType {
         super("com.midnights.game.SelectEffigyChallengeConditionReq", [
             { no: 15, name: "difficulty_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 7, name: "challenge_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 9, name: "condition_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 9, name: "condition_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -19963,8 +20031,12 @@ class SelectEffigyChallengeConditionReq$Type extends runtime_5.MessageType {
         if (message.challengeId !== undefined)
             writer.tag(7, runtime_1.WireType.Varint).uint32(message.challengeId);
         /* repeated uint32 condition_id_list = 9; */
-        for (let i = 0; i < message.conditionIdList.length; i++)
-            writer.tag(9, runtime_1.WireType.Varint).uint32(message.conditionIdList[i]);
+        if (message.conditionIdList.length) {
+            writer.tag(9, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.conditionIdList.length; i++)
+                writer.uint32(message.conditionIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -19979,7 +20051,7 @@ exports.SelectEffigyChallengeConditionReq = new SelectEffigyChallengeConditionRe
 class SelectEffigyChallengeConditionRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.SelectEffigyChallengeConditionRsp", [
-            { no: 12, name: "condition_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 12, name: "condition_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 6, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
             { no: 7, name: "difficulty_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 2, name: "challenge_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
@@ -20026,8 +20098,12 @@ class SelectEffigyChallengeConditionRsp$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 condition_id_list = 12; */
-        for (let i = 0; i < message.conditionIdList.length; i++)
-            writer.tag(12, runtime_1.WireType.Varint).uint32(message.conditionIdList[i]);
+        if (message.conditionIdList.length) {
+            writer.tag(12, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.conditionIdList.length; i++)
+                writer.uint32(message.conditionIdList[i]);
+            writer.join();
+        }
         /* optional int32 retcode = 6; */
         if (message.retcode !== undefined)
             writer.tag(6, runtime_1.WireType.Varint).int32(message.retcode);
@@ -20319,10 +20395,10 @@ class TreasureMapActivityDetailInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.TreasureMapActivityDetailInfo", [
             { no: 1, name: "active_region_index", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 6, name: "region_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.TreasureMapRegionInfo },
+            { no: 6, name: "region_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.TreasureMapRegionInfo },
             { no: 7, name: "is_mp_challenge_touched", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 10, name: "treasure_close_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 5, name: "bonus_challenge_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.TreasureMapBonusChallengeInfo },
+            { no: 5, name: "bonus_challenge_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.TreasureMapBonusChallengeInfo },
             { no: 2, name: "currency_num", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 14, name: "preview_reward_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "min_open_player_level", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
@@ -21238,7 +21314,7 @@ class BlessingGetFriendPicListRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.BlessingGetFriendPicListRsp", [
             { no: 2, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 6, name: "friend_pic_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.BlessingFriendPicData }
+            { no: 6, name: "friend_pic_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.BlessingFriendPicData }
         ]);
     }
     create(value) {
@@ -21554,7 +21630,7 @@ exports.BlessingGetAllRecvPicRecordListReq = new BlessingGetAllRecvPicRecordList
 class BlessingGetAllRecvPicRecordListRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.BlessingGetAllRecvPicRecordListRsp", [
-            { no: 15, name: "recv_pic_record_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.BlessingRecvPicRecord },
+            { no: 15, name: "recv_pic_record_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.BlessingRecvPicRecord },
             { no: 9, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
         ]);
     }
@@ -21690,7 +21766,7 @@ class BlessingAcceptAllGivePicRsp$Type extends runtime_5.MessageType {
         super("com.midnights.game.BlessingAcceptAllGivePicRsp", [
             { no: 11, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
             { no: 14, name: "accept_pic_num_map", kind: "map", K: 13 /*ScalarType.UINT32*/, V: { kind: "scalar", T: 13 /*ScalarType.UINT32*/ } },
-            { no: 5, name: "accept_index_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 5, name: "accept_index_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -21753,8 +21829,12 @@ class BlessingAcceptAllGivePicRsp$Type extends runtime_5.MessageType {
         for (let k of Object.keys(message.acceptPicNumMap))
             writer.tag(14, runtime_1.WireType.LengthDelimited).fork().tag(1, runtime_1.WireType.Varint).uint32(parseInt(k)).tag(2, runtime_1.WireType.Varint).uint32(message.acceptPicNumMap[k]).join();
         /* repeated uint32 accept_index_list = 5; */
-        for (let i = 0; i < message.acceptIndexList.length; i++)
-            writer.tag(5, runtime_1.WireType.Varint).uint32(message.acceptIndexList[i]);
+        if (message.acceptIndexList.length) {
+            writer.tag(5, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.acceptIndexList.length; i++)
+                writer.uint32(message.acceptIndexList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -21774,7 +21854,7 @@ class ExpeditionPathInfo$Type extends runtime_5.MessageType {
             { no: 7, name: "assist_avatar_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 4, name: "bonus_probability", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
             { no: 15, name: "state", kind: "enum", opt: true, T: () => ["com.midnights.game.ExpeditionState", define_7.ExpeditionState] },
-            { no: 2, name: "avatar_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 2, name: "avatar_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 5, name: "assist_costume_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "path_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 11, name: "challenge_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
@@ -21855,8 +21935,12 @@ class ExpeditionPathInfo$Type extends runtime_5.MessageType {
         if (message.state !== undefined)
             writer.tag(15, runtime_1.WireType.Varint).int32(message.state);
         /* repeated uint32 avatar_id_list = 2; */
-        for (let i = 0; i < message.avatarIdList.length; i++)
-            writer.tag(2, runtime_1.WireType.Varint).uint32(message.avatarIdList[i]);
+        if (message.avatarIdList.length) {
+            writer.tag(2, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.avatarIdList.length; i++)
+                writer.uint32(message.avatarIdList[i]);
+            writer.join();
+        }
         /* optional uint32 assist_costume_id = 5; */
         if (message.assistCostumeId !== undefined)
             writer.tag(5, runtime_1.WireType.Varint).uint32(message.assistCostumeId);
@@ -21945,11 +22029,11 @@ class ExpeditionActivityDetailInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ExpeditionActivityDetailInfo", [
             { no: 5, name: "cur_challenge_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 10, name: "challenge_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ExpeditionChallengeInfo },
+            { no: 10, name: "challenge_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ExpeditionChallengeInfo },
             { no: 2, name: "expedition_count", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 4, name: "content_close_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "is_content_closed", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 15, name: "path_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ExpeditionPathInfo }
+            { no: 15, name: "path_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ExpeditionPathInfo }
         ]);
     }
     create(value) {
@@ -22026,7 +22110,7 @@ exports.ExpeditionActivityDetailInfo = new ExpeditionActivityDetailInfo$Type();
 class ExpeditionStartReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ExpeditionStartReq", [
-            { no: 1, name: "avatar_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 1, name: "avatar_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 5, name: "assist_uid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "assist_avatar_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 7, name: "path_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
@@ -22073,8 +22157,12 @@ class ExpeditionStartReq$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 avatar_id_list = 1; */
-        for (let i = 0; i < message.avatarIdList.length; i++)
-            writer.tag(1, runtime_1.WireType.Varint).uint32(message.avatarIdList[i]);
+        if (message.avatarIdList.length) {
+            writer.tag(1, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.avatarIdList.length; i++)
+                writer.uint32(message.avatarIdList[i]);
+            writer.join();
+        }
         /* optional uint32 assist_uid = 5; */
         if (message.assistUid !== undefined)
             writer.tag(5, runtime_1.WireType.Varint).uint32(message.assistUid);
@@ -22100,7 +22188,7 @@ class ExpeditionStartRsp$Type extends runtime_5.MessageType {
         super("com.midnights.game.ExpeditionStartRsp", [
             { no: 1, name: "assist_uid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 7, name: "path_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 4, name: "avatar_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 4, name: "avatar_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 12, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
             { no: 2, name: "assist_avatar_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
@@ -22155,8 +22243,12 @@ class ExpeditionStartRsp$Type extends runtime_5.MessageType {
         if (message.pathId !== undefined)
             writer.tag(7, runtime_1.WireType.Varint).uint32(message.pathId);
         /* repeated uint32 avatar_id_list = 4; */
-        for (let i = 0; i < message.avatarIdList.length; i++)
-            writer.tag(4, runtime_1.WireType.Varint).uint32(message.avatarIdList[i]);
+        if (message.avatarIdList.length) {
+            writer.tag(4, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.avatarIdList.length; i++)
+                writer.uint32(message.avatarIdList[i]);
+            writer.join();
+        }
         /* optional int32 retcode = 12; */
         if (message.retcode !== undefined)
             writer.tag(12, runtime_1.WireType.Varint).int32(message.retcode);
@@ -22494,7 +22586,7 @@ exports.GetExpeditionAssistInfoListReq = new GetExpeditionAssistInfoListReq$Type
 class GetExpeditionAssistInfoListRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GetExpeditionAssistInfoListRsp", [
-            { no: 6, name: "assist_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ExpeditionAssistInfo },
+            { no: 6, name: "assist_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ExpeditionAssistInfo },
             { no: 7, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
         ]);
     }
@@ -23259,7 +23351,7 @@ class FleurFairActivityDetailInfo$Type extends runtime_5.MessageType {
             { no: 6, name: "dungeon_punish_over_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 15, name: "content_close_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 13, name: "obtained_token", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 14, name: "chapter_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.FleurFairChapterInfo },
+            { no: 14, name: "chapter_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.FleurFairChapterInfo },
             { no: 9, name: "minigame_info_map", kind: "map", K: 13 /*ScalarType.UINT32*/, V: { kind: "message", T: () => exports.FleurFairMinigameInfo } },
             { no: 3, name: "dungeon_section_info_map", kind: "map", K: 13 /*ScalarType.UINT32*/, V: { kind: "message", T: () => exports.FleurFairDungeonSectionInfo } },
             { no: 11, name: "is_dungeon_unlocked", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ }
@@ -24042,7 +24134,7 @@ class ArenaChallengeActivityDetailInfo$Type extends runtime_5.MessageType {
             { no: 14, name: "is_finish_any_level", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 3, name: "level_open_time_map", kind: "map", K: 13 /*ScalarType.UINT32*/, V: { kind: "scalar", T: 13 /*ScalarType.UINT32*/ } },
             { no: 15, name: "world_level", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 9, name: "level_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ArenaChallengeMonsterLevel }
+            { no: 9, name: "level_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ArenaChallengeMonsterLevel }
         ]);
     }
     create(value) {
@@ -24329,7 +24421,7 @@ class ArenaChallengeFinishNotify$Type extends runtime_5.MessageType {
         super("com.midnights.game.ArenaChallengeFinishNotify", [
             { no: 13, name: "arena_challenge_level", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 3, name: "arena_challenge_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 2, name: "child_challenge_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ArenaChallengeChildChallengeInfo },
+            { no: 2, name: "child_challenge_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ArenaChallengeChildChallengeInfo },
             { no: 12, name: "is_success", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ }
         ]);
     }
@@ -24421,7 +24513,7 @@ exports.WaterSpritePhaseFinishNotify = new WaterSpritePhaseFinishNotify$Type();
 class ActivityTakeWatcherRewardBatchReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ActivityTakeWatcherRewardBatchReq", [
-            { no: 11, name: "watcher_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 11, name: "watcher_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 3, name: "activity_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -24460,8 +24552,12 @@ class ActivityTakeWatcherRewardBatchReq$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 watcher_id_list = 11; */
-        for (let i = 0; i < message.watcherIdList.length; i++)
-            writer.tag(11, runtime_1.WireType.Varint).uint32(message.watcherIdList[i]);
+        if (message.watcherIdList.length) {
+            writer.tag(11, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.watcherIdList.length; i++)
+                writer.uint32(message.watcherIdList[i]);
+            writer.join();
+        }
         /* optional uint32 activity_id = 3; */
         if (message.activityId !== undefined)
             writer.tag(3, runtime_1.WireType.Varint).uint32(message.activityId);
@@ -24479,10 +24575,10 @@ exports.ActivityTakeWatcherRewardBatchReq = new ActivityTakeWatcherRewardBatchRe
 class ActivityTakeWatcherRewardBatchRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ActivityTakeWatcherRewardBatchRsp", [
-            { no: 6, name: "watcher_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 6, name: "watcher_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 15, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
             { no: 7, name: "activity_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 1, name: "item_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_11.ItemParam }
+            { no: 1, name: "item_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_11.ItemParam }
         ]);
     }
     create(value) {
@@ -24526,8 +24622,12 @@ class ActivityTakeWatcherRewardBatchRsp$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 watcher_id_list = 6; */
-        for (let i = 0; i < message.watcherIdList.length; i++)
-            writer.tag(6, runtime_1.WireType.Varint).uint32(message.watcherIdList[i]);
+        if (message.watcherIdList.length) {
+            writer.tag(6, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.watcherIdList.length; i++)
+                writer.uint32(message.watcherIdList[i]);
+            writer.join();
+        }
         /* optional int32 retcode = 15; */
         if (message.retcode !== undefined)
             writer.tag(15, runtime_1.WireType.Varint).int32(message.retcode);
@@ -24620,7 +24720,7 @@ class ChannelerSlabChallenge$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ChannelerSlabChallenge", [
             { no: 5, name: "active_camp_index", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 14, name: "camp_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ChannelerSlabCamp }
+            { no: 14, name: "camp_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ChannelerSlabCamp }
         ]);
     }
     create(value) {
@@ -24735,7 +24835,7 @@ class ChannelerSlabChallengeStage$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ChannelerSlabChallengeStage", [
             { no: 3, name: "open_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 14, name: "challenge_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ChannelerSlabChallenge },
+            { no: 14, name: "challenge_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ChannelerSlabChallenge },
             { no: 7, name: "is_open", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 9, name: "stage_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 13, name: "dungeon_info", kind: "message", T: () => exports.ChannelerSlabOneoffDungeon }
@@ -24948,9 +25048,9 @@ class ChannellerSlabBuffInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ChannellerSlabBuffInfo", [
             { no: 6, name: "mp_buff_scheme_info", kind: "message", T: () => exports.ChannellerSlabBuffSchemeInfo },
-            { no: 8, name: "buff_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 8, name: "buff_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 7, name: "single_buff_scheme_info", kind: "message", T: () => exports.ChannellerSlabBuffSchemeInfo },
-            { no: 15, name: "assist_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ChannellerSlabAssistInfo }
+            { no: 15, name: "assist_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ChannellerSlabAssistInfo }
         ]);
     }
     create(value) {
@@ -24997,8 +25097,12 @@ class ChannellerSlabBuffInfo$Type extends runtime_5.MessageType {
         if (message.mpBuffSchemeInfo)
             exports.ChannellerSlabBuffSchemeInfo.internalBinaryWrite(message.mpBuffSchemeInfo, writer.tag(6, runtime_1.WireType.LengthDelimited).fork(), options).join();
         /* repeated uint32 buff_id_list = 8; */
-        for (let i = 0; i < message.buffIdList.length; i++)
-            writer.tag(8, runtime_1.WireType.Varint).uint32(message.buffIdList[i]);
+        if (message.buffIdList.length) {
+            writer.tag(8, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.buffIdList.length; i++)
+                writer.uint32(message.buffIdList[i]);
+            writer.join();
+        }
         /* optional com.midnights.game.ChannellerSlabBuffSchemeInfo single_buff_scheme_info = 7; */
         if (message.singleBuffSchemeInfo)
             exports.ChannellerSlabBuffSchemeInfo.internalBinaryWrite(message.singleBuffSchemeInfo, writer.tag(7, runtime_1.WireType.LengthDelimited).fork(), options).join();
@@ -25023,7 +25127,7 @@ class ChannellerSlabLoopDungeonInfo$Type extends runtime_5.MessageType {
             { no: 4, name: "dungeon_index", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 12, name: "open_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 9, name: "is_first_pass_reward_taken", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 14, name: "last_condition_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 14, name: "last_condition_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 1, name: "is_open", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ }
         ]);
     }
@@ -25086,8 +25190,12 @@ class ChannellerSlabLoopDungeonInfo$Type extends runtime_5.MessageType {
         if (message.isFirstPassRewardTaken !== undefined)
             writer.tag(9, runtime_1.WireType.Varint).bool(message.isFirstPassRewardTaken);
         /* repeated uint32 last_condition_id_list = 14; */
-        for (let i = 0; i < message.lastConditionIdList.length; i++)
-            writer.tag(14, runtime_1.WireType.Varint).uint32(message.lastConditionIdList[i]);
+        if (message.lastConditionIdList.length) {
+            writer.tag(14, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.lastConditionIdList.length; i++)
+                writer.uint32(message.lastConditionIdList[i]);
+            writer.join();
+        }
         /* optional bool is_open = 1; */
         if (message.isOpen !== undefined)
             writer.tag(1, runtime_1.WireType.Varint).bool(message.isOpen);
@@ -25105,8 +25213,8 @@ exports.ChannellerSlabLoopDungeonInfo = new ChannellerSlabLoopDungeonInfo$Type()
 class ChannellerSlabLoopDungeonStageInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ChannellerSlabLoopDungeonStageInfo", [
-            { no: 15, name: "dungeon_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ChannellerSlabLoopDungeonInfo },
-            { no: 5, name: "taken_reward_index_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 15, name: "dungeon_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ChannellerSlabLoopDungeonInfo },
+            { no: 5, name: "taken_reward_index_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 11, name: "is_open", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 6, name: "last_difficulty_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 3, name: "open_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
@@ -25159,8 +25267,12 @@ class ChannellerSlabLoopDungeonStageInfo$Type extends runtime_5.MessageType {
         for (let i = 0; i < message.dungeonInfoList.length; i++)
             exports.ChannellerSlabLoopDungeonInfo.internalBinaryWrite(message.dungeonInfoList[i], writer.tag(15, runtime_1.WireType.LengthDelimited).fork(), options).join();
         /* repeated uint32 taken_reward_index_list = 5; */
-        for (let i = 0; i < message.takenRewardIndexList.length; i++)
-            writer.tag(5, runtime_1.WireType.Varint).uint32(message.takenRewardIndexList[i]);
+        if (message.takenRewardIndexList.length) {
+            writer.tag(5, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.takenRewardIndexList.length; i++)
+                writer.uint32(message.takenRewardIndexList[i]);
+            writer.join();
+        }
         /* optional bool is_open = 11; */
         if (message.isOpen !== undefined)
             writer.tag(11, runtime_1.WireType.Varint).bool(message.isOpen);
@@ -25186,7 +25298,7 @@ class ChannelerSlabActivityDetailInfo$Type extends runtime_5.MessageType {
         super("com.midnights.game.ChannelerSlabActivityDetailInfo", [
             { no: 1, name: "buff_info", kind: "message", T: () => exports.ChannellerSlabBuffInfo },
             { no: 7, name: "loop_dungeon_stage_info", kind: "message", T: () => exports.ChannellerSlabLoopDungeonStageInfo },
-            { no: 15, name: "stage_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ChannelerSlabChallengeStage },
+            { no: 15, name: "stage_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ChannelerSlabChallengeStage },
             { no: 3, name: "play_end_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -25627,7 +25739,7 @@ class ChannellerSlabEnterLoopDungeonReq$Type extends runtime_5.MessageType {
         super("com.midnights.game.ChannellerSlabEnterLoopDungeonReq", [
             { no: 9, name: "point_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 10, name: "dungeon_index", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 5, name: "condition_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 5, name: "condition_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 12, name: "difficulty_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -25678,8 +25790,12 @@ class ChannellerSlabEnterLoopDungeonReq$Type extends runtime_5.MessageType {
         if (message.dungeonIndex !== undefined)
             writer.tag(10, runtime_1.WireType.Varint).uint32(message.dungeonIndex);
         /* repeated uint32 condition_id_list = 5; */
-        for (let i = 0; i < message.conditionIdList.length; i++)
-            writer.tag(5, runtime_1.WireType.Varint).uint32(message.conditionIdList[i]);
+        if (message.conditionIdList.length) {
+            writer.tag(5, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.conditionIdList.length; i++)
+                writer.uint32(message.conditionIdList[i]);
+            writer.join();
+        }
         /* optional uint32 difficulty_id = 12; */
         if (message.difficultyId !== undefined)
             writer.tag(12, runtime_1.WireType.Varint).uint32(message.difficultyId);
@@ -25699,7 +25815,7 @@ class ChannellerSlabEnterLoopDungeonRsp$Type extends runtime_5.MessageType {
         super("com.midnights.game.ChannellerSlabEnterLoopDungeonRsp", [
             { no: 9, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
             { no: 12, name: "point_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 6, name: "condition_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 6, name: "condition_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 15, name: "dungeon_index", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 3, name: "difficulty_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
@@ -25754,8 +25870,12 @@ class ChannellerSlabEnterLoopDungeonRsp$Type extends runtime_5.MessageType {
         if (message.pointId !== undefined)
             writer.tag(12, runtime_1.WireType.Varint).uint32(message.pointId);
         /* repeated uint32 condition_id_list = 6; */
-        for (let i = 0; i < message.conditionIdList.length; i++)
-            writer.tag(6, runtime_1.WireType.Varint).uint32(message.conditionIdList[i]);
+        if (message.conditionIdList.length) {
+            writer.tag(6, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.conditionIdList.length; i++)
+                writer.uint32(message.conditionIdList[i]);
+            writer.join();
+        }
         /* optional uint32 dungeon_index = 15; */
         if (message.dungeonIndex !== undefined)
             writer.tag(15, runtime_1.WireType.Varint).uint32(message.dungeonIndex);
@@ -25981,8 +26101,8 @@ class ChannellerSlabLoopDungeonChallengeInfoNotify$Type extends runtime_5.Messag
             { no: 12, name: "dungeon_index", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 4, name: "challenge_score", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 2, name: "difficulty_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 3, name: "condition_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 6, name: "scheme_buff_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 3, name: "condition_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 6, name: "scheme_buff_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -26042,11 +26162,19 @@ class ChannellerSlabLoopDungeonChallengeInfoNotify$Type extends runtime_5.Messag
         if (message.difficultyId !== undefined)
             writer.tag(2, runtime_1.WireType.Varint).uint32(message.difficultyId);
         /* repeated uint32 condition_id_list = 3; */
-        for (let i = 0; i < message.conditionIdList.length; i++)
-            writer.tag(3, runtime_1.WireType.Varint).uint32(message.conditionIdList[i]);
+        if (message.conditionIdList.length) {
+            writer.tag(3, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.conditionIdList.length; i++)
+                writer.uint32(message.conditionIdList[i]);
+            writer.join();
+        }
         /* repeated uint32 scheme_buff_id_list = 6; */
-        for (let i = 0; i < message.schemeBuffIdList.length; i++)
-            writer.tag(6, runtime_1.WireType.Varint).uint32(message.schemeBuffIdList[i]);
+        if (message.schemeBuffIdList.length) {
+            writer.tag(6, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.schemeBuffIdList.length; i++)
+                writer.uint32(message.schemeBuffIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -26062,7 +26190,7 @@ class ChannellerSlabLoopDungeonSelectConditionReq$Type extends runtime_5.Message
     constructor() {
         super("com.midnights.game.ChannellerSlabLoopDungeonSelectConditionReq", [
             { no: 4, name: "dungeon_index", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 3, name: "condition_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 3, name: "condition_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "difficulty_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -26107,8 +26235,12 @@ class ChannellerSlabLoopDungeonSelectConditionReq$Type extends runtime_5.Message
         if (message.dungeonIndex !== undefined)
             writer.tag(4, runtime_1.WireType.Varint).uint32(message.dungeonIndex);
         /* repeated uint32 condition_id_list = 3; */
-        for (let i = 0; i < message.conditionIdList.length; i++)
-            writer.tag(3, runtime_1.WireType.Varint).uint32(message.conditionIdList[i]);
+        if (message.conditionIdList.length) {
+            writer.tag(3, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.conditionIdList.length; i++)
+                writer.uint32(message.conditionIdList[i]);
+            writer.join();
+        }
         /* optional uint32 difficulty_id = 8; */
         if (message.difficultyId !== undefined)
             writer.tag(8, runtime_1.WireType.Varint).uint32(message.difficultyId);
@@ -26128,7 +26260,7 @@ class ChannellerSlabLoopDungeonSelectConditionRsp$Type extends runtime_5.Message
         super("com.midnights.game.ChannellerSlabLoopDungeonSelectConditionRsp", [
             { no: 9, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
             { no: 5, name: "dungeon_index", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 13, name: "condition_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 13, name: "condition_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 14, name: "difficulty_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -26179,8 +26311,12 @@ class ChannellerSlabLoopDungeonSelectConditionRsp$Type extends runtime_5.Message
         if (message.dungeonIndex !== undefined)
             writer.tag(5, runtime_1.WireType.Varint).uint32(message.dungeonIndex);
         /* repeated uint32 condition_id_list = 13; */
-        for (let i = 0; i < message.conditionIdList.length; i++)
-            writer.tag(13, runtime_1.WireType.Varint).uint32(message.conditionIdList[i]);
+        if (message.conditionIdList.length) {
+            writer.tag(13, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.conditionIdList.length; i++)
+                writer.uint32(message.conditionIdList[i]);
+            writer.join();
+        }
         /* optional uint32 difficulty_id = 14; */
         if (message.difficultyId !== undefined)
             writer.tag(14, runtime_1.WireType.Varint).uint32(message.difficultyId);
@@ -26299,7 +26435,7 @@ exports.ChannellerSlabOneOffDungeonInfoReq = new ChannellerSlabOneOffDungeonInfo
 class ChannellerSlabOneOffDungeonInfoRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ChannellerSlabOneOffDungeonInfoRsp", [
-            { no: 3, name: "scheme_buff_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 3, name: "scheme_buff_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 15, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
         ]);
     }
@@ -26338,8 +26474,12 @@ class ChannellerSlabOneOffDungeonInfoRsp$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 scheme_buff_id_list = 3; */
-        for (let i = 0; i < message.schemeBuffIdList.length; i++)
-            writer.tag(3, runtime_1.WireType.Varint).uint32(message.schemeBuffIdList[i]);
+        if (message.schemeBuffIdList.length) {
+            writer.tag(3, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.schemeBuffIdList.length; i++)
+                writer.uint32(message.schemeBuffIdList[i]);
+            writer.join();
+        }
         /* optional int32 retcode = 15; */
         if (message.retcode !== undefined)
             writer.tag(15, runtime_1.WireType.Varint).int32(message.retcode);
@@ -26357,7 +26497,7 @@ exports.ChannellerSlabOneOffDungeonInfoRsp = new ChannellerSlabOneOffDungeonInfo
 class ChannellerSlabOneOffDungeonInfoNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ChannellerSlabOneOffDungeonInfoNotify", [
-            { no: 6, name: "scheme_buff_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 6, name: "scheme_buff_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -26392,8 +26532,12 @@ class ChannellerSlabOneOffDungeonInfoNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 scheme_buff_id_list = 6; */
-        for (let i = 0; i < message.schemeBuffIdList.length; i++)
-            writer.tag(6, runtime_1.WireType.Varint).uint32(message.schemeBuffIdList[i]);
+        if (message.schemeBuffIdList.length) {
+            writer.tag(6, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.schemeBuffIdList.length; i++)
+                writer.uint32(message.schemeBuffIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -26408,7 +26552,7 @@ exports.ChannellerSlabOneOffDungeonInfoNotify = new ChannellerSlabOneOffDungeonI
 class ChannellerSlabSaveAssistInfoReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ChannellerSlabSaveAssistInfoReq", [
-            { no: 8, name: "assist_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ChannellerSlabAssistInfo }
+            { no: 8, name: "assist_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ChannellerSlabAssistInfo }
         ]);
     }
     create(value) {
@@ -26455,7 +26599,7 @@ exports.ChannellerSlabSaveAssistInfoReq = new ChannellerSlabSaveAssistInfoReq$Ty
 class ChannellerSlabSaveAssistInfoRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ChannellerSlabSaveAssistInfoRsp", [
-            { no: 8, name: "assist_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ChannellerSlabAssistInfo },
+            { no: 8, name: "assist_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ChannellerSlabAssistInfo },
             { no: 11, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
         ]);
     }
@@ -26570,7 +26714,7 @@ exports.MistTrialLevelData = new MistTrialLevelData$Type();
 class MistTrialActivityDetailInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.MistTrialActivityDetailInfo", [
-            { no: 5, name: "trial_level_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.MistTrialLevelData }
+            { no: 5, name: "trial_level_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.MistTrialLevelData }
         ]);
     }
     create(value) {
@@ -26618,7 +26762,7 @@ class MistTrialSelectAvatarAndEnterDungeonReq$Type extends runtime_5.MessageType
     constructor() {
         super("com.midnights.game.MistTrialSelectAvatarAndEnterDungeonReq", [
             { no: 4, name: "trial_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 10, name: "select_trial_avatar_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 10, name: "select_trial_avatar_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 7, name: "enter_point_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -26663,8 +26807,12 @@ class MistTrialSelectAvatarAndEnterDungeonReq$Type extends runtime_5.MessageType
         if (message.trialId !== undefined)
             writer.tag(4, runtime_1.WireType.Varint).uint32(message.trialId);
         /* repeated uint32 select_trial_avatar_id_list = 10; */
-        for (let i = 0; i < message.selectTrialAvatarIdList.length; i++)
-            writer.tag(10, runtime_1.WireType.Varint).uint32(message.selectTrialAvatarIdList[i]);
+        if (message.selectTrialAvatarIdList.length) {
+            writer.tag(10, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.selectTrialAvatarIdList.length; i++)
+                writer.uint32(message.selectTrialAvatarIdList[i]);
+            writer.join();
+        }
         /* optional uint32 enter_point_id = 7; */
         if (message.enterPointId !== undefined)
             writer.tag(7, runtime_1.WireType.Varint).uint32(message.enterPointId);
@@ -26838,7 +26986,7 @@ class MistTrialGetChallengeMissionRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.MistTrialGetChallengeMissionRsp", [
             { no: 1, name: "trial_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 15, name: "mission_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.MistTrialMissionInfo },
+            { no: 15, name: "mission_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.MistTrialMissionInfo },
             { no: 11, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
         ]);
     }
@@ -27018,7 +27166,7 @@ exports.ChannellerSlabCheckEnterLoopDungeonRsp = new ChannellerSlabCheckEnterLoo
 class HideAndSeekMapInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HideAndSeekMapInfo", [
-            { no: 11, name: "match_lock_reason_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 11, name: "match_lock_reason_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 7, name: "id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -27057,8 +27205,12 @@ class HideAndSeekMapInfo$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 match_lock_reason_list = 11; */
-        for (let i = 0; i < message.matchLockReasonList.length; i++)
-            writer.tag(11, runtime_1.WireType.Varint).uint32(message.matchLockReasonList[i]);
+        if (message.matchLockReasonList.length) {
+            writer.tag(11, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.matchLockReasonList.length; i++)
+                writer.uint32(message.matchLockReasonList[i]);
+            writer.join();
+        }
         /* optional uint32 id = 7; */
         if (message.id !== undefined)
             writer.tag(7, runtime_1.WireType.Varint).uint32(message.id);
@@ -27076,10 +27228,10 @@ exports.HideAndSeekMapInfo = new HideAndSeekMapInfo$Type();
 class HideAndSeekActivityDetailInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HideAndSeekActivityDetailInfo", [
-            { no: 1, name: "open_map_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.HideAndSeekMapInfo },
-            { no: 4, name: "chosen_hunter_skill_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 13, name: "unlock_map_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 6, name: "chosen_hider_skill_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 1, name: "open_map_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.HideAndSeekMapInfo },
+            { no: 4, name: "chosen_hunter_skill_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 13, name: "unlock_map_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 6, name: "chosen_hider_skill_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -27134,14 +27286,26 @@ class HideAndSeekActivityDetailInfo$Type extends runtime_5.MessageType {
         for (let i = 0; i < message.openMapInfoList.length; i++)
             exports.HideAndSeekMapInfo.internalBinaryWrite(message.openMapInfoList[i], writer.tag(1, runtime_1.WireType.LengthDelimited).fork(), options).join();
         /* repeated uint32 chosen_hunter_skill_list = 4; */
-        for (let i = 0; i < message.chosenHunterSkillList.length; i++)
-            writer.tag(4, runtime_1.WireType.Varint).uint32(message.chosenHunterSkillList[i]);
+        if (message.chosenHunterSkillList.length) {
+            writer.tag(4, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.chosenHunterSkillList.length; i++)
+                writer.uint32(message.chosenHunterSkillList[i]);
+            writer.join();
+        }
         /* repeated uint32 unlock_map_list = 13; */
-        for (let i = 0; i < message.unlockMapList.length; i++)
-            writer.tag(13, runtime_1.WireType.Varint).uint32(message.unlockMapList[i]);
+        if (message.unlockMapList.length) {
+            writer.tag(13, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.unlockMapList.length; i++)
+                writer.uint32(message.unlockMapList[i]);
+            writer.join();
+        }
         /* repeated uint32 chosen_hider_skill_list = 6; */
-        for (let i = 0; i < message.chosenHiderSkillList.length; i++)
-            writer.tag(6, runtime_1.WireType.Varint).uint32(message.chosenHiderSkillList[i]);
+        if (message.chosenHiderSkillList.length) {
+            writer.tag(6, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.chosenHiderSkillList.length; i++)
+                writer.uint32(message.chosenHiderSkillList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -27156,7 +27320,7 @@ exports.HideAndSeekActivityDetailInfo = new HideAndSeekActivityDetailInfo$Type()
 class HideAndSeekSelectSkillReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HideAndSeekSelectSkillReq", [
-            { no: 13, name: "skill_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 13, name: "skill_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -27191,8 +27355,12 @@ class HideAndSeekSelectSkillReq$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 skill_list = 13; */
-        for (let i = 0; i < message.skillList.length; i++)
-            writer.tag(13, runtime_1.WireType.Varint).uint32(message.skillList[i]);
+        if (message.skillList.length) {
+            writer.tag(13, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.skillList.length; i++)
+                writer.uint32(message.skillList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -27208,7 +27376,7 @@ class HideAndSeekSelectSkillRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.HideAndSeekSelectSkillRsp", [
             { no: 4, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 12, name: "skill_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 12, name: "skill_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -27249,8 +27417,12 @@ class HideAndSeekSelectSkillRsp$Type extends runtime_5.MessageType {
         if (message.retcode !== undefined)
             writer.tag(4, runtime_1.WireType.Varint).int32(message.retcode);
         /* repeated uint32 skill_list = 12; */
-        for (let i = 0; i < message.skillList.length; i++)
-            writer.tag(12, runtime_1.WireType.Varint).uint32(message.skillList[i]);
+        if (message.skillList.length) {
+            writer.tag(12, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.skillList.length; i++)
+                writer.uint32(message.skillList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -27427,7 +27599,7 @@ exports.ActivityTakeAllScoreRewardReq = new ActivityTakeAllScoreRewardReq$Type()
 class ActivityTakeAllScoreRewardRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ActivityTakeAllScoreRewardRsp", [
-            { no: 14, name: "reward_config_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 14, name: "reward_config_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 15, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
             { no: 7, name: "activity_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
@@ -27470,8 +27642,12 @@ class ActivityTakeAllScoreRewardRsp$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 reward_config_list = 14; */
-        for (let i = 0; i < message.rewardConfigList.length; i++)
-            writer.tag(14, runtime_1.WireType.Varint).uint32(message.rewardConfigList[i]);
+        if (message.rewardConfigList.length) {
+            writer.tag(14, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.rewardConfigList.length; i++)
+                writer.uint32(message.rewardConfigList[i]);
+            writer.join();
+        }
         /* optional int32 retcode = 15; */
         if (message.retcode !== undefined)
             writer.tag(15, runtime_1.WireType.Varint).int32(message.retcode);
@@ -27539,7 +27715,7 @@ exports.FindHilichurlDayContentInfo = new FindHilichurlDayContentInfo$Type();
 class FindHilichurlDetailInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.FindHilichurlDetailInfo", [
-            { no: 1, name: "day_content_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.FindHilichurlDayContentInfo },
+            { no: 1, name: "day_content_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.FindHilichurlDayContentInfo },
             { no: 12, name: "min_open_player_level", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 7, name: "is_end_quest_accept", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 6, name: "content_close_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
@@ -27758,7 +27934,7 @@ class SummerTimeSprintBoatRecord$Type extends runtime_5.MessageType {
             { no: 3, name: "best_score", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 13, name: "start_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 7, name: "is_touched", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 10, name: "watcher_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 10, name: "watcher_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 2, name: "group_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -27815,8 +27991,12 @@ class SummerTimeSprintBoatRecord$Type extends runtime_5.MessageType {
         if (message.isTouched !== undefined)
             writer.tag(7, runtime_1.WireType.Varint).bool(message.isTouched);
         /* repeated uint32 watcher_id_list = 10; */
-        for (let i = 0; i < message.watcherIdList.length; i++)
-            writer.tag(10, runtime_1.WireType.Varint).uint32(message.watcherIdList[i]);
+        if (message.watcherIdList.length) {
+            writer.tag(10, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.watcherIdList.length; i++)
+                writer.uint32(message.watcherIdList[i]);
+            writer.join();
+        }
         /* optional uint32 group_id = 2; */
         if (message.groupId !== undefined)
             writer.tag(2, runtime_1.WireType.Varint).uint32(message.groupId);
@@ -27834,7 +28014,7 @@ exports.SummerTimeSprintBoatRecord = new SummerTimeSprintBoatRecord$Type();
 class SummerTimeSprintBoatInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.SummerTimeSprintBoatInfo", [
-            { no: 7, name: "record_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.SummerTimeSprintBoatRecord }
+            { no: 7, name: "record_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.SummerTimeSprintBoatRecord }
         ]);
     }
     create(value) {
@@ -28417,7 +28597,7 @@ exports.BuoyantCombatDailyInfo = new BuoyantCombatDailyInfo$Type();
 class BuoyantCombatDetailInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.BuoyantCombatDetailInfo", [
-            { no: 8, name: "daily_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.BuoyantCombatDailyInfo }
+            { no: 8, name: "daily_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.BuoyantCombatDailyInfo }
         ]);
     }
     create(value) {
@@ -28809,10 +28989,10 @@ exports.SummerTimeDungeonInfo = new SummerTimeDungeonInfo$Type();
 class EchoShellDetailInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.EchoShellDetailInfo", [
-            { no: 8, name: "summer_time_dungeon_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.SummerTimeDungeonInfo },
-            { no: 13, name: "shell_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 4, name: "pass_dungeon_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 2, name: "taken_reward_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 8, name: "summer_time_dungeon_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.SummerTimeDungeonInfo },
+            { no: 13, name: "shell_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 4, name: "pass_dungeon_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 2, name: "taken_reward_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -28867,14 +29047,26 @@ class EchoShellDetailInfo$Type extends runtime_5.MessageType {
         for (let i = 0; i < message.summerTimeDungeonList.length; i++)
             exports.SummerTimeDungeonInfo.internalBinaryWrite(message.summerTimeDungeonList[i], writer.tag(8, runtime_1.WireType.LengthDelimited).fork(), options).join();
         /* repeated uint32 shell_list = 13; */
-        for (let i = 0; i < message.shellList.length; i++)
-            writer.tag(13, runtime_1.WireType.Varint).uint32(message.shellList[i]);
+        if (message.shellList.length) {
+            writer.tag(13, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.shellList.length; i++)
+                writer.uint32(message.shellList[i]);
+            writer.join();
+        }
         /* repeated uint32 pass_dungeon_list = 4; */
-        for (let i = 0; i < message.passDungeonList.length; i++)
-            writer.tag(4, runtime_1.WireType.Varint).uint32(message.passDungeonList[i]);
+        if (message.passDungeonList.length) {
+            writer.tag(4, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.passDungeonList.length; i++)
+                writer.uint32(message.passDungeonList[i]);
+            writer.join();
+        }
         /* repeated uint32 taken_reward_list = 2; */
-        for (let i = 0; i < message.takenRewardList.length; i++)
-            writer.tag(2, runtime_1.WireType.Varint).uint32(message.takenRewardList[i]);
+        if (message.takenRewardList.length) {
+            writer.tag(2, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.takenRewardList.length; i++)
+                writer.uint32(message.takenRewardList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -29098,7 +29290,7 @@ exports.BounceConjuringChapterInfo = new BounceConjuringChapterInfo$Type();
 class BounceConjuringActivityDetailInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.BounceConjuringActivityDetailInfo", [
-            { no: 8, name: "chapter_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.BounceConjuringChapterInfo },
+            { no: 8, name: "chapter_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.BounceConjuringChapterInfo },
             { no: 12, name: "is_content_closed", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 7, name: "content_close_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
@@ -29369,10 +29561,10 @@ exports.ParkourLevelInfo = new ParkourLevelInfo$Type();
 class BlitzRushActivityDetailInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.BlitzRushActivityDetailInfo", [
-            { no: 10, name: "stage_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.BlitzRushStage },
+            { no: 10, name: "stage_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.BlitzRushStage },
             { no: 14, name: "content_close_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 2, name: "is_content_closed", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 6, name: "parkour_level_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ParkourLevelInfo }
+            { no: 6, name: "parkour_level_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ParkourLevelInfo }
         ]);
     }
     create(value) {
@@ -29559,7 +29751,7 @@ class ChessActivityDetailInfo$Type extends runtime_5.MessageType {
             { no: 5, name: "is_content_closed", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 2, name: "available_exp", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 13, name: "exp", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 1, name: "finished_map_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 1, name: "finished_map_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 3, name: "punish_over_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -29640,8 +29832,12 @@ class ChessActivityDetailInfo$Type extends runtime_5.MessageType {
         if (message.exp !== undefined)
             writer.tag(13, runtime_1.WireType.Varint).uint32(message.exp);
         /* repeated uint32 finished_map_id_list = 1; */
-        for (let i = 0; i < message.finishedMapIdList.length; i++)
-            writer.tag(1, runtime_1.WireType.Varint).uint32(message.finishedMapIdList[i]);
+        if (message.finishedMapIdList.length) {
+            writer.tag(1, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.finishedMapIdList.length; i++)
+                writer.uint32(message.finishedMapIdList[i]);
+            writer.join();
+        }
         /* optional uint32 punish_over_time = 3; */
         if (message.punishOverTime !== undefined)
             writer.tag(3, runtime_1.WireType.Varint).uint32(message.punishOverTime);
@@ -29760,7 +29956,7 @@ exports.EnterChessDungeonRsp = new EnterChessDungeonRsp$Type();
 class TreasureMapHostInfoNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.TreasureMapHostInfoNotify", [
-            { no: 8, name: "mp_challenge_region_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 8, name: "mp_challenge_region_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -29795,8 +29991,12 @@ class TreasureMapHostInfoNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 mp_challenge_region_list = 8; */
-        for (let i = 0; i < message.mpChallengeRegionList.length; i++)
-            writer.tag(8, runtime_1.WireType.Varint).uint32(message.mpChallengeRegionList[i]);
+        if (message.mpChallengeRegionList.length) {
+            writer.tag(8, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.mpChallengeRegionList.length; i++)
+                writer.uint32(message.mpChallengeRegionList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -29946,8 +30146,8 @@ exports.SumoAvatarInfo = new SumoAvatarInfo$Type();
 class SumoTeamData$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.SumoTeamData", [
-            { no: 14, name: "skill_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 3, name: "avatar_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.SumoAvatarInfo }
+            { no: 14, name: "skill_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 3, name: "avatar_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.SumoAvatarInfo }
         ]);
     }
     create(value) {
@@ -29985,8 +30185,12 @@ class SumoTeamData$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 skill_id_list = 14; */
-        for (let i = 0; i < message.skillIdList.length; i++)
-            writer.tag(14, runtime_1.WireType.Varint).uint32(message.skillIdList[i]);
+        if (message.skillIdList.length) {
+            writer.tag(14, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.skillIdList.length; i++)
+                writer.uint32(message.skillIdList[i]);
+            writer.join();
+        }
         /* repeated com.midnights.game.SumoAvatarInfo avatar_info_list = 3; */
         for (let i = 0; i < message.avatarInfoList.length; i++)
             exports.SumoAvatarInfo.internalBinaryWrite(message.avatarInfoList[i], writer.tag(3, runtime_1.WireType.LengthDelimited).fork(), options).join();
@@ -30007,7 +30211,7 @@ class SumoStageData$Type extends runtime_5.MessageType {
             { no: 1, name: "max_score", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 5, name: "open_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 3, name: "stage_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 7, name: "team_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.SumoTeamData },
+            { no: 7, name: "team_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.SumoTeamData },
             { no: 11, name: "is_open", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ }
         ]);
     }
@@ -30082,7 +30286,7 @@ class SumoSaveTeamReq$Type extends runtime_5.MessageType {
             { no: 11, name: "activity_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 13, name: "stage_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 7, name: "difficulty_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 12, name: "team_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.SumoTeamData }
+            { no: 12, name: "team_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.SumoTeamData }
         ]);
     }
     create(value) {
@@ -30150,7 +30354,7 @@ class SumoSaveTeamRsp$Type extends runtime_5.MessageType {
             { no: 9, name: "stage_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 2, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
             { no: 11, name: "activity_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 13, name: "team_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.SumoTeamData },
+            { no: 13, name: "team_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.SumoTeamData },
             { no: 10, name: "difficulty_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -30225,7 +30429,7 @@ class SumoSelectTeamAndEnterDungeonReq$Type extends runtime_5.MessageType {
             { no: 1, name: "activity_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 7, name: "stage_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 4, name: "difficulty_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 10, name: "team_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.SumoTeamData }
+            { no: 10, name: "team_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.SumoTeamData }
         ]);
     }
     create(value) {
@@ -30294,7 +30498,7 @@ class SumoSelectTeamAndEnterDungeonRsp$Type extends runtime_5.MessageType {
             { no: 14, name: "activity_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 12, name: "difficulty_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 9, name: "stage_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 2, name: "team_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.SumoTeamData }
+            { no: 2, name: "team_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.SumoTeamData }
         ]);
     }
     create(value) {
@@ -30508,7 +30712,7 @@ exports.SumoDungeonAvatar = new SumoDungeonAvatar$Type();
 class SumoDungeonTeam$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.SumoDungeonTeam", [
-            { no: 15, name: "dungeon_avatar_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.SumoDungeonAvatar }
+            { no: 15, name: "dungeon_avatar_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.SumoDungeonAvatar }
         ]);
     }
     create(value) {
@@ -30556,7 +30760,7 @@ class SumoEnterDungeonNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.SumoEnterDungeonNotify", [
             { no: 15, name: "activity_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 11, name: "dungeon_team_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.SumoDungeonTeam },
+            { no: 11, name: "dungeon_team_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.SumoDungeonTeam },
             { no: 10, name: "no_switch_punish_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 13, name: "next_valid_switch_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 7, name: "stage_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
@@ -30692,7 +30896,7 @@ class SumoSwitchTeamRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.SumoSwitchTeamRsp", [
             { no: 7, name: "next_valid_switch_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 10, name: "dungeon_team_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.SumoDungeonTeam },
+            { no: 10, name: "dungeon_team_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.SumoDungeonTeam },
             { no: 6, name: "activity_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 14, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
             { no: 11, name: "cur_team_index", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
@@ -30942,7 +31146,7 @@ class SumoSetNoSwitchPunishTimeNotify$Type extends runtime_5.MessageType {
         super("com.midnights.game.SumoSetNoSwitchPunishTimeNotify", [
             { no: 15, name: "cur_team_index", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 13, name: "stage_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 11, name: "dungeon_team_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.SumoDungeonTeam },
+            { no: 11, name: "dungeon_team_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.SumoDungeonTeam },
             { no: 2, name: "no_switch_punish_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 14, name: "next_valid_switch_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 9, name: "activity_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
@@ -31279,9 +31483,9 @@ exports.LunaRiteHintPoint = new LunaRiteHintPoint$Type();
 class LunaRiteAreaInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.LunaRiteAreaInfo", [
-            { no: 11, name: "sacrifice_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 11, name: "sacrifice_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 7, name: "hint_status", kind: "enum", opt: true, T: () => ["com.midnights.game.LunaRiteHintStatusType", define_5.LunaRiteHintStatusType] },
-            { no: 4, name: "sacrifice_reward_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 4, name: "sacrifice_reward_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "area_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 6, name: "challenge_index", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
@@ -31334,14 +31538,22 @@ class LunaRiteAreaInfo$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 sacrifice_list = 11; */
-        for (let i = 0; i < message.sacrificeList.length; i++)
-            writer.tag(11, runtime_1.WireType.Varint).uint32(message.sacrificeList[i]);
+        if (message.sacrificeList.length) {
+            writer.tag(11, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.sacrificeList.length; i++)
+                writer.uint32(message.sacrificeList[i]);
+            writer.join();
+        }
         /* optional com.midnights.game.LunaRiteHintStatusType hint_status = 7; */
         if (message.hintStatus !== undefined)
             writer.tag(7, runtime_1.WireType.Varint).int32(message.hintStatus);
         /* repeated uint32 sacrifice_reward_list = 4; */
-        for (let i = 0; i < message.sacrificeRewardList.length; i++)
-            writer.tag(4, runtime_1.WireType.Varint).uint32(message.sacrificeRewardList[i]);
+        if (message.sacrificeRewardList.length) {
+            writer.tag(4, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.sacrificeRewardList.length; i++)
+                writer.uint32(message.sacrificeRewardList[i]);
+            writer.join();
+        }
         /* optional uint32 area_id = 8; */
         if (message.areaId !== undefined)
             writer.tag(8, runtime_1.WireType.Varint).uint32(message.areaId);
@@ -31362,8 +31574,8 @@ exports.LunaRiteAreaInfo = new LunaRiteAreaInfo$Type();
 class LunaRiteDetailInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.LunaRiteDetailInfo", [
-            { no: 3, name: "hint_point", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.LunaRiteHintPoint },
-            { no: 13, name: "area_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.LunaRiteAreaInfo }
+            { no: 3, name: "hint_point", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.LunaRiteHintPoint },
+            { no: 13, name: "area_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.LunaRiteAreaInfo }
         ]);
     }
     create(value) {
@@ -31471,7 +31683,7 @@ class LunaRiteSacrificeRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.LunaRiteSacrificeRsp", [
             { no: 13, name: "area_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 14, name: "sacrifice_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 14, name: "sacrifice_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "index", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 9, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
         ]);
@@ -31520,8 +31732,12 @@ class LunaRiteSacrificeRsp$Type extends runtime_5.MessageType {
         if (message.areaId !== undefined)
             writer.tag(13, runtime_1.WireType.Varint).uint32(message.areaId);
         /* repeated uint32 sacrifice_list = 14; */
-        for (let i = 0; i < message.sacrificeList.length; i++)
-            writer.tag(14, runtime_1.WireType.Varint).uint32(message.sacrificeList[i]);
+        if (message.sacrificeList.length) {
+            writer.tag(14, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.sacrificeList.length; i++)
+                writer.uint32(message.sacrificeList[i]);
+            writer.join();
+        }
         /* optional uint32 index = 8; */
         if (message.index !== undefined)
             writer.tag(8, runtime_1.WireType.Varint).uint32(message.index);
@@ -31597,7 +31813,7 @@ class LunaRiteTakeSacrificeRewardRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.LunaRiteTakeSacrificeRewardRsp", [
             { no: 11, name: "index", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 2, name: "sacrifice_reward_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 2, name: "sacrifice_reward_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 14, name: "sacrifice_reward_index", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 6, name: "area_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 12, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
@@ -31650,8 +31866,12 @@ class LunaRiteTakeSacrificeRewardRsp$Type extends runtime_5.MessageType {
         if (message.index !== undefined)
             writer.tag(11, runtime_1.WireType.Varint).uint32(message.index);
         /* repeated uint32 sacrifice_reward_list = 2; */
-        for (let i = 0; i < message.sacrificeRewardList.length; i++)
-            writer.tag(2, runtime_1.WireType.Varint).uint32(message.sacrificeRewardList[i]);
+        if (message.sacrificeRewardList.length) {
+            writer.tag(2, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.sacrificeRewardList.length; i++)
+                writer.uint32(message.sacrificeRewardList[i]);
+            writer.join();
+        }
         /* optional uint32 sacrifice_reward_index = 14; */
         if (message.sacrificeRewardIndex !== undefined)
             writer.tag(14, runtime_1.WireType.Varint).uint32(message.sacrificeRewardIndex);
@@ -31725,7 +31945,7 @@ class LunaRiteHintPointRsp$Type extends runtime_5.MessageType {
             { no: 4, name: "hint_status", kind: "enum", opt: true, T: () => ["com.midnights.game.LunaRiteHintStatusType", define_5.LunaRiteHintStatusType] },
             { no: 5, name: "area_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 13, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 9, name: "hint_point", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.LunaRiteHintPoint }
+            { no: 9, name: "hint_point", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.LunaRiteHintPoint }
         ]);
     }
     create(value) {
@@ -31790,7 +32010,7 @@ exports.LunaRiteHintPointRsp = new LunaRiteHintPointRsp$Type();
 class LunaRiteHintPointRemoveNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.LunaRiteHintPointRemoveNotify", [
-            { no: 14, name: "hint_point_index", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 14, name: "hint_point_index", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -31825,8 +32045,12 @@ class LunaRiteHintPointRemoveNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 hint_point_index = 14; */
-        for (let i = 0; i < message.hintPointIndex.length; i++)
-            writer.tag(14, runtime_1.WireType.Varint).uint32(message.hintPointIndex[i]);
+        if (message.hintPointIndex.length) {
+            writer.tag(14, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.hintPointIndex.length; i++)
+                writer.uint32(message.hintPointIndex[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -32515,7 +32739,7 @@ class PlantFlowerGetFriendFlowerWishListRsp$Type extends runtime_5.MessageType {
         super("com.midnights.game.PlantFlowerGetFriendFlowerWishListRsp", [
             { no: 6, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
             { no: 2, name: "schedule_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 9, name: "friend_flower_wish_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.PlantFlowerFriendFlowerWishData }
+            { no: 9, name: "friend_flower_wish_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.PlantFlowerFriendFlowerWishData }
         ]);
     }
     create(value) {
@@ -32651,7 +32875,7 @@ exports.PlantFlowerGiveFriendFlowerReq = new PlantFlowerGiveFriendFlowerReq$Type
 class PlantFlowerGiveFriendFlowerRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.PlantFlowerGiveFriendFlowerRsp", [
-            { no: 5, name: "limit_flower_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 5, name: "limit_flower_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 3, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
             { no: 14, name: "schedule_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
@@ -32694,8 +32918,12 @@ class PlantFlowerGiveFriendFlowerRsp$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 limit_flower_list = 5; */
-        for (let i = 0; i < message.limitFlowerList.length; i++)
-            writer.tag(5, runtime_1.WireType.Varint).uint32(message.limitFlowerList[i]);
+        if (message.limitFlowerList.length) {
+            writer.tag(5, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.limitFlowerList.length; i++)
+                writer.uint32(message.limitFlowerList[i]);
+            writer.join();
+        }
         /* optional int32 retcode = 3; */
         if (message.retcode !== undefined)
             writer.tag(3, runtime_1.WireType.Varint).int32(message.retcode);
@@ -32849,7 +33077,7 @@ class PlantFlowerGetRecvFlowerListRsp$Type extends runtime_5.MessageType {
         super("com.midnights.game.PlantFlowerGetRecvFlowerListRsp", [
             { no: 6, name: "schedule_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 1, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 4, name: "recv_flower_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.PlantFlowerRecvFlowerData }
+            { no: 4, name: "recv_flower_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.PlantFlowerRecvFlowerData }
         ]);
     }
     create(value) {
@@ -33212,7 +33440,7 @@ class PlantFlowerAcceptAllGiveFlowerRsp$Type extends runtime_5.MessageType {
         super("com.midnights.game.PlantFlowerAcceptAllGiveFlowerRsp", [
             { no: 10, name: "schedule_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 11, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 13, name: "accept_flower_result_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.PlantFlowerAcceptFlowerResultInfo }
+            { no: 13, name: "accept_flower_result_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.PlantFlowerAcceptFlowerResultInfo }
         ]);
     }
     create(value) {
@@ -33571,8 +33799,8 @@ exports.MusicGameRecord = new MusicGameRecord$Type();
 class MusicGameActivityDetailInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.MusicGameActivityDetailInfo", [
-            { no: 4, name: "ugc_record_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => cmd_ugc_1.UgcMusicBriefInfo },
-            { no: 7, name: "ugc_search_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => cmd_ugc_1.UgcMusicBriefInfo },
+            { no: 4, name: "ugc_record_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => cmd_ugc_1.UgcMusicBriefInfo },
+            { no: 7, name: "ugc_search_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => cmd_ugc_1.UgcMusicBriefInfo },
             { no: 8, name: "music_game_record_map", kind: "map", K: 13 /*ScalarType.UINT32*/, V: { kind: "message", T: () => exports.MusicGameRecord } }
         ]);
     }
@@ -33652,9 +33880,9 @@ exports.MusicGameActivityDetailInfo = new MusicGameActivityDetailInfo$Type();
 class MusicGameSettleReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.MusicGameSettleReq", [
-            { no: 384, name: "button_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 384, name: "button_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 795, name: "delay", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 4, name: "note_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 4, name: "note_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 15, name: "score_rating", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 9, name: "score", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 6, name: "ugc_guid", kind: "scalar", opt: true, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
@@ -33759,14 +33987,22 @@ class MusicGameSettleReq$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 button_list = 384; */
-        for (let i = 0; i < message.buttonList.length; i++)
-            writer.tag(384, runtime_1.WireType.Varint).uint32(message.buttonList[i]);
+        if (message.buttonList.length) {
+            writer.tag(384, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.buttonList.length; i++)
+                writer.uint32(message.buttonList[i]);
+            writer.join();
+        }
         /* optional uint32 delay = 795; */
         if (message.delay !== undefined)
             writer.tag(795, runtime_1.WireType.Varint).uint32(message.delay);
         /* repeated uint32 note_list = 4; */
-        for (let i = 0; i < message.noteList.length; i++)
-            writer.tag(4, runtime_1.WireType.Varint).uint32(message.noteList[i]);
+        if (message.noteList.length) {
+            writer.tag(4, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.noteList.length; i++)
+                writer.uint32(message.noteList[i]);
+            writer.join();
+        }
         /* optional uint32 score_rating = 15; */
         if (message.scoreRating !== undefined)
             writer.tag(15, runtime_1.WireType.Varint).uint32(message.scoreRating);
@@ -34084,7 +34320,7 @@ exports.RogueAvatarInfo = new RogueAvatarInfo$Type();
 class RogueShowAvatarTeamInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.RogueShowAvatarTeamInfo", [
-            { no: 12, name: "avatar_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.RogueAvatarInfo }
+            { no: 12, name: "avatar_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.RogueAvatarInfo }
         ]);
     }
     create(value) {
@@ -34186,7 +34422,7 @@ class RogueEffectRecord$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.RogueEffectRecord", [
             { no: 6, name: "source_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 9, name: "extra_param_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 9, name: "extra_param_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 10, name: "count", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 5, name: "is_new", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ }
         ]);
@@ -34235,8 +34471,12 @@ class RogueEffectRecord$Type extends runtime_5.MessageType {
         if (message.sourceId !== undefined)
             writer.tag(6, runtime_1.WireType.Varint).uint32(message.sourceId);
         /* repeated uint32 extra_param_list = 9; */
-        for (let i = 0; i < message.extraParamList.length; i++)
-            writer.tag(9, runtime_1.WireType.Varint).uint32(message.extraParamList[i]);
+        if (message.extraParamList.length) {
+            writer.tag(9, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.extraParamList.length; i++)
+                writer.uint32(message.extraParamList[i]);
+            writer.join();
+        }
         /* optional uint32 count = 10; */
         if (message.count !== undefined)
             writer.tag(10, runtime_1.WireType.Varint).uint32(message.count);
@@ -34322,7 +34562,7 @@ class RogueStageInfo$Type extends runtime_5.MessageType {
             { no: 5, name: "is_passed", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 7, name: "stage_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 205, name: "revise_monster_level", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 6, name: "rune_record_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.RoguelikeRuneRecord },
+            { no: 6, name: "rune_record_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.RoguelikeRuneRecord },
             { no: 1, name: "is_open", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 4, name: "cur_level", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 1409, name: "cached_coin_c_num", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
@@ -34463,12 +34703,12 @@ exports.RogueStageInfo = new RogueStageInfo$Type();
 class RoguelikeDungeonActivityDetailInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.RoguelikeDungeonActivityDetailInfo", [
-            { no: 8, name: "stage_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.RogueStageInfo },
-            { no: 5, name: "shikigami_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.RoguelikeShikigamiRecord },
-            { no: 14, name: "equipped_rune_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 8, name: "stage_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.RogueStageInfo },
+            { no: 5, name: "shikigami_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.RoguelikeShikigamiRecord },
+            { no: 14, name: "equipped_rune_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 6, name: "content_close_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 10, name: "is_content_closed", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 2, name: "rune_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 2, name: "rune_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -34528,8 +34768,12 @@ class RoguelikeDungeonActivityDetailInfo$Type extends runtime_5.MessageType {
         for (let i = 0; i < message.shikigamiList.length; i++)
             exports.RoguelikeShikigamiRecord.internalBinaryWrite(message.shikigamiList[i], writer.tag(5, runtime_1.WireType.LengthDelimited).fork(), options).join();
         /* repeated uint32 equipped_rune_list = 14; */
-        for (let i = 0; i < message.equippedRuneList.length; i++)
-            writer.tag(14, runtime_1.WireType.Varint).uint32(message.equippedRuneList[i]);
+        if (message.equippedRuneList.length) {
+            writer.tag(14, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.equippedRuneList.length; i++)
+                writer.uint32(message.equippedRuneList[i]);
+            writer.join();
+        }
         /* optional uint32 content_close_time = 6; */
         if (message.contentCloseTime !== undefined)
             writer.tag(6, runtime_1.WireType.Varint).uint32(message.contentCloseTime);
@@ -34537,8 +34781,12 @@ class RoguelikeDungeonActivityDetailInfo$Type extends runtime_5.MessageType {
         if (message.isContentClosed !== undefined)
             writer.tag(10, runtime_1.WireType.Varint).bool(message.isContentClosed);
         /* repeated uint32 rune_list = 2; */
-        for (let i = 0; i < message.runeList.length; i++)
-            writer.tag(2, runtime_1.WireType.Varint).uint32(message.runeList[i]);
+        if (message.runeList.length) {
+            writer.tag(2, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.runeList.length; i++)
+                writer.uint32(message.runeList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -34608,7 +34856,7 @@ class DoRoguelikeDungeonCardGachaRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.DoRoguelikeDungeonCardGachaRsp", [
             { no: 8, name: "is_can_refresh", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 15, name: "card_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 15, name: "card_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 5, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
         ]);
     }
@@ -34653,8 +34901,12 @@ class DoRoguelikeDungeonCardGachaRsp$Type extends runtime_5.MessageType {
         if (message.isCanRefresh !== undefined)
             writer.tag(8, runtime_1.WireType.Varint).bool(message.isCanRefresh);
         /* repeated uint32 card_list = 15; */
-        for (let i = 0; i < message.cardList.length; i++)
-            writer.tag(15, runtime_1.WireType.Varint).uint32(message.cardList[i]);
+        if (message.cardList.length) {
+            writer.tag(15, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.cardList.length; i++)
+                writer.uint32(message.cardList[i]);
+            writer.join();
+        }
         /* optional int32 retcode = 5; */
         if (message.retcode !== undefined)
             writer.tag(5, runtime_1.WireType.Varint).int32(message.retcode);
@@ -34699,7 +34951,7 @@ class RefreshRoguelikeDungeonCardRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.RefreshRoguelikeDungeonCardRsp", [
             { no: 3, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 9, name: "res_card_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 9, name: "res_card_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -34740,8 +34992,12 @@ class RefreshRoguelikeDungeonCardRsp$Type extends runtime_5.MessageType {
         if (message.retcode !== undefined)
             writer.tag(3, runtime_1.WireType.Varint).int32(message.retcode);
         /* repeated uint32 res_card_list = 9; */
-        for (let i = 0; i < message.resCardList.length; i++)
-            writer.tag(9, runtime_1.WireType.Varint).uint32(message.resCardList[i]);
+        if (message.resCardList.length) {
+            writer.tag(9, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.resCardList.length; i++)
+                writer.uint32(message.resCardList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -34857,7 +35113,7 @@ exports.SelectRoguelikeDungeonCardRsp = new SelectRoguelikeDungeonCardRsp$Type()
 class EquipRoguelikeRuneReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.EquipRoguelikeRuneReq", [
-            { no: 3, name: "rune_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 3, name: "rune_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -34892,8 +35148,12 @@ class EquipRoguelikeRuneReq$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 rune_list = 3; */
-        for (let i = 0; i < message.runeList.length; i++)
-            writer.tag(3, runtime_1.WireType.Varint).uint32(message.runeList[i]);
+        if (message.runeList.length) {
+            writer.tag(3, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.runeList.length; i++)
+                writer.uint32(message.runeList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -34909,7 +35169,7 @@ class EquipRoguelikeRuneRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.EquipRoguelikeRuneRsp", [
             { no: 14, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 1, name: "rune_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 1, name: "rune_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -34950,8 +35210,12 @@ class EquipRoguelikeRuneRsp$Type extends runtime_5.MessageType {
         if (message.retcode !== undefined)
             writer.tag(14, runtime_1.WireType.Varint).int32(message.retcode);
         /* repeated uint32 rune_list = 1; */
-        for (let i = 0; i < message.runeList.length; i++)
-            writer.tag(1, runtime_1.WireType.Varint).uint32(message.runeList[i]);
+        if (message.runeList.length) {
+            writer.tag(1, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.runeList.length; i++)
+                writer.uint32(message.runeList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -35074,7 +35338,7 @@ exports.TriggerRoguelikeRuneRsp = new TriggerRoguelikeRuneRsp$Type();
 class TriggerRoguelikeCurseNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.TriggerRoguelikeCurseNotify", [
-            { no: 14, name: "effect_param_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 14, name: "effect_param_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 9, name: "curse_group_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 13, name: "is_trigger_curse", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 3, name: "curse_level", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
@@ -35121,8 +35385,12 @@ class TriggerRoguelikeCurseNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 effect_param_list = 14; */
-        for (let i = 0; i < message.effectParamList.length; i++)
-            writer.tag(14, runtime_1.WireType.Varint).uint32(message.effectParamList[i]);
+        if (message.effectParamList.length) {
+            writer.tag(14, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.effectParamList.length; i++)
+                writer.uint32(message.effectParamList[i]);
+            writer.join();
+        }
         /* optional uint32 curse_group_id = 9; */
         if (message.curseGroupId !== undefined)
             writer.tag(9, runtime_1.WireType.Varint).uint32(message.curseGroupId);
@@ -35261,9 +35529,9 @@ exports.UpgradeRoguelikeShikigamiRsp = new UpgradeRoguelikeShikigamiRsp$Type();
 class RoguelikeSelectAvatarAndEnterDungeonReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.RoguelikeSelectAvatarAndEnterDungeonReq", [
-            { no: 14, name: "onstage_avatar_guid_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 14, name: "onstage_avatar_guid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 4, name: "stage_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 11, name: "backstage_avatar_guid_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ }
+            { no: 11, name: "backstage_avatar_guid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ }
         ]);
     }
     create(value) {
@@ -35308,14 +35576,22 @@ class RoguelikeSelectAvatarAndEnterDungeonReq$Type extends runtime_5.MessageType
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint64 onstage_avatar_guid_list = 14; */
-        for (let i = 0; i < message.onstageAvatarGuidList.length; i++)
-            writer.tag(14, runtime_1.WireType.Varint).uint64(message.onstageAvatarGuidList[i]);
+        if (message.onstageAvatarGuidList.length) {
+            writer.tag(14, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.onstageAvatarGuidList.length; i++)
+                writer.uint64(message.onstageAvatarGuidList[i]);
+            writer.join();
+        }
         /* optional uint32 stage_id = 4; */
         if (message.stageId !== undefined)
             writer.tag(4, runtime_1.WireType.Varint).uint32(message.stageId);
         /* repeated uint64 backstage_avatar_guid_list = 11; */
-        for (let i = 0; i < message.backstageAvatarGuidList.length; i++)
-            writer.tag(11, runtime_1.WireType.Varint).uint64(message.backstageAvatarGuidList[i]);
+        if (message.backstageAvatarGuidList.length) {
+            writer.tag(11, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.backstageAvatarGuidList.length; i++)
+                writer.uint64(message.backstageAvatarGuidList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -35746,17 +36022,17 @@ class EnterRoguelikeDungeonNotify$Type extends runtime_5.MessageType {
         super("com.midnights.game.EnterRoguelikeDungeonNotify", [
             { no: 14, name: "is_mist_clear", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 2, name: "dungeon_weight_config_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 6, name: "rune_record_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.RoguelikeRuneRecord },
-            { no: 9, name: "onstage_avatar_guid_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 6, name: "rune_record_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.RoguelikeRuneRecord },
+            { no: 9, name: "onstage_avatar_guid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 205, name: "is_first_enter", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 3, name: "explored_cell_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 3, name: "explored_cell_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 11, name: "cell_info_map", kind: "map", K: 13 /*ScalarType.UINT32*/, V: { kind: "message", T: () => exports.RogueCellInfo } },
             { no: 1, name: "dungeon_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 1999, name: "refresh_cost_item_count", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 13, name: "bonus_resource_prop", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
             { no: 1541, name: "revise_monster_level", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 15, name: "stage_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 10, name: "backstage_avatar_guid_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 10, name: "backstage_avatar_guid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 12, name: "cur_cell_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 7, name: "refresh_cost_item_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "cur_level", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
@@ -35872,14 +36148,22 @@ class EnterRoguelikeDungeonNotify$Type extends runtime_5.MessageType {
         for (let i = 0; i < message.runeRecordList.length; i++)
             exports.RoguelikeRuneRecord.internalBinaryWrite(message.runeRecordList[i], writer.tag(6, runtime_1.WireType.LengthDelimited).fork(), options).join();
         /* repeated uint64 onstage_avatar_guid_list = 9; */
-        for (let i = 0; i < message.onstageAvatarGuidList.length; i++)
-            writer.tag(9, runtime_1.WireType.Varint).uint64(message.onstageAvatarGuidList[i]);
+        if (message.onstageAvatarGuidList.length) {
+            writer.tag(9, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.onstageAvatarGuidList.length; i++)
+                writer.uint64(message.onstageAvatarGuidList[i]);
+            writer.join();
+        }
         /* optional bool is_first_enter = 205; */
         if (message.isFirstEnter !== undefined)
             writer.tag(205, runtime_1.WireType.Varint).bool(message.isFirstEnter);
         /* repeated uint32 explored_cell_list = 3; */
-        for (let i = 0; i < message.exploredCellList.length; i++)
-            writer.tag(3, runtime_1.WireType.Varint).uint32(message.exploredCellList[i]);
+        if (message.exploredCellList.length) {
+            writer.tag(3, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.exploredCellList.length; i++)
+                writer.uint32(message.exploredCellList[i]);
+            writer.join();
+        }
         /* map<uint32, com.midnights.game.RogueCellInfo> cell_info_map = 11; */
         for (let k of Object.keys(message.cellInfoMap)) {
             writer.tag(11, runtime_1.WireType.LengthDelimited).fork().tag(1, runtime_1.WireType.Varint).uint32(parseInt(k));
@@ -35903,8 +36187,12 @@ class EnterRoguelikeDungeonNotify$Type extends runtime_5.MessageType {
         if (message.stageId !== undefined)
             writer.tag(15, runtime_1.WireType.Varint).uint32(message.stageId);
         /* repeated uint64 backstage_avatar_guid_list = 10; */
-        for (let i = 0; i < message.backstageAvatarGuidList.length; i++)
-            writer.tag(10, runtime_1.WireType.Varint).uint64(message.backstageAvatarGuidList[i]);
+        if (message.backstageAvatarGuidList.length) {
+            writer.tag(10, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.backstageAvatarGuidList.length; i++)
+                writer.uint64(message.backstageAvatarGuidList[i]);
+            writer.join();
+        }
         /* optional uint32 cur_cell_id = 12; */
         if (message.curCellId !== undefined)
             writer.tag(12, runtime_1.WireType.Varint).uint32(message.curCellId);
@@ -36566,7 +36854,7 @@ exports.ClearRoguelikeCurseNotify = new ClearRoguelikeCurseNotify$Type();
 class RoguelikeCardGachaNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.RoguelikeCardGachaNotify", [
-            { no: 10, name: "card_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 10, name: "card_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 11, name: "is_can_refresh", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ }
         ]);
     }
@@ -36605,8 +36893,12 @@ class RoguelikeCardGachaNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 card_list = 10; */
-        for (let i = 0; i < message.cardList.length; i++)
-            writer.tag(10, runtime_1.WireType.Varint).uint32(message.cardList[i]);
+        if (message.cardList.length) {
+            writer.tag(10, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.cardList.length; i++)
+                writer.uint32(message.cardList[i]);
+            writer.join();
+        }
         /* optional bool is_can_refresh = 11; */
         if (message.isCanRefresh !== undefined)
             writer.tag(11, runtime_1.WireType.Varint).bool(message.isCanRefresh);
@@ -36625,7 +36917,7 @@ class RogueSwitchAvatarReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.RogueSwitchAvatarReq", [
             { no: 15, name: "cell_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 3, name: "onstage_avatar_guid_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 3, name: "onstage_avatar_guid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 11, name: "cur_avatar_guid", kind: "scalar", opt: true, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 6, name: "dungeon_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
@@ -36674,8 +36966,12 @@ class RogueSwitchAvatarReq$Type extends runtime_5.MessageType {
         if (message.cellId !== undefined)
             writer.tag(15, runtime_1.WireType.Varint).uint32(message.cellId);
         /* repeated uint64 onstage_avatar_guid_list = 3; */
-        for (let i = 0; i < message.onstageAvatarGuidList.length; i++)
-            writer.tag(3, runtime_1.WireType.Varint).uint64(message.onstageAvatarGuidList[i]);
+        if (message.onstageAvatarGuidList.length) {
+            writer.tag(3, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.onstageAvatarGuidList.length; i++)
+                writer.uint64(message.onstageAvatarGuidList[i]);
+            writer.join();
+        }
         /* optional uint64 cur_avatar_guid = 11; */
         if (message.curAvatarGuid !== undefined)
             writer.tag(11, runtime_1.WireType.Varint).uint64(message.curAvatarGuid);
@@ -36697,11 +36993,11 @@ class RogueSwitchAvatarRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.RogueSwitchAvatarRsp", [
             { no: 4, name: "cur_avatar_guid", kind: "scalar", opt: true, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 8, name: "backstage_avatar_guid_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 8, name: "backstage_avatar_guid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
             { no: 14, name: "dungeon_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 3, name: "cell_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 12, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 9, name: "onstage_avatar_guid_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ }
+            { no: 9, name: "onstage_avatar_guid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ }
         ]);
     }
     create(value) {
@@ -36758,8 +37054,12 @@ class RogueSwitchAvatarRsp$Type extends runtime_5.MessageType {
         if (message.curAvatarGuid !== undefined)
             writer.tag(4, runtime_1.WireType.Varint).uint64(message.curAvatarGuid);
         /* repeated uint64 backstage_avatar_guid_list = 8; */
-        for (let i = 0; i < message.backstageAvatarGuidList.length; i++)
-            writer.tag(8, runtime_1.WireType.Varint).uint64(message.backstageAvatarGuidList[i]);
+        if (message.backstageAvatarGuidList.length) {
+            writer.tag(8, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.backstageAvatarGuidList.length; i++)
+                writer.uint64(message.backstageAvatarGuidList[i]);
+            writer.join();
+        }
         /* optional uint32 dungeon_id = 14; */
         if (message.dungeonId !== undefined)
             writer.tag(14, runtime_1.WireType.Varint).uint32(message.dungeonId);
@@ -36770,8 +37070,12 @@ class RogueSwitchAvatarRsp$Type extends runtime_5.MessageType {
         if (message.retcode !== undefined)
             writer.tag(12, runtime_1.WireType.Varint).int32(message.retcode);
         /* repeated uint64 onstage_avatar_guid_list = 9; */
-        for (let i = 0; i < message.onstageAvatarGuidList.length; i++)
-            writer.tag(9, runtime_1.WireType.Varint).uint64(message.onstageAvatarGuidList[i]);
+        if (message.onstageAvatarGuidList.length) {
+            writer.tag(9, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.onstageAvatarGuidList.length; i++)
+                writer.uint64(message.onstageAvatarGuidList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -36833,7 +37137,7 @@ exports.DisableRoguelikeTrapNotify = new DisableRoguelikeTrapNotify$Type();
 class RoguelikeRuneRecordUpdateNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.RoguelikeRuneRecordUpdateNotify", [
-            { no: 11, name: "rune_record_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.RoguelikeRuneRecord }
+            { no: 11, name: "rune_record_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.RoguelikeRuneRecord }
         ]);
     }
     create(value) {
@@ -36906,8 +37210,8 @@ exports.RoguelikeMistClearNotify = new RoguelikeMistClearNotify$Type();
 class RoguelikeEffectDataNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.RoguelikeEffectDataNotify", [
-            { no: 7, name: "curse_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.RogueEffectRecord },
-            { no: 4, name: "card_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.RogueEffectRecord }
+            { no: 7, name: "curse_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.RogueEffectRecord },
+            { no: 4, name: "card_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.RogueEffectRecord }
         ]);
     }
     create(value) {
@@ -36960,8 +37264,8 @@ exports.RoguelikeEffectDataNotify = new RoguelikeEffectDataNotify$Type();
 class RoguelikeEffectViewReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.RoguelikeEffectViewReq", [
-            { no: 10, name: "view_curse_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 2, name: "view_card_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 10, name: "view_curse_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 2, name: "view_card_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -37003,11 +37307,19 @@ class RoguelikeEffectViewReq$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 view_curse_list = 10; */
-        for (let i = 0; i < message.viewCurseList.length; i++)
-            writer.tag(10, runtime_1.WireType.Varint).uint32(message.viewCurseList[i]);
+        if (message.viewCurseList.length) {
+            writer.tag(10, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.viewCurseList.length; i++)
+                writer.uint32(message.viewCurseList[i]);
+            writer.join();
+        }
         /* repeated uint32 view_card_list = 2; */
-        for (let i = 0; i < message.viewCardList.length; i++)
-            writer.tag(2, runtime_1.WireType.Varint).uint32(message.viewCardList[i]);
+        if (message.viewCardList.length) {
+            writer.tag(2, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.viewCardList.length; i++)
+                writer.uint32(message.viewCardList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -37401,8 +37713,8 @@ exports.DigMarkPoint = new DigMarkPoint$Type();
 class DigActivityDetailInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.DigActivityDetailInfo", [
-            { no: 15, name: "stage_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 11, name: "dig_mark_point_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.DigMarkPoint },
+            { no: 15, name: "stage_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 11, name: "dig_mark_point_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.DigMarkPoint },
             { no: 8, name: "stage_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -37444,8 +37756,12 @@ class DigActivityDetailInfo$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 stage_id_list = 15; */
-        for (let i = 0; i < message.stageIdList.length; i++)
-            writer.tag(15, runtime_1.WireType.Varint).uint32(message.stageIdList[i]);
+        if (message.stageIdList.length) {
+            writer.tag(15, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.stageIdList.length; i++)
+                writer.uint32(message.stageIdList[i]);
+            writer.join();
+        }
         /* repeated com.midnights.game.DigMarkPoint dig_mark_point_list = 11; */
         for (let i = 0; i < message.digMarkPointList.length; i++)
             exports.DigMarkPoint.internalBinaryWrite(message.digMarkPointList[i], writer.tag(11, runtime_1.WireType.LengthDelimited).fork(), options).join();
@@ -37466,7 +37782,7 @@ exports.DigActivityDetailInfo = new DigActivityDetailInfo$Type();
 class DigActivityMarkPointChangeNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.DigActivityMarkPointChangeNotify", [
-            { no: 11, name: "dig_mark_point_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.DigMarkPoint }
+            { no: 11, name: "dig_mark_point_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.DigMarkPoint }
         ]);
     }
     create(value) {
@@ -37899,14 +38215,14 @@ exports.WinterCampRaceStageInfo = new WinterCampRaceStageInfo$Type();
 class WinterCampActivityDetailInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.WinterCampActivityDetailInfo", [
-            { no: 9, name: "race_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.WinterCampRaceStageInfo },
+            { no: 9, name: "race_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.WinterCampRaceStageInfo },
             { no: 10, name: "battle_info", kind: "message", T: () => exports.WinterCampStageInfo },
-            { no: 8, name: "wish_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 14, name: "battle_taken_reward_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 6, name: "explore_taken_reward_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 8, name: "wish_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 14, name: "battle_taken_reward_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 6, name: "explore_taken_reward_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 15, name: "is_content_closed", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 11, name: "explore_info", kind: "message", T: () => exports.WinterCampStageInfo },
-            { no: 2, name: "used_item_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_11.ItemParam }
+            { no: 2, name: "used_item_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_11.ItemParam }
         ]);
     }
     create(value) {
@@ -37976,14 +38292,26 @@ class WinterCampActivityDetailInfo$Type extends runtime_5.MessageType {
         if (message.battleInfo)
             exports.WinterCampStageInfo.internalBinaryWrite(message.battleInfo, writer.tag(10, runtime_1.WireType.LengthDelimited).fork(), options).join();
         /* repeated uint32 wish_id_list = 8; */
-        for (let i = 0; i < message.wishIdList.length; i++)
-            writer.tag(8, runtime_1.WireType.Varint).uint32(message.wishIdList[i]);
+        if (message.wishIdList.length) {
+            writer.tag(8, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.wishIdList.length; i++)
+                writer.uint32(message.wishIdList[i]);
+            writer.join();
+        }
         /* repeated uint32 battle_taken_reward_list = 14; */
-        for (let i = 0; i < message.battleTakenRewardList.length; i++)
-            writer.tag(14, runtime_1.WireType.Varint).uint32(message.battleTakenRewardList[i]);
+        if (message.battleTakenRewardList.length) {
+            writer.tag(14, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.battleTakenRewardList.length; i++)
+                writer.uint32(message.battleTakenRewardList[i]);
+            writer.join();
+        }
         /* repeated uint32 explore_taken_reward_list = 6; */
-        for (let i = 0; i < message.exploreTakenRewardList.length; i++)
-            writer.tag(6, runtime_1.WireType.Varint).uint32(message.exploreTakenRewardList[i]);
+        if (message.exploreTakenRewardList.length) {
+            writer.tag(6, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.exploreTakenRewardList.length; i++)
+                writer.uint32(message.exploreTakenRewardList[i]);
+            writer.join();
+        }
         /* optional bool is_content_closed = 15; */
         if (message.isContentClosed !== undefined)
             writer.tag(15, runtime_1.WireType.Varint).bool(message.isContentClosed);
@@ -38116,7 +38444,7 @@ class WinterCampGiveFriendItemReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.WinterCampGiveFriendItemReq", [
             { no: 12, name: "uid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 11, name: "item_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_11.ItemParam }
+            { no: 11, name: "item_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_11.ItemParam }
         ]);
     }
     create(value) {
@@ -38169,7 +38497,7 @@ exports.WinterCampGiveFriendItemReq = new WinterCampGiveFriendItemReq$Type();
 class WinterCampGiveFriendItemRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.WinterCampGiveFriendItemRsp", [
-            { no: 11, name: "limit_item_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 11, name: "limit_item_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 3, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
         ]);
     }
@@ -38208,8 +38536,12 @@ class WinterCampGiveFriendItemRsp$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 limit_item_id_list = 11; */
-        for (let i = 0; i < message.limitItemIdList.length; i++)
-            writer.tag(11, runtime_1.WireType.Varint).uint32(message.limitItemIdList[i]);
+        if (message.limitItemIdList.length) {
+            writer.tag(11, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.limitItemIdList.length; i++)
+                writer.uint32(message.limitItemIdList[i]);
+            writer.join();
+        }
         /* optional int32 retcode = 3; */
         if (message.retcode !== undefined)
             writer.tag(3, runtime_1.WireType.Varint).int32(message.retcode);
@@ -38227,7 +38559,7 @@ exports.WinterCampGiveFriendItemRsp = new WinterCampGiveFriendItemRsp$Type();
 class WinterCampSetWishListReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.WinterCampSetWishListReq", [
-            { no: 4, name: "item_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 4, name: "item_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -38262,8 +38594,12 @@ class WinterCampSetWishListReq$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 item_id_list = 4; */
-        for (let i = 0; i < message.itemIdList.length; i++)
-            writer.tag(4, runtime_1.WireType.Varint).uint32(message.itemIdList[i]);
+        if (message.itemIdList.length) {
+            writer.tag(4, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.itemIdList.length; i++)
+                writer.uint32(message.itemIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -38279,7 +38615,7 @@ class WinterCampSetWishListRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.WinterCampSetWishListRsp", [
             { no: 4, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 7, name: "item_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 7, name: "item_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -38320,8 +38656,12 @@ class WinterCampSetWishListRsp$Type extends runtime_5.MessageType {
         if (message.retcode !== undefined)
             writer.tag(4, runtime_1.WireType.Varint).int32(message.retcode);
         /* repeated uint32 item_id_list = 7; */
-        for (let i = 0; i < message.itemIdList.length; i++)
-            writer.tag(7, runtime_1.WireType.Varint).uint32(message.itemIdList[i]);
+        if (message.itemIdList.length) {
+            writer.tag(7, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.itemIdList.length; i++)
+                writer.uint32(message.itemIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -38339,7 +38679,7 @@ class WinterCampFriendWishData$Type extends runtime_5.MessageType {
             { no: 14, name: "nickname", kind: "scalar", opt: true, T: 9 /*ScalarType.STRING*/ },
             { no: 12, name: "uid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 5, name: "profile_picture", kind: "message", T: () => define_9.ProfilePicture },
-            { no: 9, name: "item_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 9, name: "item_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -38392,8 +38732,12 @@ class WinterCampFriendWishData$Type extends runtime_5.MessageType {
         if (message.profilePicture)
             define_9.ProfilePicture.internalBinaryWrite(message.profilePicture, writer.tag(5, runtime_1.WireType.LengthDelimited).fork(), options).join();
         /* repeated uint32 item_id_list = 9; */
-        for (let i = 0; i < message.itemIdList.length; i++)
-            writer.tag(9, runtime_1.WireType.Varint).uint32(message.itemIdList[i]);
+        if (message.itemIdList.length) {
+            writer.tag(9, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.itemIdList.length; i++)
+                writer.uint32(message.itemIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -38435,7 +38779,7 @@ class WinterCampGetFriendWishListRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.WinterCampGetFriendWishListRsp", [
             { no: 12, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 5, name: "wish_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.WinterCampFriendWishData }
+            { no: 5, name: "wish_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.WinterCampFriendWishData }
         ]);
     }
     create(value) {
@@ -38535,9 +38879,9 @@ exports.WinterCampRecvItemNotify = new WinterCampRecvItemNotify$Type();
 class WinterCampAcceptItemResultInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.WinterCampAcceptItemResultInfo", [
-            { no: 2, name: "accept_item_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_11.ItemParam },
+            { no: 2, name: "accept_item_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_11.ItemParam },
             { no: 6, name: "uid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 9, name: "unaccept_item_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_11.ItemParam }
+            { no: 9, name: "unaccept_item_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_11.ItemParam }
         ]);
     }
     create(value) {
@@ -38724,7 +39068,7 @@ class WinterCampAcceptAllGiveItemRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.WinterCampAcceptAllGiveItemRsp", [
             { no: 6, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 14, name: "accept_item_result_info", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.WinterCampAcceptItemResultInfo }
+            { no: 14, name: "accept_item_result_info", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.WinterCampAcceptItemResultInfo }
         ]);
     }
     create(value) {
@@ -38803,7 +39147,7 @@ exports.WinterCampGetCanGiveFriendItemReq = new WinterCampGetCanGiveFriendItemRe
 class WinterCampGetCanGiveFriendItemRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.WinterCampGetCanGiveFriendItemRsp", [
-            { no: 8, name: "item_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_11.ItemParam },
+            { no: 8, name: "item_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_11.ItemParam },
             { no: 11, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
         ]);
     }
@@ -38857,7 +39201,7 @@ exports.WinterCampGetCanGiveFriendItemRsp = new WinterCampGetCanGiveFriendItemRs
 class WinterCampRecvItemData$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.WinterCampRecvItemData", [
-            { no: 2, name: "item_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_11.ItemParam },
+            { no: 2, name: "item_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_11.ItemParam },
             { no: 8, name: "uid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 1, name: "profile_picture", kind: "message", T: () => define_9.ProfilePicture },
             { no: 12, name: "nickname", kind: "scalar", opt: true, T: 9 /*ScalarType.STRING*/ }
@@ -38951,7 +39295,7 @@ exports.WinterCampGetRecvItemListReq = new WinterCampGetRecvItemListReq$Type();
 class WinterCampGetRecvItemListRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.WinterCampGetRecvItemListRsp", [
-            { no: 8, name: "recv_item_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.WinterCampRecvItemData },
+            { no: 8, name: "recv_item_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.WinterCampRecvItemData },
             { no: 6, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
         ]);
     }
@@ -39768,10 +40112,10 @@ class PotionStageData$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.PotionStageData", [
             { no: 11, name: "stage_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 2, name: "cool_down_buff_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 2, name: "cool_down_buff_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 15, name: "is_open", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 14, name: "level_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.PotionLevelData },
-            { no: 13, name: "cool_down_avatar_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 14, name: "level_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.PotionLevelData },
+            { no: 13, name: "cool_down_avatar_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -39825,8 +40169,12 @@ class PotionStageData$Type extends runtime_5.MessageType {
         if (message.stageId !== undefined)
             writer.tag(11, runtime_1.WireType.Varint).uint32(message.stageId);
         /* repeated uint32 cool_down_buff_id_list = 2; */
-        for (let i = 0; i < message.coolDownBuffIdList.length; i++)
-            writer.tag(2, runtime_1.WireType.Varint).uint32(message.coolDownBuffIdList[i]);
+        if (message.coolDownBuffIdList.length) {
+            writer.tag(2, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.coolDownBuffIdList.length; i++)
+                writer.uint32(message.coolDownBuffIdList[i]);
+            writer.join();
+        }
         /* optional bool is_open = 15; */
         if (message.isOpen !== undefined)
             writer.tag(15, runtime_1.WireType.Varint).bool(message.isOpen);
@@ -39834,8 +40182,12 @@ class PotionStageData$Type extends runtime_5.MessageType {
         for (let i = 0; i < message.levelList.length; i++)
             exports.PotionLevelData.internalBinaryWrite(message.levelList[i], writer.tag(14, runtime_1.WireType.LengthDelimited).fork(), options).join();
         /* repeated uint32 cool_down_avatar_id_list = 13; */
-        for (let i = 0; i < message.coolDownAvatarIdList.length; i++)
-            writer.tag(13, runtime_1.WireType.Varint).uint32(message.coolDownAvatarIdList[i]);
+        if (message.coolDownAvatarIdList.length) {
+            writer.tag(13, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.coolDownAvatarIdList.length; i++)
+                writer.uint32(message.coolDownAvatarIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -39850,7 +40202,7 @@ exports.PotionStageData = new PotionStageData$Type();
 class PotionActivityDetailInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.PotionActivityDetailInfo", [
-            { no: 10, name: "stage_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.PotionStageData }
+            { no: 10, name: "stage_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.PotionStageData }
         ]);
     }
     create(value) {
@@ -40052,9 +40404,9 @@ exports.PotionAvatarInfo = new PotionAvatarInfo$Type();
 class PotionEnterDungeonReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.PotionEnterDungeonReq", [
-            { no: 15, name: "buff_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 15, name: "buff_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 5, name: "level_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 14, name: "avatar_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.PotionAvatarInfo },
+            { no: 14, name: "avatar_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.PotionAvatarInfo },
             { no: 2, name: "mode_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 13, name: "stage_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
@@ -40103,8 +40455,12 @@ class PotionEnterDungeonReq$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 buff_id_list = 15; */
-        for (let i = 0; i < message.buffIdList.length; i++)
-            writer.tag(15, runtime_1.WireType.Varint).uint32(message.buffIdList[i]);
+        if (message.buffIdList.length) {
+            writer.tag(15, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.buffIdList.length; i++)
+                writer.uint32(message.buffIdList[i]);
+            writer.join();
+        }
         /* optional uint32 level_id = 5; */
         if (message.levelId !== undefined)
             writer.tag(5, runtime_1.WireType.Varint).uint32(message.levelId);
@@ -40234,7 +40590,7 @@ class PotionEnterDungeonNotify$Type extends runtime_5.MessageType {
         super("com.midnights.game.PotionEnterDungeonNotify", [
             { no: 13, name: "stage_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 7, name: "difficulty_level", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 6, name: "dungeon_avatar_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.PotionDungeonAvatar },
+            { no: 6, name: "dungeon_avatar_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.PotionDungeonAvatar },
             { no: 8, name: "level_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 5, name: "mode_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
@@ -40624,7 +40980,7 @@ exports.TanukiTravelLevelData = new TanukiTravelLevelData$Type();
 class TanukiTravelActivityDetailInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.TanukiTravelActivityDetailInfo", [
-            { no: 4, name: "tanuki_travel_level_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.TanukiTravelLevelData },
+            { no: 4, name: "tanuki_travel_level_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.TanukiTravelLevelData },
             { no: 11, name: "is_content_closed", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 10, name: "finished_level_index", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
@@ -40807,10 +41163,10 @@ exports.LanternProjectionLevelInfo = new LanternProjectionLevelInfo$Type();
 class LanternProjectionInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.LanternProjectionInfo", [
-            { no: 12, name: "view_switch_tips_list", kind: "enum", repeat: 2 /*RepeatType.UNPACKED*/, T: () => ["com.midnights.game.ClientInputType", define_3.ClientInputType] },
-            { no: 6, name: "level_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.LanternProjectionLevelInfo },
-            { no: 10, name: "open_stage_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 13, name: "view_input_tips_list", kind: "enum", repeat: 2 /*RepeatType.UNPACKED*/, T: () => ["com.midnights.game.ClientInputType", define_3.ClientInputType] }
+            { no: 12, name: "view_switch_tips_list", kind: "enum", repeat: 1 /*RepeatType.PACKED*/, T: () => ["com.midnights.game.ClientInputType", define_3.ClientInputType] },
+            { no: 6, name: "level_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.LanternProjectionLevelInfo },
+            { no: 10, name: "open_stage_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 13, name: "view_input_tips_list", kind: "enum", repeat: 1 /*RepeatType.PACKED*/, T: () => ["com.midnights.game.ClientInputType", define_3.ClientInputType] }
         ]);
     }
     create(value) {
@@ -40862,17 +41218,29 @@ class LanternProjectionInfo$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated com.midnights.game.ClientInputType view_switch_tips_list = 12; */
-        for (let i = 0; i < message.viewSwitchTipsList.length; i++)
-            writer.tag(12, runtime_1.WireType.Varint).int32(message.viewSwitchTipsList[i]);
+        if (message.viewSwitchTipsList.length) {
+            writer.tag(12, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.viewSwitchTipsList.length; i++)
+                writer.int32(message.viewSwitchTipsList[i]);
+            writer.join();
+        }
         /* repeated com.midnights.game.LanternProjectionLevelInfo level_list = 6; */
         for (let i = 0; i < message.levelList.length; i++)
             exports.LanternProjectionLevelInfo.internalBinaryWrite(message.levelList[i], writer.tag(6, runtime_1.WireType.LengthDelimited).fork(), options).join();
         /* repeated uint32 open_stage_list = 10; */
-        for (let i = 0; i < message.openStageList.length; i++)
-            writer.tag(10, runtime_1.WireType.Varint).uint32(message.openStageList[i]);
+        if (message.openStageList.length) {
+            writer.tag(10, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.openStageList.length; i++)
+                writer.uint32(message.openStageList[i]);
+            writer.join();
+        }
         /* repeated com.midnights.game.ClientInputType view_input_tips_list = 13; */
-        for (let i = 0; i < message.viewInputTipsList.length; i++)
-            writer.tag(13, runtime_1.WireType.Varint).int32(message.viewInputTipsList[i]);
+        if (message.viewInputTipsList.length) {
+            writer.tag(13, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.viewInputTipsList.length; i++)
+                writer.int32(message.viewInputTipsList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -40887,7 +41255,7 @@ exports.LanternProjectionInfo = new LanternProjectionInfo$Type();
 class SalvageBundleChallengeInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.SalvageBundleChallengeInfo", [
-            { no: 13, name: "finished_bundle_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 13, name: "finished_bundle_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -40922,8 +41290,12 @@ class SalvageBundleChallengeInfo$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 finished_bundle_list = 13; */
-        for (let i = 0; i < message.finishedBundleList.length; i++)
-            writer.tag(13, runtime_1.WireType.Varint).uint32(message.finishedBundleList[i]);
+        if (message.finishedBundleList.length) {
+            writer.tag(13, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.finishedBundleList.length; i++)
+                writer.uint32(message.finishedBundleList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -41076,7 +41448,7 @@ exports.SalvageChallengeInfo = new SalvageChallengeInfo$Type();
 class SalvageStageInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.SalvageStageInfo", [
-            { no: 9, name: "challenge_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.SalvageChallengeInfo },
+            { no: 9, name: "challenge_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.SalvageChallengeInfo },
             { no: 10, name: "is_open", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 2, name: "stage_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
@@ -41199,7 +41571,7 @@ class LanternRiteFireworksStageInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.LanternRiteFireworksStageInfo", [
             { no: 8, name: "is_open", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 9, name: "challenge_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.LanternRiteFireworksChallengeInfo },
+            { no: 9, name: "challenge_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.LanternRiteFireworksChallengeInfo },
             { no: 15, name: "stage_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -41259,7 +41631,7 @@ exports.LanternRiteFireworksStageInfo = new LanternRiteFireworksStageInfo$Type()
 class LanternRiteFireworksInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.LanternRiteFireworksInfo", [
-            { no: 6, name: "stage_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.LanternRiteFireworksStageInfo }
+            { no: 6, name: "stage_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.LanternRiteFireworksStageInfo }
         ]);
     }
     create(value) {
@@ -41307,7 +41679,7 @@ class LanternRiteActivityDetailInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.LanternRiteActivityDetailInfo", [
             { no: 13, name: "projection_info", kind: "message", T: () => exports.LanternProjectionInfo },
-            { no: 5, name: "stage_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.SalvageStageInfo },
+            { no: 5, name: "stage_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.SalvageStageInfo },
             { no: 8, name: "fireworks_info", kind: "message", T: () => exports.LanternRiteFireworksInfo },
             { no: 2, name: "is_mini_eldritch_dungeon_open", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 14, name: "is_content_closed", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
@@ -42351,10 +42723,10 @@ exports.LanternRiteFireworksReformSkillInfo = new LanternRiteFireworksReformSkil
 class LanternRiteStartFireworksReformRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.LanternRiteStartFireworksReformRsp", [
-            { no: 15, name: "factor_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.LanternRiteFireworksReformFactorInfo },
+            { no: 15, name: "factor_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.LanternRiteFireworksReformFactorInfo },
             { no: 13, name: "fire_element_addition_ratio", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 2, name: "stamina_value", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 8, name: "skill_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.LanternRiteFireworksReformSkillInfo },
+            { no: 8, name: "skill_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.LanternRiteFireworksReformSkillInfo },
             { no: 6, name: "reform_score", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 12, name: "stage_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 11, name: "challenge_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
@@ -42525,7 +42897,7 @@ class LanternRiteDoFireworksReformRsp$Type extends runtime_5.MessageType {
             { no: 7, name: "stage_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 13, name: "is_lucky", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 8, name: "challenge_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 2, name: "factor_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.LanternRiteFireworksReformFactorInfo },
+            { no: 2, name: "factor_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.LanternRiteFireworksReformFactorInfo },
             { no: 10, name: "stamina_value", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 15, name: "reform_score", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 11, name: "fire_element_value", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
@@ -43080,11 +43452,11 @@ exports.MichiaeMatsuriChallengePositionInfo = new MichiaeMatsuriChallengePositio
 class MichiaeMatsuriActivityDetailInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.MichiaeMatsuriActivityDetailInfo", [
-            { no: 6, name: "challenge_pos_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.MichiaeMatsuriChallengePositionInfo },
+            { no: 6, name: "challenge_pos_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.MichiaeMatsuriChallengePositionInfo },
             { no: 13, name: "gain_crystal_exp", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 2, name: "unlocked_crystal_skill_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 10, name: "chest_pos_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.MichiaeMatsuriChestPositionInfo },
-            { no: 14, name: "stage_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.MichiaeMatsuriStage }
+            { no: 2, name: "unlocked_crystal_skill_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 10, name: "chest_pos_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.MichiaeMatsuriChestPositionInfo },
+            { no: 14, name: "stage_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.MichiaeMatsuriStage }
         ]);
     }
     create(value) {
@@ -43137,8 +43509,12 @@ class MichiaeMatsuriActivityDetailInfo$Type extends runtime_5.MessageType {
         if (message.gainCrystalExp !== undefined)
             writer.tag(13, runtime_1.WireType.Varint).uint32(message.gainCrystalExp);
         /* repeated uint32 unlocked_crystal_skill_list = 2; */
-        for (let i = 0; i < message.unlockedCrystalSkillList.length; i++)
-            writer.tag(2, runtime_1.WireType.Varint).uint32(message.unlockedCrystalSkillList[i]);
+        if (message.unlockedCrystalSkillList.length) {
+            writer.tag(2, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.unlockedCrystalSkillList.length; i++)
+                writer.uint32(message.unlockedCrystalSkillList[i]);
+            writer.join();
+        }
         /* repeated com.midnights.game.MichiaeMatsuriChestPositionInfo chest_pos_list = 10; */
         for (let i = 0; i < message.chestPosList.length; i++)
             exports.MichiaeMatsuriChestPositionInfo.internalBinaryWrite(message.chestPosList[i], writer.tag(10, runtime_1.WireType.LengthDelimited).fork(), options).join();
@@ -43873,12 +44249,12 @@ exports.BartenderLevelInfo = new BartenderLevelInfo$Type();
 class BartenderActivityDetailInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.BartenderActivityDetailInfo", [
-            { no: 3, name: "unlock_item_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 3, name: "unlock_item_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 13, name: "is_develop_module_open", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 6, name: "is_content_closed", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 5, name: "unlock_level_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.BartenderLevelInfo },
-            { no: 14, name: "unlock_formula_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 2, name: "unlock_task_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.BartenderTaskInfo }
+            { no: 5, name: "unlock_level_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.BartenderLevelInfo },
+            { no: 14, name: "unlock_formula_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 2, name: "unlock_task_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.BartenderTaskInfo }
         ]);
     }
     create(value) {
@@ -43932,8 +44308,12 @@ class BartenderActivityDetailInfo$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 unlock_item_list = 3; */
-        for (let i = 0; i < message.unlockItemList.length; i++)
-            writer.tag(3, runtime_1.WireType.Varint).uint32(message.unlockItemList[i]);
+        if (message.unlockItemList.length) {
+            writer.tag(3, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.unlockItemList.length; i++)
+                writer.uint32(message.unlockItemList[i]);
+            writer.join();
+        }
         /* optional bool is_develop_module_open = 13; */
         if (message.isDevelopModuleOpen !== undefined)
             writer.tag(13, runtime_1.WireType.Varint).bool(message.isDevelopModuleOpen);
@@ -43944,8 +44324,12 @@ class BartenderActivityDetailInfo$Type extends runtime_5.MessageType {
         for (let i = 0; i < message.unlockLevelList.length; i++)
             exports.BartenderLevelInfo.internalBinaryWrite(message.unlockLevelList[i], writer.tag(5, runtime_1.WireType.LengthDelimited).fork(), options).join();
         /* repeated uint32 unlock_formula_list = 14; */
-        for (let i = 0; i < message.unlockFormulaList.length; i++)
-            writer.tag(14, runtime_1.WireType.Varint).uint32(message.unlockFormulaList[i]);
+        if (message.unlockFormulaList.length) {
+            writer.tag(14, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.unlockFormulaList.length; i++)
+                writer.uint32(message.unlockFormulaList[i]);
+            writer.join();
+        }
         /* repeated com.midnights.game.BartenderTaskInfo unlock_task_list = 2; */
         for (let i = 0; i < message.unlockTaskList.length; i++)
             exports.BartenderTaskInfo.internalBinaryWrite(message.unlockTaskList[i], writer.tag(2, runtime_1.WireType.LengthDelimited).fork(), options).join();
@@ -43966,9 +44350,9 @@ class BartenderCompleteOrderReq$Type extends runtime_5.MessageType {
             { no: 14, name: "cup_type", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 7, name: "qte_count", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 11, name: "quest_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 10, name: "item_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_11.ItemParam },
+            { no: 10, name: "item_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_11.ItemParam },
             { no: 9, name: "is_view_formula", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 6, name: "optional_order_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 6, name: "optional_order_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 3, name: "retry_count", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -44037,8 +44421,12 @@ class BartenderCompleteOrderReq$Type extends runtime_5.MessageType {
         if (message.isViewFormula !== undefined)
             writer.tag(9, runtime_1.WireType.Varint).bool(message.isViewFormula);
         /* repeated uint32 optional_order_list = 6; */
-        for (let i = 0; i < message.optionalOrderList.length; i++)
-            writer.tag(6, runtime_1.WireType.Varint).uint32(message.optionalOrderList[i]);
+        if (message.optionalOrderList.length) {
+            writer.tag(6, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.optionalOrderList.length; i++)
+                writer.uint32(message.optionalOrderList[i]);
+            writer.join();
+        }
         /* optional uint32 retry_count = 3; */
         if (message.retryCount !== undefined)
             writer.tag(3, runtime_1.WireType.Varint).uint32(message.retryCount);
@@ -44061,7 +44449,7 @@ class BartenderCompleteOrderRsp$Type extends runtime_5.MessageType {
             { no: 4, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
             { no: 6, name: "formula_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 15, name: "quest_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 2, name: "affix_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 2, name: "affix_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -44126,8 +44514,12 @@ class BartenderCompleteOrderRsp$Type extends runtime_5.MessageType {
         if (message.questId !== undefined)
             writer.tag(15, runtime_1.WireType.Varint).uint32(message.questId);
         /* repeated uint32 affix_list = 2; */
-        for (let i = 0; i < message.affixList.length; i++)
-            writer.tag(2, runtime_1.WireType.Varint).uint32(message.affixList[i]);
+        if (message.affixList.length) {
+            writer.tag(2, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.affixList.length; i++)
+                writer.uint32(message.affixList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -44243,7 +44635,7 @@ exports.BartenderCancelOrderRsp = new BartenderCancelOrderRsp$Type();
 class BartenderGetFormulaReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.BartenderGetFormulaReq", [
-            { no: 7, name: "item_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_11.ItemParam },
+            { no: 7, name: "item_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_11.ItemParam },
             { no: 4, name: "quest_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -44299,7 +44691,7 @@ class BartenderGetFormulaRsp$Type extends runtime_5.MessageType {
         super("com.midnights.game.BartenderGetFormulaRsp", [
             { no: 12, name: "is_new", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 6, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 8, name: "affix_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 8, name: "affix_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 11, name: "formula_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -44350,8 +44742,12 @@ class BartenderGetFormulaRsp$Type extends runtime_5.MessageType {
         if (message.retcode !== undefined)
             writer.tag(6, runtime_1.WireType.Varint).int32(message.retcode);
         /* repeated uint32 affix_list = 8; */
-        for (let i = 0; i < message.affixList.length; i++)
-            writer.tag(8, runtime_1.WireType.Varint).uint32(message.affixList[i]);
+        if (message.affixList.length) {
+            writer.tag(8, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.affixList.length; i++)
+                writer.uint32(message.affixList[i]);
+            writer.join();
+        }
         /* optional uint32 formula_id = 11; */
         if (message.formulaId !== undefined)
             writer.tag(11, runtime_1.WireType.Varint).uint32(message.formulaId);
@@ -44417,7 +44813,7 @@ class BartenderStartLevelRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.BartenderStartLevelRsp", [
             { no: 5, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 13, name: "order_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 13, name: "order_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 10, name: "level_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
@@ -44466,8 +44862,12 @@ class BartenderStartLevelRsp$Type extends runtime_5.MessageType {
         if (message.retcode !== undefined)
             writer.tag(5, runtime_1.WireType.Varint).int32(message.retcode);
         /* repeated uint32 order_list = 13; */
-        for (let i = 0; i < message.orderList.length; i++)
-            writer.tag(13, runtime_1.WireType.Varint).uint32(message.orderList[i]);
+        if (message.orderList.length) {
+            writer.tag(13, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.orderList.length; i++)
+                writer.uint32(message.orderList[i]);
+            writer.join();
+        }
         /* optional uint32 level_id = 10; */
         if (message.levelId !== undefined)
             writer.tag(10, runtime_1.WireType.Varint).uint32(message.levelId);
@@ -44814,7 +45214,7 @@ class UgcActivityDetailInfo$Type extends runtime_5.MessageType {
         super("com.midnights.game.UgcActivityDetailInfo", [
             { no: 10, name: "is_ugc_feature_closed", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 12, name: "custom_dungeon_group_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 5, name: "official_custom_dungeon_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.OfficialCustomDungeon },
+            { no: 5, name: "official_custom_dungeon_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.OfficialCustomDungeon },
             { no: 11, name: "is_enable_ugc", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ }
         ]);
     }
@@ -44880,7 +45280,7 @@ exports.UgcActivityDetailInfo = new UgcActivityDetailInfo$Type();
 class CrystalLinkActivityDetailInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.CrystalLinkActivityDetailInfo", [
-            { no: 3, name: "level_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.CrystalLinkLevelInfo },
+            { no: 3, name: "level_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.CrystalLinkLevelInfo },
             { no: 7, name: "difficulty_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -44934,7 +45334,7 @@ exports.CrystalLinkActivityDetailInfo = new CrystalLinkActivityDetailInfo$Type()
 class CrystalLinkLevelInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.CrystalLinkLevelInfo", [
-            { no: 10, name: "team_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.CrystalLinkTeamInfo },
+            { no: 10, name: "team_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.CrystalLinkTeamInfo },
             { no: 9, name: "is_open", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 14, name: "level_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 5, name: "best_score", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
@@ -45002,8 +45402,8 @@ exports.CrystalLinkLevelInfo = new CrystalLinkLevelInfo$Type();
 class CrystalLinkTeamInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.CrystalLinkTeamInfo", [
-            { no: 2, name: "buff_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.CrystalLinkBuffInfo },
-            { no: 11, name: "avatar_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.CrystalLinkAvatarInfo }
+            { no: 2, name: "buff_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.CrystalLinkBuffInfo },
+            { no: 11, name: "avatar_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.CrystalLinkAvatarInfo }
         ]);
     }
     create(value) {
@@ -45165,7 +45565,7 @@ class CrystalLinkEnterDungeonReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.CrystalLinkEnterDungeonReq", [
             { no: 7, name: "level_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 13, name: "team_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.CrystalLinkTeamInfo },
+            { no: 13, name: "team_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.CrystalLinkTeamInfo },
             { no: 10, name: "difficulty_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -45228,7 +45628,7 @@ class CrystalLinkEnterDungeonRsp$Type extends runtime_5.MessageType {
             { no: 1, name: "level_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 14, name: "difficulty_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 6, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 8, name: "team_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.CrystalLinkTeamInfo }
+            { no: 8, name: "team_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.CrystalLinkTeamInfo }
         ]);
     }
     create(value) {
@@ -45347,11 +45747,11 @@ exports.CrystalLinkDungeonAvatarInfo = new CrystalLinkDungeonAvatarInfo$Type();
 class CrystalLinkDungeonInfoNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.CrystalLinkDungeonInfoNotify", [
-            { no: 8, name: "buff_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.CrystalLinkBuffInfo },
+            { no: 8, name: "buff_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.CrystalLinkBuffInfo },
             { no: 1, name: "level_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 15, name: "is_upper_part", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 11, name: "difficulty_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 3, name: "dungeon_avatar_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.CrystalLinkDungeonAvatarInfo },
+            { no: 3, name: "dungeon_avatar_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.CrystalLinkDungeonAvatarInfo },
             { no: 7, name: "init_gallery_progress", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -45605,7 +46005,7 @@ class IrodoriChessMapData$Type extends runtime_5.MessageType {
         super("com.midnights.game.IrodoriChessMapData", [
             { no: 6, name: "map_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 7, name: "entrance_detail_info", kind: "message", T: () => cmd_multistage_play_1.IrodoriChessEntranceDetailInfo },
-            { no: 3, name: "equiped_card_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 3, name: "equiped_card_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "best_score", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -45656,8 +46056,12 @@ class IrodoriChessMapData$Type extends runtime_5.MessageType {
         if (message.entranceDetailInfo)
             cmd_multistage_play_1.IrodoriChessEntranceDetailInfo.internalBinaryWrite(message.entranceDetailInfo, writer.tag(7, runtime_1.WireType.LengthDelimited).fork(), options).join();
         /* repeated uint32 equiped_card_list = 3; */
-        for (let i = 0; i < message.equipedCardList.length; i++)
-            writer.tag(3, runtime_1.WireType.Varint).uint32(message.equipedCardList[i]);
+        if (message.equipedCardList.length) {
+            writer.tag(3, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.equipedCardList.length; i++)
+                writer.uint32(message.equipedCardList[i]);
+            writer.join();
+        }
         /* optional uint32 best_score = 8; */
         if (message.bestScore !== undefined)
             writer.tag(8, runtime_1.WireType.Varint).uint32(message.bestScore);
@@ -45744,7 +46148,7 @@ class IrodoriChessData$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.IrodoriChessData", [
             { no: 8, name: "is_open", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 1, name: "level_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.IrodoriChessLevelData }
+            { no: 1, name: "level_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.IrodoriChessLevelData }
         ]);
     }
     create(value) {
@@ -45797,8 +46201,8 @@ exports.IrodoriChessData = new IrodoriChessData$Type();
 class IrodoriFlowerData$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.IrodoriFlowerData", [
-            { no: 1, name: "finished_theme_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 7, name: "used_flower_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_11.ItemParam }
+            { no: 1, name: "finished_theme_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 7, name: "used_flower_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_11.ItemParam }
         ]);
     }
     create(value) {
@@ -45836,8 +46240,12 @@ class IrodoriFlowerData$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 finished_theme_list = 1; */
-        for (let i = 0; i < message.finishedThemeList.length; i++)
-            writer.tag(1, runtime_1.WireType.Varint).uint32(message.finishedThemeList[i]);
+        if (message.finishedThemeList.length) {
+            writer.tag(1, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.finishedThemeList.length; i++)
+                writer.uint32(message.finishedThemeList[i]);
+            writer.join();
+        }
         /* repeated com.midnights.game.ItemParam used_flower_list = 7; */
         for (let i = 0; i < message.usedFlowerList.length; i++)
             define_11.ItemParam.internalBinaryWrite(message.usedFlowerList[i], writer.tag(7, runtime_1.WireType.LengthDelimited).fork(), options).join();
@@ -45855,8 +46263,8 @@ exports.IrodoriFlowerData = new IrodoriFlowerData$Type();
 class IrodoriPoetryThemeData$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.IrodoriPoetryThemeData", [
-            { no: 1, name: "scanned_index_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 4, name: "line_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 1, name: "scanned_index_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 4, name: "line_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 2, name: "max_progress", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 13, name: "theme_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 5, name: "progress", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
@@ -45918,11 +46326,19 @@ class IrodoriPoetryThemeData$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 scanned_index_list = 1; */
-        for (let i = 0; i < message.scannedIndexList.length; i++)
-            writer.tag(1, runtime_1.WireType.Varint).uint32(message.scannedIndexList[i]);
+        if (message.scannedIndexList.length) {
+            writer.tag(1, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.scannedIndexList.length; i++)
+                writer.uint32(message.scannedIndexList[i]);
+            writer.join();
+        }
         /* repeated uint32 line_id_list = 4; */
-        for (let i = 0; i < message.lineIdList.length; i++)
-            writer.tag(4, runtime_1.WireType.Varint).uint32(message.lineIdList[i]);
+        if (message.lineIdList.length) {
+            writer.tag(4, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.lineIdList.length; i++)
+                writer.uint32(message.lineIdList[i]);
+            writer.join();
+        }
         /* optional uint32 max_progress = 2; */
         if (message.maxProgress !== undefined)
             writer.tag(2, runtime_1.WireType.Varint).uint32(message.maxProgress);
@@ -45952,7 +46368,7 @@ exports.IrodoriPoetryThemeData = new IrodoriPoetryThemeData$Type();
 class IrodoriPoetryData$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.IrodoriPoetryData", [
-            { no: 3, name: "theme_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.IrodoriPoetryThemeData },
+            { no: 3, name: "theme_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.IrodoriPoetryThemeData },
             { no: 14, name: "cur_theme_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -46074,7 +46490,7 @@ exports.IrodoriMasterLevelDetailInfo = new IrodoriMasterLevelDetailInfo$Type();
 class IrodoriMasterLevelInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.IrodoriMasterLevelInfo", [
-            { no: 11, name: "detail_info", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.IrodoriMasterLevelDetailInfo },
+            { no: 11, name: "detail_info", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.IrodoriMasterLevelDetailInfo },
             { no: 14, name: "level_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -46128,7 +46544,7 @@ exports.IrodoriMasterLevelInfo = new IrodoriMasterLevelInfo$Type();
 class IrodoriActivityDetailInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.IrodoriActivityDetailInfo", [
-            { no: 11, name: "master_level_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.IrodoriMasterLevelInfo },
+            { no: 11, name: "master_level_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.IrodoriMasterLevelInfo },
             { no: 6, name: "flower_data", kind: "message", T: () => exports.IrodoriFlowerData },
             { no: 8, name: "poetry_data", kind: "message", T: () => exports.IrodoriPoetryData },
             { no: 14, name: "chess_data", kind: "message", T: () => exports.IrodoriChessData }
@@ -47185,7 +47601,7 @@ class PhotoActivityDetailInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.PhotoActivityDetailInfo", [
             { no: 4, name: "is_content_closed", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 12, name: "photo_pos_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.PhotoPosData }
+            { no: 12, name: "photo_pos_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.PhotoPosData }
         ]);
     }
     create(value) {
@@ -47516,7 +47932,7 @@ class SpiceActivityDetailInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.SpiceActivityDetailInfo", [
             { no: 15, name: "current_increase_avatar_fetter_times", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 7, name: "spice_stage_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.SpiceStageData },
+            { no: 7, name: "spice_stage_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.SpiceStageData },
             { no: 13, name: "increase_avatar_fetter_limit_times", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -47578,7 +47994,7 @@ class SpiceActivityFinishMakeSpiceReq$Type extends runtime_5.MessageType {
         super("com.midnights.game.SpiceActivityFinishMakeSpiceReq", [
             { no: 4, name: "left_turns", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 9, name: "is_success", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 12, name: "left_material_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 12, name: "left_material_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 15, name: "stage_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -47629,8 +48045,12 @@ class SpiceActivityFinishMakeSpiceReq$Type extends runtime_5.MessageType {
         if (message.isSuccess !== undefined)
             writer.tag(9, runtime_1.WireType.Varint).bool(message.isSuccess);
         /* repeated uint32 left_material_id_list = 12; */
-        for (let i = 0; i < message.leftMaterialIdList.length; i++)
-            writer.tag(12, runtime_1.WireType.Varint).uint32(message.leftMaterialIdList[i]);
+        if (message.leftMaterialIdList.length) {
+            writer.tag(12, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.leftMaterialIdList.length; i++)
+                writer.uint32(message.leftMaterialIdList[i]);
+            writer.join();
+        }
         /* optional uint32 stage_id = 15; */
         if (message.stageId !== undefined)
             writer.tag(15, runtime_1.WireType.Varint).uint32(message.stageId);
@@ -47709,7 +48129,7 @@ exports.SpiceActivityFinishMakeSpiceRsp = new SpiceActivityFinishMakeSpiceRsp$Ty
 class SpiceActivityProcessFoodReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.SpiceActivityProcessFoodReq", [
-            { no: 1, name: "normal_food_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_11.ItemParam }
+            { no: 1, name: "normal_food_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_11.ItemParam }
         ]);
     }
     create(value) {
@@ -47757,8 +48177,8 @@ class SpiceActivityProcessFoodRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.SpiceActivityProcessFoodRsp", [
             { no: 9, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 14, name: "special_food_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_11.ItemParam },
-            { no: 1, name: "normal_food_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_11.ItemParam }
+            { no: 14, name: "special_food_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_11.ItemParam },
+            { no: 1, name: "normal_food_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_11.ItemParam }
         ]);
     }
     create(value) {
@@ -47955,8 +48375,8 @@ exports.GachaStageData = new GachaStageData$Type();
 class GachaActivityDetailInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GachaActivityDetailInfo", [
-            { no: 6, name: "have_get_robot_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 4, name: "gacha_stage_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.GachaStageData },
+            { no: 6, name: "have_get_robot_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 4, name: "gacha_stage_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.GachaStageData },
             { no: 8, name: "have_reward_robot_num_map", kind: "map", K: 13 /*ScalarType.UINT32*/, V: { kind: "scalar", T: 13 /*ScalarType.UINT32*/ } },
             { no: 3, name: "tech_create_robot_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 5, name: "robot_num_map", kind: "map", K: 13 /*ScalarType.UINT32*/, V: { kind: "scalar", T: 13 /*ScalarType.UINT32*/ } },
@@ -48042,8 +48462,12 @@ class GachaActivityDetailInfo$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 have_get_robot_list = 6; */
-        for (let i = 0; i < message.haveGetRobotList.length; i++)
-            writer.tag(6, runtime_1.WireType.Varint).uint32(message.haveGetRobotList[i]);
+        if (message.haveGetRobotList.length) {
+            writer.tag(6, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.haveGetRobotList.length; i++)
+                writer.uint32(message.haveGetRobotList[i]);
+            writer.join();
+        }
         /* repeated com.midnights.game.GachaStageData gacha_stage_data_list = 4; */
         for (let i = 0; i < message.gachaStageDataList.length; i++)
             exports.GachaStageData.internalBinaryWrite(message.gachaStageDataList[i], writer.tag(4, runtime_1.WireType.LengthDelimited).fork(), options).join();
@@ -48675,7 +49099,7 @@ exports.ActivityGiveFriendGiftReq = new ActivityGiveFriendGiftReq$Type();
 class ActivityGiveFriendGiftRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ActivityGiveFriendGiftRsp", [
-            { no: 3, name: "limit_gift_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 3, name: "limit_gift_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 4, name: "schedule_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 10, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
         ]);
@@ -48718,8 +49142,12 @@ class ActivityGiveFriendGiftRsp$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 limit_gift_list = 3; */
-        for (let i = 0; i < message.limitGiftList.length; i++)
-            writer.tag(3, runtime_1.WireType.Varint).uint32(message.limitGiftList[i]);
+        if (message.limitGiftList.length) {
+            writer.tag(3, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.limitGiftList.length; i++)
+                writer.uint32(message.limitGiftList[i]);
+            writer.join();
+        }
         /* optional uint32 schedule_id = 4; */
         if (message.scheduleId !== undefined)
             writer.tag(4, runtime_1.WireType.Varint).uint32(message.scheduleId);
@@ -48879,7 +49307,7 @@ class ActivityGetRecvGiftListRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ActivityGetRecvGiftListRsp", [
             { no: 15, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 11, name: "recv_gift_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ActivityRecvGiftData },
+            { no: 11, name: "recv_gift_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ActivityRecvGiftData },
             { no: 6, name: "schedule_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -49241,7 +49669,7 @@ exports.ActivityAcceptAllGiveGiftReq = new ActivityAcceptAllGiveGiftReq$Type();
 class ActivityAcceptAllGiveGiftRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ActivityAcceptAllGiveGiftRsp", [
-            { no: 5, name: "accept_gift_result_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ActivityAcceptGiftResultInfo },
+            { no: 5, name: "accept_gift_result_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ActivityAcceptGiftResultInfo },
             { no: 10, name: "schedule_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 9, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
         ]);
@@ -49689,7 +50117,7 @@ class ActivityGetFriendGiftWishListRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ActivityGetFriendGiftWishListRsp", [
             { no: 6, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 11, name: "friend_gift_wish_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ActivityFriendGiftWishData },
+            { no: 11, name: "friend_gift_wish_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ActivityFriendGiftWishData },
             { no: 10, name: "schedule_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -50055,7 +50483,7 @@ class RogueDiaryProgress$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.RogueDiaryProgress", [
             { no: 7, name: "difficulty", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 4, name: "optional_card_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 4, name: "optional_card_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 9, name: "is_enter_dungeon", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 12, name: "stage_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 3, name: "cur_round", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
@@ -50108,8 +50536,12 @@ class RogueDiaryProgress$Type extends runtime_5.MessageType {
         if (message.difficulty !== undefined)
             writer.tag(7, runtime_1.WireType.Varint).uint32(message.difficulty);
         /* repeated uint32 optional_card_list = 4; */
-        for (let i = 0; i < message.optionalCardList.length; i++)
-            writer.tag(4, runtime_1.WireType.Varint).uint32(message.optionalCardList[i]);
+        if (message.optionalCardList.length) {
+            writer.tag(4, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.optionalCardList.length; i++)
+                writer.uint32(message.optionalCardList[i]);
+            writer.join();
+        }
         /* optional bool is_enter_dungeon = 9; */
         if (message.isEnterDungeon !== undefined)
             writer.tag(9, runtime_1.WireType.Varint).bool(message.isEnterDungeon);
@@ -50133,7 +50565,7 @@ exports.RogueDiaryProgress = new RogueDiaryProgress$Type();
 class RogueDiaryActivityDetailInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.RogueDiaryActivityDetailInfo", [
-            { no: 11, name: "stage_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.RogueDiaryStageInfo },
+            { no: 11, name: "stage_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.RogueDiaryStageInfo },
             { no: 10, name: "is_have_progress", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 2, name: "is_content_closed", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 7, name: "cur_progress", kind: "message", T: () => exports.RogueDiaryProgress }
@@ -50204,7 +50636,7 @@ class RogueDiaryAvatar$Type extends runtime_5.MessageType {
             { no: 2, name: "avatar", kind: "message", T: () => define_2.ActivityDungeonAvatar },
             { no: 14, name: "level", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 13, name: "tired_round", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 9, name: "disable_status_list", kind: "enum", repeat: 2 /*RepeatType.UNPACKED*/, T: () => ["com.midnights.game.RogueDiaryAvatarDisableStatus", RogueDiaryAvatarDisableStatus] }
+            { no: 9, name: "disable_status_list", kind: "enum", repeat: 1 /*RepeatType.PACKED*/, T: () => ["com.midnights.game.RogueDiaryAvatarDisableStatus", RogueDiaryAvatarDisableStatus] }
         ]);
     }
     create(value) {
@@ -50257,8 +50689,12 @@ class RogueDiaryAvatar$Type extends runtime_5.MessageType {
         if (message.tiredRound !== undefined)
             writer.tag(13, runtime_1.WireType.Varint).uint32(message.tiredRound);
         /* repeated com.midnights.game.RogueDiaryAvatarDisableStatus disable_status_list = 9; */
-        for (let i = 0; i < message.disableStatusList.length; i++)
-            writer.tag(9, runtime_1.WireType.Varint).int32(message.disableStatusList[i]);
+        if (message.disableStatusList.length) {
+            writer.tag(9, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.disableStatusList.length; i++)
+                writer.int32(message.disableStatusList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -50273,7 +50709,7 @@ exports.RogueDiaryAvatar = new RogueDiaryAvatar$Type();
 class RogueDiaryRoomInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.RogueDiaryRoomInfo", [
-            { no: 1, name: "monster_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_13.Uint32Pair },
+            { no: 1, name: "monster_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_13.Uint32Pair },
             { no: 3, name: "is_boss", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 7, name: "config_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
@@ -50389,9 +50825,9 @@ class StartRogueDiaryPlayRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.StartRogueDiaryPlayRsp", [
             { no: 11, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 13, name: "trial_avatar_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.RogueDiaryAvatar },
-            { no: 12, name: "rand_card_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 9, name: "avatar_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.RogueDiaryAvatar }
+            { no: 13, name: "trial_avatar_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.RogueDiaryAvatar },
+            { no: 12, name: "rand_card_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 9, name: "avatar_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.RogueDiaryAvatar }
         ]);
     }
     create(value) {
@@ -50441,8 +50877,12 @@ class StartRogueDiaryPlayRsp$Type extends runtime_5.MessageType {
         for (let i = 0; i < message.trialAvatarList.length; i++)
             exports.RogueDiaryAvatar.internalBinaryWrite(message.trialAvatarList[i], writer.tag(13, runtime_1.WireType.LengthDelimited).fork(), options).join();
         /* repeated uint32 rand_card_list = 12; */
-        for (let i = 0; i < message.randCardList.length; i++)
-            writer.tag(12, runtime_1.WireType.Varint).uint32(message.randCardList[i]);
+        if (message.randCardList.length) {
+            writer.tag(12, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.randCardList.length; i++)
+                writer.uint32(message.randCardList[i]);
+            writer.join();
+        }
         /* repeated com.midnights.game.RogueDiaryAvatar avatar_list = 9; */
         for (let i = 0; i < message.avatarList.length; i++)
             exports.RogueDiaryAvatar.internalBinaryWrite(message.avatarList[i], writer.tag(9, runtime_1.WireType.LengthDelimited).fork(), options).join();
@@ -50554,8 +50994,8 @@ exports.ResetRogueDiaryPlayRsp = new ResetRogueDiaryPlayRsp$Type();
 class EnterRogueDiaryDungeonReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.EnterRogueDiaryDungeonReq", [
-            { no: 9, name: "chosen_card_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 11, name: "chosen_avatar_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.RogueDiaryAvatar }
+            { no: 9, name: "chosen_card_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 11, name: "chosen_avatar_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.RogueDiaryAvatar }
         ]);
     }
     create(value) {
@@ -50593,8 +51033,12 @@ class EnterRogueDiaryDungeonReq$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 chosen_card_list = 9; */
-        for (let i = 0; i < message.chosenCardList.length; i++)
-            writer.tag(9, runtime_1.WireType.Varint).uint32(message.chosenCardList[i]);
+        if (message.chosenCardList.length) {
+            writer.tag(9, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.chosenCardList.length; i++)
+                writer.uint32(message.chosenCardList[i]);
+            writer.join();
+        }
         /* repeated com.midnights.game.RogueDiaryAvatar chosen_avatar_list = 11; */
         for (let i = 0; i < message.chosenAvatarList.length; i++)
             exports.RogueDiaryAvatar.internalBinaryWrite(message.chosenAvatarList[i], writer.tag(11, runtime_1.WireType.LengthDelimited).fork(), options).join();
@@ -50754,15 +51198,15 @@ class RogueDiaryDungeonInfoNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.RogueDiaryDungeonInfoNotify", [
             { no: 12, name: "stage_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 15, name: "round_monster_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 15, name: "round_monster_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 4, name: "time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 5, name: "cur_room", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 6, name: "cur_round", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 11, name: "coin", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "difficulty", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 14, name: "dungeon_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 7, name: "room_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.RogueDiaryRoomInfo },
-            { no: 10, name: "round_card_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 7, name: "room_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.RogueDiaryRoomInfo },
+            { no: 10, name: "round_card_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -50831,8 +51275,12 @@ class RogueDiaryDungeonInfoNotify$Type extends runtime_5.MessageType {
         if (message.stageId !== undefined)
             writer.tag(12, runtime_1.WireType.Varint).uint32(message.stageId);
         /* repeated uint32 round_monster_list = 15; */
-        for (let i = 0; i < message.roundMonsterList.length; i++)
-            writer.tag(15, runtime_1.WireType.Varint).uint32(message.roundMonsterList[i]);
+        if (message.roundMonsterList.length) {
+            writer.tag(15, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.roundMonsterList.length; i++)
+                writer.uint32(message.roundMonsterList[i]);
+            writer.join();
+        }
         /* optional uint32 time = 4; */
         if (message.time !== undefined)
             writer.tag(4, runtime_1.WireType.Varint).uint32(message.time);
@@ -50855,8 +51303,12 @@ class RogueDiaryDungeonInfoNotify$Type extends runtime_5.MessageType {
         for (let i = 0; i < message.roomList.length; i++)
             exports.RogueDiaryRoomInfo.internalBinaryWrite(message.roomList[i], writer.tag(7, runtime_1.WireType.LengthDelimited).fork(), options).join();
         /* repeated uint32 round_card_list = 10; */
-        for (let i = 0; i < message.roundCardList.length; i++)
-            writer.tag(10, runtime_1.WireType.Varint).uint32(message.roundCardList[i]);
+        if (message.roundCardList.length) {
+            writer.tag(10, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.roundCardList.length; i++)
+                writer.uint32(message.roundCardList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -51033,7 +51485,7 @@ exports.StartRogueDiaryRoomRsp = new StartRogueDiaryRoomRsp$Type();
 class RogueDiaryTiredAvatarNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.RogueDiaryTiredAvatarNotify", [
-            { no: 10, name: "optianal_tired_avatar_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.RogueDiaryAvatar },
+            { no: 10, name: "optianal_tired_avatar_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.RogueDiaryAvatar },
             { no: 6, name: "reserve_avatar_num", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "tired_type", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 7, name: "is_need_show", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ }
@@ -51101,7 +51553,7 @@ exports.RogueDiaryTiredAvatarNotify = new RogueDiaryTiredAvatarNotify$Type();
 class ReserveRogueDiaryAvatarReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ReserveRogueDiaryAvatarReq", [
-            { no: 6, name: "reserve_avatar_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.RogueDiaryAvatar }
+            { no: 6, name: "reserve_avatar_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.RogueDiaryAvatar }
         ]);
     }
     create(value) {
@@ -51268,7 +51720,7 @@ exports.GetRogueDairyRepairInfoRsp = new GetRogueDairyRepairInfoRsp$Type();
 class RefreshRogueDiaryCardReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.RefreshRogueDiaryCardReq", [
-            { no: 8, name: "refresh_card_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 8, name: "refresh_card_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -51303,8 +51755,12 @@ class RefreshRogueDiaryCardReq$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 refresh_card_list = 8; */
-        for (let i = 0; i < message.refreshCardList.length; i++)
-            writer.tag(8, runtime_1.WireType.Varint).uint32(message.refreshCardList[i]);
+        if (message.refreshCardList.length) {
+            writer.tag(8, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.refreshCardList.length; i++)
+                writer.uint32(message.refreshCardList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -51319,7 +51775,7 @@ exports.RefreshRogueDiaryCardReq = new RefreshRogueDiaryCardReq$Type();
 class RefreshRogueDiaryCardRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.RefreshRogueDiaryCardRsp", [
-            { no: 15, name: "rand_card_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 15, name: "rand_card_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 1, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
         ]);
     }
@@ -51358,8 +51814,12 @@ class RefreshRogueDiaryCardRsp$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 rand_card_list = 15; */
-        for (let i = 0; i < message.randCardList.length; i++)
-            writer.tag(15, runtime_1.WireType.Varint).uint32(message.randCardList[i]);
+        if (message.randCardList.length) {
+            writer.tag(15, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.randCardList.length; i++)
+                writer.uint32(message.randCardList[i]);
+            writer.join();
+        }
         /* optional int32 retcode = 1; */
         if (message.retcode !== undefined)
             writer.tag(1, runtime_1.WireType.Varint).int32(message.retcode);
@@ -51377,8 +51837,8 @@ exports.RefreshRogueDiaryCardRsp = new RefreshRogueDiaryCardRsp$Type();
 class RogueFinishRepairReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.RogueFinishRepairReq", [
-            { no: 1, name: "chosen_card_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 8, name: "chosen_avatar_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.RogueDiaryAvatar }
+            { no: 1, name: "chosen_card_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 8, name: "chosen_avatar_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.RogueDiaryAvatar }
         ]);
     }
     create(value) {
@@ -51416,8 +51876,12 @@ class RogueFinishRepairReq$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 chosen_card_list = 1; */
-        for (let i = 0; i < message.chosenCardList.length; i++)
-            writer.tag(1, runtime_1.WireType.Varint).uint32(message.chosenCardList[i]);
+        if (message.chosenCardList.length) {
+            writer.tag(1, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.chosenCardList.length; i++)
+                writer.uint32(message.chosenCardList[i]);
+            writer.join();
+        }
         /* repeated com.midnights.game.RogueDiaryAvatar chosen_avatar_list = 8; */
         for (let i = 0; i < message.chosenAvatarList.length; i++)
             exports.RogueDiaryAvatar.internalBinaryWrite(message.chosenAvatarList[i], writer.tag(8, runtime_1.WireType.LengthDelimited).fork(), options).join();
@@ -51556,13 +52020,13 @@ class RogueDiaryRepairInfoNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.RogueDiaryRepairInfoNotify", [
             { no: 8, name: "stage_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 14, name: "select_card_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 13, name: "avatar_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.RogueDiaryAvatar },
-            { no: 2, name: "room_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.RogueDiaryRoomInfo },
-            { no: 10, name: "rand_card_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 9, name: "select_avatar_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.RogueDiaryAvatar },
-            { no: 15, name: "chosen_card_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 11, name: "trial_avatar_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.RogueDiaryAvatar }
+            { no: 14, name: "select_card_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 13, name: "avatar_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.RogueDiaryAvatar },
+            { no: 2, name: "room_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.RogueDiaryRoomInfo },
+            { no: 10, name: "rand_card_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 9, name: "select_avatar_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.RogueDiaryAvatar },
+            { no: 15, name: "chosen_card_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 11, name: "trial_avatar_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.RogueDiaryAvatar }
         ]);
     }
     create(value) {
@@ -51629,8 +52093,12 @@ class RogueDiaryRepairInfoNotify$Type extends runtime_5.MessageType {
         if (message.stageId !== undefined)
             writer.tag(8, runtime_1.WireType.Varint).uint32(message.stageId);
         /* repeated uint32 select_card_list = 14; */
-        for (let i = 0; i < message.selectCardList.length; i++)
-            writer.tag(14, runtime_1.WireType.Varint).uint32(message.selectCardList[i]);
+        if (message.selectCardList.length) {
+            writer.tag(14, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.selectCardList.length; i++)
+                writer.uint32(message.selectCardList[i]);
+            writer.join();
+        }
         /* repeated com.midnights.game.RogueDiaryAvatar avatar_list = 13; */
         for (let i = 0; i < message.avatarList.length; i++)
             exports.RogueDiaryAvatar.internalBinaryWrite(message.avatarList[i], writer.tag(13, runtime_1.WireType.LengthDelimited).fork(), options).join();
@@ -51638,14 +52106,22 @@ class RogueDiaryRepairInfoNotify$Type extends runtime_5.MessageType {
         for (let i = 0; i < message.roomList.length; i++)
             exports.RogueDiaryRoomInfo.internalBinaryWrite(message.roomList[i], writer.tag(2, runtime_1.WireType.LengthDelimited).fork(), options).join();
         /* repeated uint32 rand_card_list = 10; */
-        for (let i = 0; i < message.randCardList.length; i++)
-            writer.tag(10, runtime_1.WireType.Varint).uint32(message.randCardList[i]);
+        if (message.randCardList.length) {
+            writer.tag(10, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.randCardList.length; i++)
+                writer.uint32(message.randCardList[i]);
+            writer.join();
+        }
         /* repeated com.midnights.game.RogueDiaryAvatar select_avatar_list = 9; */
         for (let i = 0; i < message.selectAvatarList.length; i++)
             exports.RogueDiaryAvatar.internalBinaryWrite(message.selectAvatarList[i], writer.tag(9, runtime_1.WireType.LengthDelimited).fork(), options).join();
         /* repeated uint32 chosen_card_list = 15; */
-        for (let i = 0; i < message.chosenCardList.length; i++)
-            writer.tag(15, runtime_1.WireType.Varint).uint32(message.chosenCardList[i]);
+        if (message.chosenCardList.length) {
+            writer.tag(15, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.chosenCardList.length; i++)
+                writer.uint32(message.chosenCardList[i]);
+            writer.join();
+        }
         /* repeated com.midnights.game.RogueDiaryAvatar trial_avatar_list = 11; */
         for (let i = 0; i < message.trialAvatarList.length; i++)
             exports.RogueDiaryAvatar.internalBinaryWrite(message.trialAvatarList[i], writer.tag(11, runtime_1.WireType.LengthDelimited).fork(), options).join();
@@ -51950,11 +52426,11 @@ exports.RogueDiaryCoinAddNotify = new RogueDiaryCoinAddNotify$Type();
 class SummerTimeV2DetailInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.SummerTimeV2DetailInfo", [
-            { no: 13, name: "dungeon_stage_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.SummerTimeV2DungeonStageInfo },
+            { no: 13, name: "dungeon_stage_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.SummerTimeV2DungeonStageInfo },
             { no: 10, name: "cur_dungeon_reward_limit", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 4, name: "is_content_closed", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 5, name: "taken_reward_count", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 15, name: "boat_stage_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.SummerTimeV2BoatStageInfo }
+            { no: 15, name: "boat_stage_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.SummerTimeV2BoatStageInfo }
         ]);
     }
     create(value) {
@@ -52284,7 +52760,7 @@ class ActivityPushTipsInfoNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ActivityPushTipsInfoNotify", [
             { no: 14, name: "schedule_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 3, name: "activity_push_tips_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.ActivityPushTipsData },
+            { no: 3, name: "activity_push_tips_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.ActivityPushTipsData },
             { no: 10, name: "activity_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -52344,7 +52820,7 @@ exports.ActivityPushTipsInfoNotify = new ActivityPushTipsInfoNotify$Type();
 class ActivityReadPushTipsReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.ActivityReadPushTipsReq", [
-            { no: 14, name: "activity_push_tips_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 14, name: "activity_push_tips_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 7, name: "activity_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -52383,8 +52859,12 @@ class ActivityReadPushTipsReq$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 activity_push_tips_id_list = 14; */
-        for (let i = 0; i < message.activityPushTipsIdList.length; i++)
-            writer.tag(14, runtime_1.WireType.Varint).uint32(message.activityPushTipsIdList[i]);
+        if (message.activityPushTipsIdList.length) {
+            writer.tag(14, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.activityPushTipsIdList.length; i++)
+                writer.uint32(message.activityPushTipsIdList[i]);
+            writer.join();
+        }
         /* optional uint32 activity_id = 7; */
         if (message.activityId !== undefined)
             writer.tag(7, runtime_1.WireType.Varint).uint32(message.activityId);
@@ -52684,7 +53164,7 @@ exports.IslandPartyStageData = new IslandPartyStageData$Type();
 class IslandPartyDetailInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.IslandPartyDetailInfo", [
-            { no: 15, name: "stage_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.IslandPartyStageData }
+            { no: 15, name: "stage_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.IslandPartyStageData }
         ]);
     }
     create(value) {
@@ -52733,8 +53213,8 @@ class IslandPartySettleNotify$Type extends runtime_5.MessageType {
         super("com.midnights.game.IslandPartySettleNotify", [
             { no: 13, name: "is_new_record", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 1, name: "reason", kind: "enum", opt: true, T: () => ["com.midnights.game.GalleryStopReason", cmd_gallery_2.GalleryStopReason] },
-            { no: 8, name: "settle_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => cmd_gallery_1.IslandPartyGallerySettleInfo },
-            { no: 6, name: "score_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_1.ExhibitionDisplayInfo },
+            { no: 8, name: "settle_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => cmd_gallery_1.IslandPartyGallerySettleInfo },
+            { no: 6, name: "score_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_1.ExhibitionDisplayInfo },
             { no: 15, name: "time_remain", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -52956,7 +53436,7 @@ exports.JigsawPictureData = new JigsawPictureData$Type();
 class GearActivityDetailInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GearActivityDetailInfo", [
-            { no: 14, name: "gear_level_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.GearLevelData },
+            { no: 14, name: "gear_level_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.GearLevelData },
             { no: 8, name: "jigsaw_picture_data", kind: "message", T: () => exports.JigsawPictureData }
         ]);
     }
@@ -53188,7 +53668,7 @@ class GearActivityFinishPlayGearReq$Type extends runtime_5.MessageType {
         super("com.midnights.game.GearActivityFinishPlayGearReq", [
             { no: 4, name: "is_success", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 12, name: "use_clue", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 9, name: "gear_column_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.GearColumnInfo },
+            { no: 9, name: "gear_column_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.GearColumnInfo },
             { no: 5, name: "level_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -53611,8 +54091,8 @@ exports.GravenInnocencePhotoObjectInfo = new GravenInnocencePhotoObjectInfo$Type
 class GravenInnocencePhotoInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GravenInnocencePhotoInfo", [
-            { no: 5, name: "stage_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.GravenInnocencePhotoStageInfo },
-            { no: 7, name: "object_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.GravenInnocencePhotoObjectInfo }
+            { no: 5, name: "stage_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.GravenInnocencePhotoStageInfo },
+            { no: 7, name: "object_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.GravenInnocencePhotoObjectInfo }
         ]);
     }
     create(value) {
@@ -53733,7 +54213,7 @@ exports.GravenInnocenceCampStageInfo = new GravenInnocenceCampStageInfo$Type();
 class GravenInnocenceCampInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GravenInnocenceCampInfo", [
-            { no: 5, name: "stage_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.GravenInnocenceCampStageInfo }
+            { no: 5, name: "stage_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.GravenInnocenceCampStageInfo }
         ]);
     }
     create(value) {
@@ -53841,7 +54321,7 @@ exports.GravenInnocenceRaceLevelInfo = new GravenInnocenceRaceLevelInfo$Type();
 class GravenInnocenceRaceInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GravenInnocenceRaceInfo", [
-            { no: 11, name: "level_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.GravenInnocenceRaceLevelInfo }
+            { no: 11, name: "level_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.GravenInnocenceRaceLevelInfo }
         ]);
     }
     create(value) {
@@ -53942,9 +54422,9 @@ exports.GravenInnocenceCarveStageInfo = new GravenInnocenceCarveStageInfo$Type()
 class GravenInnocenceCarveInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.GravenInnocenceCarveInfo", [
-            { no: 10, name: "stage_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.GravenInnocenceCarveStageInfo },
+            { no: 10, name: "stage_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.GravenInnocenceCarveStageInfo },
             { no: 7, name: "can_edit_count", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 6, name: "has_edit_config_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 6, name: "has_edit_config_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -53991,8 +54471,12 @@ class GravenInnocenceCarveInfo$Type extends runtime_5.MessageType {
         if (message.canEditCount !== undefined)
             writer.tag(7, runtime_1.WireType.Varint).uint32(message.canEditCount);
         /* repeated uint32 has_edit_config_id_list = 6; */
-        for (let i = 0; i < message.hasEditConfigIdList.length; i++)
-            writer.tag(6, runtime_1.WireType.Varint).uint32(message.hasEditConfigIdList[i]);
+        if (message.hasEditConfigIdList.length) {
+            writer.tag(6, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.hasEditConfigIdList.length; i++)
+                writer.uint32(message.hasEditConfigIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -54563,7 +55047,7 @@ exports.GravenInnocencePhotoReminderNotify = new GravenInnocencePhotoReminderNot
 class InstableSprayTeamInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.InstableSprayTeamInfo", [
-            { no: 13, name: "avatar_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.InstableSprayAvatarInfo }
+            { no: 13, name: "avatar_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.InstableSprayAvatarInfo }
         ]);
     }
     create(value) {
@@ -54613,7 +55097,7 @@ class InstableSprayStageInfo$Type extends runtime_5.MessageType {
             { no: 10, name: "is_finished", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 3, name: "max_score", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 4, name: "stage_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 6, name: "team_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.InstableSprayTeamInfo }
+            { no: 6, name: "team_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.InstableSprayTeamInfo }
         ]);
     }
     create(value) {
@@ -54678,7 +55162,7 @@ exports.InstableSprayStageInfo = new InstableSprayStageInfo$Type();
 class InstableSprayDetailInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.InstableSprayDetailInfo", [
-            { no: 9, name: "stage_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.InstableSprayStageInfo }
+            { no: 9, name: "stage_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.InstableSprayStageInfo }
         ]);
     }
     create(value) {
@@ -54781,7 +55265,7 @@ class InstableSprayEnterDungeonReq$Type extends runtime_5.MessageType {
         super("com.midnights.game.InstableSprayEnterDungeonReq", [
             { no: 13, name: "stage_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 2, name: "difficulty", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 7, name: "avatar_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.InstableSprayAvatarInfo }
+            { no: 7, name: "avatar_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.InstableSprayAvatarInfo }
         ]);
     }
     create(value) {
@@ -54894,7 +55378,7 @@ exports.InstableSprayEnterDungeonRsp = new InstableSprayEnterDungeonRsp$Type();
 class InstableSpraySwitchTeamReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.InstableSpraySwitchTeamReq", [
-            { no: 13, name: "avatar_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.InstableSprayAvatarInfo }
+            { no: 13, name: "avatar_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.InstableSprayAvatarInfo }
         ]);
     }
     create(value) {
@@ -55070,7 +55554,7 @@ exports.InstableSprayLevelFinishNotify = new InstableSprayLevelFinishNotify$Type
 class InstableSprayRestartDungeonReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.InstableSprayRestartDungeonReq", [
-            { no: 6, name: "avatar_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.InstableSprayAvatarInfo }
+            { no: 6, name: "avatar_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.InstableSprayAvatarInfo }
         ]);
     }
     create(value) {
@@ -55232,7 +55716,7 @@ exports.MuqadasPotionLevelData = new MuqadasPotionLevelData$Type();
 class MuqadasPotionActivityDetailInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.MuqadasPotionActivityDetailInfo", [
-            { no: 8, name: "muqadas_potion_level_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.MuqadasPotionLevelData }
+            { no: 8, name: "muqadas_potion_level_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.MuqadasPotionLevelData }
         ]);
     }
     create(value) {
@@ -55741,7 +56225,7 @@ class TreasureSeelieActivityDetailInfo$Type extends runtime_5.MessageType {
         super("com.midnights.game.TreasureSeelieActivityDetailInfo", [
             { no: 10, name: "treasure_close_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "is_content_closed", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 14, name: "region_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.TreasureSeelieRegionData }
+            { no: 14, name: "region_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.TreasureSeelieRegionData }
         ]);
     }
     create(value) {
@@ -55922,7 +56406,7 @@ exports.RockBoardExploreStageData = new RockBoardExploreStageData$Type();
 class RockBoardExploreDetailInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.RockBoardExploreDetailInfo", [
-            { no: 9, name: "stage_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.RockBoardExploreStageData }
+            { no: 9, name: "stage_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.RockBoardExploreStageData }
         ]);
     }
     create(value) {
@@ -56432,7 +56916,7 @@ class VintageMarketTraderInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.VintageMarketTraderInfo", [
             { no: 7, name: "trader_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 9, name: "available_item_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_11.ItemParam }
+            { no: 9, name: "available_item_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_11.ItemParam }
         ]);
     }
     create(value) {
@@ -56552,9 +57036,9 @@ exports.VintageMarketDealInfo = new VintageMarketDealInfo$Type();
 class VintageMarketStoreInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.VintageMarketStoreInfo", [
-            { no: 5, name: "cur_attr_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 14, name: "next_aim_attr_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 2, name: "strategy_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 5, name: "cur_attr_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 14, name: "next_aim_attr_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 2, name: "strategy_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 3, name: "slot_count", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 10, name: "store_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
@@ -56611,14 +57095,26 @@ class VintageMarketStoreInfo$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 cur_attr_list = 5; */
-        for (let i = 0; i < message.curAttrList.length; i++)
-            writer.tag(5, runtime_1.WireType.Varint).uint32(message.curAttrList[i]);
+        if (message.curAttrList.length) {
+            writer.tag(5, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.curAttrList.length; i++)
+                writer.uint32(message.curAttrList[i]);
+            writer.join();
+        }
         /* repeated uint32 next_aim_attr_list = 14; */
-        for (let i = 0; i < message.nextAimAttrList.length; i++)
-            writer.tag(14, runtime_1.WireType.Varint).uint32(message.nextAimAttrList[i]);
+        if (message.nextAimAttrList.length) {
+            writer.tag(14, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.nextAimAttrList.length; i++)
+                writer.uint32(message.nextAimAttrList[i]);
+            writer.join();
+        }
         /* repeated uint32 strategy_list = 2; */
-        for (let i = 0; i < message.strategyList.length; i++)
-            writer.tag(2, runtime_1.WireType.Varint).uint32(message.strategyList[i]);
+        if (message.strategyList.length) {
+            writer.tag(2, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.strategyList.length; i++)
+                writer.uint32(message.strategyList[i]);
+            writer.join();
+        }
         /* optional uint32 slot_count = 3; */
         if (message.slotCount !== undefined)
             writer.tag(3, runtime_1.WireType.Varint).uint32(message.slotCount);
@@ -56639,11 +57135,11 @@ exports.VintageMarketStoreInfo = new VintageMarketStoreInfo$Type();
 class VintageMarketStoreOpInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.VintageMarketStoreOpInfo", [
-            { no: 5, name: "strategy_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 5, name: "strategy_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 9, name: "help_uid", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 2, name: "store_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 7, name: "help_skill_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 15, name: "add_attr_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 15, name: "add_attr_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -56694,8 +57190,12 @@ class VintageMarketStoreOpInfo$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 strategy_list = 5; */
-        for (let i = 0; i < message.strategyList.length; i++)
-            writer.tag(5, runtime_1.WireType.Varint).uint32(message.strategyList[i]);
+        if (message.strategyList.length) {
+            writer.tag(5, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.strategyList.length; i++)
+                writer.uint32(message.strategyList[i]);
+            writer.join();
+        }
         /* optional uint32 help_uid = 9; */
         if (message.helpUid !== undefined)
             writer.tag(9, runtime_1.WireType.Varint).uint32(message.helpUid);
@@ -56706,8 +57206,12 @@ class VintageMarketStoreOpInfo$Type extends runtime_5.MessageType {
         if (message.helpSkillId !== undefined)
             writer.tag(7, runtime_1.WireType.Varint).uint32(message.helpSkillId);
         /* repeated uint32 add_attr_list = 15; */
-        for (let i = 0; i < message.addAttrList.length; i++)
-            writer.tag(15, runtime_1.WireType.Varint).uint32(message.addAttrList[i]);
+        if (message.addAttrList.length) {
+            writer.tag(15, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.addAttrList.length; i++)
+                writer.uint32(message.addAttrList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -56726,24 +57230,24 @@ class VintageMarketInfo$Type extends runtime_5.MessageType {
             { no: 15, name: "is_store_content_interrupt", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 11, name: "deal_info", kind: "message", T: () => exports.VintageMarketDealInfo },
             { no: 7, name: "store_round", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 207, name: "store_round_income_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 207, name: "store_round_income_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 5, name: "is_store_content_finish", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 8, name: "cur_env_event_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 8, name: "cur_env_event_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 10, name: "is_market_content_open", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 1800, name: "next_can_use_help_round", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 2, name: "is_market_content_finish", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 14, name: "viewed_strategy_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 14, name: "viewed_strategy_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 3, name: "prev_coin_c_num", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 6, name: "bargain_info_map", kind: "map", K: 13 /*ScalarType.UINT32*/, V: { kind: "scalar", T: 8 /*ScalarType.BOOL*/ } },
             { no: 1798, name: "dividend_reward_count", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 4, name: "cur_npc_event_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 4, name: "cur_npc_event_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 366, name: "is_help_in_cd", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 1, name: "prev_coin_b_num", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 9, name: "open_store_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.VintageMarketStoreInfo },
+            { no: 9, name: "open_store_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.VintageMarketStoreInfo },
             { no: 760, name: "help_skill_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 12, name: "is_round_tips_view", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
             { no: 876, name: "is_strategy_module_open", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 13, name: "unlock_strategy_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 13, name: "unlock_strategy_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -56885,14 +57389,22 @@ class VintageMarketInfo$Type extends runtime_5.MessageType {
         if (message.storeRound !== undefined)
             writer.tag(7, runtime_1.WireType.Varint).uint32(message.storeRound);
         /* repeated uint32 store_round_income_list = 207; */
-        for (let i = 0; i < message.storeRoundIncomeList.length; i++)
-            writer.tag(207, runtime_1.WireType.Varint).uint32(message.storeRoundIncomeList[i]);
+        if (message.storeRoundIncomeList.length) {
+            writer.tag(207, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.storeRoundIncomeList.length; i++)
+                writer.uint32(message.storeRoundIncomeList[i]);
+            writer.join();
+        }
         /* optional bool is_store_content_finish = 5; */
         if (message.isStoreContentFinish !== undefined)
             writer.tag(5, runtime_1.WireType.Varint).bool(message.isStoreContentFinish);
         /* repeated uint32 cur_env_event_list = 8; */
-        for (let i = 0; i < message.curEnvEventList.length; i++)
-            writer.tag(8, runtime_1.WireType.Varint).uint32(message.curEnvEventList[i]);
+        if (message.curEnvEventList.length) {
+            writer.tag(8, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.curEnvEventList.length; i++)
+                writer.uint32(message.curEnvEventList[i]);
+            writer.join();
+        }
         /* optional bool is_market_content_open = 10; */
         if (message.isMarketContentOpen !== undefined)
             writer.tag(10, runtime_1.WireType.Varint).bool(message.isMarketContentOpen);
@@ -56903,8 +57415,12 @@ class VintageMarketInfo$Type extends runtime_5.MessageType {
         if (message.isMarketContentFinish !== undefined)
             writer.tag(2, runtime_1.WireType.Varint).bool(message.isMarketContentFinish);
         /* repeated uint32 viewed_strategy_list = 14; */
-        for (let i = 0; i < message.viewedStrategyList.length; i++)
-            writer.tag(14, runtime_1.WireType.Varint).uint32(message.viewedStrategyList[i]);
+        if (message.viewedStrategyList.length) {
+            writer.tag(14, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.viewedStrategyList.length; i++)
+                writer.uint32(message.viewedStrategyList[i]);
+            writer.join();
+        }
         /* optional uint32 prev_coin_c_num = 3; */
         if (message.prevCoinCNum !== undefined)
             writer.tag(3, runtime_1.WireType.Varint).uint32(message.prevCoinCNum);
@@ -56915,8 +57431,12 @@ class VintageMarketInfo$Type extends runtime_5.MessageType {
         if (message.dividendRewardCount !== undefined)
             writer.tag(1798, runtime_1.WireType.Varint).uint32(message.dividendRewardCount);
         /* repeated uint32 cur_npc_event_list = 4; */
-        for (let i = 0; i < message.curNpcEventList.length; i++)
-            writer.tag(4, runtime_1.WireType.Varint).uint32(message.curNpcEventList[i]);
+        if (message.curNpcEventList.length) {
+            writer.tag(4, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.curNpcEventList.length; i++)
+                writer.uint32(message.curNpcEventList[i]);
+            writer.join();
+        }
         /* optional bool is_help_in_cd = 366; */
         if (message.isHelpInCd !== undefined)
             writer.tag(366, runtime_1.WireType.Varint).bool(message.isHelpInCd);
@@ -56936,8 +57456,12 @@ class VintageMarketInfo$Type extends runtime_5.MessageType {
         if (message.isStrategyModuleOpen !== undefined)
             writer.tag(876, runtime_1.WireType.Varint).bool(message.isStrategyModuleOpen);
         /* repeated uint32 unlock_strategy_list = 13; */
-        for (let i = 0; i < message.unlockStrategyList.length; i++)
-            writer.tag(13, runtime_1.WireType.Varint).uint32(message.unlockStrategyList[i]);
+        if (message.unlockStrategyList.length) {
+            writer.tag(13, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.unlockStrategyList.length; i++)
+                writer.uint32(message.unlockStrategyList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -57094,7 +57618,7 @@ exports.VintageActivityDetailInfo = new VintageActivityDetailInfo$Type();
 class VintageMarketDeliverItemReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.VintageMarketDeliverItemReq", [
-            { no: 3, name: "deliver_item_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => define_11.ItemParam },
+            { no: 3, name: "deliver_item_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => define_11.ItemParam },
             { no: 5, name: "trader_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -57958,7 +58482,7 @@ class VintageMarketFinishStorePlayReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.VintageMarketFinishStorePlayReq", [
             { no: 9, name: "store_round", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 3, name: "store_op_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.VintageMarketStoreOpInfo }
+            { no: 3, name: "store_op_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.VintageMarketStoreOpInfo }
         ]);
     }
     create(value) {
@@ -58011,10 +58535,10 @@ exports.VintageMarketFinishStorePlayReq = new VintageMarketFinishStorePlayReq$Ty
 class VintageMarketFinishStorePlayRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.VintageMarketFinishStorePlayRsp", [
-            { no: 8, name: "trigger_env_event_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 8, name: "trigger_env_event_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 12, name: "store_round", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 10, name: "trigger_npc_event_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 11, name: "low_attr_store_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 10, name: "trigger_npc_event_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 11, name: "low_attr_store_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 9, name: "round_coin_b_income", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 1, name: "round_delta_coin_c", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 3, name: "store_income_map", kind: "map", K: 13 /*ScalarType.UINT32*/, V: { kind: "scalar", T: 13 /*ScalarType.UINT32*/ } },
@@ -58106,17 +58630,29 @@ class VintageMarketFinishStorePlayRsp$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 trigger_env_event_list = 8; */
-        for (let i = 0; i < message.triggerEnvEventList.length; i++)
-            writer.tag(8, runtime_1.WireType.Varint).uint32(message.triggerEnvEventList[i]);
+        if (message.triggerEnvEventList.length) {
+            writer.tag(8, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.triggerEnvEventList.length; i++)
+                writer.uint32(message.triggerEnvEventList[i]);
+            writer.join();
+        }
         /* optional uint32 store_round = 12; */
         if (message.storeRound !== undefined)
             writer.tag(12, runtime_1.WireType.Varint).uint32(message.storeRound);
         /* repeated uint32 trigger_npc_event_list = 10; */
-        for (let i = 0; i < message.triggerNpcEventList.length; i++)
-            writer.tag(10, runtime_1.WireType.Varint).uint32(message.triggerNpcEventList[i]);
+        if (message.triggerNpcEventList.length) {
+            writer.tag(10, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.triggerNpcEventList.length; i++)
+                writer.uint32(message.triggerNpcEventList[i]);
+            writer.join();
+        }
         /* repeated uint32 low_attr_store_list = 11; */
-        for (let i = 0; i < message.lowAttrStoreList.length; i++)
-            writer.tag(11, runtime_1.WireType.Varint).uint32(message.lowAttrStoreList[i]);
+        if (message.lowAttrStoreList.length) {
+            writer.tag(11, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.lowAttrStoreList.length; i++)
+                writer.uint32(message.lowAttrStoreList[i]);
+            writer.join();
+        }
         /* optional uint32 round_coin_b_income = 9; */
         if (message.roundCoinBIncome !== undefined)
             writer.tag(9, runtime_1.WireType.Varint).uint32(message.roundCoinBIncome);
@@ -58305,8 +58841,8 @@ class VintageMarketStoreChooseStrategyReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.VintageMarketStoreChooseStrategyReq", [
             { no: 6, name: "store_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 9, name: "store_op_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.VintageMarketStoreOpInfo },
-            { no: 8, name: "strategy_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 9, name: "store_op_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.VintageMarketStoreOpInfo },
+            { no: 8, name: "strategy_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -58353,8 +58889,12 @@ class VintageMarketStoreChooseStrategyReq$Type extends runtime_5.MessageType {
         for (let i = 0; i < message.storeOpList.length; i++)
             exports.VintageMarketStoreOpInfo.internalBinaryWrite(message.storeOpList[i], writer.tag(9, runtime_1.WireType.LengthDelimited).fork(), options).join();
         /* repeated uint32 strategy_list = 8; */
-        for (let i = 0; i < message.strategyList.length; i++)
-            writer.tag(8, runtime_1.WireType.Varint).uint32(message.strategyList[i]);
+        if (message.strategyList.length) {
+            writer.tag(8, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.strategyList.length; i++)
+                writer.uint32(message.strategyList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -58371,7 +58911,7 @@ class VintageMarketStoreChooseStrategyRsp$Type extends runtime_5.MessageType {
         super("com.midnights.game.VintageMarketStoreChooseStrategyRsp", [
             { no: 15, name: "store_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 9, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 2, name: "strategy_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 2, name: "strategy_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -58418,8 +58958,12 @@ class VintageMarketStoreChooseStrategyRsp$Type extends runtime_5.MessageType {
         if (message.retcode !== undefined)
             writer.tag(9, runtime_1.WireType.Varint).int32(message.retcode);
         /* repeated uint32 strategy_list = 2; */
-        for (let i = 0; i < message.strategyList.length; i++)
-            writer.tag(2, runtime_1.WireType.Varint).uint32(message.strategyList[i]);
+        if (message.strategyList.length) {
+            writer.tag(2, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.strategyList.length; i++)
+                writer.uint32(message.strategyList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -58435,7 +58979,7 @@ class VintageMarketStoreViewStrategyReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.VintageMarketStoreViewStrategyReq", [
             { no: 1, name: "strategy_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 14, name: "strategy_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 14, name: "strategy_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -58476,8 +59020,12 @@ class VintageMarketStoreViewStrategyReq$Type extends runtime_5.MessageType {
         if (message.strategyId !== undefined)
             writer.tag(1, runtime_1.WireType.Varint).uint32(message.strategyId);
         /* repeated uint32 strategy_list = 14; */
-        for (let i = 0; i < message.strategyList.length; i++)
-            writer.tag(14, runtime_1.WireType.Varint).uint32(message.strategyList[i]);
+        if (message.strategyList.length) {
+            writer.tag(14, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.strategyList.length; i++)
+                writer.uint32(message.strategyList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -58493,7 +59041,7 @@ class VintageMarketStoreViewStrategyRsp$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.VintageMarketStoreViewStrategyRsp", [
             { no: 2, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 3, name: "strategy_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 3, name: "strategy_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 14, name: "strategy_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -58538,8 +59086,12 @@ class VintageMarketStoreViewStrategyRsp$Type extends runtime_5.MessageType {
         if (message.retcode !== undefined)
             writer.tag(2, runtime_1.WireType.Varint).int32(message.retcode);
         /* repeated uint32 strategy_list = 3; */
-        for (let i = 0; i < message.strategyList.length; i++)
-            writer.tag(3, runtime_1.WireType.Varint).uint32(message.strategyList[i]);
+        if (message.strategyList.length) {
+            writer.tag(3, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.strategyList.length; i++)
+                writer.uint32(message.strategyList[i]);
+            writer.join();
+        }
         /* optional uint32 strategy_id = 14; */
         if (message.strategyId !== undefined)
             writer.tag(14, runtime_1.WireType.Varint).uint32(message.strategyId);
@@ -58611,7 +59163,7 @@ exports.VintageMarketDividendFinishNotify = new VintageMarketDividendFinishNotif
 class VintageMarketNpcEventFinishNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.VintageMarketNpcEventFinishNotify", [
-            { no: 15, name: "unlock_strategy_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 15, name: "unlock_strategy_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 12, name: "coin_c", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 4, name: "coin_a", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
@@ -58654,8 +59206,12 @@ class VintageMarketNpcEventFinishNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 unlock_strategy_list = 15; */
-        for (let i = 0; i < message.unlockStrategyList.length; i++)
-            writer.tag(15, runtime_1.WireType.Varint).uint32(message.unlockStrategyList[i]);
+        if (message.unlockStrategyList.length) {
+            writer.tag(15, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.unlockStrategyList.length; i++)
+                writer.uint32(message.unlockStrategyList[i]);
+            writer.join();
+        }
         /* optional uint32 coin_c = 12; */
         if (message.coinC !== undefined)
             writer.tag(12, runtime_1.WireType.Varint).uint32(message.coinC);
@@ -58676,7 +59232,7 @@ exports.VintageMarketNpcEventFinishNotify = new VintageMarketNpcEventFinishNotif
 class WindFieldDetailInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.WindFieldDetailInfo", [
-            { no: 11, name: "stage_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.WindFieldStageInfo }
+            { no: 11, name: "stage_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.WindFieldStageInfo }
         ]);
     }
     create(value) {
@@ -59110,7 +59666,7 @@ class FungusTrainingMonsterPreviewDetail$Type extends runtime_5.MessageType {
         super("com.midnights.game.FungusTrainingMonsterPreviewDetail", [
             { no: 8, name: "monster_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 10, name: "level", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 7, name: "affix_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 7, name: "affix_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -59157,8 +59713,12 @@ class FungusTrainingMonsterPreviewDetail$Type extends runtime_5.MessageType {
         if (message.level !== undefined)
             writer.tag(10, runtime_1.WireType.Varint).uint32(message.level);
         /* repeated uint32 affix_list = 7; */
-        for (let i = 0; i < message.affixList.length; i++)
-            writer.tag(7, runtime_1.WireType.Varint).uint32(message.affixList[i]);
+        if (message.affixList.length) {
+            writer.tag(7, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.affixList.length; i++)
+                writer.uint32(message.affixList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -59174,7 +59734,7 @@ class FungusTrainingPoolPreviewDetail$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.FungusTrainingPoolPreviewDetail", [
             { no: 8, name: "pool_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 6, name: "monster_preview_detail_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.FungusTrainingMonsterPreviewDetail }
+            { no: 6, name: "monster_preview_detail_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.FungusTrainingMonsterPreviewDetail }
         ]);
     }
     create(value) {
@@ -59229,11 +59789,11 @@ class FungusTrainingProgressDetail$Type extends runtime_5.MessageType {
         super("com.midnights.game.FungusTrainingProgressDetail", [
             { no: 9, name: "cur_round", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 10, name: "dungeon_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 5, name: "monster_pool_preview_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.FungusTrainingPoolPreviewDetail },
-            { no: 6, name: "monster_detail_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.FungusFighterMonsterDetail },
+            { no: 5, name: "monster_pool_preview_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.FungusTrainingPoolPreviewDetail },
+            { no: 6, name: "monster_detail_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.FungusFighterMonsterDetail },
             { no: 7, name: "total_used_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 4, name: "backup_monster_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 8, name: "choosen_monster_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 4, name: "backup_monster_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 8, name: "choosen_monster_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -59305,11 +59865,19 @@ class FungusTrainingProgressDetail$Type extends runtime_5.MessageType {
         if (message.totalUsedTime !== undefined)
             writer.tag(7, runtime_1.WireType.Varint).uint32(message.totalUsedTime);
         /* repeated uint32 backup_monster_list = 4; */
-        for (let i = 0; i < message.backupMonsterList.length; i++)
-            writer.tag(4, runtime_1.WireType.Varint).uint32(message.backupMonsterList[i]);
+        if (message.backupMonsterList.length) {
+            writer.tag(4, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.backupMonsterList.length; i++)
+                writer.uint32(message.backupMonsterList[i]);
+            writer.join();
+        }
         /* repeated uint32 choosen_monster_list = 8; */
-        for (let i = 0; i < message.choosenMonsterList.length; i++)
-            writer.tag(8, runtime_1.WireType.Varint).uint32(message.choosenMonsterList[i]);
+        if (message.choosenMonsterList.length) {
+            writer.tag(8, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.choosenMonsterList.length; i++)
+                writer.uint32(message.choosenMonsterList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -59324,13 +59892,13 @@ exports.FungusTrainingProgressDetail = new FungusTrainingProgressDetail$Type();
 class FungusFighterDetailInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.FungusFighterDetailInfo", [
-            { no: 6, name: "plot_stage_detail_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.FungusPlotStageDetail },
-            { no: 4, name: "fungus_detail_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.FungusDetail },
-            { no: 12, name: "unlock_camp_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 3, name: "training_dungeon_progress_detail_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.FungusTrainingProgressDetail },
-            { no: 15, name: "training_dungeon_detail_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.FungusTrainingDungeonDetail },
-            { no: 1, name: "finish_camp_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 8, name: "unlock_cultivate_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 6, name: "plot_stage_detail_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.FungusPlotStageDetail },
+            { no: 4, name: "fungus_detail_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.FungusDetail },
+            { no: 12, name: "unlock_camp_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 3, name: "training_dungeon_progress_detail_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.FungusTrainingProgressDetail },
+            { no: 15, name: "training_dungeon_detail_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.FungusTrainingDungeonDetail },
+            { no: 1, name: "finish_camp_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 8, name: "unlock_cultivate_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -59397,8 +59965,12 @@ class FungusFighterDetailInfo$Type extends runtime_5.MessageType {
         for (let i = 0; i < message.fungusDetailList.length; i++)
             exports.FungusDetail.internalBinaryWrite(message.fungusDetailList[i], writer.tag(4, runtime_1.WireType.LengthDelimited).fork(), options).join();
         /* repeated uint32 unlock_camp_id_list = 12; */
-        for (let i = 0; i < message.unlockCampIdList.length; i++)
-            writer.tag(12, runtime_1.WireType.Varint).uint32(message.unlockCampIdList[i]);
+        if (message.unlockCampIdList.length) {
+            writer.tag(12, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.unlockCampIdList.length; i++)
+                writer.uint32(message.unlockCampIdList[i]);
+            writer.join();
+        }
         /* repeated com.midnights.game.FungusTrainingProgressDetail training_dungeon_progress_detail_list = 3; */
         for (let i = 0; i < message.trainingDungeonProgressDetailList.length; i++)
             exports.FungusTrainingProgressDetail.internalBinaryWrite(message.trainingDungeonProgressDetailList[i], writer.tag(3, runtime_1.WireType.LengthDelimited).fork(), options).join();
@@ -59406,11 +59978,19 @@ class FungusFighterDetailInfo$Type extends runtime_5.MessageType {
         for (let i = 0; i < message.trainingDungeonDetailList.length; i++)
             exports.FungusTrainingDungeonDetail.internalBinaryWrite(message.trainingDungeonDetailList[i], writer.tag(15, runtime_1.WireType.LengthDelimited).fork(), options).join();
         /* repeated uint32 finish_camp_id_list = 1; */
-        for (let i = 0; i < message.finishCampIdList.length; i++)
-            writer.tag(1, runtime_1.WireType.Varint).uint32(message.finishCampIdList[i]);
+        if (message.finishCampIdList.length) {
+            writer.tag(1, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.finishCampIdList.length; i++)
+                writer.uint32(message.finishCampIdList[i]);
+            writer.join();
+        }
         /* repeated uint32 unlock_cultivate_id_list = 8; */
-        for (let i = 0; i < message.unlockCultivateIdList.length; i++)
-            writer.tag(8, runtime_1.WireType.Varint).uint32(message.unlockCultivateIdList[i]);
+        if (message.unlockCultivateIdList.length) {
+            writer.tag(8, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.unlockCultivateIdList.length; i++)
+                writer.uint32(message.unlockCultivateIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -59426,7 +60006,7 @@ class EnterFungusFighterPlotDungeonReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.EnterFungusFighterPlotDungeonReq", [
             { no: 14, name: "dungeon_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 8, name: "fungus_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 8, name: "fungus_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -59467,8 +60047,12 @@ class EnterFungusFighterPlotDungeonReq$Type extends runtime_5.MessageType {
         if (message.dungeonId !== undefined)
             writer.tag(14, runtime_1.WireType.Varint).uint32(message.dungeonId);
         /* repeated uint32 fungus_id_list = 8; */
-        for (let i = 0; i < message.fungusIdList.length; i++)
-            writer.tag(8, runtime_1.WireType.Varint).uint32(message.fungusIdList[i]);
+        if (message.fungusIdList.length) {
+            writer.tag(8, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.fungusIdList.length; i++)
+                writer.uint32(message.fungusIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -59485,7 +60069,7 @@ class EnterFungusFighterPlotDungeonRsp$Type extends runtime_5.MessageType {
         super("com.midnights.game.EnterFungusFighterPlotDungeonRsp", [
             { no: 10, name: "retcode", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
             { no: 15, name: "dungeon_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 2, name: "fungus_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 2, name: "fungus_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -59532,8 +60116,12 @@ class EnterFungusFighterPlotDungeonRsp$Type extends runtime_5.MessageType {
         if (message.dungeonId !== undefined)
             writer.tag(15, runtime_1.WireType.Varint).uint32(message.dungeonId);
         /* repeated uint32 fungus_id_list = 2; */
-        for (let i = 0; i < message.fungusIdList.length; i++)
-            writer.tag(2, runtime_1.WireType.Varint).uint32(message.fungusIdList[i]);
+        if (message.fungusIdList.length) {
+            writer.tag(2, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.fungusIdList.length; i++)
+                writer.uint32(message.fungusIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -59548,7 +60136,7 @@ exports.EnterFungusFighterPlotDungeonRsp = new EnterFungusFighterPlotDungeonRsp$
 class FungusFighterPlotInfoNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.FungusFighterPlotInfoNotify", [
-            { no: 11, name: "fungus_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 11, name: "fungus_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 4, name: "dungeon_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
@@ -59587,8 +60175,12 @@ class FungusFighterPlotInfoNotify$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 fungus_id_list = 11; */
-        for (let i = 0; i < message.fungusIdList.length; i++)
-            writer.tag(11, runtime_1.WireType.Varint).uint32(message.fungusIdList[i]);
+        if (message.fungusIdList.length) {
+            writer.tag(11, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.fungusIdList.length; i++)
+                writer.uint32(message.fungusIdList[i]);
+            writer.join();
+        }
         /* optional uint32 dungeon_id = 4; */
         if (message.dungeonId !== undefined)
             writer.tag(4, runtime_1.WireType.Varint).uint32(message.dungeonId);
@@ -60026,8 +60618,8 @@ exports.FungusFighterRuntimeDataNotify = new FungusFighterRuntimeDataNotify$Type
 class FungusFighterTrainingSelectFungusReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.FungusFighterTrainingSelectFungusReq", [
-            { no: 11, name: "backup_fungus_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 7, name: "fight_fungus_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 11, name: "backup_fungus_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 7, name: "fight_fungus_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -60069,11 +60661,19 @@ class FungusFighterTrainingSelectFungusReq$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 backup_fungus_id_list = 11; */
-        for (let i = 0; i < message.backupFungusIdList.length; i++)
-            writer.tag(11, runtime_1.WireType.Varint).uint32(message.backupFungusIdList[i]);
+        if (message.backupFungusIdList.length) {
+            writer.tag(11, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.backupFungusIdList.length; i++)
+                writer.uint32(message.backupFungusIdList[i]);
+            writer.join();
+        }
         /* repeated uint32 fight_fungus_id_list = 7; */
-        for (let i = 0; i < message.fightFungusIdList.length; i++)
-            writer.tag(7, runtime_1.WireType.Varint).uint32(message.fightFungusIdList[i]);
+        if (message.fightFungusIdList.length) {
+            writer.tag(7, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.fightFungusIdList.length; i++)
+                writer.uint32(message.fightFungusIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -60325,7 +60925,7 @@ exports.FungusFighterClearTrainingRuntimeDataRsp = new FungusFighterClearTrainin
 class FungusFighterUseBackupFungusReq$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.FungusFighterUseBackupFungusReq", [
-            { no: 1, name: "backup_fungus_id_list", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 1, name: "backup_fungus_id_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
@@ -60360,8 +60960,12 @@ class FungusFighterUseBackupFungusReq$Type extends runtime_5.MessageType {
     }
     internalBinaryWrite(message, writer, options) {
         /* repeated uint32 backup_fungus_id_list = 1; */
-        for (let i = 0; i < message.backupFungusIdList.length; i++)
-            writer.tag(1, runtime_1.WireType.Varint).uint32(message.backupFungusIdList[i]);
+        if (message.backupFungusIdList.length) {
+            writer.tag(1, runtime_1.WireType.LengthDelimited).fork();
+            for (let i = 0; i < message.backupFungusIdList.length; i++)
+                writer.uint32(message.backupFungusIdList[i]);
+            writer.join();
+        }
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -60557,7 +61161,7 @@ exports.CharAmusementStageData = new CharAmusementStageData$Type();
 class CharAmusementDetailInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.CharAmusementDetailInfo", [
-            { no: 1, name: "stage_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.CharAmusementStageData }
+            { no: 1, name: "stage_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.CharAmusementStageData }
         ]);
     }
     create(value) {
@@ -60747,7 +61351,7 @@ exports.EffigyChallengeV2LevelData = new EffigyChallengeV2LevelData$Type();
 class EffigyChallengeV2DetailInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.EffigyChallengeV2DetailInfo", [
-            { no: 3, name: "level_data_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.EffigyChallengeV2LevelData }
+            { no: 3, name: "level_data_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.EffigyChallengeV2LevelData }
         ]);
     }
     create(value) {

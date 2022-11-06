@@ -174,7 +174,7 @@ exports.PlayerRoutineInfo = new PlayerRoutineInfo$Type();
 class PlayerRoutineDataNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.PlayerRoutineDataNotify", [
-            { no: 11, name: "routine_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.PlayerRoutineInfo }
+            { no: 11, name: "routine_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.PlayerRoutineInfo }
         ]);
     }
     create(value) {
@@ -291,7 +291,7 @@ class WorldRoutineTypeInfo$Type extends runtime_5.MessageType {
         super("com.midnights.game.WorldRoutineTypeInfo", [
             { no: 13, name: "routine_type", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
             { no: 12, name: "next_refresh_time", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 3, name: "world_routine_info_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.WorldRoutineInfo }
+            { no: 3, name: "world_routine_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.WorldRoutineInfo }
         ]);
     }
     create(value) {
@@ -350,7 +350,7 @@ exports.WorldRoutineTypeInfo = new WorldRoutineTypeInfo$Type();
 class WorldAllRoutineTypeNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("com.midnights.game.WorldAllRoutineTypeNotify", [
-            { no: 12, name: "world_routine_type_list", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => exports.WorldRoutineTypeInfo }
+            { no: 12, name: "world_routine_type_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => exports.WorldRoutineTypeInfo }
         ]);
     }
     create(value) {
