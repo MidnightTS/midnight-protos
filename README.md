@@ -6,3 +6,4 @@ You are currently viewing the master branch of this repository, best to use the 
 
 ## Building
 Edit [targets.txt](targets.txt) to specify which protos should be compiled, then run [generate.sh](generate.sh).
+`protoc` must be also installed for the proto compilation to be success.
