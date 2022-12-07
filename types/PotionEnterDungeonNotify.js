@@ -1,0 +1,84 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.PotionEnterDungeonNotify = void 0;
+const runtime_1 = require("@protobuf-ts/runtime");
+const runtime_2 = require("@protobuf-ts/runtime");
+const runtime_3 = require("@protobuf-ts/runtime");
+const runtime_4 = require("@protobuf-ts/runtime");
+const runtime_5 = require("@protobuf-ts/runtime");
+const PotionDungeonAvatar_1 = require("./PotionDungeonAvatar");
+// @generated message type with reflection information, may provide speed optimized methods
+class PotionEnterDungeonNotify$Type extends runtime_5.MessageType {
+    constructor() {
+        super("PotionEnterDungeonNotify", [
+            { no: 11, name: "mode_id", kind: "scalar", T: 13 /*ScalarType.UINT32*/ },
+            { no: 3, name: "level_id", kind: "scalar", T: 13 /*ScalarType.UINT32*/ },
+            { no: 1, name: "dungeon_avatar_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => PotionDungeonAvatar_1.PotionDungeonAvatar },
+            { no: 14, name: "difficulty_level", kind: "scalar", T: 13 /*ScalarType.UINT32*/ },
+            { no: 10, name: "stage_id", kind: "scalar", T: 13 /*ScalarType.UINT32*/ }
+        ]);
+    }
+    create(value) {
+        const message = { modeId: 0, levelId: 0, dungeonAvatarList: [], difficultyLevel: 0, stageId: 0 };
+        globalThis.Object.defineProperty(message, runtime_4.MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            (0, runtime_3.reflectionMergePartial)(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader, length, options, target) {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* uint32 mode_id */ 11:
+                    message.modeId = reader.uint32();
+                    break;
+                case /* uint32 level_id */ 3:
+                    message.levelId = reader.uint32();
+                    break;
+                case /* repeated PotionDungeonAvatar dungeon_avatar_list */ 1:
+                    message.dungeonAvatarList.push(PotionDungeonAvatar_1.PotionDungeonAvatar.internalBinaryRead(reader, reader.uint32(), options));
+                    break;
+                case /* uint32 difficulty_level */ 14:
+                    message.difficultyLevel = reader.uint32();
+                    break;
+                case /* uint32 stage_id */ 10:
+                    message.stageId = reader.uint32();
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? runtime_2.UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message, writer, options) {
+        /* uint32 mode_id = 11; */
+        if (message.modeId !== 0)
+            writer.tag(11, runtime_1.WireType.Varint).uint32(message.modeId);
+        /* uint32 level_id = 3; */
+        if (message.levelId !== 0)
+            writer.tag(3, runtime_1.WireType.Varint).uint32(message.levelId);
+        /* repeated PotionDungeonAvatar dungeon_avatar_list = 1; */
+        for (let i = 0; i < message.dungeonAvatarList.length; i++)
+            PotionDungeonAvatar_1.PotionDungeonAvatar.internalBinaryWrite(message.dungeonAvatarList[i], writer.tag(1, runtime_1.WireType.LengthDelimited).fork(), options).join();
+        /* uint32 difficulty_level = 14; */
+        if (message.difficultyLevel !== 0)
+            writer.tag(14, runtime_1.WireType.Varint).uint32(message.difficultyLevel);
+        /* uint32 stage_id = 10; */
+        if (message.stageId !== 0)
+            writer.tag(10, runtime_1.WireType.Varint).uint32(message.stageId);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message PotionEnterDungeonNotify
+ */
+exports.PotionEnterDungeonNotify = new PotionEnterDungeonNotify$Type();

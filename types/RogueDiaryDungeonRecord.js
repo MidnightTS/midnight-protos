@@ -1,0 +1,76 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.RogueDiaryDungeonRecord = void 0;
+const runtime_1 = require("@protobuf-ts/runtime");
+const runtime_2 = require("@protobuf-ts/runtime");
+const runtime_3 = require("@protobuf-ts/runtime");
+const runtime_4 = require("@protobuf-ts/runtime");
+const runtime_5 = require("@protobuf-ts/runtime");
+// @generated message type with reflection information, may provide speed optimized methods
+class RogueDiaryDungeonRecord$Type extends runtime_5.MessageType {
+    constructor() {
+        super("RogueDiaryDungeonRecord", [
+            { no: 14, name: "finish_time", kind: "scalar", T: 13 /*ScalarType.UINT32*/ },
+            { no: 10, name: "is_finish", kind: "scalar", T: 8 /*ScalarType.BOOL*/ },
+            { no: 5, name: "difficulty", kind: "scalar", T: 13 /*ScalarType.UINT32*/ },
+            { no: 7, name: "max_round", kind: "scalar", T: 13 /*ScalarType.UINT32*/ }
+        ]);
+    }
+    create(value) {
+        const message = { finishTime: 0, isFinish: false, difficulty: 0, maxRound: 0 };
+        globalThis.Object.defineProperty(message, runtime_4.MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            (0, runtime_3.reflectionMergePartial)(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader, length, options, target) {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* uint32 finish_time */ 14:
+                    message.finishTime = reader.uint32();
+                    break;
+                case /* bool is_finish */ 10:
+                    message.isFinish = reader.bool();
+                    break;
+                case /* uint32 difficulty */ 5:
+                    message.difficulty = reader.uint32();
+                    break;
+                case /* uint32 max_round */ 7:
+                    message.maxRound = reader.uint32();
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? runtime_2.UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message, writer, options) {
+        /* uint32 finish_time = 14; */
+        if (message.finishTime !== 0)
+            writer.tag(14, runtime_1.WireType.Varint).uint32(message.finishTime);
+        /* bool is_finish = 10; */
+        if (message.isFinish !== false)
+            writer.tag(10, runtime_1.WireType.Varint).bool(message.isFinish);
+        /* uint32 difficulty = 5; */
+        if (message.difficulty !== 0)
+            writer.tag(5, runtime_1.WireType.Varint).uint32(message.difficulty);
+        /* uint32 max_round = 7; */
+        if (message.maxRound !== 0)
+            writer.tag(7, runtime_1.WireType.Varint).uint32(message.maxRound);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message RogueDiaryDungeonRecord
+ */
+exports.RogueDiaryDungeonRecord = new RogueDiaryDungeonRecord$Type();
