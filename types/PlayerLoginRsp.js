@@ -1,333 +1,782 @@
 "use strict";
+var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (receiver, state, kind, f) {
+    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
+    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
+    return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
+};
+var _PlayerLoginRsp_one_of_decls;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PlayerLoginRsp = void 0;
-const runtime_1 = require("@protobuf-ts/runtime");
-const runtime_2 = require("@protobuf-ts/runtime");
-const runtime_3 = require("@protobuf-ts/runtime");
-const runtime_4 = require("@protobuf-ts/runtime");
-const runtime_5 = require("@protobuf-ts/runtime");
-const FeatureBlockInfo_1 = require("./FeatureBlockInfo");
-const BlockInfo_1 = require("./BlockInfo");
-const ResVersionConfig_1 = require("./ResVersionConfig");
-const ShortAbilityHashPair_1 = require("./ShortAbilityHashPair");
-// @generated message type with reflection information, may provide speed optimized methods
-class PlayerLoginRsp$Type extends runtime_5.MessageType {
-    constructor() {
-        super("PlayerLoginRsp", [
-            { no: 9, name: "login_rand", kind: "scalar", T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 2, name: "Unk3300_DHCMDHHDLFF", kind: "scalar", jsonName: "Unk3300DHCMDHHDLFF", T: 12 /*ScalarType.BYTES*/ },
-            { no: 16, name: "Unk3300_HMGCPAGLDHB", kind: "scalar", jsonName: "Unk3300HMGCPAGLDHB", T: 9 /*ScalarType.STRING*/ },
-            { no: 530, name: "total_tick_time", kind: "scalar", T: 1 /*ScalarType.DOUBLE*/ },
-            { no: 5, name: "Unk3300_LLIJKLDBHNN", kind: "scalar", jsonName: "Unk3300LLIJKLDBHNN", T: 8 /*ScalarType.BOOL*/ },
-            { no: 930, name: "is_audit", kind: "scalar", T: 8 /*ScalarType.BOOL*/ },
-            { no: 1387, name: "birthday", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 13, name: "Unk3300_HGFNECIJDLN", kind: "scalar", jsonName: "Unk3300HGFNECIJDLN", T: 8 /*ScalarType.BOOL*/ },
-            { no: 908, name: "client_silence_version_suffix", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 1845, name: "client_version_suffix", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 1324, name: "next_resource_url", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 196, name: "Unk3300_EJKCNNDFAAI", kind: "scalar", jsonName: "Unk3300EJKCNNDFAAI", T: 8 /*ScalarType.BOOL*/ },
-            { no: 1373, name: "short_ability_hash_map", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => ShortAbilityHashPair_1.ShortAbilityHashPair },
-            { no: 1119, name: "is_data_need_relogin", kind: "scalar", T: 8 /*ScalarType.BOOL*/ },
-            { no: 808, name: "res_version_config", kind: "message", T: () => ResVersionConfig_1.ResVersionConfig },
-            { no: 1, name: "client_silence_data_version", kind: "scalar", T: 13 /*ScalarType.UINT32*/ },
-            { no: 15, name: "target_uid", kind: "scalar", T: 13 /*ScalarType.UINT32*/ },
-            { no: 99, name: "Unk3300_NEICPFBPNPD", kind: "scalar", jsonName: "Unk3300NEICPFBPNPD", T: 9 /*ScalarType.STRING*/ },
-            { no: 1522, name: "Unk3300_CANONIPHMDI", kind: "scalar", jsonName: "Unk3300CANONIPHMDI", T: 8 /*ScalarType.BOOL*/ },
-            { no: 8, name: "Unk3300_IIHDKKNJPGD", kind: "scalar", jsonName: "Unk3300IIHDKKNJPGD", T: 8 /*ScalarType.BOOL*/ },
-            { no: 14, name: "player_data_version", kind: "scalar", T: 13 /*ScalarType.UINT32*/ },
-            { no: 1888, name: "Unk3300_MOPDDGHMKBD", kind: "scalar", jsonName: "Unk3300MOPDDGHMKBD", T: 12 /*ScalarType.BYTES*/ },
-            { no: 360, name: "country_code", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 1688, name: "next_res_version_config", kind: "message", T: () => ResVersionConfig_1.ResVersionConfig },
-            { no: 17, name: "Unk3300_IADLIIMGDMC", kind: "scalar", jsonName: "Unk3300IADLIIMGDMC", T: 8 /*ScalarType.BOOL*/ },
-            { no: 2018, name: "block_info_map", kind: "map", K: 13 /*ScalarType.UINT32*/, V: { kind: "message", T: () => BlockInfo_1.BlockInfo } },
-            { no: 295, name: "is_transfer", kind: "scalar", T: 8 /*ScalarType.BOOL*/ },
-            { no: 446, name: "target_home_owner_uid", kind: "scalar", T: 13 /*ScalarType.UINT32*/ },
-            { no: 4, name: "game_biz", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 3, name: "ability_hash_map", kind: "map", K: 9 /*ScalarType.STRING*/, V: { kind: "scalar", T: 5 /*ScalarType.INT32*/ } },
-            { no: 12, name: "ability_hash_code", kind: "scalar", T: 5 /*ScalarType.INT32*/ },
-            { no: 10, name: "client_data_version", kind: "scalar", T: 13 /*ScalarType.UINT32*/ },
-            { no: 1299, name: "Unk3300_OPGDBOLKLJA", kind: "scalar", jsonName: "Unk3300OPGDBOLKLJA", T: 9 /*ScalarType.STRING*/ },
-            { no: 7, name: "retcode", kind: "scalar", T: 5 /*ScalarType.INT32*/ },
-            { no: 138, name: "feature_block_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => FeatureBlockInfo_1.FeatureBlockInfo }
-        ]);
+/**
+ * Generated by the protoc-gen-ts.  DO NOT EDIT!
+ * compiler version: 3.20.3
+ * source: PlayerLoginRsp.proto
+ * git: https://github.com/thesayyn/protoc-gen-ts */
+const dependency_1 = require("./BlockInfo");
+const dependency_2 = require("./FeatureBlockInfo");
+const dependency_3 = require("./ResVersionConfig");
+const dependency_4 = require("./ShortAbilityHashPair");
+const pb_1 = require("google-protobuf");
+class PlayerLoginRsp extends pb_1.Message {
+    constructor(data) {
+        super();
+        _PlayerLoginRsp_one_of_decls.set(this, []);
+        pb_1.Message.initialize(this, Array.isArray(data) ? data : [], 0, -1, [1373, 138], __classPrivateFieldGet(this, _PlayerLoginRsp_one_of_decls, "f"));
+        if (!Array.isArray(data) && typeof data == "object") {
+            if ("login_rand" in data && data.login_rand != undefined) {
+                this.login_rand = data.login_rand;
+            }
+            if ("player_data" in data && data.player_data != undefined) {
+                this.player_data = data.player_data;
+            }
+            if ("client_silence_md5" in data && data.client_silence_md5 != undefined) {
+                this.client_silence_md5 = data.client_silence_md5;
+            }
+            if ("total_tick_time" in data && data.total_tick_time != undefined) {
+                this.total_tick_time = data.total_tick_time;
+            }
+            if ("is_use_ability_hash" in data && data.is_use_ability_hash != undefined) {
+                this.is_use_ability_hash = data.is_use_ability_hash;
+            }
+            if ("is_audit" in data && data.is_audit != undefined) {
+                this.is_audit = data.is_audit;
+            }
+            if ("birthday" in data && data.birthday != undefined) {
+                this.birthday = data.birthday;
+            }
+            if ("Unk3300_HGFNECIJDLN" in data && data.Unk3300_HGFNECIJDLN != undefined) {
+                this.Unk3300_HGFNECIJDLN = data.Unk3300_HGFNECIJDLN;
+            }
+            if ("client_silence_version_suffix" in data && data.client_silence_version_suffix != undefined) {
+                this.client_silence_version_suffix = data.client_silence_version_suffix;
+            }
+            if ("client_version_suffix" in data && data.client_version_suffix != undefined) {
+                this.client_version_suffix = data.client_version_suffix;
+            }
+            if ("next_resource_url" in data && data.next_resource_url != undefined) {
+                this.next_resource_url = data.next_resource_url;
+            }
+            if ("Unk3300_EJKCNNDFAAI" in data && data.Unk3300_EJKCNNDFAAI != undefined) {
+                this.Unk3300_EJKCNNDFAAI = data.Unk3300_EJKCNNDFAAI;
+            }
+            if ("short_ability_hash_map" in data && data.short_ability_hash_map != undefined) {
+                this.short_ability_hash_map = data.short_ability_hash_map;
+            }
+            if ("is_data_need_relogin" in data && data.is_data_need_relogin != undefined) {
+                this.is_data_need_relogin = data.is_data_need_relogin;
+            }
+            if ("res_version_config" in data && data.res_version_config != undefined) {
+                this.res_version_config = data.res_version_config;
+            }
+            if ("client_silence_data_version" in data && data.client_silence_data_version != undefined) {
+                this.client_silence_data_version = data.client_silence_data_version;
+            }
+            if ("target_uid" in data && data.target_uid != undefined) {
+                this.target_uid = data.target_uid;
+            }
+            if ("register_cps" in data && data.register_cps != undefined) {
+                this.register_cps = data.register_cps;
+            }
+            if ("is_sc_open" in data && data.is_sc_open != undefined) {
+                this.is_sc_open = data.is_sc_open;
+            }
+            if ("Unk3300_IIHDKKNJPGD" in data && data.Unk3300_IIHDKKNJPGD != undefined) {
+                this.Unk3300_IIHDKKNJPGD = data.Unk3300_IIHDKKNJPGD;
+            }
+            if ("player_data_version" in data && data.player_data_version != undefined) {
+                this.player_data_version = data.player_data_version;
+            }
+            if ("sc_info" in data && data.sc_info != undefined) {
+                this.sc_info = data.sc_info;
+            }
+            if ("country_code" in data && data.country_code != undefined) {
+                this.country_code = data.country_code;
+            }
+            if ("next_res_version_config" in data && data.next_res_version_config != undefined) {
+                this.next_res_version_config = data.next_res_version_config;
+            }
+            if ("Unk3300_IADLIIMGDMC" in data && data.Unk3300_IADLIIMGDMC != undefined) {
+                this.Unk3300_IADLIIMGDMC = data.Unk3300_IADLIIMGDMC;
+            }
+            if ("block_info_map" in data && data.block_info_map != undefined) {
+                this.block_info_map = data.block_info_map;
+            }
+            if ("is_transfer" in data && data.is_transfer != undefined) {
+                this.is_transfer = data.is_transfer;
+            }
+            if ("target_home_owner_uid" in data && data.target_home_owner_uid != undefined) {
+                this.target_home_owner_uid = data.target_home_owner_uid;
+            }
+            if ("game_biz" in data && data.game_biz != undefined) {
+                this.game_biz = data.game_biz;
+            }
+            if ("ability_hash_map" in data && data.ability_hash_map != undefined) {
+                this.ability_hash_map = data.ability_hash_map;
+            }
+            if ("ability_hash_code" in data && data.ability_hash_code != undefined) {
+                this.ability_hash_code = data.ability_hash_code;
+            }
+            if ("client_data_version" in data && data.client_data_version != undefined) {
+                this.client_data_version = data.client_data_version;
+            }
+            if ("client_md5" in data && data.client_md5 != undefined) {
+                this.client_md5 = data.client_md5;
+            }
+            if ("retcode" in data && data.retcode != undefined) {
+                this.retcode = data.retcode;
+            }
+            if ("feature_block_info_list" in data && data.feature_block_info_list != undefined) {
+                this.feature_block_info_list = data.feature_block_info_list;
+            }
+        }
+        if (!this.block_info_map)
+            this.block_info_map = new Map();
+        if (!this.ability_hash_map)
+            this.ability_hash_map = new Map();
     }
-    create(value) {
-        const message = { loginRand: 0n, unk3300DHCMDHHDLFF: new Uint8Array(0), unk3300HMGCPAGLDHB: "", totalTickTime: 0, unk3300LLIJKLDBHNN: false, isAudit: false, birthday: "", unk3300HGFNECIJDLN: false, clientSilenceVersionSuffix: "", clientVersionSuffix: "", nextResourceUrl: "", unk3300EJKCNNDFAAI: false, shortAbilityHashMap: [], isDataNeedRelogin: false, clientSilenceDataVersion: 0, targetUid: 0, unk3300NEICPFBPNPD: "", unk3300CANONIPHMDI: false, unk3300IIHDKKNJPGD: false, playerDataVersion: 0, unk3300MOPDDGHMKBD: new Uint8Array(0), countryCode: "", unk3300IADLIIMGDMC: false, blockInfoMap: {}, isTransfer: false, targetHomeOwnerUid: 0, gameBiz: "", abilityHashMap: {}, abilityHashCode: 0, clientDataVersion: 0, unk3300OPGDBOLKLJA: "", retcode: 0, featureBlockInfoList: [] };
-        globalThis.Object.defineProperty(message, runtime_4.MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            (0, runtime_3.reflectionMergePartial)(this, message, value);
+    get login_rand() {
+        return pb_1.Message.getFieldWithDefault(this, 9, 0);
+    }
+    set login_rand(value) {
+        pb_1.Message.setField(this, 9, value);
+    }
+    get player_data() {
+        return pb_1.Message.getFieldWithDefault(this, 2, new Uint8Array());
+    }
+    set player_data(value) {
+        pb_1.Message.setField(this, 2, value);
+    }
+    get client_silence_md5() {
+        return pb_1.Message.getFieldWithDefault(this, 16, "");
+    }
+    set client_silence_md5(value) {
+        pb_1.Message.setField(this, 16, value);
+    }
+    get total_tick_time() {
+        return pb_1.Message.getFieldWithDefault(this, 530, 0);
+    }
+    set total_tick_time(value) {
+        pb_1.Message.setField(this, 530, value);
+    }
+    get is_use_ability_hash() {
+        return pb_1.Message.getFieldWithDefault(this, 5, false);
+    }
+    set is_use_ability_hash(value) {
+        pb_1.Message.setField(this, 5, value);
+    }
+    get is_audit() {
+        return pb_1.Message.getFieldWithDefault(this, 930, false);
+    }
+    set is_audit(value) {
+        pb_1.Message.setField(this, 930, value);
+    }
+    get birthday() {
+        return pb_1.Message.getFieldWithDefault(this, 1387, "");
+    }
+    set birthday(value) {
+        pb_1.Message.setField(this, 1387, value);
+    }
+    get Unk3300_HGFNECIJDLN() {
+        return pb_1.Message.getFieldWithDefault(this, 13, false);
+    }
+    set Unk3300_HGFNECIJDLN(value) {
+        pb_1.Message.setField(this, 13, value);
+    }
+    get client_silence_version_suffix() {
+        return pb_1.Message.getFieldWithDefault(this, 908, "");
+    }
+    set client_silence_version_suffix(value) {
+        pb_1.Message.setField(this, 908, value);
+    }
+    get client_version_suffix() {
+        return pb_1.Message.getFieldWithDefault(this, 1845, "");
+    }
+    set client_version_suffix(value) {
+        pb_1.Message.setField(this, 1845, value);
+    }
+    get next_resource_url() {
+        return pb_1.Message.getFieldWithDefault(this, 1324, "");
+    }
+    set next_resource_url(value) {
+        pb_1.Message.setField(this, 1324, value);
+    }
+    get Unk3300_EJKCNNDFAAI() {
+        return pb_1.Message.getFieldWithDefault(this, 196, false);
+    }
+    set Unk3300_EJKCNNDFAAI(value) {
+        pb_1.Message.setField(this, 196, value);
+    }
+    get short_ability_hash_map() {
+        return pb_1.Message.getRepeatedWrapperField(this, dependency_4.ShortAbilityHashPair, 1373);
+    }
+    set short_ability_hash_map(value) {
+        pb_1.Message.setRepeatedWrapperField(this, 1373, value);
+    }
+    get is_data_need_relogin() {
+        return pb_1.Message.getFieldWithDefault(this, 1119, false);
+    }
+    set is_data_need_relogin(value) {
+        pb_1.Message.setField(this, 1119, value);
+    }
+    get res_version_config() {
+        return pb_1.Message.getWrapperField(this, dependency_3.ResVersionConfig, 808);
+    }
+    set res_version_config(value) {
+        pb_1.Message.setWrapperField(this, 808, value);
+    }
+    get has_res_version_config() {
+        return pb_1.Message.getField(this, 808) != null;
+    }
+    get client_silence_data_version() {
+        return pb_1.Message.getFieldWithDefault(this, 1, 0);
+    }
+    set client_silence_data_version(value) {
+        pb_1.Message.setField(this, 1, value);
+    }
+    get target_uid() {
+        return pb_1.Message.getFieldWithDefault(this, 15, 0);
+    }
+    set target_uid(value) {
+        pb_1.Message.setField(this, 15, value);
+    }
+    get register_cps() {
+        return pb_1.Message.getFieldWithDefault(this, 99, "");
+    }
+    set register_cps(value) {
+        pb_1.Message.setField(this, 99, value);
+    }
+    get is_sc_open() {
+        return pb_1.Message.getFieldWithDefault(this, 1522, false);
+    }
+    set is_sc_open(value) {
+        pb_1.Message.setField(this, 1522, value);
+    }
+    get Unk3300_IIHDKKNJPGD() {
+        return pb_1.Message.getFieldWithDefault(this, 8, false);
+    }
+    set Unk3300_IIHDKKNJPGD(value) {
+        pb_1.Message.setField(this, 8, value);
+    }
+    get player_data_version() {
+        return pb_1.Message.getFieldWithDefault(this, 14, 0);
+    }
+    set player_data_version(value) {
+        pb_1.Message.setField(this, 14, value);
+    }
+    get sc_info() {
+        return pb_1.Message.getFieldWithDefault(this, 1888, new Uint8Array());
+    }
+    set sc_info(value) {
+        pb_1.Message.setField(this, 1888, value);
+    }
+    get country_code() {
+        return pb_1.Message.getFieldWithDefault(this, 360, "");
+    }
+    set country_code(value) {
+        pb_1.Message.setField(this, 360, value);
+    }
+    get next_res_version_config() {
+        return pb_1.Message.getWrapperField(this, dependency_3.ResVersionConfig, 1688);
+    }
+    set next_res_version_config(value) {
+        pb_1.Message.setWrapperField(this, 1688, value);
+    }
+    get has_next_res_version_config() {
+        return pb_1.Message.getField(this, 1688) != null;
+    }
+    get Unk3300_IADLIIMGDMC() {
+        return pb_1.Message.getFieldWithDefault(this, 17, false);
+    }
+    set Unk3300_IADLIIMGDMC(value) {
+        pb_1.Message.setField(this, 17, value);
+    }
+    get block_info_map() {
+        return pb_1.Message.getField(this, 2018);
+    }
+    set block_info_map(value) {
+        pb_1.Message.setField(this, 2018, value);
+    }
+    get is_transfer() {
+        return pb_1.Message.getFieldWithDefault(this, 295, false);
+    }
+    set is_transfer(value) {
+        pb_1.Message.setField(this, 295, value);
+    }
+    get target_home_owner_uid() {
+        return pb_1.Message.getFieldWithDefault(this, 446, 0);
+    }
+    set target_home_owner_uid(value) {
+        pb_1.Message.setField(this, 446, value);
+    }
+    get game_biz() {
+        return pb_1.Message.getFieldWithDefault(this, 4, "");
+    }
+    set game_biz(value) {
+        pb_1.Message.setField(this, 4, value);
+    }
+    get ability_hash_map() {
+        return pb_1.Message.getField(this, 3);
+    }
+    set ability_hash_map(value) {
+        pb_1.Message.setField(this, 3, value);
+    }
+    get ability_hash_code() {
+        return pb_1.Message.getFieldWithDefault(this, 12, 0);
+    }
+    set ability_hash_code(value) {
+        pb_1.Message.setField(this, 12, value);
+    }
+    get client_data_version() {
+        return pb_1.Message.getFieldWithDefault(this, 10, 0);
+    }
+    set client_data_version(value) {
+        pb_1.Message.setField(this, 10, value);
+    }
+    get client_md5() {
+        return pb_1.Message.getFieldWithDefault(this, 1299, "");
+    }
+    set client_md5(value) {
+        pb_1.Message.setField(this, 1299, value);
+    }
+    get retcode() {
+        return pb_1.Message.getFieldWithDefault(this, 7, 0);
+    }
+    set retcode(value) {
+        pb_1.Message.setField(this, 7, value);
+    }
+    get feature_block_info_list() {
+        return pb_1.Message.getRepeatedWrapperField(this, dependency_2.FeatureBlockInfo, 138);
+    }
+    set feature_block_info_list(value) {
+        pb_1.Message.setRepeatedWrapperField(this, 138, value);
+    }
+    static fromObject(data) {
+        const message = new PlayerLoginRsp({});
+        if (data.login_rand != null) {
+            message.login_rand = data.login_rand;
+        }
+        if (data.player_data != null) {
+            message.player_data = data.player_data;
+        }
+        if (data.client_silence_md5 != null) {
+            message.client_silence_md5 = data.client_silence_md5;
+        }
+        if (data.total_tick_time != null) {
+            message.total_tick_time = data.total_tick_time;
+        }
+        if (data.is_use_ability_hash != null) {
+            message.is_use_ability_hash = data.is_use_ability_hash;
+        }
+        if (data.is_audit != null) {
+            message.is_audit = data.is_audit;
+        }
+        if (data.birthday != null) {
+            message.birthday = data.birthday;
+        }
+        if (data.Unk3300_HGFNECIJDLN != null) {
+            message.Unk3300_HGFNECIJDLN = data.Unk3300_HGFNECIJDLN;
+        }
+        if (data.client_silence_version_suffix != null) {
+            message.client_silence_version_suffix = data.client_silence_version_suffix;
+        }
+        if (data.client_version_suffix != null) {
+            message.client_version_suffix = data.client_version_suffix;
+        }
+        if (data.next_resource_url != null) {
+            message.next_resource_url = data.next_resource_url;
+        }
+        if (data.Unk3300_EJKCNNDFAAI != null) {
+            message.Unk3300_EJKCNNDFAAI = data.Unk3300_EJKCNNDFAAI;
+        }
+        if (data.short_ability_hash_map != null) {
+            message.short_ability_hash_map = data.short_ability_hash_map.map(item => dependency_4.ShortAbilityHashPair.fromObject(item));
+        }
+        if (data.is_data_need_relogin != null) {
+            message.is_data_need_relogin = data.is_data_need_relogin;
+        }
+        if (data.res_version_config != null) {
+            message.res_version_config = dependency_3.ResVersionConfig.fromObject(data.res_version_config);
+        }
+        if (data.client_silence_data_version != null) {
+            message.client_silence_data_version = data.client_silence_data_version;
+        }
+        if (data.target_uid != null) {
+            message.target_uid = data.target_uid;
+        }
+        if (data.register_cps != null) {
+            message.register_cps = data.register_cps;
+        }
+        if (data.is_sc_open != null) {
+            message.is_sc_open = data.is_sc_open;
+        }
+        if (data.Unk3300_IIHDKKNJPGD != null) {
+            message.Unk3300_IIHDKKNJPGD = data.Unk3300_IIHDKKNJPGD;
+        }
+        if (data.player_data_version != null) {
+            message.player_data_version = data.player_data_version;
+        }
+        if (data.sc_info != null) {
+            message.sc_info = data.sc_info;
+        }
+        if (data.country_code != null) {
+            message.country_code = data.country_code;
+        }
+        if (data.next_res_version_config != null) {
+            message.next_res_version_config = dependency_3.ResVersionConfig.fromObject(data.next_res_version_config);
+        }
+        if (data.Unk3300_IADLIIMGDMC != null) {
+            message.Unk3300_IADLIIMGDMC = data.Unk3300_IADLIIMGDMC;
+        }
+        if (typeof data.block_info_map == "object") {
+            message.block_info_map = new Map(Object.entries(data.block_info_map).map(([key, value]) => [Number(key), dependency_1.BlockInfo.fromObject(value)]));
+        }
+        if (data.is_transfer != null) {
+            message.is_transfer = data.is_transfer;
+        }
+        if (data.target_home_owner_uid != null) {
+            message.target_home_owner_uid = data.target_home_owner_uid;
+        }
+        if (data.game_biz != null) {
+            message.game_biz = data.game_biz;
+        }
+        if (typeof data.ability_hash_map == "object") {
+            message.ability_hash_map = new Map(Object.entries(data.ability_hash_map));
+        }
+        if (data.ability_hash_code != null) {
+            message.ability_hash_code = data.ability_hash_code;
+        }
+        if (data.client_data_version != null) {
+            message.client_data_version = data.client_data_version;
+        }
+        if (data.client_md5 != null) {
+            message.client_md5 = data.client_md5;
+        }
+        if (data.retcode != null) {
+            message.retcode = data.retcode;
+        }
+        if (data.feature_block_info_list != null) {
+            message.feature_block_info_list = data.feature_block_info_list.map(item => dependency_2.FeatureBlockInfo.fromObject(item));
+        }
         return message;
     }
-    internalBinaryRead(reader, length, options, target) {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* uint64 login_rand */ 9:
-                    message.loginRand = reader.uint64().toBigInt();
+    toObject() {
+        const data = {};
+        if (this.login_rand != null) {
+            data.login_rand = this.login_rand;
+        }
+        if (this.player_data != null) {
+            data.player_data = this.player_data;
+        }
+        if (this.client_silence_md5 != null) {
+            data.client_silence_md5 = this.client_silence_md5;
+        }
+        if (this.total_tick_time != null) {
+            data.total_tick_time = this.total_tick_time;
+        }
+        if (this.is_use_ability_hash != null) {
+            data.is_use_ability_hash = this.is_use_ability_hash;
+        }
+        if (this.is_audit != null) {
+            data.is_audit = this.is_audit;
+        }
+        if (this.birthday != null) {
+            data.birthday = this.birthday;
+        }
+        if (this.Unk3300_HGFNECIJDLN != null) {
+            data.Unk3300_HGFNECIJDLN = this.Unk3300_HGFNECIJDLN;
+        }
+        if (this.client_silence_version_suffix != null) {
+            data.client_silence_version_suffix = this.client_silence_version_suffix;
+        }
+        if (this.client_version_suffix != null) {
+            data.client_version_suffix = this.client_version_suffix;
+        }
+        if (this.next_resource_url != null) {
+            data.next_resource_url = this.next_resource_url;
+        }
+        if (this.Unk3300_EJKCNNDFAAI != null) {
+            data.Unk3300_EJKCNNDFAAI = this.Unk3300_EJKCNNDFAAI;
+        }
+        if (this.short_ability_hash_map != null) {
+            data.short_ability_hash_map = this.short_ability_hash_map.map((item) => item.toObject());
+        }
+        if (this.is_data_need_relogin != null) {
+            data.is_data_need_relogin = this.is_data_need_relogin;
+        }
+        if (this.res_version_config != null) {
+            data.res_version_config = this.res_version_config.toObject();
+        }
+        if (this.client_silence_data_version != null) {
+            data.client_silence_data_version = this.client_silence_data_version;
+        }
+        if (this.target_uid != null) {
+            data.target_uid = this.target_uid;
+        }
+        if (this.register_cps != null) {
+            data.register_cps = this.register_cps;
+        }
+        if (this.is_sc_open != null) {
+            data.is_sc_open = this.is_sc_open;
+        }
+        if (this.Unk3300_IIHDKKNJPGD != null) {
+            data.Unk3300_IIHDKKNJPGD = this.Unk3300_IIHDKKNJPGD;
+        }
+        if (this.player_data_version != null) {
+            data.player_data_version = this.player_data_version;
+        }
+        if (this.sc_info != null) {
+            data.sc_info = this.sc_info;
+        }
+        if (this.country_code != null) {
+            data.country_code = this.country_code;
+        }
+        if (this.next_res_version_config != null) {
+            data.next_res_version_config = this.next_res_version_config.toObject();
+        }
+        if (this.Unk3300_IADLIIMGDMC != null) {
+            data.Unk3300_IADLIIMGDMC = this.Unk3300_IADLIIMGDMC;
+        }
+        if (this.block_info_map.size > 0) {
+            data.block_info_map = (Object.fromEntries)((Array.from)(this.block_info_map).map(([key, value]) => [key, value.toObject()]));
+        }
+        if (this.is_transfer != null) {
+            data.is_transfer = this.is_transfer;
+        }
+        if (this.target_home_owner_uid != null) {
+            data.target_home_owner_uid = this.target_home_owner_uid;
+        }
+        if (this.game_biz != null) {
+            data.game_biz = this.game_biz;
+        }
+        if (this.ability_hash_map.size > 0) {
+            data.ability_hash_map = (Object.fromEntries)(this.ability_hash_map);
+        }
+        if (this.ability_hash_code != null) {
+            data.ability_hash_code = this.ability_hash_code;
+        }
+        if (this.client_data_version != null) {
+            data.client_data_version = this.client_data_version;
+        }
+        if (this.client_md5 != null) {
+            data.client_md5 = this.client_md5;
+        }
+        if (this.retcode != null) {
+            data.retcode = this.retcode;
+        }
+        if (this.feature_block_info_list != null) {
+            data.feature_block_info_list = this.feature_block_info_list.map((item) => item.toObject());
+        }
+        return data;
+    }
+    serialize(w) {
+        const writer = w || new pb_1.BinaryWriter();
+        if (this.login_rand != 0)
+            writer.writeUint64(9, this.login_rand);
+        if (this.player_data.length)
+            writer.writeBytes(2, this.player_data);
+        if (this.client_silence_md5.length)
+            writer.writeString(16, this.client_silence_md5);
+        if (this.total_tick_time != 0)
+            writer.writeDouble(530, this.total_tick_time);
+        if (this.is_use_ability_hash != false)
+            writer.writeBool(5, this.is_use_ability_hash);
+        if (this.is_audit != false)
+            writer.writeBool(930, this.is_audit);
+        if (this.birthday.length)
+            writer.writeString(1387, this.birthday);
+        if (this.Unk3300_HGFNECIJDLN != false)
+            writer.writeBool(13, this.Unk3300_HGFNECIJDLN);
+        if (this.client_silence_version_suffix.length)
+            writer.writeString(908, this.client_silence_version_suffix);
+        if (this.client_version_suffix.length)
+            writer.writeString(1845, this.client_version_suffix);
+        if (this.next_resource_url.length)
+            writer.writeString(1324, this.next_resource_url);
+        if (this.Unk3300_EJKCNNDFAAI != false)
+            writer.writeBool(196, this.Unk3300_EJKCNNDFAAI);
+        if (this.short_ability_hash_map.length)
+            writer.writeRepeatedMessage(1373, this.short_ability_hash_map, (item) => item.serialize(writer));
+        if (this.is_data_need_relogin != false)
+            writer.writeBool(1119, this.is_data_need_relogin);
+        if (this.has_res_version_config)
+            writer.writeMessage(808, this.res_version_config, () => this.res_version_config.serialize(writer));
+        if (this.client_silence_data_version != 0)
+            writer.writeUint32(1, this.client_silence_data_version);
+        if (this.target_uid != 0)
+            writer.writeUint32(15, this.target_uid);
+        if (this.register_cps.length)
+            writer.writeString(99, this.register_cps);
+        if (this.is_sc_open != false)
+            writer.writeBool(1522, this.is_sc_open);
+        if (this.Unk3300_IIHDKKNJPGD != false)
+            writer.writeBool(8, this.Unk3300_IIHDKKNJPGD);
+        if (this.player_data_version != 0)
+            writer.writeUint32(14, this.player_data_version);
+        if (this.sc_info.length)
+            writer.writeBytes(1888, this.sc_info);
+        if (this.country_code.length)
+            writer.writeString(360, this.country_code);
+        if (this.has_next_res_version_config)
+            writer.writeMessage(1688, this.next_res_version_config, () => this.next_res_version_config.serialize(writer));
+        if (this.Unk3300_IADLIIMGDMC != false)
+            writer.writeBool(17, this.Unk3300_IADLIIMGDMC);
+        for (const [key, value] of this.block_info_map) {
+            writer.writeMessage(2018, this.block_info_map, () => {
+                writer.writeUint32(1, key);
+                writer.writeMessage(2, value, () => value.serialize(writer));
+            });
+        }
+        if (this.is_transfer != false)
+            writer.writeBool(295, this.is_transfer);
+        if (this.target_home_owner_uid != 0)
+            writer.writeUint32(446, this.target_home_owner_uid);
+        if (this.game_biz.length)
+            writer.writeString(4, this.game_biz);
+        for (const [key, value] of this.ability_hash_map) {
+            writer.writeMessage(3, this.ability_hash_map, () => {
+                writer.writeString(1, key);
+                writer.writeInt32(2, value);
+            });
+        }
+        if (this.ability_hash_code != 0)
+            writer.writeInt32(12, this.ability_hash_code);
+        if (this.client_data_version != 0)
+            writer.writeUint32(10, this.client_data_version);
+        if (this.client_md5.length)
+            writer.writeString(1299, this.client_md5);
+        if (this.retcode != 0)
+            writer.writeInt32(7, this.retcode);
+        if (this.feature_block_info_list.length)
+            writer.writeRepeatedMessage(138, this.feature_block_info_list, (item) => item.serialize(writer));
+        if (!w)
+            return writer.getResultBuffer();
+    }
+    static deserialize(bytes) {
+        const reader = bytes instanceof pb_1.BinaryReader ? bytes : new pb_1.BinaryReader(bytes), message = new PlayerLoginRsp();
+        while (reader.nextField()) {
+            if (reader.isEndGroup())
+                break;
+            switch (reader.getFieldNumber()) {
+                case 9:
+                    message.login_rand = reader.readUint64();
                     break;
-                case /* bytes Unk3300_DHCMDHHDLFF = 2 [json_name = "Unk3300DHCMDHHDLFF"];*/ 2:
-                    message.unk3300DHCMDHHDLFF = reader.bytes();
+                case 2:
+                    message.player_data = reader.readBytes();
                     break;
-                case /* string Unk3300_HMGCPAGLDHB = 16 [json_name = "Unk3300HMGCPAGLDHB"];*/ 16:
-                    message.unk3300HMGCPAGLDHB = reader.string();
+                case 16:
+                    message.client_silence_md5 = reader.readString();
                     break;
-                case /* double total_tick_time */ 530:
-                    message.totalTickTime = reader.double();
+                case 530:
+                    message.total_tick_time = reader.readDouble();
                     break;
-                case /* bool Unk3300_LLIJKLDBHNN = 5 [json_name = "Unk3300LLIJKLDBHNN"];*/ 5:
-                    message.unk3300LLIJKLDBHNN = reader.bool();
+                case 5:
+                    message.is_use_ability_hash = reader.readBool();
                     break;
-                case /* bool is_audit */ 930:
-                    message.isAudit = reader.bool();
+                case 930:
+                    message.is_audit = reader.readBool();
                     break;
-                case /* string birthday */ 1387:
-                    message.birthday = reader.string();
+                case 1387:
+                    message.birthday = reader.readString();
                     break;
-                case /* bool Unk3300_HGFNECIJDLN = 13 [json_name = "Unk3300HGFNECIJDLN"];*/ 13:
-                    message.unk3300HGFNECIJDLN = reader.bool();
+                case 13:
+                    message.Unk3300_HGFNECIJDLN = reader.readBool();
                     break;
-                case /* string client_silence_version_suffix */ 908:
-                    message.clientSilenceVersionSuffix = reader.string();
+                case 908:
+                    message.client_silence_version_suffix = reader.readString();
                     break;
-                case /* string client_version_suffix */ 1845:
-                    message.clientVersionSuffix = reader.string();
+                case 1845:
+                    message.client_version_suffix = reader.readString();
                     break;
-                case /* string next_resource_url */ 1324:
-                    message.nextResourceUrl = reader.string();
+                case 1324:
+                    message.next_resource_url = reader.readString();
                     break;
-                case /* bool Unk3300_EJKCNNDFAAI = 196 [json_name = "Unk3300EJKCNNDFAAI"];*/ 196:
-                    message.unk3300EJKCNNDFAAI = reader.bool();
+                case 196:
+                    message.Unk3300_EJKCNNDFAAI = reader.readBool();
                     break;
-                case /* repeated ShortAbilityHashPair short_ability_hash_map */ 1373:
-                    message.shortAbilityHashMap.push(ShortAbilityHashPair_1.ShortAbilityHashPair.internalBinaryRead(reader, reader.uint32(), options));
+                case 1373:
+                    reader.readMessage(message.short_ability_hash_map, () => pb_1.Message.addToRepeatedWrapperField(message, 1373, dependency_4.ShortAbilityHashPair.deserialize(reader), dependency_4.ShortAbilityHashPair));
                     break;
-                case /* bool is_data_need_relogin */ 1119:
-                    message.isDataNeedRelogin = reader.bool();
+                case 1119:
+                    message.is_data_need_relogin = reader.readBool();
                     break;
-                case /* ResVersionConfig res_version_config */ 808:
-                    message.resVersionConfig = ResVersionConfig_1.ResVersionConfig.internalBinaryRead(reader, reader.uint32(), options, message.resVersionConfig);
+                case 808:
+                    reader.readMessage(message.res_version_config, () => message.res_version_config = dependency_3.ResVersionConfig.deserialize(reader));
                     break;
-                case /* uint32 client_silence_data_version */ 1:
-                    message.clientSilenceDataVersion = reader.uint32();
+                case 1:
+                    message.client_silence_data_version = reader.readUint32();
                     break;
-                case /* uint32 target_uid */ 15:
-                    message.targetUid = reader.uint32();
+                case 15:
+                    message.target_uid = reader.readUint32();
                     break;
-                case /* string Unk3300_NEICPFBPNPD = 99 [json_name = "Unk3300NEICPFBPNPD"];*/ 99:
-                    message.unk3300NEICPFBPNPD = reader.string();
+                case 99:
+                    message.register_cps = reader.readString();
                     break;
-                case /* bool Unk3300_CANONIPHMDI = 1522 [json_name = "Unk3300CANONIPHMDI"];*/ 1522:
-                    message.unk3300CANONIPHMDI = reader.bool();
+                case 1522:
+                    message.is_sc_open = reader.readBool();
                     break;
-                case /* bool Unk3300_IIHDKKNJPGD = 8 [json_name = "Unk3300IIHDKKNJPGD"];*/ 8:
-                    message.unk3300IIHDKKNJPGD = reader.bool();
+                case 8:
+                    message.Unk3300_IIHDKKNJPGD = reader.readBool();
                     break;
-                case /* uint32 player_data_version */ 14:
-                    message.playerDataVersion = reader.uint32();
+                case 14:
+                    message.player_data_version = reader.readUint32();
                     break;
-                case /* bytes Unk3300_MOPDDGHMKBD = 1888 [json_name = "Unk3300MOPDDGHMKBD"];*/ 1888:
-                    message.unk3300MOPDDGHMKBD = reader.bytes();
+                case 1888:
+                    message.sc_info = reader.readBytes();
                     break;
-                case /* string country_code */ 360:
-                    message.countryCode = reader.string();
+                case 360:
+                    message.country_code = reader.readString();
                     break;
-                case /* ResVersionConfig next_res_version_config */ 1688:
-                    message.nextResVersionConfig = ResVersionConfig_1.ResVersionConfig.internalBinaryRead(reader, reader.uint32(), options, message.nextResVersionConfig);
+                case 1688:
+                    reader.readMessage(message.next_res_version_config, () => message.next_res_version_config = dependency_3.ResVersionConfig.deserialize(reader));
                     break;
-                case /* bool Unk3300_IADLIIMGDMC = 17 [json_name = "Unk3300IADLIIMGDMC"];*/ 17:
-                    message.unk3300IADLIIMGDMC = reader.bool();
+                case 17:
+                    message.Unk3300_IADLIIMGDMC = reader.readBool();
                     break;
-                case /* map<uint32, BlockInfo> block_info_map */ 2018:
-                    this.binaryReadMap2018(message.blockInfoMap, reader, options);
+                case 2018:
+                    reader.readMessage(message, () => pb_1.Map.deserializeBinary(message.block_info_map, reader, reader.readUint32, () => {
+                        let value;
+                        reader.readMessage(message, () => value = dependency_1.BlockInfo.deserialize(reader));
+                        return value;
+                    }));
                     break;
-                case /* bool is_transfer */ 295:
-                    message.isTransfer = reader.bool();
+                case 295:
+                    message.is_transfer = reader.readBool();
                     break;
-                case /* uint32 target_home_owner_uid */ 446:
-                    message.targetHomeOwnerUid = reader.uint32();
+                case 446:
+                    message.target_home_owner_uid = reader.readUint32();
                     break;
-                case /* string game_biz */ 4:
-                    message.gameBiz = reader.string();
+                case 4:
+                    message.game_biz = reader.readString();
                     break;
-                case /* map<string, int32> ability_hash_map */ 3:
-                    this.binaryReadMap3(message.abilityHashMap, reader, options);
+                case 3:
+                    reader.readMessage(message, () => pb_1.Map.deserializeBinary(message.ability_hash_map, reader, reader.readString, reader.readInt32));
                     break;
-                case /* int32 ability_hash_code */ 12:
-                    message.abilityHashCode = reader.int32();
+                case 12:
+                    message.ability_hash_code = reader.readInt32();
                     break;
-                case /* uint32 client_data_version */ 10:
-                    message.clientDataVersion = reader.uint32();
+                case 10:
+                    message.client_data_version = reader.readUint32();
                     break;
-                case /* string Unk3300_OPGDBOLKLJA = 1299 [json_name = "Unk3300OPGDBOLKLJA"];*/ 1299:
-                    message.unk3300OPGDBOLKLJA = reader.string();
+                case 1299:
+                    message.client_md5 = reader.readString();
                     break;
-                case /* int32 retcode */ 7:
-                    message.retcode = reader.int32();
+                case 7:
+                    message.retcode = reader.readInt32();
                     break;
-                case /* repeated FeatureBlockInfo feature_block_info_list */ 138:
-                    message.featureBlockInfoList.push(FeatureBlockInfo_1.FeatureBlockInfo.internalBinaryRead(reader, reader.uint32(), options));
+                case 138:
+                    reader.readMessage(message.feature_block_info_list, () => pb_1.Message.addToRepeatedWrapperField(message, 138, dependency_2.FeatureBlockInfo.deserialize(reader), dependency_2.FeatureBlockInfo));
                     break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? runtime_2.UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+                default: reader.skipField();
             }
         }
         return message;
     }
-    binaryReadMap2018(map, reader, options) {
-        let len = reader.uint32(), end = reader.pos + len, key, val;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case 1:
-                    key = reader.uint32();
-                    break;
-                case 2:
-                    val = BlockInfo_1.BlockInfo.internalBinaryRead(reader, reader.uint32(), options);
-                    break;
-                default: throw new globalThis.Error("unknown map entry field for field PlayerLoginRsp.block_info_map");
-            }
-        }
-        map[key ?? 0] = val ?? BlockInfo_1.BlockInfo.create();
+    serializeBinary() {
+        return this.serialize();
     }
-    binaryReadMap3(map, reader, options) {
-        let len = reader.uint32(), end = reader.pos + len, key, val;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case 1:
-                    key = reader.string();
-                    break;
-                case 2:
-                    val = reader.int32();
-                    break;
-                default: throw new globalThis.Error("unknown map entry field for field PlayerLoginRsp.ability_hash_map");
-            }
-        }
-        map[key ?? ""] = val ?? 0;
-    }
-    internalBinaryWrite(message, writer, options) {
-        /* uint64 login_rand = 9; */
-        if (message.loginRand !== 0n)
-            writer.tag(9, runtime_1.WireType.Varint).uint64(message.loginRand);
-        /* bytes Unk3300_DHCMDHHDLFF = 2 [json_name = "Unk3300DHCMDHHDLFF"]; */
-        if (message.unk3300DHCMDHHDLFF.length)
-            writer.tag(2, runtime_1.WireType.LengthDelimited).bytes(message.unk3300DHCMDHHDLFF);
-        /* string Unk3300_HMGCPAGLDHB = 16 [json_name = "Unk3300HMGCPAGLDHB"]; */
-        if (message.unk3300HMGCPAGLDHB !== "")
-            writer.tag(16, runtime_1.WireType.LengthDelimited).string(message.unk3300HMGCPAGLDHB);
-        /* double total_tick_time = 530; */
-        if (message.totalTickTime !== 0)
-            writer.tag(530, runtime_1.WireType.Bit64).double(message.totalTickTime);
-        /* bool Unk3300_LLIJKLDBHNN = 5 [json_name = "Unk3300LLIJKLDBHNN"]; */
-        if (message.unk3300LLIJKLDBHNN !== false)
-            writer.tag(5, runtime_1.WireType.Varint).bool(message.unk3300LLIJKLDBHNN);
-        /* bool is_audit = 930; */
-        if (message.isAudit !== false)
-            writer.tag(930, runtime_1.WireType.Varint).bool(message.isAudit);
-        /* string birthday = 1387; */
-        if (message.birthday !== "")
-            writer.tag(1387, runtime_1.WireType.LengthDelimited).string(message.birthday);
-        /* bool Unk3300_HGFNECIJDLN = 13 [json_name = "Unk3300HGFNECIJDLN"]; */
-        if (message.unk3300HGFNECIJDLN !== false)
-            writer.tag(13, runtime_1.WireType.Varint).bool(message.unk3300HGFNECIJDLN);
-        /* string client_silence_version_suffix = 908; */
-        if (message.clientSilenceVersionSuffix !== "")
-            writer.tag(908, runtime_1.WireType.LengthDelimited).string(message.clientSilenceVersionSuffix);
-        /* string client_version_suffix = 1845; */
-        if (message.clientVersionSuffix !== "")
-            writer.tag(1845, runtime_1.WireType.LengthDelimited).string(message.clientVersionSuffix);
-        /* string next_resource_url = 1324; */
-        if (message.nextResourceUrl !== "")
-            writer.tag(1324, runtime_1.WireType.LengthDelimited).string(message.nextResourceUrl);
-        /* bool Unk3300_EJKCNNDFAAI = 196 [json_name = "Unk3300EJKCNNDFAAI"]; */
-        if (message.unk3300EJKCNNDFAAI !== false)
-            writer.tag(196, runtime_1.WireType.Varint).bool(message.unk3300EJKCNNDFAAI);
-        /* repeated ShortAbilityHashPair short_ability_hash_map = 1373; */
-        for (let i = 0; i < message.shortAbilityHashMap.length; i++)
-            ShortAbilityHashPair_1.ShortAbilityHashPair.internalBinaryWrite(message.shortAbilityHashMap[i], writer.tag(1373, runtime_1.WireType.LengthDelimited).fork(), options).join();
-        /* bool is_data_need_relogin = 1119; */
-        if (message.isDataNeedRelogin !== false)
-            writer.tag(1119, runtime_1.WireType.Varint).bool(message.isDataNeedRelogin);
-        /* ResVersionConfig res_version_config = 808; */
-        if (message.resVersionConfig)
-            ResVersionConfig_1.ResVersionConfig.internalBinaryWrite(message.resVersionConfig, writer.tag(808, runtime_1.WireType.LengthDelimited).fork(), options).join();
-        /* uint32 client_silence_data_version = 1; */
-        if (message.clientSilenceDataVersion !== 0)
-            writer.tag(1, runtime_1.WireType.Varint).uint32(message.clientSilenceDataVersion);
-        /* uint32 target_uid = 15; */
-        if (message.targetUid !== 0)
-            writer.tag(15, runtime_1.WireType.Varint).uint32(message.targetUid);
-        /* string Unk3300_NEICPFBPNPD = 99 [json_name = "Unk3300NEICPFBPNPD"]; */
-        if (message.unk3300NEICPFBPNPD !== "")
-            writer.tag(99, runtime_1.WireType.LengthDelimited).string(message.unk3300NEICPFBPNPD);
-        /* bool Unk3300_CANONIPHMDI = 1522 [json_name = "Unk3300CANONIPHMDI"]; */
-        if (message.unk3300CANONIPHMDI !== false)
-            writer.tag(1522, runtime_1.WireType.Varint).bool(message.unk3300CANONIPHMDI);
-        /* bool Unk3300_IIHDKKNJPGD = 8 [json_name = "Unk3300IIHDKKNJPGD"]; */
-        if (message.unk3300IIHDKKNJPGD !== false)
-            writer.tag(8, runtime_1.WireType.Varint).bool(message.unk3300IIHDKKNJPGD);
-        /* uint32 player_data_version = 14; */
-        if (message.playerDataVersion !== 0)
-            writer.tag(14, runtime_1.WireType.Varint).uint32(message.playerDataVersion);
-        /* bytes Unk3300_MOPDDGHMKBD = 1888 [json_name = "Unk3300MOPDDGHMKBD"]; */
-        if (message.unk3300MOPDDGHMKBD.length)
-            writer.tag(1888, runtime_1.WireType.LengthDelimited).bytes(message.unk3300MOPDDGHMKBD);
-        /* string country_code = 360; */
-        if (message.countryCode !== "")
-            writer.tag(360, runtime_1.WireType.LengthDelimited).string(message.countryCode);
-        /* ResVersionConfig next_res_version_config = 1688; */
-        if (message.nextResVersionConfig)
-            ResVersionConfig_1.ResVersionConfig.internalBinaryWrite(message.nextResVersionConfig, writer.tag(1688, runtime_1.WireType.LengthDelimited).fork(), options).join();
-        /* bool Unk3300_IADLIIMGDMC = 17 [json_name = "Unk3300IADLIIMGDMC"]; */
-        if (message.unk3300IADLIIMGDMC !== false)
-            writer.tag(17, runtime_1.WireType.Varint).bool(message.unk3300IADLIIMGDMC);
-        /* map<uint32, BlockInfo> block_info_map = 2018; */
-        for (let k of Object.keys(message.blockInfoMap)) {
-            writer.tag(2018, runtime_1.WireType.LengthDelimited).fork().tag(1, runtime_1.WireType.Varint).uint32(parseInt(k));
-            writer.tag(2, runtime_1.WireType.LengthDelimited).fork();
-            BlockInfo_1.BlockInfo.internalBinaryWrite(message.blockInfoMap[k], writer, options);
-            writer.join().join();
-        }
-        /* bool is_transfer = 295; */
-        if (message.isTransfer !== false)
-            writer.tag(295, runtime_1.WireType.Varint).bool(message.isTransfer);
-        /* uint32 target_home_owner_uid = 446; */
-        if (message.targetHomeOwnerUid !== 0)
-            writer.tag(446, runtime_1.WireType.Varint).uint32(message.targetHomeOwnerUid);
-        /* string game_biz = 4; */
-        if (message.gameBiz !== "")
-            writer.tag(4, runtime_1.WireType.LengthDelimited).string(message.gameBiz);
-        /* map<string, int32> ability_hash_map = 3; */
-        for (let k of Object.keys(message.abilityHashMap))
-            writer.tag(3, runtime_1.WireType.LengthDelimited).fork().tag(1, runtime_1.WireType.LengthDelimited).string(k).tag(2, runtime_1.WireType.Varint).int32(message.abilityHashMap[k]).join();
-        /* int32 ability_hash_code = 12; */
-        if (message.abilityHashCode !== 0)
-            writer.tag(12, runtime_1.WireType.Varint).int32(message.abilityHashCode);
-        /* uint32 client_data_version = 10; */
-        if (message.clientDataVersion !== 0)
-            writer.tag(10, runtime_1.WireType.Varint).uint32(message.clientDataVersion);
-        /* string Unk3300_OPGDBOLKLJA = 1299 [json_name = "Unk3300OPGDBOLKLJA"]; */
-        if (message.unk3300OPGDBOLKLJA !== "")
-            writer.tag(1299, runtime_1.WireType.LengthDelimited).string(message.unk3300OPGDBOLKLJA);
-        /* int32 retcode = 7; */
-        if (message.retcode !== 0)
-            writer.tag(7, runtime_1.WireType.Varint).int32(message.retcode);
-        /* repeated FeatureBlockInfo feature_block_info_list = 138; */
-        for (let i = 0; i < message.featureBlockInfoList.length; i++)
-            FeatureBlockInfo_1.FeatureBlockInfo.internalBinaryWrite(message.featureBlockInfoList[i], writer.tag(138, runtime_1.WireType.LengthDelimited).fork(), options).join();
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
+    static deserializeBinary(bytes) {
+        return PlayerLoginRsp.deserialize(bytes);
     }
 }
-/**
- * @generated MessageType for protobuf message PlayerLoginRsp
- */
-exports.PlayerLoginRsp = new PlayerLoginRsp$Type();
+exports.PlayerLoginRsp = PlayerLoginRsp;
+_PlayerLoginRsp_one_of_decls = new WeakMap();

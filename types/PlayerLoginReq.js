@@ -1,344 +1,904 @@
 "use strict";
+var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (receiver, state, kind, f) {
+    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
+    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
+    return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
+};
+var _PlayerLoginReq_one_of_decls;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PlayerLoginReq = void 0;
-const runtime_1 = require("@protobuf-ts/runtime");
-const runtime_2 = require("@protobuf-ts/runtime");
-const runtime_3 = require("@protobuf-ts/runtime");
-const runtime_4 = require("@protobuf-ts/runtime");
-const runtime_5 = require("@protobuf-ts/runtime");
-const AdjustTrackingInfo_1 = require("./AdjustTrackingInfo");
-const TrackingIOInfo_1 = require("./TrackingIOInfo");
-// @generated message type with reflection information, may provide speed optimized methods
-class PlayerLoginReq$Type extends runtime_5.MessageType {
-    constructor() {
-        super("PlayerLoginReq", [
-            { no: 5, name: "device_uuid", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 10, name: "target_uid", kind: "scalar", T: 13 /*ScalarType.UINT32*/ },
-            { no: 2046, name: "extra_bin_data", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
-            { no: 4, name: "platform", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 1334, name: "checksum", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 1565, name: "channel_id", kind: "scalar", T: 13 /*ScalarType.UINT32*/ },
-            { no: 2040, name: "client_verison_hash", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 11, name: "language_type", kind: "scalar", T: 13 /*ScalarType.UINT32*/ },
-            { no: 847, name: "client_data_version", kind: "scalar", T: 13 /*ScalarType.UINT32*/ },
-            { no: 7, name: "account_type", kind: "scalar", T: 13 /*ScalarType.UINT32*/ },
-            { no: 868, name: "Unk3300_BBAABEHNFOE", kind: "scalar", jsonName: "Unk3300BBAABEHNFOE", T: 9 /*ScalarType.STRING*/ },
-            { no: 577, name: "online_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 82, name: "Unk3300_PMGFBMJNNCL", kind: "scalar", jsonName: "Unk3300PMGFBMJNNCL", T: 13 /*ScalarType.UINT32*/ },
-            { no: 12, name: "device_name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 875, name: "birthday", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 525, name: "tag", kind: "scalar", T: 13 /*ScalarType.UINT32*/ },
-            { no: 14, name: "account_uid", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 15, name: "device_info", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 1458, name: "Unk3300_IADFJHNFKIB", kind: "scalar", jsonName: "Unk3300IADFJHNFKIB", T: 13 /*ScalarType.UINT32*/ },
-            { no: 1, name: "is_editor", kind: "scalar", T: 8 /*ScalarType.BOOL*/ },
-            { no: 8, name: "token", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 424, name: "reg_platform", kind: "scalar", T: 13 /*ScalarType.UINT32*/ },
-            { no: 581, name: "checksum_client_version", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 85, name: "Unk3300_OOBHAIIIPHH", kind: "scalar", jsonName: "Unk3300OOBHAIIIPHH", T: 13 /*ScalarType.UINT32*/ },
-            { no: 1320, name: "Unk3300_NDLANBEIGEG", kind: "scalar", jsonName: "Unk3300NDLANBEIGEG", T: 13 /*ScalarType.UINT32*/ },
-            { no: 104, name: "country_code", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 1790, name: "Unk3300_PIPLDEAPMMN", kind: "scalar", jsonName: "Unk3300PIPLDEAPMMN", T: 13 /*ScalarType.UINT32*/ },
-            { no: 1713, name: "tracking_io_info", kind: "message", T: () => TrackingIOInfo_1.TrackingIOInfo },
-            { no: 624, name: "is_transfer", kind: "scalar", T: 8 /*ScalarType.BOOL*/ },
-            { no: 828, name: "Unk3300_BIAKNIALBFJ", kind: "scalar", jsonName: "Unk3300BIAKNIALBFJ", T: 9 /*ScalarType.STRING*/ },
-            { no: 2, name: "client_version", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 13, name: "is_guest", kind: "scalar", T: 8 /*ScalarType.BOOL*/ },
-            { no: 6, name: "system_version", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 899, name: "target_home_owner_uid", kind: "scalar", T: 13 /*ScalarType.UINT32*/ },
-            { no: 1146, name: "psn_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 874, name: "security_cmd_reply", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
-            { no: 1028, name: "Unk3300_OFFHPAFIFGD", kind: "scalar", jsonName: "Unk3300OFFHPAFIFGD", T: 13 /*ScalarType.UINT32*/ },
-            { no: 9, name: "login_rand", kind: "scalar", T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 64, name: "adjust_tracking_info", kind: "message", T: () => AdjustTrackingInfo_1.AdjustTrackingInfo },
-            { no: 256, name: "environment_error_code", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
-            { no: 3, name: "platform_type", kind: "scalar", T: 13 /*ScalarType.UINT32*/ },
-            { no: 1983, name: "cps", kind: "scalar", T: 9 /*ScalarType.STRING*/ }
-        ]);
+/**
+ * Generated by the protoc-gen-ts.  DO NOT EDIT!
+ * compiler version: 3.20.3
+ * source: PlayerLoginReq.proto
+ * git: https://github.com/thesayyn/protoc-gen-ts */
+const dependency_1 = require("./AdjustTrackingInfo");
+const dependency_2 = require("./TrackingIOInfo");
+const pb_1 = require("google-protobuf");
+class PlayerLoginReq extends pb_1.Message {
+    constructor(data) {
+        super();
+        _PlayerLoginReq_one_of_decls.set(this, []);
+        pb_1.Message.initialize(this, Array.isArray(data) ? data : [], 0, -1, [], __classPrivateFieldGet(this, _PlayerLoginReq_one_of_decls, "f"));
+        if (!Array.isArray(data) && typeof data == "object") {
+            if ("device_uuid" in data && data.device_uuid != undefined) {
+                this.device_uuid = data.device_uuid;
+            }
+            if ("target_uid" in data && data.target_uid != undefined) {
+                this.target_uid = data.target_uid;
+            }
+            if ("extra_bin_data" in data && data.extra_bin_data != undefined) {
+                this.extra_bin_data = data.extra_bin_data;
+            }
+            if ("platform" in data && data.platform != undefined) {
+                this.platform = data.platform;
+            }
+            if ("checksum" in data && data.checksum != undefined) {
+                this.checksum = data.checksum;
+            }
+            if ("channel_id" in data && data.channel_id != undefined) {
+                this.channel_id = data.channel_id;
+            }
+            if ("client_verison_hash" in data && data.client_verison_hash != undefined) {
+                this.client_verison_hash = data.client_verison_hash;
+            }
+            if ("language_type" in data && data.language_type != undefined) {
+                this.language_type = data.language_type;
+            }
+            if ("client_data_version" in data && data.client_data_version != undefined) {
+                this.client_data_version = data.client_data_version;
+            }
+            if ("account_type" in data && data.account_type != undefined) {
+                this.account_type = data.account_type;
+            }
+            if ("security_library_md5" in data && data.security_library_md5 != undefined) {
+                this.security_library_md5 = data.security_library_md5;
+            }
+            if ("online_id" in data && data.online_id != undefined) {
+                this.online_id = data.online_id;
+            }
+            if ("Unk3300_PMGFBMJNNCL" in data && data.Unk3300_PMGFBMJNNCL != undefined) {
+                this.Unk3300_PMGFBMJNNCL = data.Unk3300_PMGFBMJNNCL;
+            }
+            if ("device_name" in data && data.device_name != undefined) {
+                this.device_name = data.device_name;
+            }
+            if ("birthday" in data && data.birthday != undefined) {
+                this.birthday = data.birthday;
+            }
+            if ("tag" in data && data.tag != undefined) {
+                this.tag = data.tag;
+            }
+            if ("account_uid" in data && data.account_uid != undefined) {
+                this.account_uid = data.account_uid;
+            }
+            if ("device_info" in data && data.device_info != undefined) {
+                this.device_info = data.device_info;
+            }
+            if ("sub_channel_id" in data && data.sub_channel_id != undefined) {
+                this.sub_channel_id = data.sub_channel_id;
+            }
+            if ("is_editor" in data && data.is_editor != undefined) {
+                this.is_editor = data.is_editor;
+            }
+            if ("token" in data && data.token != undefined) {
+                this.token = data.token;
+            }
+            if ("reg_platform" in data && data.reg_platform != undefined) {
+                this.reg_platform = data.reg_platform;
+            }
+            if ("checksum_client_version" in data && data.checksum_client_version != undefined) {
+                this.checksum_client_version = data.checksum_client_version;
+            }
+            if ("Unk3300_OOBHAIIIPHH" in data && data.Unk3300_OOBHAIIIPHH != undefined) {
+                this.Unk3300_OOBHAIIIPHH = data.Unk3300_OOBHAIIIPHH;
+            }
+            if ("Unk3300_NDLANBEIGEG" in data && data.Unk3300_NDLANBEIGEG != undefined) {
+                this.Unk3300_NDLANBEIGEG = data.Unk3300_NDLANBEIGEG;
+            }
+            if ("country_code" in data && data.country_code != undefined) {
+                this.country_code = data.country_code;
+            }
+            if ("Unk3300_PIPLDEAPMMN" in data && data.Unk3300_PIPLDEAPMMN != undefined) {
+                this.Unk3300_PIPLDEAPMMN = data.Unk3300_PIPLDEAPMMN;
+            }
+            if ("tracking_io_info" in data && data.tracking_io_info != undefined) {
+                this.tracking_io_info = data.tracking_io_info;
+            }
+            if ("is_transfer" in data && data.is_transfer != undefined) {
+                this.is_transfer = data.is_transfer;
+            }
+            if ("security_library_version" in data && data.security_library_version != undefined) {
+                this.security_library_version = data.security_library_version;
+            }
+            if ("client_version" in data && data.client_version != undefined) {
+                this.client_version = data.client_version;
+            }
+            if ("is_guest" in data && data.is_guest != undefined) {
+                this.is_guest = data.is_guest;
+            }
+            if ("system_version" in data && data.system_version != undefined) {
+                this.system_version = data.system_version;
+            }
+            if ("target_home_owner_uid" in data && data.target_home_owner_uid != undefined) {
+                this.target_home_owner_uid = data.target_home_owner_uid;
+            }
+            if ("psn_id" in data && data.psn_id != undefined) {
+                this.psn_id = data.psn_id;
+            }
+            if ("security_cmd_reply" in data && data.security_cmd_reply != undefined) {
+                this.security_cmd_reply = data.security_cmd_reply;
+            }
+            if ("Unk3300_OFFHPAFIFGD" in data && data.Unk3300_OFFHPAFIFGD != undefined) {
+                this.Unk3300_OFFHPAFIFGD = data.Unk3300_OFFHPAFIFGD;
+            }
+            if ("login_rand" in data && data.login_rand != undefined) {
+                this.login_rand = data.login_rand;
+            }
+            if ("adjust_tracking_info" in data && data.adjust_tracking_info != undefined) {
+                this.adjust_tracking_info = data.adjust_tracking_info;
+            }
+            if ("environment_error_code" in data && data.environment_error_code != undefined) {
+                this.environment_error_code = data.environment_error_code;
+            }
+            if ("platform_type" in data && data.platform_type != undefined) {
+                this.platform_type = data.platform_type;
+            }
+            if ("cps" in data && data.cps != undefined) {
+                this.cps = data.cps;
+            }
+        }
     }
-    create(value) {
-        const message = { deviceUuid: "", targetUid: 0, extraBinData: new Uint8Array(0), platform: "", checksum: "", channelId: 0, clientVerisonHash: "", languageType: 0, clientDataVersion: 0, accountType: 0, unk3300BBAABEHNFOE: "", onlineId: "", unk3300PMGFBMJNNCL: 0, deviceName: "", birthday: "", tag: 0, accountUid: "", deviceInfo: "", unk3300IADFJHNFKIB: 0, isEditor: false, token: "", regPlatform: 0, checksumClientVersion: "", unk3300OOBHAIIIPHH: 0, unk3300NDLANBEIGEG: 0, countryCode: "", unk3300PIPLDEAPMMN: 0, isTransfer: false, unk3300BIAKNIALBFJ: "", clientVersion: "", isGuest: false, systemVersion: "", targetHomeOwnerUid: 0, psnId: "", securityCmdReply: new Uint8Array(0), unk3300OFFHPAFIFGD: 0, loginRand: 0n, environmentErrorCode: new Uint8Array(0), platformType: 0, cps: "" };
-        globalThis.Object.defineProperty(message, runtime_4.MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            (0, runtime_3.reflectionMergePartial)(this, message, value);
+    get device_uuid() {
+        return pb_1.Message.getFieldWithDefault(this, 5, "");
+    }
+    set device_uuid(value) {
+        pb_1.Message.setField(this, 5, value);
+    }
+    get target_uid() {
+        return pb_1.Message.getFieldWithDefault(this, 10, 0);
+    }
+    set target_uid(value) {
+        pb_1.Message.setField(this, 10, value);
+    }
+    get extra_bin_data() {
+        return pb_1.Message.getFieldWithDefault(this, 2046, new Uint8Array());
+    }
+    set extra_bin_data(value) {
+        pb_1.Message.setField(this, 2046, value);
+    }
+    get platform() {
+        return pb_1.Message.getFieldWithDefault(this, 4, "");
+    }
+    set platform(value) {
+        pb_1.Message.setField(this, 4, value);
+    }
+    get checksum() {
+        return pb_1.Message.getFieldWithDefault(this, 1334, "");
+    }
+    set checksum(value) {
+        pb_1.Message.setField(this, 1334, value);
+    }
+    get channel_id() {
+        return pb_1.Message.getFieldWithDefault(this, 1565, 0);
+    }
+    set channel_id(value) {
+        pb_1.Message.setField(this, 1565, value);
+    }
+    get client_verison_hash() {
+        return pb_1.Message.getFieldWithDefault(this, 2040, "");
+    }
+    set client_verison_hash(value) {
+        pb_1.Message.setField(this, 2040, value);
+    }
+    get language_type() {
+        return pb_1.Message.getFieldWithDefault(this, 11, 0);
+    }
+    set language_type(value) {
+        pb_1.Message.setField(this, 11, value);
+    }
+    get client_data_version() {
+        return pb_1.Message.getFieldWithDefault(this, 847, 0);
+    }
+    set client_data_version(value) {
+        pb_1.Message.setField(this, 847, value);
+    }
+    get account_type() {
+        return pb_1.Message.getFieldWithDefault(this, 7, 0);
+    }
+    set account_type(value) {
+        pb_1.Message.setField(this, 7, value);
+    }
+    get security_library_md5() {
+        return pb_1.Message.getFieldWithDefault(this, 868, "");
+    }
+    set security_library_md5(value) {
+        pb_1.Message.setField(this, 868, value);
+    }
+    get online_id() {
+        return pb_1.Message.getFieldWithDefault(this, 577, "");
+    }
+    set online_id(value) {
+        pb_1.Message.setField(this, 577, value);
+    }
+    get Unk3300_PMGFBMJNNCL() {
+        return pb_1.Message.getFieldWithDefault(this, 82, 0);
+    }
+    set Unk3300_PMGFBMJNNCL(value) {
+        pb_1.Message.setField(this, 82, value);
+    }
+    get device_name() {
+        return pb_1.Message.getFieldWithDefault(this, 12, "");
+    }
+    set device_name(value) {
+        pb_1.Message.setField(this, 12, value);
+    }
+    get birthday() {
+        return pb_1.Message.getFieldWithDefault(this, 875, "");
+    }
+    set birthday(value) {
+        pb_1.Message.setField(this, 875, value);
+    }
+    get tag() {
+        return pb_1.Message.getFieldWithDefault(this, 525, 0);
+    }
+    set tag(value) {
+        pb_1.Message.setField(this, 525, value);
+    }
+    get account_uid() {
+        return pb_1.Message.getFieldWithDefault(this, 14, "");
+    }
+    set account_uid(value) {
+        pb_1.Message.setField(this, 14, value);
+    }
+    get device_info() {
+        return pb_1.Message.getFieldWithDefault(this, 15, "");
+    }
+    set device_info(value) {
+        pb_1.Message.setField(this, 15, value);
+    }
+    get sub_channel_id() {
+        return pb_1.Message.getFieldWithDefault(this, 1458, 0);
+    }
+    set sub_channel_id(value) {
+        pb_1.Message.setField(this, 1458, value);
+    }
+    get is_editor() {
+        return pb_1.Message.getFieldWithDefault(this, 1, false);
+    }
+    set is_editor(value) {
+        pb_1.Message.setField(this, 1, value);
+    }
+    get token() {
+        return pb_1.Message.getFieldWithDefault(this, 8, "");
+    }
+    set token(value) {
+        pb_1.Message.setField(this, 8, value);
+    }
+    get reg_platform() {
+        return pb_1.Message.getFieldWithDefault(this, 424, 0);
+    }
+    set reg_platform(value) {
+        pb_1.Message.setField(this, 424, value);
+    }
+    get checksum_client_version() {
+        return pb_1.Message.getFieldWithDefault(this, 581, "");
+    }
+    set checksum_client_version(value) {
+        pb_1.Message.setField(this, 581, value);
+    }
+    get Unk3300_OOBHAIIIPHH() {
+        return pb_1.Message.getFieldWithDefault(this, 85, 0);
+    }
+    set Unk3300_OOBHAIIIPHH(value) {
+        pb_1.Message.setField(this, 85, value);
+    }
+    get Unk3300_NDLANBEIGEG() {
+        return pb_1.Message.getFieldWithDefault(this, 1320, 0);
+    }
+    set Unk3300_NDLANBEIGEG(value) {
+        pb_1.Message.setField(this, 1320, value);
+    }
+    get country_code() {
+        return pb_1.Message.getFieldWithDefault(this, 104, "");
+    }
+    set country_code(value) {
+        pb_1.Message.setField(this, 104, value);
+    }
+    get Unk3300_PIPLDEAPMMN() {
+        return pb_1.Message.getFieldWithDefault(this, 1790, 0);
+    }
+    set Unk3300_PIPLDEAPMMN(value) {
+        pb_1.Message.setField(this, 1790, value);
+    }
+    get tracking_io_info() {
+        return pb_1.Message.getWrapperField(this, dependency_2.TrackingIOInfo, 1713);
+    }
+    set tracking_io_info(value) {
+        pb_1.Message.setWrapperField(this, 1713, value);
+    }
+    get has_tracking_io_info() {
+        return pb_1.Message.getField(this, 1713) != null;
+    }
+    get is_transfer() {
+        return pb_1.Message.getFieldWithDefault(this, 624, false);
+    }
+    set is_transfer(value) {
+        pb_1.Message.setField(this, 624, value);
+    }
+    get security_library_version() {
+        return pb_1.Message.getFieldWithDefault(this, 828, "");
+    }
+    set security_library_version(value) {
+        pb_1.Message.setField(this, 828, value);
+    }
+    get client_version() {
+        return pb_1.Message.getFieldWithDefault(this, 2, "");
+    }
+    set client_version(value) {
+        pb_1.Message.setField(this, 2, value);
+    }
+    get is_guest() {
+        return pb_1.Message.getFieldWithDefault(this, 13, false);
+    }
+    set is_guest(value) {
+        pb_1.Message.setField(this, 13, value);
+    }
+    get system_version() {
+        return pb_1.Message.getFieldWithDefault(this, 6, "");
+    }
+    set system_version(value) {
+        pb_1.Message.setField(this, 6, value);
+    }
+    get target_home_owner_uid() {
+        return pb_1.Message.getFieldWithDefault(this, 899, 0);
+    }
+    set target_home_owner_uid(value) {
+        pb_1.Message.setField(this, 899, value);
+    }
+    get psn_id() {
+        return pb_1.Message.getFieldWithDefault(this, 1146, "");
+    }
+    set psn_id(value) {
+        pb_1.Message.setField(this, 1146, value);
+    }
+    get security_cmd_reply() {
+        return pb_1.Message.getFieldWithDefault(this, 874, new Uint8Array());
+    }
+    set security_cmd_reply(value) {
+        pb_1.Message.setField(this, 874, value);
+    }
+    get Unk3300_OFFHPAFIFGD() {
+        return pb_1.Message.getFieldWithDefault(this, 1028, 0);
+    }
+    set Unk3300_OFFHPAFIFGD(value) {
+        pb_1.Message.setField(this, 1028, value);
+    }
+    get login_rand() {
+        return pb_1.Message.getFieldWithDefault(this, 9, 0);
+    }
+    set login_rand(value) {
+        pb_1.Message.setField(this, 9, value);
+    }
+    get adjust_tracking_info() {
+        return pb_1.Message.getWrapperField(this, dependency_1.AdjustTrackingInfo, 64);
+    }
+    set adjust_tracking_info(value) {
+        pb_1.Message.setWrapperField(this, 64, value);
+    }
+    get has_adjust_tracking_info() {
+        return pb_1.Message.getField(this, 64) != null;
+    }
+    get environment_error_code() {
+        return pb_1.Message.getFieldWithDefault(this, 256, new Uint8Array());
+    }
+    set environment_error_code(value) {
+        pb_1.Message.setField(this, 256, value);
+    }
+    get platform_type() {
+        return pb_1.Message.getFieldWithDefault(this, 3, 0);
+    }
+    set platform_type(value) {
+        pb_1.Message.setField(this, 3, value);
+    }
+    get cps() {
+        return pb_1.Message.getFieldWithDefault(this, 1983, "");
+    }
+    set cps(value) {
+        pb_1.Message.setField(this, 1983, value);
+    }
+    static fromObject(data) {
+        const message = new PlayerLoginReq({});
+        if (data.device_uuid != null) {
+            message.device_uuid = data.device_uuid;
+        }
+        if (data.target_uid != null) {
+            message.target_uid = data.target_uid;
+        }
+        if (data.extra_bin_data != null) {
+            message.extra_bin_data = data.extra_bin_data;
+        }
+        if (data.platform != null) {
+            message.platform = data.platform;
+        }
+        if (data.checksum != null) {
+            message.checksum = data.checksum;
+        }
+        if (data.channel_id != null) {
+            message.channel_id = data.channel_id;
+        }
+        if (data.client_verison_hash != null) {
+            message.client_verison_hash = data.client_verison_hash;
+        }
+        if (data.language_type != null) {
+            message.language_type = data.language_type;
+        }
+        if (data.client_data_version != null) {
+            message.client_data_version = data.client_data_version;
+        }
+        if (data.account_type != null) {
+            message.account_type = data.account_type;
+        }
+        if (data.security_library_md5 != null) {
+            message.security_library_md5 = data.security_library_md5;
+        }
+        if (data.online_id != null) {
+            message.online_id = data.online_id;
+        }
+        if (data.Unk3300_PMGFBMJNNCL != null) {
+            message.Unk3300_PMGFBMJNNCL = data.Unk3300_PMGFBMJNNCL;
+        }
+        if (data.device_name != null) {
+            message.device_name = data.device_name;
+        }
+        if (data.birthday != null) {
+            message.birthday = data.birthday;
+        }
+        if (data.tag != null) {
+            message.tag = data.tag;
+        }
+        if (data.account_uid != null) {
+            message.account_uid = data.account_uid;
+        }
+        if (data.device_info != null) {
+            message.device_info = data.device_info;
+        }
+        if (data.sub_channel_id != null) {
+            message.sub_channel_id = data.sub_channel_id;
+        }
+        if (data.is_editor != null) {
+            message.is_editor = data.is_editor;
+        }
+        if (data.token != null) {
+            message.token = data.token;
+        }
+        if (data.reg_platform != null) {
+            message.reg_platform = data.reg_platform;
+        }
+        if (data.checksum_client_version != null) {
+            message.checksum_client_version = data.checksum_client_version;
+        }
+        if (data.Unk3300_OOBHAIIIPHH != null) {
+            message.Unk3300_OOBHAIIIPHH = data.Unk3300_OOBHAIIIPHH;
+        }
+        if (data.Unk3300_NDLANBEIGEG != null) {
+            message.Unk3300_NDLANBEIGEG = data.Unk3300_NDLANBEIGEG;
+        }
+        if (data.country_code != null) {
+            message.country_code = data.country_code;
+        }
+        if (data.Unk3300_PIPLDEAPMMN != null) {
+            message.Unk3300_PIPLDEAPMMN = data.Unk3300_PIPLDEAPMMN;
+        }
+        if (data.tracking_io_info != null) {
+            message.tracking_io_info = dependency_2.TrackingIOInfo.fromObject(data.tracking_io_info);
+        }
+        if (data.is_transfer != null) {
+            message.is_transfer = data.is_transfer;
+        }
+        if (data.security_library_version != null) {
+            message.security_library_version = data.security_library_version;
+        }
+        if (data.client_version != null) {
+            message.client_version = data.client_version;
+        }
+        if (data.is_guest != null) {
+            message.is_guest = data.is_guest;
+        }
+        if (data.system_version != null) {
+            message.system_version = data.system_version;
+        }
+        if (data.target_home_owner_uid != null) {
+            message.target_home_owner_uid = data.target_home_owner_uid;
+        }
+        if (data.psn_id != null) {
+            message.psn_id = data.psn_id;
+        }
+        if (data.security_cmd_reply != null) {
+            message.security_cmd_reply = data.security_cmd_reply;
+        }
+        if (data.Unk3300_OFFHPAFIFGD != null) {
+            message.Unk3300_OFFHPAFIFGD = data.Unk3300_OFFHPAFIFGD;
+        }
+        if (data.login_rand != null) {
+            message.login_rand = data.login_rand;
+        }
+        if (data.adjust_tracking_info != null) {
+            message.adjust_tracking_info = dependency_1.AdjustTrackingInfo.fromObject(data.adjust_tracking_info);
+        }
+        if (data.environment_error_code != null) {
+            message.environment_error_code = data.environment_error_code;
+        }
+        if (data.platform_type != null) {
+            message.platform_type = data.platform_type;
+        }
+        if (data.cps != null) {
+            message.cps = data.cps;
+        }
         return message;
     }
-    internalBinaryRead(reader, length, options, target) {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* string device_uuid */ 5:
-                    message.deviceUuid = reader.string();
+    toObject() {
+        const data = {};
+        if (this.device_uuid != null) {
+            data.device_uuid = this.device_uuid;
+        }
+        if (this.target_uid != null) {
+            data.target_uid = this.target_uid;
+        }
+        if (this.extra_bin_data != null) {
+            data.extra_bin_data = this.extra_bin_data;
+        }
+        if (this.platform != null) {
+            data.platform = this.platform;
+        }
+        if (this.checksum != null) {
+            data.checksum = this.checksum;
+        }
+        if (this.channel_id != null) {
+            data.channel_id = this.channel_id;
+        }
+        if (this.client_verison_hash != null) {
+            data.client_verison_hash = this.client_verison_hash;
+        }
+        if (this.language_type != null) {
+            data.language_type = this.language_type;
+        }
+        if (this.client_data_version != null) {
+            data.client_data_version = this.client_data_version;
+        }
+        if (this.account_type != null) {
+            data.account_type = this.account_type;
+        }
+        if (this.security_library_md5 != null) {
+            data.security_library_md5 = this.security_library_md5;
+        }
+        if (this.online_id != null) {
+            data.online_id = this.online_id;
+        }
+        if (this.Unk3300_PMGFBMJNNCL != null) {
+            data.Unk3300_PMGFBMJNNCL = this.Unk3300_PMGFBMJNNCL;
+        }
+        if (this.device_name != null) {
+            data.device_name = this.device_name;
+        }
+        if (this.birthday != null) {
+            data.birthday = this.birthday;
+        }
+        if (this.tag != null) {
+            data.tag = this.tag;
+        }
+        if (this.account_uid != null) {
+            data.account_uid = this.account_uid;
+        }
+        if (this.device_info != null) {
+            data.device_info = this.device_info;
+        }
+        if (this.sub_channel_id != null) {
+            data.sub_channel_id = this.sub_channel_id;
+        }
+        if (this.is_editor != null) {
+            data.is_editor = this.is_editor;
+        }
+        if (this.token != null) {
+            data.token = this.token;
+        }
+        if (this.reg_platform != null) {
+            data.reg_platform = this.reg_platform;
+        }
+        if (this.checksum_client_version != null) {
+            data.checksum_client_version = this.checksum_client_version;
+        }
+        if (this.Unk3300_OOBHAIIIPHH != null) {
+            data.Unk3300_OOBHAIIIPHH = this.Unk3300_OOBHAIIIPHH;
+        }
+        if (this.Unk3300_NDLANBEIGEG != null) {
+            data.Unk3300_NDLANBEIGEG = this.Unk3300_NDLANBEIGEG;
+        }
+        if (this.country_code != null) {
+            data.country_code = this.country_code;
+        }
+        if (this.Unk3300_PIPLDEAPMMN != null) {
+            data.Unk3300_PIPLDEAPMMN = this.Unk3300_PIPLDEAPMMN;
+        }
+        if (this.tracking_io_info != null) {
+            data.tracking_io_info = this.tracking_io_info.toObject();
+        }
+        if (this.is_transfer != null) {
+            data.is_transfer = this.is_transfer;
+        }
+        if (this.security_library_version != null) {
+            data.security_library_version = this.security_library_version;
+        }
+        if (this.client_version != null) {
+            data.client_version = this.client_version;
+        }
+        if (this.is_guest != null) {
+            data.is_guest = this.is_guest;
+        }
+        if (this.system_version != null) {
+            data.system_version = this.system_version;
+        }
+        if (this.target_home_owner_uid != null) {
+            data.target_home_owner_uid = this.target_home_owner_uid;
+        }
+        if (this.psn_id != null) {
+            data.psn_id = this.psn_id;
+        }
+        if (this.security_cmd_reply != null) {
+            data.security_cmd_reply = this.security_cmd_reply;
+        }
+        if (this.Unk3300_OFFHPAFIFGD != null) {
+            data.Unk3300_OFFHPAFIFGD = this.Unk3300_OFFHPAFIFGD;
+        }
+        if (this.login_rand != null) {
+            data.login_rand = this.login_rand;
+        }
+        if (this.adjust_tracking_info != null) {
+            data.adjust_tracking_info = this.adjust_tracking_info.toObject();
+        }
+        if (this.environment_error_code != null) {
+            data.environment_error_code = this.environment_error_code;
+        }
+        if (this.platform_type != null) {
+            data.platform_type = this.platform_type;
+        }
+        if (this.cps != null) {
+            data.cps = this.cps;
+        }
+        return data;
+    }
+    serialize(w) {
+        const writer = w || new pb_1.BinaryWriter();
+        if (this.device_uuid.length)
+            writer.writeString(5, this.device_uuid);
+        if (this.target_uid != 0)
+            writer.writeUint32(10, this.target_uid);
+        if (this.extra_bin_data.length)
+            writer.writeBytes(2046, this.extra_bin_data);
+        if (this.platform.length)
+            writer.writeString(4, this.platform);
+        if (this.checksum.length)
+            writer.writeString(1334, this.checksum);
+        if (this.channel_id != 0)
+            writer.writeUint32(1565, this.channel_id);
+        if (this.client_verison_hash.length)
+            writer.writeString(2040, this.client_verison_hash);
+        if (this.language_type != 0)
+            writer.writeUint32(11, this.language_type);
+        if (this.client_data_version != 0)
+            writer.writeUint32(847, this.client_data_version);
+        if (this.account_type != 0)
+            writer.writeUint32(7, this.account_type);
+        if (this.security_library_md5.length)
+            writer.writeString(868, this.security_library_md5);
+        if (this.online_id.length)
+            writer.writeString(577, this.online_id);
+        if (this.Unk3300_PMGFBMJNNCL != 0)
+            writer.writeUint32(82, this.Unk3300_PMGFBMJNNCL);
+        if (this.device_name.length)
+            writer.writeString(12, this.device_name);
+        if (this.birthday.length)
+            writer.writeString(875, this.birthday);
+        if (this.tag != 0)
+            writer.writeUint32(525, this.tag);
+        if (this.account_uid.length)
+            writer.writeString(14, this.account_uid);
+        if (this.device_info.length)
+            writer.writeString(15, this.device_info);
+        if (this.sub_channel_id != 0)
+            writer.writeUint32(1458, this.sub_channel_id);
+        if (this.is_editor != false)
+            writer.writeBool(1, this.is_editor);
+        if (this.token.length)
+            writer.writeString(8, this.token);
+        if (this.reg_platform != 0)
+            writer.writeUint32(424, this.reg_platform);
+        if (this.checksum_client_version.length)
+            writer.writeString(581, this.checksum_client_version);
+        if (this.Unk3300_OOBHAIIIPHH != 0)
+            writer.writeUint32(85, this.Unk3300_OOBHAIIIPHH);
+        if (this.Unk3300_NDLANBEIGEG != 0)
+            writer.writeUint32(1320, this.Unk3300_NDLANBEIGEG);
+        if (this.country_code.length)
+            writer.writeString(104, this.country_code);
+        if (this.Unk3300_PIPLDEAPMMN != 0)
+            writer.writeUint32(1790, this.Unk3300_PIPLDEAPMMN);
+        if (this.has_tracking_io_info)
+            writer.writeMessage(1713, this.tracking_io_info, () => this.tracking_io_info.serialize(writer));
+        if (this.is_transfer != false)
+            writer.writeBool(624, this.is_transfer);
+        if (this.security_library_version.length)
+            writer.writeString(828, this.security_library_version);
+        if (this.client_version.length)
+            writer.writeString(2, this.client_version);
+        if (this.is_guest != false)
+            writer.writeBool(13, this.is_guest);
+        if (this.system_version.length)
+            writer.writeString(6, this.system_version);
+        if (this.target_home_owner_uid != 0)
+            writer.writeUint32(899, this.target_home_owner_uid);
+        if (this.psn_id.length)
+            writer.writeString(1146, this.psn_id);
+        if (this.security_cmd_reply.length)
+            writer.writeBytes(874, this.security_cmd_reply);
+        if (this.Unk3300_OFFHPAFIFGD != 0)
+            writer.writeUint32(1028, this.Unk3300_OFFHPAFIFGD);
+        if (this.login_rand != 0)
+            writer.writeUint64(9, this.login_rand);
+        if (this.has_adjust_tracking_info)
+            writer.writeMessage(64, this.adjust_tracking_info, () => this.adjust_tracking_info.serialize(writer));
+        if (this.environment_error_code.length)
+            writer.writeBytes(256, this.environment_error_code);
+        if (this.platform_type != 0)
+            writer.writeUint32(3, this.platform_type);
+        if (this.cps.length)
+            writer.writeString(1983, this.cps);
+        if (!w)
+            return writer.getResultBuffer();
+    }
+    static deserialize(bytes) {
+        const reader = bytes instanceof pb_1.BinaryReader ? bytes : new pb_1.BinaryReader(bytes), message = new PlayerLoginReq();
+        while (reader.nextField()) {
+            if (reader.isEndGroup())
+                break;
+            switch (reader.getFieldNumber()) {
+                case 5:
+                    message.device_uuid = reader.readString();
                     break;
-                case /* uint32 target_uid */ 10:
-                    message.targetUid = reader.uint32();
+                case 10:
+                    message.target_uid = reader.readUint32();
                     break;
-                case /* bytes extra_bin_data */ 2046:
-                    message.extraBinData = reader.bytes();
+                case 2046:
+                    message.extra_bin_data = reader.readBytes();
                     break;
-                case /* string platform */ 4:
-                    message.platform = reader.string();
+                case 4:
+                    message.platform = reader.readString();
                     break;
-                case /* string checksum */ 1334:
-                    message.checksum = reader.string();
+                case 1334:
+                    message.checksum = reader.readString();
                     break;
-                case /* uint32 channel_id */ 1565:
-                    message.channelId = reader.uint32();
+                case 1565:
+                    message.channel_id = reader.readUint32();
                     break;
-                case /* string client_verison_hash */ 2040:
-                    message.clientVerisonHash = reader.string();
+                case 2040:
+                    message.client_verison_hash = reader.readString();
                     break;
-                case /* uint32 language_type */ 11:
-                    message.languageType = reader.uint32();
+                case 11:
+                    message.language_type = reader.readUint32();
                     break;
-                case /* uint32 client_data_version */ 847:
-                    message.clientDataVersion = reader.uint32();
+                case 847:
+                    message.client_data_version = reader.readUint32();
                     break;
-                case /* uint32 account_type */ 7:
-                    message.accountType = reader.uint32();
+                case 7:
+                    message.account_type = reader.readUint32();
                     break;
-                case /* string Unk3300_BBAABEHNFOE = 868 [json_name = "Unk3300BBAABEHNFOE"];*/ 868:
-                    message.unk3300BBAABEHNFOE = reader.string();
+                case 868:
+                    message.security_library_md5 = reader.readString();
                     break;
-                case /* string online_id */ 577:
-                    message.onlineId = reader.string();
+                case 577:
+                    message.online_id = reader.readString();
                     break;
-                case /* uint32 Unk3300_PMGFBMJNNCL = 82 [json_name = "Unk3300PMGFBMJNNCL"];*/ 82:
-                    message.unk3300PMGFBMJNNCL = reader.uint32();
+                case 82:
+                    message.Unk3300_PMGFBMJNNCL = reader.readUint32();
                     break;
-                case /* string device_name */ 12:
-                    message.deviceName = reader.string();
+                case 12:
+                    message.device_name = reader.readString();
                     break;
-                case /* string birthday */ 875:
-                    message.birthday = reader.string();
+                case 875:
+                    message.birthday = reader.readString();
                     break;
-                case /* uint32 tag */ 525:
-                    message.tag = reader.uint32();
+                case 525:
+                    message.tag = reader.readUint32();
                     break;
-                case /* string account_uid */ 14:
-                    message.accountUid = reader.string();
+                case 14:
+                    message.account_uid = reader.readString();
                     break;
-                case /* string device_info */ 15:
-                    message.deviceInfo = reader.string();
+                case 15:
+                    message.device_info = reader.readString();
                     break;
-                case /* uint32 Unk3300_IADFJHNFKIB = 1458 [json_name = "Unk3300IADFJHNFKIB"];*/ 1458:
-                    message.unk3300IADFJHNFKIB = reader.uint32();
+                case 1458:
+                    message.sub_channel_id = reader.readUint32();
                     break;
-                case /* bool is_editor */ 1:
-                    message.isEditor = reader.bool();
+                case 1:
+                    message.is_editor = reader.readBool();
                     break;
-                case /* string token */ 8:
-                    message.token = reader.string();
+                case 8:
+                    message.token = reader.readString();
                     break;
-                case /* uint32 reg_platform */ 424:
-                    message.regPlatform = reader.uint32();
+                case 424:
+                    message.reg_platform = reader.readUint32();
                     break;
-                case /* string checksum_client_version */ 581:
-                    message.checksumClientVersion = reader.string();
+                case 581:
+                    message.checksum_client_version = reader.readString();
                     break;
-                case /* uint32 Unk3300_OOBHAIIIPHH = 85 [json_name = "Unk3300OOBHAIIIPHH"];*/ 85:
-                    message.unk3300OOBHAIIIPHH = reader.uint32();
+                case 85:
+                    message.Unk3300_OOBHAIIIPHH = reader.readUint32();
                     break;
-                case /* uint32 Unk3300_NDLANBEIGEG = 1320 [json_name = "Unk3300NDLANBEIGEG"];*/ 1320:
-                    message.unk3300NDLANBEIGEG = reader.uint32();
+                case 1320:
+                    message.Unk3300_NDLANBEIGEG = reader.readUint32();
                     break;
-                case /* string country_code */ 104:
-                    message.countryCode = reader.string();
+                case 104:
+                    message.country_code = reader.readString();
                     break;
-                case /* uint32 Unk3300_PIPLDEAPMMN = 1790 [json_name = "Unk3300PIPLDEAPMMN"];*/ 1790:
-                    message.unk3300PIPLDEAPMMN = reader.uint32();
+                case 1790:
+                    message.Unk3300_PIPLDEAPMMN = reader.readUint32();
                     break;
-                case /* TrackingIOInfo tracking_io_info */ 1713:
-                    message.trackingIoInfo = TrackingIOInfo_1.TrackingIOInfo.internalBinaryRead(reader, reader.uint32(), options, message.trackingIoInfo);
+                case 1713:
+                    reader.readMessage(message.tracking_io_info, () => message.tracking_io_info = dependency_2.TrackingIOInfo.deserialize(reader));
                     break;
-                case /* bool is_transfer */ 624:
-                    message.isTransfer = reader.bool();
+                case 624:
+                    message.is_transfer = reader.readBool();
                     break;
-                case /* string Unk3300_BIAKNIALBFJ = 828 [json_name = "Unk3300BIAKNIALBFJ"];*/ 828:
-                    message.unk3300BIAKNIALBFJ = reader.string();
+                case 828:
+                    message.security_library_version = reader.readString();
                     break;
-                case /* string client_version */ 2:
-                    message.clientVersion = reader.string();
+                case 2:
+                    message.client_version = reader.readString();
                     break;
-                case /* bool is_guest */ 13:
-                    message.isGuest = reader.bool();
+                case 13:
+                    message.is_guest = reader.readBool();
                     break;
-                case /* string system_version */ 6:
-                    message.systemVersion = reader.string();
+                case 6:
+                    message.system_version = reader.readString();
                     break;
-                case /* uint32 target_home_owner_uid */ 899:
-                    message.targetHomeOwnerUid = reader.uint32();
+                case 899:
+                    message.target_home_owner_uid = reader.readUint32();
                     break;
-                case /* string psn_id */ 1146:
-                    message.psnId = reader.string();
+                case 1146:
+                    message.psn_id = reader.readString();
                     break;
-                case /* bytes security_cmd_reply */ 874:
-                    message.securityCmdReply = reader.bytes();
+                case 874:
+                    message.security_cmd_reply = reader.readBytes();
                     break;
-                case /* uint32 Unk3300_OFFHPAFIFGD = 1028 [json_name = "Unk3300OFFHPAFIFGD"];*/ 1028:
-                    message.unk3300OFFHPAFIFGD = reader.uint32();
+                case 1028:
+                    message.Unk3300_OFFHPAFIFGD = reader.readUint32();
                     break;
-                case /* uint64 login_rand */ 9:
-                    message.loginRand = reader.uint64().toBigInt();
+                case 9:
+                    message.login_rand = reader.readUint64();
                     break;
-                case /* AdjustTrackingInfo adjust_tracking_info */ 64:
-                    message.adjustTrackingInfo = AdjustTrackingInfo_1.AdjustTrackingInfo.internalBinaryRead(reader, reader.uint32(), options, message.adjustTrackingInfo);
+                case 64:
+                    reader.readMessage(message.adjust_tracking_info, () => message.adjust_tracking_info = dependency_1.AdjustTrackingInfo.deserialize(reader));
                     break;
-                case /* bytes environment_error_code */ 256:
-                    message.environmentErrorCode = reader.bytes();
+                case 256:
+                    message.environment_error_code = reader.readBytes();
                     break;
-                case /* uint32 platform_type */ 3:
-                    message.platformType = reader.uint32();
+                case 3:
+                    message.platform_type = reader.readUint32();
                     break;
-                case /* string cps */ 1983:
-                    message.cps = reader.string();
+                case 1983:
+                    message.cps = reader.readString();
                     break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? runtime_2.UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+                default: reader.skipField();
             }
         }
         return message;
     }
-    internalBinaryWrite(message, writer, options) {
-        /* string device_uuid = 5; */
-        if (message.deviceUuid !== "")
-            writer.tag(5, runtime_1.WireType.LengthDelimited).string(message.deviceUuid);
-        /* uint32 target_uid = 10; */
-        if (message.targetUid !== 0)
-            writer.tag(10, runtime_1.WireType.Varint).uint32(message.targetUid);
-        /* bytes extra_bin_data = 2046; */
-        if (message.extraBinData.length)
-            writer.tag(2046, runtime_1.WireType.LengthDelimited).bytes(message.extraBinData);
-        /* string platform = 4; */
-        if (message.platform !== "")
-            writer.tag(4, runtime_1.WireType.LengthDelimited).string(message.platform);
-        /* string checksum = 1334; */
-        if (message.checksum !== "")
-            writer.tag(1334, runtime_1.WireType.LengthDelimited).string(message.checksum);
-        /* uint32 channel_id = 1565; */
-        if (message.channelId !== 0)
-            writer.tag(1565, runtime_1.WireType.Varint).uint32(message.channelId);
-        /* string client_verison_hash = 2040; */
-        if (message.clientVerisonHash !== "")
-            writer.tag(2040, runtime_1.WireType.LengthDelimited).string(message.clientVerisonHash);
-        /* uint32 language_type = 11; */
-        if (message.languageType !== 0)
-            writer.tag(11, runtime_1.WireType.Varint).uint32(message.languageType);
-        /* uint32 client_data_version = 847; */
-        if (message.clientDataVersion !== 0)
-            writer.tag(847, runtime_1.WireType.Varint).uint32(message.clientDataVersion);
-        /* uint32 account_type = 7; */
-        if (message.accountType !== 0)
-            writer.tag(7, runtime_1.WireType.Varint).uint32(message.accountType);
-        /* string Unk3300_BBAABEHNFOE = 868 [json_name = "Unk3300BBAABEHNFOE"]; */
-        if (message.unk3300BBAABEHNFOE !== "")
-            writer.tag(868, runtime_1.WireType.LengthDelimited).string(message.unk3300BBAABEHNFOE);
-        /* string online_id = 577; */
-        if (message.onlineId !== "")
-            writer.tag(577, runtime_1.WireType.LengthDelimited).string(message.onlineId);
-        /* uint32 Unk3300_PMGFBMJNNCL = 82 [json_name = "Unk3300PMGFBMJNNCL"]; */
-        if (message.unk3300PMGFBMJNNCL !== 0)
-            writer.tag(82, runtime_1.WireType.Varint).uint32(message.unk3300PMGFBMJNNCL);
-        /* string device_name = 12; */
-        if (message.deviceName !== "")
-            writer.tag(12, runtime_1.WireType.LengthDelimited).string(message.deviceName);
-        /* string birthday = 875; */
-        if (message.birthday !== "")
-            writer.tag(875, runtime_1.WireType.LengthDelimited).string(message.birthday);
-        /* uint32 tag = 525; */
-        if (message.tag !== 0)
-            writer.tag(525, runtime_1.WireType.Varint).uint32(message.tag);
-        /* string account_uid = 14; */
-        if (message.accountUid !== "")
-            writer.tag(14, runtime_1.WireType.LengthDelimited).string(message.accountUid);
-        /* string device_info = 15; */
-        if (message.deviceInfo !== "")
-            writer.tag(15, runtime_1.WireType.LengthDelimited).string(message.deviceInfo);
-        /* uint32 Unk3300_IADFJHNFKIB = 1458 [json_name = "Unk3300IADFJHNFKIB"]; */
-        if (message.unk3300IADFJHNFKIB !== 0)
-            writer.tag(1458, runtime_1.WireType.Varint).uint32(message.unk3300IADFJHNFKIB);
-        /* bool is_editor = 1; */
-        if (message.isEditor !== false)
-            writer.tag(1, runtime_1.WireType.Varint).bool(message.isEditor);
-        /* string token = 8; */
-        if (message.token !== "")
-            writer.tag(8, runtime_1.WireType.LengthDelimited).string(message.token);
-        /* uint32 reg_platform = 424; */
-        if (message.regPlatform !== 0)
-            writer.tag(424, runtime_1.WireType.Varint).uint32(message.regPlatform);
-        /* string checksum_client_version = 581; */
-        if (message.checksumClientVersion !== "")
-            writer.tag(581, runtime_1.WireType.LengthDelimited).string(message.checksumClientVersion);
-        /* uint32 Unk3300_OOBHAIIIPHH = 85 [json_name = "Unk3300OOBHAIIIPHH"]; */
-        if (message.unk3300OOBHAIIIPHH !== 0)
-            writer.tag(85, runtime_1.WireType.Varint).uint32(message.unk3300OOBHAIIIPHH);
-        /* uint32 Unk3300_NDLANBEIGEG = 1320 [json_name = "Unk3300NDLANBEIGEG"]; */
-        if (message.unk3300NDLANBEIGEG !== 0)
-            writer.tag(1320, runtime_1.WireType.Varint).uint32(message.unk3300NDLANBEIGEG);
-        /* string country_code = 104; */
-        if (message.countryCode !== "")
-            writer.tag(104, runtime_1.WireType.LengthDelimited).string(message.countryCode);
-        /* uint32 Unk3300_PIPLDEAPMMN = 1790 [json_name = "Unk3300PIPLDEAPMMN"]; */
-        if (message.unk3300PIPLDEAPMMN !== 0)
-            writer.tag(1790, runtime_1.WireType.Varint).uint32(message.unk3300PIPLDEAPMMN);
-        /* TrackingIOInfo tracking_io_info = 1713; */
-        if (message.trackingIoInfo)
-            TrackingIOInfo_1.TrackingIOInfo.internalBinaryWrite(message.trackingIoInfo, writer.tag(1713, runtime_1.WireType.LengthDelimited).fork(), options).join();
-        /* bool is_transfer = 624; */
-        if (message.isTransfer !== false)
-            writer.tag(624, runtime_1.WireType.Varint).bool(message.isTransfer);
-        /* string Unk3300_BIAKNIALBFJ = 828 [json_name = "Unk3300BIAKNIALBFJ"]; */
-        if (message.unk3300BIAKNIALBFJ !== "")
-            writer.tag(828, runtime_1.WireType.LengthDelimited).string(message.unk3300BIAKNIALBFJ);
-        /* string client_version = 2; */
-        if (message.clientVersion !== "")
-            writer.tag(2, runtime_1.WireType.LengthDelimited).string(message.clientVersion);
-        /* bool is_guest = 13; */
-        if (message.isGuest !== false)
-            writer.tag(13, runtime_1.WireType.Varint).bool(message.isGuest);
-        /* string system_version = 6; */
-        if (message.systemVersion !== "")
-            writer.tag(6, runtime_1.WireType.LengthDelimited).string(message.systemVersion);
-        /* uint32 target_home_owner_uid = 899; */
-        if (message.targetHomeOwnerUid !== 0)
-            writer.tag(899, runtime_1.WireType.Varint).uint32(message.targetHomeOwnerUid);
-        /* string psn_id = 1146; */
-        if (message.psnId !== "")
-            writer.tag(1146, runtime_1.WireType.LengthDelimited).string(message.psnId);
-        /* bytes security_cmd_reply = 874; */
-        if (message.securityCmdReply.length)
-            writer.tag(874, runtime_1.WireType.LengthDelimited).bytes(message.securityCmdReply);
-        /* uint32 Unk3300_OFFHPAFIFGD = 1028 [json_name = "Unk3300OFFHPAFIFGD"]; */
-        if (message.unk3300OFFHPAFIFGD !== 0)
-            writer.tag(1028, runtime_1.WireType.Varint).uint32(message.unk3300OFFHPAFIFGD);
-        /* uint64 login_rand = 9; */
-        if (message.loginRand !== 0n)
-            writer.tag(9, runtime_1.WireType.Varint).uint64(message.loginRand);
-        /* AdjustTrackingInfo adjust_tracking_info = 64; */
-        if (message.adjustTrackingInfo)
-            AdjustTrackingInfo_1.AdjustTrackingInfo.internalBinaryWrite(message.adjustTrackingInfo, writer.tag(64, runtime_1.WireType.LengthDelimited).fork(), options).join();
-        /* bytes environment_error_code = 256; */
-        if (message.environmentErrorCode.length)
-            writer.tag(256, runtime_1.WireType.LengthDelimited).bytes(message.environmentErrorCode);
-        /* uint32 platform_type = 3; */
-        if (message.platformType !== 0)
-            writer.tag(3, runtime_1.WireType.Varint).uint32(message.platformType);
-        /* string cps = 1983; */
-        if (message.cps !== "")
-            writer.tag(1983, runtime_1.WireType.LengthDelimited).string(message.cps);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
+    serializeBinary() {
+        return this.serialize();
+    }
+    static deserializeBinary(bytes) {
+        return PlayerLoginReq.deserialize(bytes);
     }
 }
-/**
- * @generated MessageType for protobuf message PlayerLoginReq
- */
-exports.PlayerLoginReq = new PlayerLoginReq$Type();
+exports.PlayerLoginReq = PlayerLoginReq;
+_PlayerLoginReq_one_of_decls = new WeakMap();
