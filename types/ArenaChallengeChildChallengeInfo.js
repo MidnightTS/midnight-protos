@@ -1,0 +1,83 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ArenaChallengeChildChallengeInfo = void 0;
+const runtime_1 = require("@protobuf-ts/runtime");
+const runtime_2 = require("@protobuf-ts/runtime");
+const runtime_3 = require("@protobuf-ts/runtime");
+const runtime_4 = require("@protobuf-ts/runtime");
+const runtime_5 = require("@protobuf-ts/runtime");
+// @generated message type with reflection information, may provide speed optimized methods
+class ArenaChallengeChildChallengeInfo$Type extends runtime_5.MessageType {
+    constructor() {
+        super("ArenaChallengeChildChallengeInfo", [
+            { no: 11, name: "challenge_id", kind: "scalar", T: 13 /*ScalarType.UINT32*/ },
+            { no: 4, name: "challenge_index", kind: "scalar", T: 13 /*ScalarType.UINT32*/ },
+            { no: 12, name: "challenge_type", kind: "scalar", T: 13 /*ScalarType.UINT32*/ },
+            { no: 2, name: "is_settled", kind: "scalar", T: 8 /*ScalarType.BOOL*/ },
+            { no: 14, name: "is_success", kind: "scalar", T: 8 /*ScalarType.BOOL*/ }
+        ]);
+    }
+    create(value) {
+        const message = { challengeId: 0, challengeIndex: 0, challengeType: 0, isSettled: false, isSuccess: false };
+        globalThis.Object.defineProperty(message, runtime_4.MESSAGE_TYPE, { enumerable: false, value: this });
+        if (value !== undefined)
+            (0, runtime_3.reflectionMergePartial)(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader, length, options, target) {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* uint32 challenge_id */ 11:
+                    message.challengeId = reader.uint32();
+                    break;
+                case /* uint32 challenge_index */ 4:
+                    message.challengeIndex = reader.uint32();
+                    break;
+                case /* uint32 challenge_type */ 12:
+                    message.challengeType = reader.uint32();
+                    break;
+                case /* bool is_settled */ 2:
+                    message.isSettled = reader.bool();
+                    break;
+                case /* bool is_success */ 14:
+                    message.isSuccess = reader.bool();
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? runtime_2.UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message, writer, options) {
+        /* uint32 challenge_id = 11; */
+        if (message.challengeId !== 0)
+            writer.tag(11, runtime_1.WireType.Varint).uint32(message.challengeId);
+        /* uint32 challenge_index = 4; */
+        if (message.challengeIndex !== 0)
+            writer.tag(4, runtime_1.WireType.Varint).uint32(message.challengeIndex);
+        /* uint32 challenge_type = 12; */
+        if (message.challengeType !== 0)
+            writer.tag(12, runtime_1.WireType.Varint).uint32(message.challengeType);
+        /* bool is_settled = 2; */
+        if (message.isSettled !== false)
+            writer.tag(2, runtime_1.WireType.Varint).bool(message.isSettled);
+        /* bool is_success = 14; */
+        if (message.isSuccess !== false)
+            writer.tag(14, runtime_1.WireType.Varint).bool(message.isSuccess);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? runtime_2.UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message ArenaChallengeChildChallengeInfo
+ */
+exports.ArenaChallengeChildChallengeInfo = new ArenaChallengeChildChallengeInfo$Type();
