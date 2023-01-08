@@ -12,14 +12,14 @@ class GetAuthkeyRsp$Type extends runtime_5.MessageType {
         super("GetAuthkeyRsp", [
             { no: 8, name: "retcode", kind: "scalar", T: 5 /*ScalarType.INT32*/ },
             { no: 6, name: "authkey", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 13, name: "Unk3300_DODLFCNOAMB", kind: "scalar", jsonName: "Unk3300DODLFCNOAMB", T: 13 /*ScalarType.UINT32*/ },
-            { no: 3, name: "Unk3300_FGBHHPOKCJH", kind: "scalar", jsonName: "Unk3300FGBHHPOKCJH", T: 13 /*ScalarType.UINT32*/ },
+            { no: 13, name: "authkey_ver", kind: "scalar", T: 13 /*ScalarType.UINT32*/ },
+            { no: 3, name: "sign_type", kind: "scalar", T: 13 /*ScalarType.UINT32*/ },
             { no: 7, name: "auth_appid", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 1, name: "game_biz", kind: "scalar", T: 9 /*ScalarType.STRING*/ }
         ]);
     }
     create(value) {
-        const message = { retcode: 0, authkey: "", unk3300DODLFCNOAMB: 0, unk3300FGBHHPOKCJH: 0, authAppid: "", gameBiz: "" };
+        const message = { retcode: 0, authkey: "", authkeyVer: 0, signType: 0, authAppid: "", gameBiz: "" };
         globalThis.Object.defineProperty(message, runtime_4.MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
             (0, runtime_3.reflectionMergePartial)(this, message, value);
@@ -36,11 +36,11 @@ class GetAuthkeyRsp$Type extends runtime_5.MessageType {
                 case /* string authkey */ 6:
                     message.authkey = reader.string();
                     break;
-                case /* uint32 Unk3300_DODLFCNOAMB = 13 [json_name = "Unk3300DODLFCNOAMB"];*/ 13:
-                    message.unk3300DODLFCNOAMB = reader.uint32();
+                case /* uint32 authkey_ver */ 13:
+                    message.authkeyVer = reader.uint32();
                     break;
-                case /* uint32 Unk3300_FGBHHPOKCJH = 3 [json_name = "Unk3300FGBHHPOKCJH"];*/ 3:
-                    message.unk3300FGBHHPOKCJH = reader.uint32();
+                case /* uint32 sign_type */ 3:
+                    message.signType = reader.uint32();
                     break;
                 case /* string auth_appid */ 7:
                     message.authAppid = reader.string();
@@ -66,12 +66,12 @@ class GetAuthkeyRsp$Type extends runtime_5.MessageType {
         /* string authkey = 6; */
         if (message.authkey !== "")
             writer.tag(6, runtime_1.WireType.LengthDelimited).string(message.authkey);
-        /* uint32 Unk3300_DODLFCNOAMB = 13 [json_name = "Unk3300DODLFCNOAMB"]; */
-        if (message.unk3300DODLFCNOAMB !== 0)
-            writer.tag(13, runtime_1.WireType.Varint).uint32(message.unk3300DODLFCNOAMB);
-        /* uint32 Unk3300_FGBHHPOKCJH = 3 [json_name = "Unk3300FGBHHPOKCJH"]; */
-        if (message.unk3300FGBHHPOKCJH !== 0)
-            writer.tag(3, runtime_1.WireType.Varint).uint32(message.unk3300FGBHHPOKCJH);
+        /* uint32 authkey_ver = 13; */
+        if (message.authkeyVer !== 0)
+            writer.tag(13, runtime_1.WireType.Varint).uint32(message.authkeyVer);
+        /* uint32 sign_type = 3; */
+        if (message.signType !== 0)
+            writer.tag(3, runtime_1.WireType.Varint).uint32(message.signType);
         /* string auth_appid = 7; */
         if (message.authAppid !== "")
             writer.tag(7, runtime_1.WireType.LengthDelimited).string(message.authAppid);

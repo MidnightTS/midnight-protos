@@ -14,9 +14,9 @@ class EvtBulletHitNotify$Type extends runtime_5.MessageType {
     constructor() {
         super("EvtBulletHitNotify", [
             { no: 2, name: "forward_type", kind: "enum", T: () => ["ForwardType", ForwardType_1.ForwardType, "FORWARD_TYPE_"] },
-            { no: 4, name: "Unk3300_ELNFDKNGHFP", kind: "scalar", jsonName: "Unk3300ELNFDKNGHFP", T: 13 /*ScalarType.UINT32*/ },
+            { no: 4, name: "single_bullet_id", kind: "scalar", T: 13 /*ScalarType.UINT32*/ },
             { no: 9, name: "hit_normal", kind: "message", T: () => Vector_1.Vector },
-            { no: 6, name: "Unk3300_KANAJBJHCLG", kind: "scalar", jsonName: "Unk3300KANAJBJHCLG", T: 13 /*ScalarType.UINT32*/ },
+            { no: 6, name: "hit_entity_id", kind: "scalar", T: 13 /*ScalarType.UINT32*/ },
             { no: 8, name: "hit_point", kind: "message", T: () => Vector_1.Vector },
             { no: 10, name: "hit_collider_type", kind: "enum", T: () => ["HitColliderType", HitColliderType_1.HitColliderType, "HIT_COLLIDER_TYPE_"] },
             { no: 14, name: "entity_id", kind: "scalar", T: 13 /*ScalarType.UINT32*/ },
@@ -25,7 +25,7 @@ class EvtBulletHitNotify$Type extends runtime_5.MessageType {
         ]);
     }
     create(value) {
-        const message = { forwardType: 0, unk3300ELNFDKNGHFP: 0, unk3300KANAJBJHCLG: 0, hitColliderType: 0, entityId: 0, forwardPeer: 0, hitBoxIndex: 0 };
+        const message = { forwardType: 0, singleBulletId: 0, hitEntityId: 0, hitColliderType: 0, entityId: 0, forwardPeer: 0, hitBoxIndex: 0 };
         globalThis.Object.defineProperty(message, runtime_4.MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
             (0, runtime_3.reflectionMergePartial)(this, message, value);
@@ -39,14 +39,14 @@ class EvtBulletHitNotify$Type extends runtime_5.MessageType {
                 case /* ForwardType forward_type */ 2:
                     message.forwardType = reader.int32();
                     break;
-                case /* uint32 Unk3300_ELNFDKNGHFP = 4 [json_name = "Unk3300ELNFDKNGHFP"];*/ 4:
-                    message.unk3300ELNFDKNGHFP = reader.uint32();
+                case /* uint32 single_bullet_id */ 4:
+                    message.singleBulletId = reader.uint32();
                     break;
                 case /* Vector hit_normal */ 9:
                     message.hitNormal = Vector_1.Vector.internalBinaryRead(reader, reader.uint32(), options, message.hitNormal);
                     break;
-                case /* uint32 Unk3300_KANAJBJHCLG = 6 [json_name = "Unk3300KANAJBJHCLG"];*/ 6:
-                    message.unk3300KANAJBJHCLG = reader.uint32();
+                case /* uint32 hit_entity_id */ 6:
+                    message.hitEntityId = reader.uint32();
                     break;
                 case /* Vector hit_point */ 8:
                     message.hitPoint = Vector_1.Vector.internalBinaryRead(reader, reader.uint32(), options, message.hitPoint);
@@ -78,15 +78,15 @@ class EvtBulletHitNotify$Type extends runtime_5.MessageType {
         /* ForwardType forward_type = 2; */
         if (message.forwardType !== 0)
             writer.tag(2, runtime_1.WireType.Varint).int32(message.forwardType);
-        /* uint32 Unk3300_ELNFDKNGHFP = 4 [json_name = "Unk3300ELNFDKNGHFP"]; */
-        if (message.unk3300ELNFDKNGHFP !== 0)
-            writer.tag(4, runtime_1.WireType.Varint).uint32(message.unk3300ELNFDKNGHFP);
+        /* uint32 single_bullet_id = 4; */
+        if (message.singleBulletId !== 0)
+            writer.tag(4, runtime_1.WireType.Varint).uint32(message.singleBulletId);
         /* Vector hit_normal = 9; */
         if (message.hitNormal)
             Vector_1.Vector.internalBinaryWrite(message.hitNormal, writer.tag(9, runtime_1.WireType.LengthDelimited).fork(), options).join();
-        /* uint32 Unk3300_KANAJBJHCLG = 6 [json_name = "Unk3300KANAJBJHCLG"]; */
-        if (message.unk3300KANAJBJHCLG !== 0)
-            writer.tag(6, runtime_1.WireType.Varint).uint32(message.unk3300KANAJBJHCLG);
+        /* uint32 hit_entity_id = 6; */
+        if (message.hitEntityId !== 0)
+            writer.tag(6, runtime_1.WireType.Varint).uint32(message.hitEntityId);
         /* Vector hit_point = 8; */
         if (message.hitPoint)
             Vector_1.Vector.internalBinaryWrite(message.hitPoint, writer.tag(8, runtime_1.WireType.LengthDelimited).fork(), options).join();

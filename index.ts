@@ -2441,6 +2441,7 @@ export * from "./types/RequestLiveInfoRsp";
 export * from "./types/ResVersionConfig";
 export * from "./types/ReserveRogueDiaryAvatarReq";
 export * from "./types/ReserveRogueDiaryAvatarRsp";
+export * from "./types/ResetAvatarRenameReason";
 export * from "./types/ResetRogueDiaryPlayReq";
 export * from "./types/ResetRogueDiaryPlayRsp";
 export * from "./types/ResinCardData";

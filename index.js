@@ -2457,6 +2457,7 @@ __exportStar(require("./types/RequestLiveInfoRsp"), exports);
 __exportStar(require("./types/ResVersionConfig"), exports);
 __exportStar(require("./types/ReserveRogueDiaryAvatarReq"), exports);
 __exportStar(require("./types/ReserveRogueDiaryAvatarRsp"), exports);
+__exportStar(require("./types/ResetAvatarRenameReason"), exports);
 __exportStar(require("./types/ResetRogueDiaryPlayReq"), exports);
 __exportStar(require("./types/ResetRogueDiaryPlayRsp"), exports);
 __exportStar(require("./types/ResinCardData"), exports);

@@ -42,24 +42,24 @@ import { MessageType } from "@protobuf-ts/runtime";
  */
 export interface ClientReportNotify {
     /**
-     * @generated from protobuf field: string Unk3300_JHJDJEBAFCM = 15 [json_name = "Unk3300JHJDJEBAFCM"];
+     * @generated from protobuf field: string report_type = 15;
      */
-    unk3300JHJDJEBAFCM: string;
+    reportType: string;
     /**
-     * @generated from protobuf field: string Unk3300_AMLEAJLJDFO = 10 [json_name = "Unk3300AMLEAJLJDFO"];
+     * @generated from protobuf field: string report_value = 10;
      */
-    unk3300AMLEAJLJDFO: string;
+    reportValue: string;
 }
 // @generated message type with reflection information, may provide speed optimized methods
 class ClientReportNotify$Type extends MessageType<ClientReportNotify> {
     constructor() {
         super("ClientReportNotify", [
-            { no: 15, name: "Unk3300_JHJDJEBAFCM", kind: "scalar", jsonName: "Unk3300JHJDJEBAFCM", T: 9 /*ScalarType.STRING*/ },
-            { no: 10, name: "Unk3300_AMLEAJLJDFO", kind: "scalar", jsonName: "Unk3300AMLEAJLJDFO", T: 9 /*ScalarType.STRING*/ }
+            { no: 15, name: "report_type", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 10, name: "report_value", kind: "scalar", T: 9 /*ScalarType.STRING*/ }
         ]);
     }
     create(value?: PartialMessage<ClientReportNotify>): ClientReportNotify {
-        const message = { unk3300JHJDJEBAFCM: "", unk3300AMLEAJLJDFO: "" };
+        const message = { reportType: "", reportValue: "" };
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
             reflectionMergePartial<ClientReportNotify>(this, message, value);
@@ -70,11 +70,11 @@ class ClientReportNotify$Type extends MessageType<ClientReportNotify> {
         while (reader.pos < end) {
             let [fieldNo, wireType] = reader.tag();
             switch (fieldNo) {
-                case /* string Unk3300_JHJDJEBAFCM = 15 [json_name = "Unk3300JHJDJEBAFCM"];*/ 15:
-                    message.unk3300JHJDJEBAFCM = reader.string();
+                case /* string report_type */ 15:
+                    message.reportType = reader.string();
                     break;
-                case /* string Unk3300_AMLEAJLJDFO = 10 [json_name = "Unk3300AMLEAJLJDFO"];*/ 10:
-                    message.unk3300AMLEAJLJDFO = reader.string();
+                case /* string report_value */ 10:
+                    message.reportValue = reader.string();
                     break;
                 default:
                     let u = options.readUnknownField;
@@ -88,12 +88,12 @@ class ClientReportNotify$Type extends MessageType<ClientReportNotify> {
         return message;
     }
     internalBinaryWrite(message: ClientReportNotify, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* string Unk3300_JHJDJEBAFCM = 15 [json_name = "Unk3300JHJDJEBAFCM"]; */
-        if (message.unk3300JHJDJEBAFCM !== "")
-            writer.tag(15, WireType.LengthDelimited).string(message.unk3300JHJDJEBAFCM);
-        /* string Unk3300_AMLEAJLJDFO = 10 [json_name = "Unk3300AMLEAJLJDFO"]; */
-        if (message.unk3300AMLEAJLJDFO !== "")
-            writer.tag(10, WireType.LengthDelimited).string(message.unk3300AMLEAJLJDFO);
+        /* string report_type = 15; */
+        if (message.reportType !== "")
+            writer.tag(15, WireType.LengthDelimited).string(message.reportType);
+        /* string report_value = 10; */
+        if (message.reportValue !== "")
+            writer.tag(10, WireType.LengthDelimited).string(message.reportValue);
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);

@@ -33,24 +33,24 @@ import { MessageType } from "@protobuf-ts/runtime";
  */
 export interface SceneGalleryHideAndSeekInfo {
     /**
-     * @generated from protobuf field: repeated uint32 Unk3300_LHMHALKDBBN = 10 [json_name = "Unk3300LHMHALKDBBN"];
+     * @generated from protobuf field: repeated uint32 visible_uid_list = 10;
      */
-    unk3300LHMHALKDBBN: number[];
+    visibleUidList: number[];
     /**
-     * @generated from protobuf field: repeated uint32 Unk3300_CNLKMGFFAEC = 7 [json_name = "Unk3300CNLKMGFFAEC"];
+     * @generated from protobuf field: repeated uint32 caught_uid_list = 7;
      */
-    unk3300CNLKMGFFAEC: number[];
+    caughtUidList: number[];
 }
 // @generated message type with reflection information, may provide speed optimized methods
 class SceneGalleryHideAndSeekInfo$Type extends MessageType<SceneGalleryHideAndSeekInfo> {
     constructor() {
         super("SceneGalleryHideAndSeekInfo", [
-            { no: 10, name: "Unk3300_LHMHALKDBBN", kind: "scalar", jsonName: "Unk3300LHMHALKDBBN", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 7, name: "Unk3300_CNLKMGFFAEC", kind: "scalar", jsonName: "Unk3300CNLKMGFFAEC", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 10, name: "visible_uid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 7, name: "caught_uid_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value?: PartialMessage<SceneGalleryHideAndSeekInfo>): SceneGalleryHideAndSeekInfo {
-        const message = { unk3300LHMHALKDBBN: [], unk3300CNLKMGFFAEC: [] };
+        const message = { visibleUidList: [], caughtUidList: [] };
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
             reflectionMergePartial<SceneGalleryHideAndSeekInfo>(this, message, value);
@@ -61,19 +61,19 @@ class SceneGalleryHideAndSeekInfo$Type extends MessageType<SceneGalleryHideAndSe
         while (reader.pos < end) {
             let [fieldNo, wireType] = reader.tag();
             switch (fieldNo) {
-                case /* repeated uint32 Unk3300_LHMHALKDBBN = 10 [json_name = "Unk3300LHMHALKDBBN"];*/ 10:
+                case /* repeated uint32 visible_uid_list */ 10:
                     if (wireType === WireType.LengthDelimited)
                         for (let e = reader.int32() + reader.pos; reader.pos < e;)
-                            message.unk3300LHMHALKDBBN.push(reader.uint32());
+                            message.visibleUidList.push(reader.uint32());
                     else
-                        message.unk3300LHMHALKDBBN.push(reader.uint32());
+                        message.visibleUidList.push(reader.uint32());
                     break;
-                case /* repeated uint32 Unk3300_CNLKMGFFAEC = 7 [json_name = "Unk3300CNLKMGFFAEC"];*/ 7:
+                case /* repeated uint32 caught_uid_list */ 7:
                     if (wireType === WireType.LengthDelimited)
                         for (let e = reader.int32() + reader.pos; reader.pos < e;)
-                            message.unk3300CNLKMGFFAEC.push(reader.uint32());
+                            message.caughtUidList.push(reader.uint32());
                     else
-                        message.unk3300CNLKMGFFAEC.push(reader.uint32());
+                        message.caughtUidList.push(reader.uint32());
                     break;
                 default:
                     let u = options.readUnknownField;
@@ -87,18 +87,18 @@ class SceneGalleryHideAndSeekInfo$Type extends MessageType<SceneGalleryHideAndSe
         return message;
     }
     internalBinaryWrite(message: SceneGalleryHideAndSeekInfo, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* repeated uint32 Unk3300_LHMHALKDBBN = 10 [json_name = "Unk3300LHMHALKDBBN"]; */
-        if (message.unk3300LHMHALKDBBN.length) {
+        /* repeated uint32 visible_uid_list = 10; */
+        if (message.visibleUidList.length) {
             writer.tag(10, WireType.LengthDelimited).fork();
-            for (let i = 0; i < message.unk3300LHMHALKDBBN.length; i++)
-                writer.uint32(message.unk3300LHMHALKDBBN[i]);
+            for (let i = 0; i < message.visibleUidList.length; i++)
+                writer.uint32(message.visibleUidList[i]);
             writer.join();
         }
-        /* repeated uint32 Unk3300_CNLKMGFFAEC = 7 [json_name = "Unk3300CNLKMGFFAEC"]; */
-        if (message.unk3300CNLKMGFFAEC.length) {
+        /* repeated uint32 caught_uid_list = 7; */
+        if (message.caughtUidList.length) {
             writer.tag(7, WireType.LengthDelimited).fork();
-            for (let i = 0; i < message.unk3300CNLKMGFFAEC.length; i++)
-                writer.uint32(message.unk3300CNLKMGFFAEC[i]);
+            for (let i = 0; i < message.caughtUidList.length; i++)
+                writer.uint32(message.caughtUidList[i]);
             writer.join();
         }
         let u = options.writeUnknownFields;

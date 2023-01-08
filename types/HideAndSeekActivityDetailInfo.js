@@ -11,15 +11,15 @@ const HideAndSeekMapInfo_1 = require("./HideAndSeekMapInfo");
 class HideAndSeekActivityDetailInfo$Type extends runtime_5.MessageType {
     constructor() {
         super("HideAndSeekActivityDetailInfo", [
-            { no: 6, name: "Unk3300_JBKIAGNADEN", kind: "scalar", jsonName: "Unk3300JBKIAGNADEN", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 6, name: "chosen_hunter_skill_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
             { no: 13, name: "open_map_info_list", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => HideAndSeekMapInfo_1.HideAndSeekMapInfo },
-            { no: 2, name: "Unk3300_FPCDPLNJKKN", kind: "scalar", jsonName: "Unk3300FPCDPLNJKKN", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 15, name: "Unk3300_CMLGPPDANNN", kind: "scalar", jsonName: "Unk3300CMLGPPDANNN", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 4, name: "Unk3300_HHJPAALNMNK", kind: "scalar", jsonName: "Unk3300HHJPAALNMNK", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
+            { no: 2, name: "chosen_hider_skill_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 15, name: "chosen_map_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ },
+            { no: 4, name: "unlock_map_list", kind: "scalar", repeat: 1 /*RepeatType.PACKED*/, T: 13 /*ScalarType.UINT32*/ }
         ]);
     }
     create(value) {
-        const message = { unk3300JBKIAGNADEN: [], openMapInfoList: [], unk3300FPCDPLNJKKN: [], unk3300CMLGPPDANNN: [], unk3300HHJPAALNMNK: [] };
+        const message = { chosenHunterSkillList: [], openMapInfoList: [], chosenHiderSkillList: [], chosenMapList: [], unlockMapList: [] };
         globalThis.Object.defineProperty(message, runtime_4.MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
             (0, runtime_3.reflectionMergePartial)(this, message, value);
@@ -30,36 +30,36 @@ class HideAndSeekActivityDetailInfo$Type extends runtime_5.MessageType {
         while (reader.pos < end) {
             let [fieldNo, wireType] = reader.tag();
             switch (fieldNo) {
-                case /* repeated uint32 Unk3300_JBKIAGNADEN = 6 [json_name = "Unk3300JBKIAGNADEN"];*/ 6:
+                case /* repeated uint32 chosen_hunter_skill_list */ 6:
                     if (wireType === runtime_2.WireType.LengthDelimited)
                         for (let e = reader.int32() + reader.pos; reader.pos < e;)
-                            message.unk3300JBKIAGNADEN.push(reader.uint32());
+                            message.chosenHunterSkillList.push(reader.uint32());
                     else
-                        message.unk3300JBKIAGNADEN.push(reader.uint32());
+                        message.chosenHunterSkillList.push(reader.uint32());
                     break;
                 case /* repeated HideAndSeekMapInfo open_map_info_list */ 13:
                     message.openMapInfoList.push(HideAndSeekMapInfo_1.HideAndSeekMapInfo.internalBinaryRead(reader, reader.uint32(), options));
                     break;
-                case /* repeated uint32 Unk3300_FPCDPLNJKKN = 2 [json_name = "Unk3300FPCDPLNJKKN"];*/ 2:
+                case /* repeated uint32 chosen_hider_skill_list */ 2:
                     if (wireType === runtime_2.WireType.LengthDelimited)
                         for (let e = reader.int32() + reader.pos; reader.pos < e;)
-                            message.unk3300FPCDPLNJKKN.push(reader.uint32());
+                            message.chosenHiderSkillList.push(reader.uint32());
                     else
-                        message.unk3300FPCDPLNJKKN.push(reader.uint32());
+                        message.chosenHiderSkillList.push(reader.uint32());
                     break;
-                case /* repeated uint32 Unk3300_CMLGPPDANNN = 15 [json_name = "Unk3300CMLGPPDANNN"];*/ 15:
+                case /* repeated uint32 chosen_map_list */ 15:
                     if (wireType === runtime_2.WireType.LengthDelimited)
                         for (let e = reader.int32() + reader.pos; reader.pos < e;)
-                            message.unk3300CMLGPPDANNN.push(reader.uint32());
+                            message.chosenMapList.push(reader.uint32());
                     else
-                        message.unk3300CMLGPPDANNN.push(reader.uint32());
+                        message.chosenMapList.push(reader.uint32());
                     break;
-                case /* repeated uint32 Unk3300_HHJPAALNMNK = 4 [json_name = "Unk3300HHJPAALNMNK"];*/ 4:
+                case /* repeated uint32 unlock_map_list */ 4:
                     if (wireType === runtime_2.WireType.LengthDelimited)
                         for (let e = reader.int32() + reader.pos; reader.pos < e;)
-                            message.unk3300HHJPAALNMNK.push(reader.uint32());
+                            message.unlockMapList.push(reader.uint32());
                     else
-                        message.unk3300HHJPAALNMNK.push(reader.uint32());
+                        message.unlockMapList.push(reader.uint32());
                     break;
                 default:
                     let u = options.readUnknownField;
@@ -73,35 +73,35 @@ class HideAndSeekActivityDetailInfo$Type extends runtime_5.MessageType {
         return message;
     }
     internalBinaryWrite(message, writer, options) {
-        /* repeated uint32 Unk3300_JBKIAGNADEN = 6 [json_name = "Unk3300JBKIAGNADEN"]; */
-        if (message.unk3300JBKIAGNADEN.length) {
+        /* repeated uint32 chosen_hunter_skill_list = 6; */
+        if (message.chosenHunterSkillList.length) {
             writer.tag(6, runtime_2.WireType.LengthDelimited).fork();
-            for (let i = 0; i < message.unk3300JBKIAGNADEN.length; i++)
-                writer.uint32(message.unk3300JBKIAGNADEN[i]);
+            for (let i = 0; i < message.chosenHunterSkillList.length; i++)
+                writer.uint32(message.chosenHunterSkillList[i]);
             writer.join();
         }
         /* repeated HideAndSeekMapInfo open_map_info_list = 13; */
         for (let i = 0; i < message.openMapInfoList.length; i++)
             HideAndSeekMapInfo_1.HideAndSeekMapInfo.internalBinaryWrite(message.openMapInfoList[i], writer.tag(13, runtime_2.WireType.LengthDelimited).fork(), options).join();
-        /* repeated uint32 Unk3300_FPCDPLNJKKN = 2 [json_name = "Unk3300FPCDPLNJKKN"]; */
-        if (message.unk3300FPCDPLNJKKN.length) {
+        /* repeated uint32 chosen_hider_skill_list = 2; */
+        if (message.chosenHiderSkillList.length) {
             writer.tag(2, runtime_2.WireType.LengthDelimited).fork();
-            for (let i = 0; i < message.unk3300FPCDPLNJKKN.length; i++)
-                writer.uint32(message.unk3300FPCDPLNJKKN[i]);
+            for (let i = 0; i < message.chosenHiderSkillList.length; i++)
+                writer.uint32(message.chosenHiderSkillList[i]);
             writer.join();
         }
-        /* repeated uint32 Unk3300_CMLGPPDANNN = 15 [json_name = "Unk3300CMLGPPDANNN"]; */
-        if (message.unk3300CMLGPPDANNN.length) {
+        /* repeated uint32 chosen_map_list = 15; */
+        if (message.chosenMapList.length) {
             writer.tag(15, runtime_2.WireType.LengthDelimited).fork();
-            for (let i = 0; i < message.unk3300CMLGPPDANNN.length; i++)
-                writer.uint32(message.unk3300CMLGPPDANNN[i]);
+            for (let i = 0; i < message.chosenMapList.length; i++)
+                writer.uint32(message.chosenMapList[i]);
             writer.join();
         }
-        /* repeated uint32 Unk3300_HHJPAALNMNK = 4 [json_name = "Unk3300HHJPAALNMNK"]; */
-        if (message.unk3300HHJPAALNMNK.length) {
+        /* repeated uint32 unlock_map_list = 4; */
+        if (message.unlockMapList.length) {
             writer.tag(4, runtime_2.WireType.LengthDelimited).fork();
-            for (let i = 0; i < message.unk3300HHJPAALNMNK.length; i++)
-                writer.uint32(message.unk3300HHJPAALNMNK[i]);
+            for (let i = 0; i < message.unlockMapList.length; i++)
+                writer.uint32(message.unlockMapList[i]);
             writer.join();
         }
         let u = options.writeUnknownFields;
